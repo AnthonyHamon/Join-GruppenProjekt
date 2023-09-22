@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Join</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="register_style.css">
 </head>
+
 <body>
+
+    <header class="sign_up_div">
+        <span>Not a Join user?</span>
+        <a onclick="signUp()" id="sign-up">Sign up</a>
+    </header>
+
+    <main>
+        <div class="login_form">
+            <h1>Log in</h1>
+            <form onsubmit="login(); return false">
+                <div class="login_input">
+                    <div class="login_inputs">
+                        <div class="login_input_div">
+                            <input type="email" placeholder="Email">
+                            <img src="images/mail.svg" alt="email-img">
+                        </div>
+                        <div class="login_input_div">
+                            <input type="password" placeholder="Password">
+                            <img src="images/lock.svg" alt="lock-img">
+                        </div>
+                    </div>
+                    <div class="remember_me">
+                        <button id="remember-me-btn"></button>
+                        <span>Remember me</span>
+                    </div>
+                </div>
+                <div class="login_button">
+                    <button>Log in</button>
+                    <button>Guest Log in</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
     <script src="js/storage.js"></script>
     <script src="js/register.js"></script>
     <script src="js/addTask.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
