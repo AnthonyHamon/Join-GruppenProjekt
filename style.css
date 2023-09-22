@@ -1,17 +1,79 @@
 body {
     margin: 0;
     font-family: 'PT Sans', sans-serif;
+    user-select: none;
 }
 
 nav {
+    align-items: center;
+    justify-content: space-between;
     height: 100vh;
     width: 232px;
     background-color: rgba(42, 54, 71, 1);
+    gap: 120px;
+    padding: 64px 0 64px 0;
+    box-sizing: border-box;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+.navLinkContain a {
+    display: flex;
+    align-items: center;
+    color: rgba(205, 205, 205, 1);
+    height: 46px;
+    padding-left: 56px;
+    gap: 10px;
+    font-size: 16px;
+}
+
+.navLinkContain img {
+    width: 30px;
+    height: 30px;
+}
+
+.navLinkContain {
+    line-height: 19.2px;
+    width: 100%;
+    gap: 10px;
+}
+
+.navLinkContain a:hover {
+    background-color: rgba(48, 70, 100, 0.5);
+}
+
+.privacyContain {
+    overflow: hidden;
+    justify-content: flex-end;
+    height: 317px;
+    width: 100%;
+}
+
+.privacyContain a {
+    color: rgba(168, 168, 168, 1);
+    padding: 8px 0 8px 56px;
+    font-size: 16px;
+}
+
+.privacyContain a:hover {
+    color: rgb(0, 174, 255);
+    font-size: 16.5px;
+    line-height: 20px;
 }
 
 .joinContain {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 260px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.currentTemplate {
+    background-color: rgba(9, 25, 49, 1) !important;
 }
