@@ -5,6 +5,7 @@
 body {
     margin: 0;
     font-family: 'PT Sans', sans-serif;
+    background-color: #F6F7F8;
     user-select: none;
 }
 
