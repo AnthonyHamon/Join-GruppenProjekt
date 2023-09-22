@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -61,10 +61,10 @@ nav a {
     font-size: 16px;
 }
 
-.privacyContain a:hover {
+.privacyHoverEffect:hover {
     color: rgb(0, 174, 255);
-    font-size: 16.5px;
-    line-height: 20px;
+    font-size: 16.2px;
+    line-height: 19.7px;
 }
 
 .joinContain {
@@ -80,4 +80,11 @@ nav a {
 
 .currentTemplate {
     background-color: rgba(9, 25, 49, 1) !important;
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+.currentPrivacy {
+    background-color: rgba(9, 25, 49, 1) !important;
+    color: rgba(168, 168, 168, 1) !important;
+    text-decoration: none;
 }
