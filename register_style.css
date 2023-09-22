@@ -1,3 +1,7 @@
+.d-none {
+    display: none;
+}
+
 header {
     background-color: #F6F7F8;
     display: flex;
@@ -45,7 +49,7 @@ main {
     gap: 32px;
 }
 
-.login_title_div{
+.login_title_div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -106,14 +110,24 @@ main {
     height: 24px;
 }
 
+.checking-button-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+}
+
 #check-button {
     height: 16px;
     width: 16px;
     cursor: pointer;
 }
 
-#checked-button{
-    display: none;
+#checked-button {
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
 }
 
 .login_buttons {
@@ -141,13 +155,13 @@ main {
     font-size: 21px;
 }
 
-#login-button:hover{
+#login-button:hover {
     background-color: #29ABE2;
     transition: 100ms ease-in-out;
     cursor: pointer;
 }
 
-#guest-login-button{
+#guest-login-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -156,7 +170,7 @@ main {
     min-width: 177px;
     height: 48px;
     /* border: 1px solid #2A3647;  looking for a solution against login-buttons div is changing size*/
-    border:  px solid transparent;
+    border: 2px solid transparent;
     border-radius: 8px;
     background-color: white;
     color: #2A3647;
@@ -164,7 +178,7 @@ main {
     font-size: 21px;
 }
 
-#guest-login-button:hover{
+#guest-login-button:hover {
     border: 2px solid #29ABE2;
     color: #29ABE2;
     cursor: pointer;
