@@ -1,4 +1,4 @@
-header{
+header {
     background-color: #F6F7F8;
     display: flex;
     justify-content: flex-end;
@@ -8,7 +8,7 @@ header{
     color: #000000;
 }
 
-main{
+main {
     height: calc(100vh - 115px);
     width: 100%;
     background-color: #F6F7F8;
@@ -18,14 +18,7 @@ main{
     align-items: center;
 }
 
-
-.login_inputs{
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-#sign-up{
+#sign-up {
     padding: 15px 16px;
     border-radius: 8px;
     background-color: rgb(42, 54, 71);
@@ -35,33 +28,59 @@ main{
     cursor: pointer;
 }
 
-#sign-up:hover{
+#sign-up:hover {
     background-color: #29ABE2;
 }
 
-.login_form{
-    background-color: #FFFFFF;
-    border-radius: 30px;
-    width: 652px;
-    height: 493px;
-}
-
-.login_form h1{
-    display: flex;
-    justify-content: center;
-    font-size: 61px;
-    font-weight: 700;
-}
-
-.login_input{
+.login_form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    min-width: 652px;
+    min-height: 493px;
+    box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.04);
+    gap: 32px;
+}
+
+.login_title_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_title {
+    display: flex;
+    justify-content: center;
+    font-size: 61px;
+    font-weight: 700;
+    min-width: 315px;
+    min-height: 89px;
+    gap: 16px;
+}
+
+.login_inputs {
+    display: flex;
+    flex-direction: column;
+    min-width: 422px;
+    height: 152px;
+    gap: 32px;
+}
+
+.login_input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 422px;
+    min-height: 196px;
     gap: 20px;
 }
 
-.login_input_div{
+.login_input_div {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -70,27 +89,85 @@ main{
     width: 422px;
     height: 48px;
     padding: 12px 21px;
+    gap: 10px;
 }
 
-.login_input_div input{
+.login_input_div input {
     border: none;
     outline: none;
 }
 
-.login_button{
+.remember_me {
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 35px;
-}
-
-.remember_me{
+    align-items: center;
+    margin-left: 39px;
+    gap: 8px;
     width: 422px;
     height: 24px;
 }
 
-#remember-me-btn{
-    height: 24px;
-    width: 24px;
-    border-radius: 3px;
+#check-button {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+
+#checked-button{
+    display: none;
+}
+
+.login_buttons {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-width: 322px;
+    min-height: 48px;
+    gap: 35px;
+}
+
+#login-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 24px;
+    min-width: 110px;
+    height: 48px;
+    border-radius: 8px;
+    border-color: transparent;
+    background-color: #2A3647;
+    color: white;
+    font-weight: 700;
+    font-size: 21px;
+}
+
+#login-button:hover{
+    background-color: #29ABE2;
+    transition: 100ms ease-in-out;
+    cursor: pointer;
+}
+
+#guest-login-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 24px;
+    min-width: 177px;
+    height: 48px;
+    /* border: 1px solid #2A3647;  looking for a solution against login-buttons div is changing size*/
+    border:  px solid transparent;
+    border-radius: 8px;
+    background-color: white;
+    color: #2A3647;
+    font-weight: 700;
+    font-size: 21px;
+}
+
+#guest-login-button:hover{
+    border: 2px solid #29ABE2;
+    color: #29ABE2;
+    cursor: pointer;
+    transition: 100ms ease-in-out;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)
 }

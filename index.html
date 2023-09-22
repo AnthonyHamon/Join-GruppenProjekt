@@ -18,7 +18,10 @@
 
     <main>
         <div class="login_form">
-            <h1>Log in</h1>
+            <div class="login_title_div">
+                <div class="login_title">Log in</div>
+                <img src="images/vector.svg" alt="">
+            </div>
             <form onsubmit="login(); return false">
                 <div class="login_input">
                     <div class="login_inputs">
@@ -32,15 +35,18 @@
                         </div>
                     </div>
                     <div class="remember_me">
-                        <button id="remember-me-btn"></button>
+                        <div>
+                            <img id="check-button" src="images/check_button.svg" alt="">
+                            <img id="checked-button" src="images/checked_button.svg" alt="">
+                        </div>
                         <span>Remember me</span>
                     </div>
                 </div>
-                <div class="login_button">
-                    <button>Log in</button>
-                    <button>Guest Log in</button>
-                </div>
             </form>
+            <div class="login_buttons">
+                <button id="login-button">Log in</button>
+                <button id="guest-login-button">Guest Log in</button>
+            </div>
         </div>
     </main>
 
