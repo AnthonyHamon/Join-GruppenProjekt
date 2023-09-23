@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="register_style.css">
 </head>
@@ -38,12 +39,17 @@
                             <img src="images/lock.svg" alt="lock-img">
                         </div>
                     </div>
-                    <div class="remember_me">
-                        <div class="checking-button-div">
-                            <img onclick="toggleRememberMeButton()" id="check-button" src="images/check_button.svg" alt="">
-                            <img onclick="toggleRememberMeButton()" id="checked-button" class="d-none" src="images/checked_button.svg" alt="">
+                    <div class="login_parameters">
+                        <div class="remember_me">
+                            <div class="checking-button-div">
+                                <img onclick="toggleRememberMeButton()" id="check-button" src="images/check_button.svg"
+                                    alt="">
+                                <img onclick="toggleRememberMeButton()" id="checked-button" class="d-none"
+                                    src="images/checked_button.svg" alt="">
+                            </div>
+                            <span>Remember me</span>
                         </div>
-                        <span>Remember me</span>
+                        <a href="#">Password Forgotten?</a>
                     </div>
                 </div>
             </form>
@@ -61,7 +67,7 @@
         <div>
             <a href="#" target="_blank">Legal Notice</a>
         </div>
-        
+
     </footer>
 
     <script src="js/storage.js"></script>

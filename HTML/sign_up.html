@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="../register_style.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="logo_ctn">
+        <img class="logo" src="../images/join_login_animation_logo.svg" alt="">
+    </div>
+
+    <div class="registration_page">
+        <div class="form_ctn">
+            <div id="back-to-login-page">
+                <img src="../images/arrow-left-line.svg" alt="">
+            </div>
+            <div class="registration_title">
+                <div>Sign up</div>
+                <img src="../images/vector.svg" alt="">
+            </div>
+
+            <form onsubmit="signUp(); return false">
+                <div>
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="Confirm Password">
+                </div>
+
+                <div>
+                    <div>
+                        <img src="../images/check_button.svg" alt="">
+                        <img src="../images/checked_button.svg" alt="">
+                    </div>
+                    <span> I accept the <a href="#">Privacy policy</a></span>
+                </div>
+                <button>Sign up</button>
+            </form>
+
+            <div>
+                <a href="#">Privacy policy</a>
+                <a href="#">Legal notice</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

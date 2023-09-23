@@ -31,6 +31,7 @@
     left: 0;
     animation: logoAnimationCtn 2s ease-in-out;
     z-index: 1;
+    background-color: #F6F7F8;
 }
 
 .logo_animation_img {
@@ -39,8 +40,6 @@
     left: 77px;
     animation: animationLogo 1s ease-in-out;
 }
-
-
 
 
 header {
@@ -146,13 +145,29 @@ main {
     outline: none;
 }
 
+.login_parameters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 422px;
+    height: 24px;
+}
+
+.login_parameters a{
+    text-decoration: none;
+    color: #2A3647;
+}
+
+.login_parameters a:hover{
+    text-decoration: underline;
+}
+
 .remember_me {
     display: flex;
     align-items: center;
     margin-left: 39px;
     gap: 8px;
-    width: 422px;
-    height: 24px;
+    
 }
 
 .checking-button-div {
@@ -260,4 +275,62 @@ footer a:hover {
 
 .d-none {
     display: none;
+}
+
+/* for Sign up Page */
+
+.logo_ctn{
+    position: absolute;
+}
+
+.logo{
+    padding: 80px 77px;
+}
+
+.registration_page{
+    height: 100vh;
+    width: 100%;
+    background-color: #F6F7F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_ctn{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 32px;
+    padding: 48px 88px;
+    min-width: 598px;
+    min-height: 630px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.registration_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.registration_title img{
+    width: 150px;
+    height: 3px;
+}
+
+#back-to-login-page{
+    position: absolute;
+    top: 60px;
+    left: 40px;
+}
+
+.form_ctn form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
