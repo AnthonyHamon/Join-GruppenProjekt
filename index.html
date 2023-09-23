@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="register_style.css">
 </head>
 
-<body>
+<body onload="init()">
+
+    <div class="logo_animation_ctn" id="logo-animation">
+        <img class="logo_animation_img" src="images/join_login_animation_logo.svg" alt="">
+    </div>
 
     <header class="sign_up_div">
         <span>Not a Join user?</span>
@@ -49,6 +53,16 @@
             </div>
         </div>
     </main>
+
+    <footer>
+        <div>
+            <a href="#" target="_blank">Privacy Policy</a>
+        </div>
+        <div>
+            <a href="#" target="_blank">Legal Notice</a>
+        </div>
+        
+    </footer>
 
     <script src="js/storage.js"></script>
     <script src="js/register.js"></script>

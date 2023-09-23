@@ -1,6 +1,47 @@
-.d-none {
-    display: none;
+@keyframes animationLogo {
+    from {
+        top: 45%;
+        left: 45%;
+        transform: 0px;
+        scale: 200%;
+    }
+
+    to {
+        top: 80px;
+        left: 77px;
+    }
 }
+
+@keyframes logoAnimationCtn {
+    from {
+        background-color: #F6F7F8;
+        z-index: 3;
+    }
+
+    to {
+        z-index: 1;
+    }
+}
+
+.logo_animation_ctn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    animation: logoAnimationCtn 2s ease-in-out;
+    z-index: 1;
+}
+
+.logo_animation_img {
+    position: absolute;
+    top: 80px;
+    left: 77px;
+    animation: animationLogo 1s ease-in-out;
+}
+
+
+
 
 header {
     background-color: #F6F7F8;
@@ -23,6 +64,8 @@ main {
 }
 
 #sign-up {
+    position: relative;
+    z-index: 2;
     padding: 15px 16px;
     border-radius: 8px;
     background-color: rgb(42, 54, 71);
@@ -37,6 +80,8 @@ main {
 }
 
 .login_form {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -167,10 +212,9 @@ main {
     align-items: center;
     gap: 10px;
     padding: 15px 24px;
-    min-width: 177px;
+    min-width: 181px;
     height: 48px;
-    /* border: 1px solid #2A3647;  looking for a solution against login-buttons div is changing size*/
-    border: 2px solid transparent;
+    border: 1px solid #2A3647;
     border-radius: 8px;
     background-color: white;
     color: #2A3647;
@@ -184,4 +228,36 @@ main {
     cursor: pointer;
     transition: 100ms ease-in-out;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)
+}
+
+footer {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+footer div {
+    min-width: 124px;
+    min-height: 35px;
+}
+
+footer a {
+    text-decoration: none;
+    color: rgba(168, 168, 168, 1);
+    font-size: 16px;
+    padding: 8px;
+}
+
+
+footer a:hover {
+    color: #29ABE2;
+    font-weight: 700;
+    transition: all 100ms ease-in-out;
+}
+
+.d-none {
+    display: none;
 }
