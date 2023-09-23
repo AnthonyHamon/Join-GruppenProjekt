@@ -52,6 +52,10 @@ header {
     color: #000000;
 }
 
+.call_to_action{
+    z-index: 2;
+}
+
 main {
     height: calc(100vh - 230px);
     width: 100%;
@@ -62,7 +66,7 @@ main {
     align-items: center;
 }
 
-#sign-up {
+.sign_up {
     position: relative;
     z-index: 2;
     padding: 15px 16px;
@@ -74,8 +78,9 @@ main {
     cursor: pointer;
 }
 
-#sign-up:hover {
+.sign_up:hover {
     background-color: #29ABE2;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)
 }
 
 .login_form {
@@ -179,14 +184,10 @@ main {
 }
 
 #check-button {
-    height: 16px;
-    width: 16px;
     cursor: pointer;
 }
 
 #checked-button {
-    height: 22px;
-    width: 22px;
     cursor: pointer;
 }
 
@@ -219,6 +220,7 @@ main {
     background-color: #29ABE2;
     transition: 100ms ease-in-out;
     cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)
 }
 
 #guest-login-button {
@@ -246,11 +248,13 @@ main {
 }
 
 footer {
-    position: relative;
+    position: absolute;
+    bottom: 20px;
     z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     gap: 8px;
 }
 
@@ -279,6 +283,11 @@ footer a:hover {
 
 /* for Sign up Page */
 
+.flex_center{
+    display: flex;
+    justify-content: center;
+}
+
 .logo_ctn {
     position: absolute;
 }
@@ -292,8 +301,10 @@ footer a:hover {
     width: 100%;
     background-color: #F6F7F8;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 32px;
 }
 
 .form_ctn {
@@ -371,5 +382,20 @@ footer a:hover {
 
 .sign_up_input_div input::placeholder {
     color: rgba(209, 209, 209, 1);
+}
 
+.privacy_policy_div{
+    min-width: 231px;
+    min-height: 24px;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+.privacy_policy_div a{
+    color: #29ABE2;
+    text-decoration: none;
+}
+
+.privacy_policy_div a:hover{
+    font-weight: 700;
 }

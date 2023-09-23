@@ -44,22 +44,30 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="privacy_policy_div">
                     <div>
-                        <img src="../images/check_button.svg" alt="">
-                        <img src="../images/checked_button.svg" alt="">
+                        <img onclick="checkPrivatePolicyButton()" id="check-button" src="../images/check_button.svg" alt="">
+                        <img onclick="checkPrivatePolicyButton()" id="checked-button" class="d-none" src="../images/checked_button.svg" alt="">
                     </div>
                     <span> I accept the <a href="#">Privacy policy</a></span>
                 </div>
-                <button>Sign up</button>
             </form>
-
-            <div>
-                <a href="#">Privacy policy</a>
-                <a href="#">Legal notice</a>
+            <div class="flex_center">
+                <a class="sign_up">Sign up</a>
             </div>
         </div>
+        <footer>
+            <div>
+                <a href="#" target="_blank">Privacy Policy</a>
+            </div>
+            <div>
+                <a href="#" target="_blank">Legal Notice</a>
+            </div>
+        </footer>
     </div>
+
+
+    <script src="../js/register.js"></script>
 </body>
 
 </html>
