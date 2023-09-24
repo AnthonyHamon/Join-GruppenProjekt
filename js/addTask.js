@@ -1,21 +1,20 @@
-function changeCurrentTemplate() {
-    showCurrentBgrColor();
-    removeOtherBgrColor();
-    renderHTML();
+function renderAddTask() {
+    addTaskBgrColor();
+    removeBgrColorWithoutAddTask();
+    addJoinLogoClickable();
 }
 
-function showCurrentBgrColor() {
-
-}
-
-function removeOtherBgrColor() {
+function addTaskBgrColor() {
+    document.getElementById('add_task').classList.add('currentTemplate', 'p-none');
 
 }
 
-function renderHTML() {
-    let content = document.getElementById('content');
+function removeBgrColorWithoutAddTask() {
+    document.getElementById('summary').classList.remove('currentTemplate', 'p-none');
+    document.getElementById('board').classList.remove('currentTemplate', 'p-none');
+    document.getElementById('contacts').classList.remove('currentTemplate', 'p-none');
+}
 
-    content.innerHTML = /*html*/`
-        <h1>Add Task</h1>
-    `;
+function addJoinLogoClickable() {
+    document.getElementById('join_logo').classList.remove('p-none');
 }
