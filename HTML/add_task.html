@@ -10,25 +10,10 @@
     <link rel="stylesheet" href="/CSS/task-form.css">
 </head>
 
-<body>
+<body onload="init()">
     <div class="task-container">
-        <nav class="column">
-            <div class="joinContain">
-                <a href="summary.html">
-                    <img src="/images/join_logo.svg">
-                </a>
-            </div>
-            <div class="navLinkContain column">
-                <a href="./summary.html"><img src="/images/summary.svg"> Summary</a>
-                <a class="currentTemplate"><img src="/images/add_task.svg"> Add Task</a>
-                <a href="./board.html"><img src="/images/board.svg"> Board</a>
-                <a href="./contacts.html"><img src="/images/contacts.svg"> Contacts</a>
-            </div>
-            <div class="privacyContain column">
-                <a class="privacyHoverEffect" href="./privacy_policy.html">Privacy Policy</a>
-                <a class="privacyHoverEffect" href="./legal_notice.html">Legal notice</a>
-            </div>
-        </nav>
+
+        <div w3-include-html="../assets/templates/desktop_template.html"></div>
 
         <div class="task-row">
             <div class="task-headline">
@@ -59,4 +44,6 @@
     </div>
 </body>
 
+<script src="../script.js"></script>
+<script src="../js/includeHTML.js"></script>
 </html>

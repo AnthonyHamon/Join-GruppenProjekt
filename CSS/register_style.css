@@ -1,3 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'PT Sans', sans-serif;
+}
+
 @keyframes animationLogo {
     from {
         top: 45%;
@@ -42,7 +51,7 @@
 }
 
 
-header {
+.sign_up_header {
     background-color: #F6F7F8;
     display: flex;
     justify-content: flex-end;
@@ -52,7 +61,7 @@ header {
     color: #000000;
 }
 
-.call_to_action{
+.call_to_action {
     z-index: 2;
 }
 
@@ -100,7 +109,7 @@ main {
     gap: 32px;
 }
 
-.login_form form{
+.login_form form {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -154,11 +163,12 @@ main {
 
 .login_input_div input {
     width: inherit;
+    min-height: 24px;
     border: none;
     outline: none;
 }
 
-.login_input img{
+.login_input img {
     width: 24px;
     height: 24px;
 }
@@ -297,7 +307,7 @@ footer a:hover {
 
 /* for Sign up Page */
 
-.column_align_center{
+.column_align_center {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -354,7 +364,7 @@ footer a:hover {
     left: 40px;
 }
 
-#back-to-login-page img:hover{
+#back-to-login-page img:hover {
     cursor: pointer;
     width: 34px;
     height: 34px;
@@ -403,20 +413,22 @@ footer a:hover {
 
 .sign_up_input_div input::placeholder {
     color: rgba(209, 209, 209, 1);
+    font-size: 20px;
 }
 
-.privacy_policy_div{
+.privacy_policy_div {
     min-width: 231px;
     min-height: 24px;
     align-items: center;
     display: flex;
     gap: 10px;
 }
-.privacy_policy_div a{
+
+.privacy_policy_div a {
     color: #29ABE2;
     text-decoration: none;
 }
 
-.privacy_policy_div a:hover{
+.privacy_policy_div a:hover {
     font-weight: 700;
 }
