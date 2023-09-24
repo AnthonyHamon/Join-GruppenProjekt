@@ -1,3 +1,4 @@
-function init() {
+async function init() {
+    await includeHTML();
 }
 
