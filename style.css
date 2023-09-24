@@ -6,6 +6,7 @@ body {
     margin: 0;
     font-family: 'PT Sans', sans-serif;
     user-select: none;
+    display: flex;
 }
 
 header {
@@ -104,6 +105,7 @@ nav a {
 
 .navLinkContain a:hover {
     background-color: rgba(48, 70, 100, 0.5);
+    cursor: pointer;
 }
 
 .privacyContain {
@@ -145,4 +147,8 @@ nav a {
     background-color: rgba(9, 25, 49, 1) !important;
     color: rgba(168, 168, 168, 1) !important;
     text-decoration: none;
+}
+
+.flex {
+    display: flex;
 }
