@@ -5,3 +5,7 @@
 .task-headline {
     gap: 1;
 }
+
+#content {
+    margin: 100px 0 0 100px;
+}
