@@ -7,41 +7,54 @@
     <title>task</title>
     <link rel="stylesheet" href="/fonts.css">
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/CSS/task-form.css">
+    <link rel="stylesheet" href="/CSS/add_task.css">
 </head>
 
 <body onload="init()">
-    <div class="task-container">
-
-        <div w3-include-html="../assets/templates/desktop_template.html"></div>
-
+    <div w3-include-html="../assets/templates/desktop_template.html"></div>
+    <div class="task-container" id="">
         <div class="task-row">
             <div class="task-headline">
                 <h1 class="task-name">Add Task</h1>
             </div>
             <div class="task-input">
                 <div class="left-field">
-                    <div>
-                        <h4>Title*</h4>
+                    <div class="input-fields">
+                        <h4>Title<span class="letter-color">*</span></h4>
                         <input type="text" name="myInput" placeholder="Enter a title" size="30" required>
                     </div>
                     <div>
                         <h4>Description</h4>
-                        <textarea name="myTextarea" placeholder="Enter a Description" cols="20" rows="10" minlength="10"
-                            maxlength="500" spellcheck required></textarea>
+                        <textarea name="myTextarea" placeholder="Enter a Description" cols="31" rows="4"spellcheck required></textarea>
                     </div>
                     <div>
                         <h4>Assigned to</h4>
                         <input type="text" name="myInput" placeholder="Select contacts to assign" size="30" required>
                     </div>
                 </div>
-                <div class="right-field"></div>
+                <div class="right-field">
+                    <div class="input-fields">
+                        <h4>Due Date<span class="letter-color">*</span></h4>
+                        <input class="date-input" type="date" name="myInput" placeholder="Enter a title" size="50" required>
+                    </div>
+                    <div class="input-fields">
+                        <h4>Title*</h4>
+                        <input type="text" name="myInput" placeholder="Enter a title" size="30" required>
+                    </div>
+                    <div class="input-fields">
+                        <h4>Category<span class="letter-color">*</span></h4>
+                        <input type="text" name="myInput" placeholder="Select task category" size="30" required>
+                    </div>
+                    <div class="input-fields">
+                        <h4>Subtasks</h4>
+                        <input type="text" name="myInput" placeholder="Add new subtask" size="30" required>
+                    </div>
+                </div>
             </div>
             <div class="task-below">
 
             </div>
         </div>
-
     </div>
 </body>
 
