@@ -75,12 +75,14 @@ main {
     color: white;
     font-weight: 700;
     font-size: 16px;
+    text-decoration: none;
     cursor: pointer;
 }
 
 .sign_up:hover {
+    border-color: transparent;
     background-color: #29ABE2;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25)
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .login_form {
@@ -96,6 +98,12 @@ main {
     min-height: 493px;
     box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.04);
     gap: 32px;
+}
+
+.login_form form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .login_title_div {
@@ -130,7 +138,6 @@ main {
     align-items: center;
     max-width: 422px;
     min-height: 196px;
-    gap: 20px;
 }
 
 .login_input_div {
@@ -146,8 +153,14 @@ main {
 }
 
 .login_input_div input {
+    width: inherit;
     border: none;
     outline: none;
+}
+
+.login_input img{
+    width: 24px;
+    height: 24px;
 }
 
 .login_parameters {
@@ -159,6 +172,7 @@ main {
 }
 
 .login_parameters a {
+    min-width: 175px;
     text-decoration: none;
     color: #29ABE2;
 }
@@ -283,9 +297,10 @@ footer a:hover {
 
 /* for Sign up Page */
 
-.flex_center{
+.column_align_center{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .logo_ctn {
@@ -352,7 +367,7 @@ footer a:hover {
     justify-content: center;
     min-width: 422px;
     min-height: 326px;
-    gap: 16px;
+    gap: 32px;
 }
 
 .sign_up_inputs {
