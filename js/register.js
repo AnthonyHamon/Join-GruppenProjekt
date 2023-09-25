@@ -37,5 +37,39 @@ function toggleShowPassword() {
     } else {
         passwordInput.type = 'password';
     }
-
 }
+
+// trying to return to login without logo animation
+
+function loginRedirection() {
+    // localStorage.setItem('isComingFromSignUP', 'true')
+    window.location.href = "login.html";
+}
+
+// function initLogin() {
+//     let isComingFromSignUP = localStorage.getItem('isComingFromSignUP');
+//     if (isComingFromSignUP = true) {
+//         deactivateLoginAnimation();
+//     }
+//     isComingFromSignUP = false;
+//     localStorage.setItem('isComingFromSignUP', isComingFromSignUP);
+// }
+
+// function deactivateLoginAnimation() {
+//     document.getElementById('animation-ctn').innerHTML = returnLoginAnimationHTML();
+// }
+
+// function returnLoginAnimationHTML() {
+//     return `
+//     <div class="logo_animation_ctn no_animation" id="logo-animation">
+//         <img id="logo-animation-img" class="logo_animation_img no_animation" src="../images/join_login_animation_logo.svg" alt="">
+//     </div>
+//     `
+// }
+
+// function deactivateLoginAnimation() {
+//     document.getElementById('logo-animation').classList.remove('logo_animation_ctn');
+//     document.getElementById('logo-animation-img').classList.remove('logo_animation_img');
+//     document.getElementById('logo-animation-img').classList.add('no_animation');
+// }
+

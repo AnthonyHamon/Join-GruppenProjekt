@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="/CSS/register_style.css">
 </head>
 
-<body>
-
-    <div class="logo_animation_ctn" id="logo-animation">
-        <img class="logo_animation_img" src="../images/join_login_animation_logo.svg" alt="">
-    </div>
+<body onload="initLogin()">
 
     <header class="sign_up_header">
         <span class="call_to_action">Not a Join user?</span>
@@ -34,17 +30,20 @@
                             <img src="../images/mail.svg" alt="email-img">
                         </div>
                         <div class="login_input_div">
-                            <input id="password-input" oninput="togglePasswordImg()" required type="password" placeholder="Password">
+                            <input id="password-input" oninput="togglePasswordImg()" required type="password"
+                                placeholder="Password">
                             <img id="password-lock" src="../images/lock.svg" alt="lock-img">
-                            <img onclick="toggleShowPassword()" id="password-visibility-on" class="d-none" src="../images/visibility.svg" alt="">
-                            <img onclick="toggleShowPassword()" id="password-visibility-off" class="d-none" src="../images/visibility_off.svg" alt="">
+                            <img onclick="toggleShowPassword()" id="password-visibility-on" class="d-none"
+                                src="../images/visibility.svg" alt="">
+                            <img onclick="toggleShowPassword()" id="password-visibility-off" class="d-none"
+                                src="../images/visibility_off.svg" alt="">
                         </div>
                     </div>
                     <div class="login_parameters">
                         <div class="remember_me">
                             <div class="checking-button-div">
-                                <img onclick="toggleRememberMeButton()" id="check-button" src="../images/check_button.svg"
-                                    alt="">
+                                <img onclick="toggleRememberMeButton()" id="check-button"
+                                    src="../images/check_button.svg" alt="">
                                 <img onclick="toggleRememberMeButton()" id="checked-button" class="d-none"
                                     src="../images/checked_button.svg" alt="">
                             </div>
@@ -56,8 +55,9 @@
                 <div class="login_buttons">
                     <button id="login-button">Log in</button>
                     <button id="guest-login-button">Guest Log in</button>
+                </div>
             </form>
-        </div>
+        
     </main>
 
     <footer>
@@ -67,8 +67,13 @@
         <div>
             <a href="#" target="_blank">Legal Notice</a>
         </div>
-
     </footer>
+
+     <div id="animation-ctn">
+        <div class="logo_animation_ctn" id="logo-animation">
+            <img id="logo-animation-img" class="logo_animation_img" src="../images/join_login_animation_logo.svg" alt="">
+        </div>
+    </div>
 
     <script src="../js/storage.js"></script>
     <script src="../js/register.js"></script>

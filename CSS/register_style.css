@@ -5,6 +5,7 @@
 body {
     margin: 0;
     font-family: 'PT Sans', sans-serif;
+    background-color: #F6F7F8;
 }
 
 @keyframes animationLogo {
@@ -28,6 +29,7 @@ body {
     }
 
     to {
+        background-color: transparent;
         z-index: 1;
     }
 }
@@ -38,7 +40,7 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    animation: logoAnimationCtn 2s ease-in-out;
+    animation: logoAnimationCtn 1.2s ease-in-out;
     z-index: 1;
     background-color: #F6F7F8;
 }
@@ -49,6 +51,10 @@ body {
     left: 77px;
     animation: animationLogo 1s ease-in-out;
 }
+
+ .no_animation{
+    animation: none !important;
+ }
 
 
 .sign_up_header {
@@ -166,6 +172,8 @@ main {
     min-height: 24px;
     border: none;
     outline: none;
+    font-size: 20px;
+    line-height: 24px;
 }
 
 .login_input img {
@@ -407,6 +415,8 @@ footer a:hover {
     justify-content: space-between;
     width: 380px;
     min-height: 24px;
+    font-size: 20px;
+    line-height: 24px;
     border: none;
     outline: none;
 }
