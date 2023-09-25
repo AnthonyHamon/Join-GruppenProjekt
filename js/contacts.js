@@ -2,6 +2,7 @@ function renderContacts() {
     contactsBgrColor();
     removeBgrColorWithoutContacts();
     addJoinLogoClickable();
+    generateContactsHTML();
 }
 
 function contactsBgrColor() {

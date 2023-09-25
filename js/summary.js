@@ -2,6 +2,7 @@ function renderSummary() {
     summaryBgrColor();
     removeBgrColorWithoutSummary();
     removeJoinLogoClickable();
+    generateSummaryHTML();
 }
 
 function summaryBgrColor() {

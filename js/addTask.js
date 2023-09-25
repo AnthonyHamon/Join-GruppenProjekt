@@ -2,6 +2,7 @@ function renderAddTask() {
     addTaskBgrColor();
     removeBgrColorWithoutAddTask();
     addJoinLogoClickable();
+    generateAddTaskHTML();
 }
 
 function addTaskBgrColor() {

@@ -2,6 +2,7 @@ function renderBoard() {
     boardBgrColor();
     removeBgrColorWithoutBoard();
     addJoinLogoClickable();
+    generateBoardHTML();
 }
 
 function boardBgrColor() {
