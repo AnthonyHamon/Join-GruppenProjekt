@@ -25,27 +25,43 @@
                     </div>
                     <div>
                         <h4>Description</h4>
-                        <textarea name="myTextarea" placeholder="Enter a Description" cols="31" rows="4" spellcheck
+                        <textarea name="myTextarea" placeholder="Enter a Description"spellcheck
                             required></textarea>
                     </div>
                     <div>
                         <h4>Assigned to</h4>
-                        <input type="text" name="myInput" placeholder="Select contacts to assign" size="30" required>
+                        <div class="custom-select">
+                            <select class="assigned-to" id="fruits" name="fruit">
+                            <option value="apple">Apfel</option>
+                            <option value="banana">Banane</option>
+                            <option value="orange">Orange</option>
+                            <option value="other">Andere</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="right-field">
                     <div class="input-fields">
                         <h4>Due Date<span class="letter-color">*</span></h4>
-                        <input class="date-input" type="date" name="myInput" placeholder="Enter a title" size="50"
-                            required>
+                        <input class="date-input" type="date" name="myInput" placeholder="Enter a title" size="50"required>
                     </div>
                     <div class="input-fields">
-                        <h4>Title*</h4>
-                        <input type="text" name="myInput" placeholder="Enter a title" size="30" required>
+                        <h4>Prio</h4>
+                        <div class="butto-selection">
+                            <button class="prio-button">Urgent <img src="../images/capa 2.svg" alt=""></button>
+                            <button class="prio-button">Medium <img src="../images/prio media.svg" alt=""></button>
+                            <button class="prio-button">Low <img src="../images/prio baja.svg" alt=""></button>
+                        </div>
                     </div>
                     <div class="input-fields">
                         <h4>Category<span class="letter-color">*</span></h4>
-                        <input type="text" name="myInput" placeholder="Select task category" size="30" required>
+                        <select class="assigned-to" id="fruits" name="fruit" >
+                            <img class="arrow" src="../images/arrow_drop_downaa.svg" alt="">
+                            <option value="apple">Apfel</option>
+                            <option value="banana">Banane</option>
+                            <option value="orange">Orange</option>
+                            <option value="other">Andere</option>   
+                        </select>
                     </div>
                     <div class="input-fields">
                         <h4>Subtasks</h4>
