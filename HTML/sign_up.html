@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../CSS/register_style.css">
-    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
@@ -28,11 +28,11 @@
                 <div class="column_align_center">
                     <div class="sign_up_inputs">
                         <div class="sign_up_input_div">
-                            <input required type="text" placeholder="Name">
+                            <input id="user-input" required type="text" placeholder="Name">
                             <img src="../images/person.svg" alt="">
                         </div>
                         <div class="sign_up_input_div">
-                            <input required type="email" placeholder="Email">
+                            <input id="email-input" required type="email" placeholder="Email">
                             <img src="../images/mail.svg" alt="">
                         </div>
                         <div class="sign_up_input_div">
@@ -42,7 +42,7 @@
                             <img onclick="toggleShowPassword()" id="password-visibility-off" class="d-none" src="../images/visibility_off.svg" alt="">
                         </div>
                         <div class="sign_up_input_div">
-                            <input required type="password" placeholder="Confirm Password">
+                            <input id="password-confirmation" required type="password" placeholder="Confirm Password">
                             <img src="../images/lock.svg" alt="">
                         </div>
                     </div>
