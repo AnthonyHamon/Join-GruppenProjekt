@@ -31,11 +31,8 @@
                     <div>
                         <h4>Assigned to</h4>
                         <div class="custom-select">
-                            <select class="assigned-to" id="fruits" name="fruit">
-                            <option value="apple">Apfel</option>
-                            <option value="banana">Banane</option>
-                            <option value="orange">Orange</option>
-                            <option value="other">Andere</option>
+                            <select id="contacts_select" name="">
+                            <option value="">Select contacts to assign</option>
                             </select>
                         </div>
                     </div>
@@ -55,13 +52,13 @@
                     </div>
                     <div class="input-fields">
                         <h4>Category<span class="letter-color">*</span></h4>
-                        <select class="assigned-to" id="fruits" name="fruit" >
-                            <img class="arrow" src="../images/arrow_drop_downaa.svg" alt="">
-                            <option value="apple">Apfel</option>
-                            <option value="banana">Banane</option>
-                            <option value="orange">Orange</option>
-                            <option value="other">Andere</option>   
-                        </select>
+                        <div class="custom-select" onclick="toggleDropdown()">
+                            <span id="selectedCategory">Select task category</span>
+                            <ul id="dropdownOptions" class="dropdown-options">
+                            <li onclick="selectCategory('Technical Task')">Technical Task</li>
+                            <li onclick="selectCategory('User Story')">User Story</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="input-fields">
                         <h4>Subtasks</h4>
@@ -70,7 +67,6 @@
                 </div>
             </div>
             <div class="task-below">
-
             </div>
         </div>
     </div>

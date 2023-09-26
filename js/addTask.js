@@ -19,3 +19,13 @@ function removeBgrColorWithoutAddTask() {
 function addJoinLogoClickable() {
     document.getElementById('join_logo').classList.remove('p-none');
 }
+
+function toggleDropdown() {
+    const dropdownOptions = document.getElementById('dropdownOptions');
+    dropdownOptions.style.display = dropdownOptions.style.display === 'none' ? 'block' : 'none';
+}
+
+function selectCategory(category) {
+    document.getElementById('selectedCategory').innerHTML = category;
+    toggleDropdown();
+}
