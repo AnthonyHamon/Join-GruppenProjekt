@@ -1,5 +1,6 @@
 let users = [];
 let isChecked = false;
+let isValid = false;
 
 function signUp(){
     addNewUserToBackEnd();
@@ -10,20 +11,35 @@ function addNewUserToBackEnd(){
     let email = document.getElementById('email-input').value;
     let password = document.getElementById('password-input').value;
     let confirmedPassword = document.getElementById('password-confirmation').value;
-    password == confirmedPassword && isChecked == true ? users.push({user, email, password}) : console.log('error')
-    // confirmedPassword.setCustomValidity(invalid) && confirmedPassword.validationMessage('confirm password validation does not match')
-
-
+    signUpValidation(user, email, password, confirmedPassword);
+    isValid == true ?
+    users.push({user, email, password}) : console.log('error');
 }
 
-function signUpValidation(){
-    let user = document.getElementById('user-input').value;
-    let password = document.getElementById('password-input').value;
-    let confirmedPassword = document.getElementById('password-confirmation').value;
-    user.length >= 3 &&
-    password == /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/ &&
-    password == confirmedPassword &&
-    isChecked == true ?? 
+function signUpValidation(user, email, password, confirmedPassword){
+    passwordValidation(password);
+    password === confirmedPassword &&
+    isChecked == true ? isValid = true : isValid = false;
+    isValid == true ? 
+    user = "" && email == "" && password == "" && confirmedPassword == "" : returnconfirmPasswordConstraintError();
+}
+
+function passwordValidation(password){
+    let passwordValidation = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    passwordValidation.test(password) ? isValid = true : isValid = false;
+    isValid == true ? '': returnPasswordConstraintError();
+}
+
+function returnPasswordConstraintError(){
+    let password = document.getElementById('password-input');
+    let passwordValidation = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    passwordValidation.test(password.value) ? password.setCustomValidity('') : password.setCustomValidity('The Password must be at least 8 characters with at least one lowercase, one uppercase and one digit. ');
+}
+
+function returnconfirmPasswordConstraintError(){
+    let confirmedPassword = document.getElementById('password-confirmation');
+    confirmedPassword.setCustomValidity('The Confirm Password confirmation does not match');
+
 }
 
 
