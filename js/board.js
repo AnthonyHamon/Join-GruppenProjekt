@@ -48,6 +48,20 @@ function addTask(category) {
                 </div>
                 <span id="subtask">1/2 Subtasks</span>
             </div>
+            <div class="profilePropertyContain">
+                <div id="profile" class="profileContain">
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                </div>
+                <img src="/images/Property 1=Low.svg">
+            </div>
         </section>
     `;
 }
