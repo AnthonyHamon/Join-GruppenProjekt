@@ -20,8 +20,10 @@
             <div class="task-input">
                 <div class="left-field">
                     <div class="input-fields">
-                        <h4>Title<span class="letter-color">*</span></h4>
-                        <input type="text" name="myInput" placeholder="Enter a title" size="30" required>
+                        <form>
+                            <h4>Title<span class="letter-color">*</span></h4>
+                            <input required type="text" name="myInput" placeholder="Enter a title">
+                        </form>
                     </div>
                     <div>
                         <h4>Description</h4>
@@ -30,17 +32,19 @@
                     </div>
                     <div>
                         <h4>Assigned to</h4>
-                        <div class="custom-select">
-                            <select id="contacts_select" name="">
-                            <option value="">Select contacts to assign</option>
-                            </select>
+                        <div class="contact-select">
+                            <input type="text" placeholder="Select contacts to assign">
+                            <img class="drop-option" id="icon" src="../images/arrow_drop_downaa.svg" alt="">
+                            <select class="dropdown-options" name="" id=""></select>
                         </div>
                     </div>
                 </div>
                 <div class="right-field">
                     <div class="input-fields">
-                        <h4>Due Date<span class="letter-color">*</span></h4>
-                        <input class="date-input" type="date" name="myInput" placeholder="Enter a title" size="50"required>
+                        <form>
+                            <h4>Due Date<span class="letter-color">*</span></h4>
+                            <input required class="date-input" type="number" name="myInput" placeholder="dd/mm/yyyy" >
+                        </form>
                     </div>
                     <div class="input-fields">
                         <h4>Prio</h4>
@@ -52,12 +56,15 @@
                     </div>
                     <div class="input-fields">
                         <h4>Category<span class="letter-color">*</span></h4>
-                        <div class="custom-select" onclick="toggleDropdown()">
-                            <span id="selectedCategory">Select task category</span>
-                            <ul id="dropdownOptions" class="dropdown-options">
-                            <li onclick="selectCategory('Technical Task')">Technical Task</li>
-                            <li onclick="selectCategory('User Story')">User Story</li>
-                            </ul>
+                        <div onclick="toggleDropdown()">
+                            <form class="custom-select">
+                                <span id="selectedCategory">Select task category</span>
+                                <img class="drop-option" id="icon" src="../images/arrow_drop_downaa.svg" alt="Arrow">
+                                <ul id="dropdownOptions" class="dropdown-options">
+                                <li onclick="selectCategory('Technical Task')">Technical Task</li>
+                                <li onclick="selectCategory('User Story')">User Story</li>
+                                </ul>
+                            </form>
                         </div>
                     </div>
                     <div class="input-fields">

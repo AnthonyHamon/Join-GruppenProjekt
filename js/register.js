@@ -23,9 +23,8 @@ function signUpValidation() {
     user.length >= 3 &&
         password == /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/ &&
         password == confirmedPassword &&
-        isChecked == true
+        isChecked == true ?? 
 }
-
 
 
 function toggleRememberMeButton() {

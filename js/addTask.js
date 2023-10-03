@@ -1,3 +1,6 @@
+let iconRotated = false;
+
+
 function renderAddTask() {
     addTaskBgrColor();
     removeBgrColorWithoutAddTask();
@@ -22,10 +25,23 @@ function addJoinLogoClickable() {
 
 function toggleDropdown() {
     const dropdownOptions = document.getElementById('dropdownOptions');
-    dropdownOptions.style.display = dropdownOptions.style.display === 'none' ? 'block' : 'none';
+    const icon = document.getElementById('icon');
+
+    iconRotated = !iconRotated;
+
+    if (iconRotated) {
+    dropdownOptions.style.display = 'block';
+    icon.style.transform = 'rotate(180deg)';
+    } else {
+    dropdownOptions.style.display = 'none';
+    icon.style.transform = 'rotate(0deg)';
+    }
 }
+
 
 function selectCategory(category) {
     document.getElementById('selectedCategory').innerHTML = category;
+
+    
     toggleDropdown();
 }
