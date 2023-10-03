@@ -153,6 +153,7 @@ main {
     align-items: center;
     max-width: 422px;
     min-height: 196px;
+    gap: 8px;
 }
 
 .login_input_div {
@@ -442,9 +443,10 @@ footer a:hover {
     gap: 10px;
 }
 
-#privacy-policy-error{
+#input-error{
     font-size: 14px;
     color: red;
+    padding-top: 8px;
 }
 
 .opacity_zero{

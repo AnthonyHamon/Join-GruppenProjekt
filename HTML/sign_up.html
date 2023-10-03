@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../CSS/register_style.css">
 </head>
 
-<body>
+<body onload="initLogin()">
     <div class="logo_ctn">
         <img class="logo" src="../images/join_login_animation_logo.svg" alt="">
     </div>
@@ -61,11 +61,11 @@
                             </div>
                             <span> I accept the <a href="#">Privacy policy</a></span>
                         </div>
-                        <span id="privacy-policy-error" class="opacity_zero">Please accept our Privacy Policy</span>
+                        <span id="input-error" class="opacity_zero">Please accept our Privacy Policy</span>
                     </div>
                 </div>
                 <div>
-                    <button class="sign_up">Sign up</button>
+                    <button id="signUpButton" class="sign_up">Sign up</button>
                 </div>
             </form>
 
@@ -82,6 +82,7 @@
 
 
     <script src="../js/register.js"></script>
+    <script src="../js/storage.js"></script>
 </body>
 
 </html>

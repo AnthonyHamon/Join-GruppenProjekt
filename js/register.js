@@ -2,35 +2,78 @@ let users = [];
 let isChecked = false;
 let isValid = false;
 
-function signUp(){
-    addNewUserToBackEnd();
+
+async function initLogin() {
+    await loadUsers();
 }
 
-function addNewUserToBackEnd(){
+function login() {
+    let username = document.getElementById('user-login').value;
+    let userpassword = document.getElementById('password-input').value;
+    let user = users.find(u => u.user == username || u.email == username);
+    let password = users.find(u => u.password == userpassword);
+    if (user && password) {
+        window.location.href = '../index.html';
+    }else if (user &&!password){
+        showPasswordError();
+    }else{
+        console.log('this user could not be find.')
+    }
+}
+
+function showPasswordError(){
+    let errorMsg = document.getElementById('input-error');
+    errorMsg.classList.contains('opacity_zero') ? errorMsg.classList.toggle('opacity_zero') :
+    errorMsg.classList.add('opacity_zero');
+}
+
+async function loadUsers() {
+    try {
+        users = JSON.parse(await getItem('users'));
+    } catch (e) {
+        console.log('users could not be loaded');
+    }
+}
+
+async function signUp() {
+    let signUpButton = document.getElementById('signUpButton');
+    signUpButton.disabled = true;
     let user = document.getElementById('user-input').value;
     let email = document.getElementById('email-input').value;
     let password = document.getElementById('password-input').value;
+    let confirmedPassword = document.getElementById('password-confirmation').value;
     signUpValidation();
-    isValid && isChecked? users.push({user, email, password}) &&
-    user == "" && email == "" && password == "" && confirmedPassword == "" : console.log('error');
+    isValid && isChecked ? users.push({ user, email, password }) &&
+        await setItem('users', JSON.stringify(users)) &&
+        resetForm(user, email, password, confirmedPassword) : '';
 }
 
-function passwordValidation(){
+
+function resetForm(user, email, password, confirmedPassword) {
+    let signUpButton = document.getElementById('signUpButton');
+    user = "";
+    email = "";
+    password == "";
+    confirmedPassword = "";
+    signUpButton.disabled = false;
+}
+
+function passwordValidation() {
     let password = document.getElementById('password-input');
     let confirmedPassword = document.getElementById('password-confirmation');
     let passwordValidation = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     passwordValidation.test(password.value) ? isValid = true : isValid = false;
     !isValid ? password.setCustomValidity('The Password must be at least 8 characters with at least one lowercase, one uppercase and one digit. ') :
-    password.setCustomValidity('');
+        password.setCustomValidity('');
     password.value === confirmedPassword.value ? isValid = true : isValid = false;
     !isValid ? confirmedPassword.setCustomValidity('The Confirm Password confirmation does not match') :
-    confirmedPassword.setCustomValidity('');
+        confirmedPassword.setCustomValidity('');
 }
 
-function signUpValidation(){
-    let errorMsg = document.getElementById('privacy-policy-error');
-    !isChecked && errorMsg.classList.contains('opacity_zero') ? errorMsg.classList.toggle('opacity_zero') : 
-    errorMsg.classList.add('opacity_zero'); 
+function signUpValidation() {
+    let errorMsg = document.getElementById('input-error');
+    !isChecked && errorMsg.classList.contains('opacity_zero') ? errorMsg.classList.toggle('opacity_zero') :
+        errorMsg.classList.add('opacity_zero');
 }
 
 

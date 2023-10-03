@@ -26,17 +26,20 @@
                 <div class="login_input">
                     <div class="login_inputs">
                         <div class="login_input_div">
-                            <input required type="email" placeholder="Email">
+                            <input id="user-login" required type="email" placeholder="Email">
                             <img src="../images/mail.svg" alt="email-img">
                         </div>
-                        <div class="login_input_div">
-                            <input id="password-input" oninput="togglePasswordImg()" required type="password"
-                                placeholder="Password">
-                            <img id="password-lock" src="../images/lock.svg" alt="lock-img">
-                            <img onclick="toggleShowPassword()" id="password-visibility-on" class="d-none"
-                                src="../images/visibility.svg" alt="">
-                            <img onclick="toggleShowPassword()" id="password-visibility-off" class="d-none"
-                                src="../images/visibility_off.svg" alt="">
+                        <div>
+                            <div class="login_input_div">
+                                <input id="password-input" oninput="togglePasswordImg()" required type="password"
+                                    placeholder="Password">
+                                <img id="password-lock" src="../images/lock.svg" alt="lock-img">
+                                <img onclick="toggleShowPassword()" id="password-visibility-on" class="d-none"
+                                    src="../images/visibility.svg" alt="">
+                                <img onclick="toggleShowPassword()" id="password-visibility-off" class="d-none"
+                                    src="../images/visibility_off.svg" alt="">
+                            </div>
+                            <div id="input-error" class="opacity_zero">Wrong Pasword, please try it again</div>
                         </div>
                     </div>
                     <div class="login_parameters">
@@ -57,7 +60,7 @@
                     <button id="guest-login-button">Guest Log in</button>
                 </div>
             </form>
-        
+
     </main>
 
     <footer>
@@ -69,9 +72,10 @@
         </div>
     </footer>
 
-     <div id="animation-ctn">
+    <div id="animation-ctn">
         <div class="logo_animation_ctn" id="logo-animation">
-            <img id="logo-animation-img" class="logo_animation_img" src="../images/join_login_animation_logo.svg" alt="">
+            <img id="logo-animation-img" class="logo_animation_img" src="../images/join_login_animation_logo.svg"
+                alt="">
         </div>
     </div>
 
