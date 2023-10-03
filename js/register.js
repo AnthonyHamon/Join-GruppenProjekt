@@ -21,6 +21,7 @@ function login() {
     }
 }
 
+
 function showPasswordError(){
     let errorMsg = document.getElementById('input-error');
     errorMsg.classList.contains('opacity_zero') ? errorMsg.classList.toggle('opacity_zero') :
@@ -41,20 +42,23 @@ async function signUp() {
     let user = document.getElementById('user-input').value;
     let email = document.getElementById('email-input').value;
     let password = document.getElementById('password-input').value;
-    let confirmedPassword = document.getElementById('password-confirmation').value;
     signUpValidation();
     isValid && isChecked ? users.push({ user, email, password }) &&
-        await setItem('users', JSON.stringify(users)) &&
-        resetForm(user, email, password, confirmedPassword) : '';
+        // await setItem('users', JSON.stringify(users)) &&
+        resetForm() : '';
 }
 
 
-function resetForm(user, email, password, confirmedPassword) {
+function resetForm() {
     let signUpButton = document.getElementById('signUpButton');
-    user = "";
-    email = "";
-    password == "";
-    confirmedPassword = "";
+    let user = document.getElementById('user-input');
+    let email = document.getElementById('email-input');
+    let password = document.getElementById('password-input');
+    let confirmedPassword = document.getElementById('password-confirmation');
+    user.value = "";
+    email.value = "";
+    password.value = "";
+    confirmedPassword.value = "";
     signUpButton.disabled = false;
 }
 
