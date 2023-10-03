@@ -1,29 +1,29 @@
 let users = [];
 let isChecked = false;
 
-function signUp(){
+function signUp() {
     addNewUserToBackEnd();
 }
 
-function addNewUserToBackEnd(){
+function addNewUserToBackEnd() {
     let user = document.getElementById('user-input').value;
     let email = document.getElementById('email-input').value;
     let password = document.getElementById('password-input').value;
     let confirmedPassword = document.getElementById('password-confirmation').value;
-    password == confirmedPassword && isChecked == true ? users.push({user, email, password}) : console.log('error')
+    password == confirmedPassword && isChecked == true ? users.push({ user, email, password }) : console.log('error')
     // confirmedPassword.setCustomValidity(invalid) && confirmedPassword.validationMessage('confirm password validation does not match')
 
 
 }
 
-function signUpValidation(){
+function signUpValidation() {
     let user = document.getElementById('user-input').value;
     let password = document.getElementById('password-input').value;
     let confirmedPassword = document.getElementById('password-confirmation').value;
     user.length >= 3 &&
-    password == /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/ &&
-    password == confirmedPassword &&
-    isChecked == true ?? 
+        password == /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/ &&
+        password == confirmedPassword &&
+        isChecked == true
 }
 
 
