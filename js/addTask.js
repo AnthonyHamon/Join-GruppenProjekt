@@ -42,6 +42,19 @@ function toggleDropdown() {
 function selectCategory(category) {
     document.getElementById('selectedCategory').innerHTML = category;
 
-    
     toggleDropdown();
+}
+
+
+function searchContacts() {
+    const customDropdown = document.getElementById('customDropdown');
+    const customIcon = document.getElementById('customIcon');
+
+    customIcon.classList.toggle('rotate');
+
+    if (customDropdown.style.display === 'block') {
+        customDropdown.style.display = 'none';
+    } else {
+        customDropdown.style.display = 'block';
+    }
 }

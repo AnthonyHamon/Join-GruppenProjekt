@@ -20,51 +20,89 @@
     gap: 20px;
 }
 
-input {
+.titel-field {
     width: 440px;
-    height: 48px;
-    background-color: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(209, 209, 209, 1);
-    border-radius: 10px;
-    padding: 12px 21px 12px 21px;
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.titel-input {
+height: 48px;
+display: flex;
+padding: 12px 21px;
+align-items: center;
+gap: 10px;
+align-self: stretch;
+border-radius: 10px;
+border: 1px solid var(--Style, #D1D1D1);
+background: #FFF;
+cursor: pointer;
+}
+
+.description-field {
+display: flex;
+width: 440px;
+flex-direction: column;
+align-items: flex-start;
+gap: 8px;
 }
 
 textarea {
-    width: 440px;
-    height: 120px;
-    background-color: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(209, 209, 209, 1);
-    border-radius: 10px;
-    padding: 18px 16px 18px 16px;
-    gap: 10px;
-    font-family: PT Sans, sans-serif;
+    display: flex;
+height: 120px;
+padding: 18px 16px;
+align-items: flex-start;
+gap: 10px;
+align-self: stretch;
+border-radius: 10px;
+border: 1px solid var(--Style, #D1D1D1);
+background: #FFF;
+cursor: pointer;
 }
 
-.contakt-select {
+.contacts-field {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 440px;
+    height: 80px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.contacts-field .costum-select {
+    position: relative;
+}
+
+.contacts-field .costum-select #customDropdown {
+    appearance: none;
+    display: flex;
     width: 440px;
     height: 48px;
+    padding: 12px 16px;
+    justify-content: space-between;
+    align-items: center;
     border-radius: 10px;
-    padding: 12px 16px 12px 16px;
-    gap: 10px;
-    position: relative;
-    border: 1px solid rgba(209, 209, 209, 1);
+    border: 1px solid var(--Style, #D1D1D1);
+    background: var(--white, #FFF);
     cursor: pointer;
 }
 
-.contact-select .dropdown-options {
-    display: none;
+.icon {
+    width: 20px;
+    height: 20px;
+    background: url('../images/arrow_drop_downaa.svg');
     position: absolute;
-    z-index: 1;
-    background-color: rgba(255, 255, 255, 1);
-    width: 440px;
-    margin-left: -17px;
-    margin-top: 163px;
-    border-radius: 10px;
+    top: 55%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
 
+.icon.rotate {
+    transform: rotate(180deg);
 }
 
 h4 {
@@ -92,15 +130,34 @@ h4 {
     gap: 20px;
 }
 
-.date-input {
+.date-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
     width: 440px;
-    min-height: 48px;
-    background-color: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(209, 209, 209, 1);
-    border-radius: 10px;
-    padding: 12px 16px 12px 16px;
+}
+
+.date-field .date-container {
+    display: flex;
     justify-content: space-between;
-    font-family: PT Sans, sans-serif;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid var(--Style, #D1D1D1);
+    background: #FFF;
+    align-self: stretch;
+    width: 440px;
+    padding: 12px 16px;
+}
+
+.date-field .date-input {
+    border: none;
+
+}
+
+.date-field .date-input .date-icon {
+    width: 24px;
+    height: 24px;
 }
 
 .butto-selection {
@@ -123,7 +180,7 @@ h4 {
     font-family: PT Sans, sans-serif;
 }
 
-.custom-select {
+.custom-list {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -132,27 +189,22 @@ h4 {
     border-radius: 10px;
     padding: 12px 16px 12px 16px;
     gap: 10px;
-    position: relative;
     border: 1px solid rgba(209, 209, 209, 1);
     cursor: pointer;
 }
 
 
-.custom-select .dropdown-options li {
+.custom-list .dropdown-options li {
     padding: 15px;
     list-style: none;
 }
 
-.custom-select .dropdown-options li:hover {
+.custom-list .dropdown-options li:hover {
     background-color: #f0f0f0;
     border-radius: 10px;
 }
 
-.dropdown-options {
-    padding-left: 0px;
-}
-
-.custom-select .dropdown-options {
+.custom-list .dropdown-options {
     display: none;
     position: absolute;
     z-index: 1;
@@ -161,13 +213,10 @@ h4 {
     margin-left: -17px;
     margin-top: 163px;
     border-radius: 10px;
-
+    padding-left: 0px;
 }
 
-.costum-select select {
-    appearance: none;
-    font-family: PT Sans, sans-serif;
-}
+
 
 #content {
     margin: 100px 0 0 100px;
