@@ -28,7 +28,7 @@
                 <div class="column_align_center">
                     <div class="sign_up_inputs">
                         <div class="sign_up_input_div">
-                            <input id="user-input" required minlength ="3" type="text" placeholder="Name">
+                            <input id="user-input" required minlength="3" type="text" placeholder="Name">
                             <img src="../images/person.svg" alt="">
                         </div>
                         <div class="sign_up_input_div">
@@ -36,25 +36,32 @@
                             <img src="../images/mail.svg" alt="">
                         </div>
                         <div class="sign_up_input_div">
-                            <input oninput="togglePasswordImg()" id="password-input" required type="password" placeholder="Password">
+                            <input onblur="passwordValidation()" oninput="togglePasswordImg()" id="password-input"
+                                required type="password" placeholder="Password">
                             <img id="password-lock" src="../images/lock.svg" alt="">
-                            <img onclick="toggleShowPassword()" id="password-visibility-on" class="d-none" src="../images/visibility.svg" alt="">
-                            <img onclick="toggleShowPassword()" id="password-visibility-off" class="d-none" src="../images/visibility_off.svg" alt="">
+                            <img onclick="toggleShowPassword()" id="password-visibility-on" class="d-none"
+                                src="../images/visibility.svg" alt="">
+                            <img onclick="toggleShowPassword()" id="password-visibility-off" class="d-none"
+                                src="../images/visibility_off.svg" alt="">
                         </div>
                         <div class="sign_up_input_div">
-                            <input id="password-confirmation" required type="password" placeholder="Confirm Password">
+                            <input onblur="passwordValidation()" id="password-confirmation" required type="password"
+                                placeholder="Confirm Password">
                             <img src="../images/lock.svg" alt="">
                         </div>
                     </div>
 
                     <div class="privacy_policy_div">
-                        <div>
-                            <img onclick="checkPrivatePolicyButton()" id="check-button" src="../images/check_button.svg"
-                                alt="">
-                            <img onclick="checkPrivatePolicyButton()" id="checked-button" class="d-none"
-                                src="../images/checked_button.svg" alt="">
+                        <div class="privacy_policy_check">
+                            <div>
+                                <img onclick="checkPrivatePolicyButton()" id="check-button"
+                                    src="../images/check_button.svg" alt="">
+                                <img onclick="checkPrivatePolicyButton()" id="checked-button" class="d-none"
+                                    src="../images/checked_button.svg" alt="">
+                            </div>
+                            <span> I accept the <a href="#">Privacy policy</a></span>
                         </div>
-                        <span> I accept the <a href="#">Privacy policy</a></span>
+                        <span id="privacy-policy-error" class="opacity_zero">Please accept our Privacy Policy</span>
                     </div>
                 </div>
                 <div>

@@ -10,38 +10,28 @@ function addNewUserToBackEnd(){
     let user = document.getElementById('user-input').value;
     let email = document.getElementById('email-input').value;
     let password = document.getElementById('password-input').value;
-    let confirmedPassword = document.getElementById('password-confirmation').value;
-    signUpValidation(user, email, password, confirmedPassword);
-    isValid == true ?
-    users.push({user, email, password}) : console.log('error');
+    signUpValidation();
+    isValid && isChecked? users.push({user, email, password}) &&
+    user == "" && email == "" && password == "" && confirmedPassword == "" : console.log('error');
 }
 
-function signUpValidation(user, email, password, confirmedPassword){
-    passwordValidation(password);
-    password === confirmedPassword &&
-    isChecked == true ? isValid = true : isValid = false;
-    isValid == true ? 
-    user = "" && email == "" && password == "" && confirmedPassword == "" : returnconfirmPasswordConstraintError();
-}
-
-function passwordValidation(password){
-    let passwordValidation = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    passwordValidation.test(password) ? isValid = true : isValid = false;
-    isValid == true ? '': returnPasswordConstraintError();
-}
-
-function returnPasswordConstraintError(){
+function passwordValidation(){
     let password = document.getElementById('password-input');
-    let passwordValidation = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    passwordValidation.test(password.value) ? password.setCustomValidity('') : password.setCustomValidity('The Password must be at least 8 characters with at least one lowercase, one uppercase and one digit. ');
-}
-
-function returnconfirmPasswordConstraintError(){
     let confirmedPassword = document.getElementById('password-confirmation');
-    confirmedPassword.setCustomValidity('The Confirm Password confirmation does not match');
-
+    let passwordValidation = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    passwordValidation.test(password.value) ? isValid = true : isValid = false;
+    !isValid ? password.setCustomValidity('The Password must be at least 8 characters with at least one lowercase, one uppercase and one digit. ') :
+    password.setCustomValidity('');
+    password.value === confirmedPassword.value ? isValid = true : isValid = false;
+    !isValid ? confirmedPassword.setCustomValidity('The Confirm Password confirmation does not match') :
+    confirmedPassword.setCustomValidity('');
 }
 
+function signUpValidation(){
+    let errorMsg = document.getElementById('privacy-policy-error');
+    !isChecked && errorMsg.classList.contains('opacity_zero') ? errorMsg.classList.toggle('opacity_zero') : 
+    errorMsg.classList.add('opacity_zero'); 
+}
 
 
 function toggleRememberMeButton() {

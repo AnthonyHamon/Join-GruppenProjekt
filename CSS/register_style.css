@@ -386,7 +386,7 @@ footer a:hover {
     justify-content: center;
     min-width: 422px;
     min-height: 326px;
-    gap: 32px;
+    gap: 14px;
 }
 
 .sign_up_inputs {
@@ -432,7 +432,23 @@ footer a:hover {
     min-height: 24px;
     align-items: center;
     display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.privacy_policy_check{
+    display: flex;
+    align-items: center;
     gap: 10px;
+}
+
+#privacy-policy-error{
+    font-size: 14px;
+    color: red;
+}
+
+.opacity_zero{
+    opacity: 0;
 }
 
 .privacy_policy_div a {
