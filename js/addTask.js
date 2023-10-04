@@ -1,4 +1,5 @@
 let iconRotated = false;
+let isIconRotated = false;
 
 
 function renderAddTask() {
@@ -46,15 +47,21 @@ function selectCategory(category) {
 }
 
 
-function searchContacts() {
-    const customDropdown = document.getElementById('customDropdown');
-    const customIcon = document.getElementById('customIcon');
+function toggleDropdown() {
+    const icon = document.getElementById('customIcon');
+    const dropdown = document.getElementById('customDropdown');
 
-    customIcon.classList.toggle('rotate');
+    isIconRotated = !isIconRotated;
 
-    if (customDropdown.style.display === 'block') {
-        customDropdown.style.display = 'none';
+    if (isIconRotated) {
+        icon.style.transform = 'rotate(180deg)';
+        dropdown.open = true;  // Hier öffnen wir das Dropdown-Element
     } else {
-        customDropdown.style.display = 'block';
+        icon.style.transform = 'rotate(0deg)';
     }
 }
+
+
+
+
+

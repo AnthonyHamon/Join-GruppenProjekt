@@ -71,11 +71,21 @@ cursor: pointer;
     gap: 8px;
 }
 
-.contacts-field .costum-select {
+.icon {
+    position: absolute;
+    right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.custom-select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
 }
 
-.contacts-field .costum-select #customDropdown {
+.contacts-field .custom-select #customDropdown {
     appearance: none;
     display: flex;
     width: 440px;
@@ -87,22 +97,6 @@ cursor: pointer;
     border: 1px solid var(--Style, #D1D1D1);
     background: var(--white, #FFF);
     cursor: pointer;
-}
-
-.icon {
-    width: 20px;
-    height: 20px;
-    background: url('../images/arrow_drop_downaa.svg');
-    position: absolute;
-    top: 55%;
-    right: 10px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    transition: transform 0.3s ease;
-}
-
-.icon.rotate {
-    transform: rotate(180deg);
 }
 
 h4 {
