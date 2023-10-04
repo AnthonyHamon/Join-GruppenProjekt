@@ -37,15 +37,17 @@ async function loadUsers() {
 }
 
 async function signUp() {
-    let signUpButton = document.getElementById('signUpButton');
-    signUpButton.disabled = true;
     let user = document.getElementById('user-input').value;
     let email = document.getElementById('email-input').value;
     let password = document.getElementById('password-input').value;
-    signUpValidation();
     isValid && isChecked ? users.push({ user, email, password }) &&
         // await setItem('users', JSON.stringify(users)) &&
         resetForm() : '';
+}
+
+function activateButton(){
+    let signUpButton = document.getElementById('signUpButton');
+    isChecked ? signUpButton.disabled = false : signUpButton.disabled = true && signUpValidation();
 }
 
 
@@ -59,7 +61,7 @@ function resetForm() {
     email.value = "";
     password.value = "";
     confirmedPassword.value = "";
-    signUpButton.disabled = false;
+    signUpButton.disabled = true;
 }
 
 function passwordValidation() {

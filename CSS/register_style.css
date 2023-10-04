@@ -86,6 +86,7 @@ main {
     z-index: 2;
     padding: 15px 16px;
     border-radius: 8px;
+    border-color: transparent;
     background-color: rgb(42, 54, 71);
     color: white;
     font-weight: 700;
@@ -438,9 +439,11 @@ footer a:hover {
 }
 
 .privacy_policy_check{
+    min-width: 231px;
+    min-height: 24px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 #input-error{
