@@ -19,31 +19,37 @@
             </div>
             <div class="task-input">
                 <div class="left-field">
-                    <div class="input-fields">
-                        <form>
+                    <div>
+                        <form class="titel-field">
                             <h4>Title<span class="letter-color">*</span></h4>
-                            <input required type="text" name="myInput" placeholder="Enter a title">
+                            <input class="titel-input" required type="text" name="myInput" placeholder="Enter a title">
                         </form>
                     </div>
-                    <div>
+                    <div class="description-field">
                         <h4>Description</h4>
                         <textarea name="myTextarea" placeholder="Enter a Description"spellcheck
                             required></textarea>
                     </div>
-                    <div>
+                    <div class="contacts-field">
                         <h4>Assigned to</h4>
-                        <div class="contact-select">
-                            <input type="text" placeholder="Select contacts to assign">
-                            <img class="drop-option" id="icon" src="../images/arrow_drop_downaa.svg" alt="">
-                            <select class="dropdown-options" name="" id=""></select>
+                        <div class="costum-select" onclick="searchContacts()">
+                            <div id="customIcon" class="icon"></div>
+                            <select name="contacts" id="customDropdown">
+                                <option selected disabled>Select contacts to assign</option>
+                                <option value="waldemar giesbrecht">Waldemar Giesbrecht</option>
+                                <option value="jon doo">Jon Doo</option>
+                            </select>
                         </div>
                     </div>
                 </div>
                 <div class="right-field">
-                    <div class="input-fields">
-                        <form>
+                    <div>
+                        <form class="date-field">
                             <h4>Due Date<span class="letter-color">*</span></h4>
-                            <input required class="date-input" type="number" name="myInput" placeholder="dd/mm/yyyy" >
+                            <div class="date-container">
+                                <input required class="date-input" type="date" name="myInput" placeholder="dd/mm/yyyy" >
+                                <img class="date-icon" src="../images/date.svg" alt="">
+                            </div>
                         </form>
                     </div>
                     <div class="input-fields">
@@ -57,7 +63,7 @@
                     <div class="input-fields">
                         <h4>Category<span class="letter-color">*</span></h4>
                         <div onclick="toggleDropdown()">
-                            <form class="custom-select">
+                            <form class="custom-list">
                                 <span id="selectedCategory">Select task category</span>
                                 <img class="drop-option" id="icon" src="../images/arrow_drop_downaa.svg" alt="Arrow">
                                 <ul id="dropdownOptions" class="dropdown-options">

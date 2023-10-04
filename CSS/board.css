@@ -1,3 +1,265 @@
 #content {
     margin: 100px 0 0 200px;
+    margin: 0;
+    padding: 100px 100px 0 64px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.titleContain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 73px;
+    margin: 80px 0 0 0;
+}
+
+.titleContain h1 {
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.boardInputBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #A8A8A8;
+    border-radius: 10px;
+    padding: 8px 16px 8px 16px;
+    gap: 10px;
+    width: 312px;
+    height: 48px;
+    background-color: #ffffff;
+}
+
+.boardInputBox,
+.inputFindTask:hover {
+    cursor: pointer;
+}
+
+.boardInputBox img {
+    width: 32px;
+    height: 32px;
+}
+
+.boardInputBox img:hover {
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.inputFindTask {
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-bottom: none;
+    border-right: 1px solid #A8A8A8;
+    flex-grow: 1;
+    height: 32px;
+    line-height: 24px;
+    padding: 0;
+    font-size: 20px;
+}
+
+.inputFindTask::placeholder {
+    color: #d1d1d1;
+}
+
+#add_taskBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px 8px 16px;
+    min-width: 110px;
+    height: 48px;
+    border-radius: 8px;
+    border-color: transparent;
+    background-color: #2A3647;
+    color: white;
+    font-weight: 700;
+    font-size: 21px;
+    text-wrap: nowrap;
+}
+
+#add_taskBtn:hover {
+    background-color: #29ABE2;
+    transition: 100ms ease-in-out;
+    cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+#add_taskBtn img {
+    width: 32px;
+    height: 32px;
+}
+
+.gap32 {
+    gap: 32px;
+}
+
+.progressNamesContain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 20px 0 0 0;
+    gap: 25px;
+}
+
+.svgHover:hover {
+    cursor: pointer;
+}
+
+.svgHover:hover path,
+.svgHover:hover rect {
+    stroke: #29ABE2;
+}
+
+
+.progressNamesContain p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 360px;
+    min-width: 180px;
+    margin: 0;
+    font-size: 20px;
+    color: #42536E;
+    font-weight: 700;
+    text-wrap: nowrap;
+    padding: 5px 10px 5px 10px;
+    border-bottom: 1px rgba(0, 0, 0, 0.2) solid;
+}
+
+.taskContain {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-top: 16px;
+    gap: 25px;
+    height: 576px;
+}
+
+.taskLine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 360px;
+    height: 100%;
+    min-width: 180px;
+    margin: 0;
+    background-color: transparent;
+    gap: 16px;
+}
+
+.taskContain section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 24px;
+    padding: 16px;
+    gap: 24px;
+}
+
+.userStory {
+    margin: 0;
+    padding: 4px 16px 4px 16px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    background-color: #0038ff;
+    border-radius: 8px;
+    width: max-content;
+    color: #ffffff;
+}
+
+.taskContain p {
+    margin: 0;
+
+}
+
+.taskContain article {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.taskTitle {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.2px;
+}
+
+.taskDescription {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    color: #A8A8A8;
+}
+
+#subtask_contain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+
+.progressbar-container {
+    width: 128px;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 16px;
+}
+
+.progressbar {
+    height: 100%;
+    width: 0;
+    background-color: #4589FF;
+    border-radius: 16px;
+}
+
+#subtask {
+    font-size: 12px;
+    line-height: 14.4px;
+    text-wrap: nowrap;
+    padding-left: 10px;
+}
+
+.profilePropertyContain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profilePropertyContain img {
+    width: 32px;
+    height: 32px;
+}
+
+.profileBadge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgb(119, 0, 255);
+    border: 2px solid #ffffff;
+    padding: 6px;
+    color: white;
+    margin-left: -10px;
+    margin-bottom: 4px;
+    height: 36px;
+    width: 36px;
+}
+
+.profileContain {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    padding-left: 10px;
 }

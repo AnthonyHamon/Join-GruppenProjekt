@@ -1,4 +1,4 @@
 async function init() {
     await includeHTML();
-    renderSummary();
+    renderBoard(); // Wird noch zu renderSummary() geändert, ist nur zur disign zwecken umgeändert worden :)
 }

@@ -77,9 +77,13 @@ function passwordValidation() {
 }
 
 function signUpValidation() {
-    let errorMsg = document.getElementById('input-error');
-    !isChecked && errorMsg.classList.contains('opacity_zero') ? errorMsg.classList.toggle('opacity_zero') :
-        errorMsg.classList.add('opacity_zero');
+    let user = document.getElementById('user-input').value;
+    let password = document.getElementById('password-input').value;
+    let confirmedPassword = document.getElementById('password-confirmation').value;
+    user.length >= 3 &&
+        password == /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/ &&
+        password == confirmedPassword &&
+        isChecked == true ?? 
 }
 
 
