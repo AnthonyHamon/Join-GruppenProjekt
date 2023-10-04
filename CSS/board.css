@@ -89,6 +89,12 @@
     gap: 32px;
 }
 
+.progressNamesContain,
+.taskContain,
+.titleContain {
+    max-width: 1360px;
+}
+
 .progressNamesContain {
     display: flex;
     align-items: center;
