@@ -1,5 +1,5 @@
 let iconRotated = false;
-let isIconRotated = false;
+let isCustomDropdownVisible = false;
 
 
 function renderAddTask() {
@@ -46,20 +46,29 @@ function selectCategory(category) {
     toggleDropdown();
 }
 
+function toggleCustomDropdown() {
+    const customIcon = document.getElementById('customIcon');
+    const customDropdownContent = document.getElementById('customDropdownContent');
 
-function toggleDropdown() {
-    const icon = document.getElementById('customIcon');
-    const dropdown = document.getElementById('customDropdown');
+    isCustomDropdownVisible = !isCustomDropdownVisible;
 
-    isIconRotated = !isIconRotated;
-
-    if (isIconRotated) {
-        icon.style.transform = 'rotate(180deg)';
-        dropdown.open = true;  // Hier öffnen wir das Dropdown-Element
+    if (isCustomDropdownVisible) {
+        customIcon.classList.add('rotate');
+        customDropdownContent.style.display = 'block';
     } else {
-        icon.style.transform = 'rotate(0deg)';
+        customIcon.classList.remove('rotate');
+        customDropdownContent.style.display = 'none';
     }
 }
+
+function selectCustomContact(contactName) {
+    const selectedCustomContacts = document.getElementById('selectedCustomContacts');
+    const newContact = document.createElement('div');
+    newContact.innerText = contactName;
+    selectedCustomContacts.appendChild(newContact);
+    toggleCustomDropdown();  // Schließe das Dropdown nach der Auswahl
+}
+
 
 
 

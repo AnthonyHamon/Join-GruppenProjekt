@@ -71,33 +71,30 @@ cursor: pointer;
     gap: 8px;
 }
 
-.icon {
-    position: absolute;
-    right: 15px;
-    display: flex;
-    align-items: center;
-}
-
-.custom-select {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-
-.contacts-field .custom-select #customDropdown {
-    appearance: none;
-    display: flex;
-    width: 440px;
-    height: 48px;
+.contacts-field  .custom-dropdown {
     padding: 12px 16px;
+    width: 440px;
+    border-radius: 10px;
+    background: var(--white, #FFF);
+    border: 1px solid var(--Style, #D1D1D1);
+}
+
+.contacts-field  .custom-dropdown .icon {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 10px;
-    border: 1px solid var(--Style, #D1D1D1);
-    background: var(--white, #FFF);
-    cursor: pointer;
 }
+
+.contacts-field  .custom-dropdown .icon .dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(50% + 20px); /* Adjust this value as needed */
+    right: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
 
 h4 {
     margin-top: 0px;

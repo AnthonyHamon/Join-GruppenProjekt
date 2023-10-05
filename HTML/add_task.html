@@ -7,7 +7,7 @@
     <title>task</title>
     <link rel="stylesheet" href="/fonts.css">
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/CSS/add_task.css">
+    <link rel="stylesheet" href="/CSS/addtask_style.css">
 </head>
 
 <body onload="init()">
@@ -32,16 +32,18 @@
                     </div>
                     <div class="contacts-field">
                         <h4>Assigned to</h4>
-                        <div class="custom-select" onclick="toggleDropdown()">
+                        <div class="custom-dropdown" onclick="toggleCustomDropdown()">
                             <div id="customIcon" class="icon">
-                                <img src="../images/arrow_drop_downaa.svg" alt="">
+                                <span>Select contacts to assigne</span>
+                                <img class="icon-rotate" src="../images/arrow_drop_downaa.svg" alt="">
                             </div>
-                            <select name="contacts" id="customDropdown">
-                                <option selected disabled>Select contacts to assign</option>
-                                <option value="waldemar giesbrecht">Waldemar Giesbrecht</option>
-                                <option value="jon doo">Jon Doo</option>
-                            </select>
+                            <div id="customDropdownContent" class="dropdown-content">
+                                <div class="dropdown-item" onclick="selectCustomContact('Waldemar Giesbrecht')">Waldemar Giesbrecht</div>
+                                <div class="dropdown-item" onclick="selectCustomContact('Jon Doo')">Jon Doo</div>
+                                <!-- Weitere Kontakte hier -->
+                            </div>
                         </div>
+                        <div id="selectedCustomContacts" class="selected-contacts"></div>
                     </div>
                 </div>
                 <div class="right-field">
