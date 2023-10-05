@@ -24,8 +24,8 @@ function login() {
 
 function showPasswordError(){
     let errorMsg = document.getElementById('input-error');
-    errorMsg.classList.contains('opacity_zero') ? errorMsg.classList.toggle('opacity_zero') :
-    errorMsg.classList.add('opacity_zero');
+    !errorMsg.textContent ? errorMsg.innerHTML = returnPasswordError():
+    errorMsg.innerHTML = '';
 }
 
 async function loadUsers() {
@@ -45,10 +45,30 @@ async function signUp() {
         resetForm() : '';
 }
 
+function checkExistingUser(){
+    let userError = document.getElementById('user-input');
+    let emailError = document.getElementById('email-input');
+    let username = document.getElementById('user-input').value;
+    let userEmail = document.getElementById('email-input').value;
+    let user = users.find(u => u.user == username);
+    let email = users.find(u => u.email == userEmail);
+    if (user){
+        !isValid
+        userError.setCustomValidity('This User Already exist')
+    }else if(email){
+        !isValid
+        emailError.setCustomValidity('This email adress has already been registered')
+    }else{
+        userError.setCustomValidity('');
+        emailError.setCustomValidity('');
+    }
+}
+
 function activateButton(){
     let signUpButton = document.getElementById('signUpButton');
     isChecked ? signUpButton.disabled = false : signUpButton.disabled = true && signUpValidation();
 }
+
 
 
 function resetForm() {
@@ -77,13 +97,9 @@ function passwordValidation() {
 }
 
 function signUpValidation() {
-    let user = document.getElementById('user-input').value;
-    let password = document.getElementById('password-input').value;
-    let confirmedPassword = document.getElementById('password-confirmation').value;
-    user.length >= 3 &&
-        password == /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/ &&
-        password == confirmedPassword &&
-        isChecked == true ?? 
+    let errorMsg = document.getElementById('input-error');
+    !isChecked && !errorMsg.textContent ? errorMsg.innerHTML = returnPrivacyPoliceErrorMsg() :
+    errorMsg.innerHTML = '';
 }
 
 

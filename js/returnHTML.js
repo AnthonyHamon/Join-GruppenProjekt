@@ -85,3 +85,17 @@ function generateBoardHTML() {
         </div>
     `;
 }
+
+// HTML for Login & SignUp Page.
+
+function returnPrivacyPoliceErrorMsg(){
+    return `
+    Please accept our Privacy Policy
+    `
+}
+
+function returnPasswordError(){
+    return `
+    Wrong Pasword, please try it again!
+    `
+}
