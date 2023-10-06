@@ -32,7 +32,7 @@ function generateBoardHTML() {
     content.innerHTML =/*html*/`
         <div class="titleContain">
             <h1>Board</h1>
-            <div class="flex gap32">
+            <div class="flex inputPlusBtn">
                 <div class="boardInputBox">
                     <input id="find_task" class="inputFindTask" type="text" placeholder="Find Task">
                     <img src="/images/search.svg">
@@ -40,47 +40,90 @@ function generateBoardHTML() {
                 <button id="add_taskBtn">Add task <img src="/images/add.svg"></button>
             </div>
         </div>
-        <div class="progressNamesContain">
-            <p>To do ${returnAddBtn('to_do')}</p>
-            <p>In progress ${returnAddBtn('in_progress')}</p>
-            <p>Await feedback ${returnAddBtn('feedback')}</p>
-            <p>Done</p>
-        </div>
-        <div class="taskContain">
-            <div id="to_do" class="taskLine">
-            <section>
-                <h2 class="userStory">User Story</h2>
-                <article>
-                    <span class="taskTitle">Kochwelt Page & Recipe Recommender</span>
-                    <p class="taskDescription">Build start page with recipe recommender</p>
-                </article>
-                <div id="subtask_contain">
-                    <div class="progressbar-container">
-                        <div class="progressbar"></div>
+        <div class="maxWithFlex">
+            <div class="progressNamesContain">
+                <p>To do ${returnAddBtn('to_do')}</p>
+                <p>In progress ${returnAddBtn('in_progress')}</p>
+                <p>Await feedback ${returnAddBtn('feedback')}</p>
+                <p>Done</p>
+            </div>
+            <div class="scrollbar">
+                <div class="taskContain">
+                    <div id="to_do" class="taskLine">
+                    <section>
+                        <h2 class="userStory">User Story</h2>
+                        <article>
+                            <span class="taskTitle">Kochwelt Page & Recipe Recommender</span>
+                            <p class="taskDescription">Build start page with recipe recommender</p>
+                        </article>
+                        <div id="subtask_contain">
+                            <div class="progressbar-container">
+                                <div class="progressbar"></div>
+                            </div>
+                            <span id="subtask">1/2 Subtasks</span>
+                        </div>
+                        <div class="profilePropertyContain">
+                            <div id="profile" class="profileContain">
+                                <div class="profileBadge">RP</div>
+                                <div class="profileBadge">RP</div>
+                                <div class="profileBadge">RP</div>
+                                <div class="profileBadge">RP</div>
+                                <div class="profileBadge">RP</div>
+                                <div class="profileBadge">RP</div>
+                                <div class="profileBadge">RP</div>
+                                <div class="profileBadge">RP</div>
+                                <div class="profileBadge">RP</div>
+                            </div>
+                            <img src="/images/Property 1=Low.svg">
+                        </div>
+                    </section>
                     </div>
-                    <span id="subtask">1/2 Subtasks</span>
-                </div>
-                <div class="profilePropertyContain">
-                    <div id="profile" class="profileContain">
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
+                    <div id="in_progress" class="taskLine">
+                    <section>
+                        <h2 class="userStory">User Story</h2>
+                        <article>
+                            <span class="taskTitle">Kochwelt Page & Recipe Recommender</span>
+                            <p class="taskDescription">Build start er</p>
+                        </article>
+                        <div class="profilePropertyContain">
+                            <div id="profile" class="profileContain">
+                                <div class="profileBadge">RP</div>
+                                <div class="profileBadge">RP</div>
+                                <div class="profileBadge">RP</div>
+                                <div class="profileBadge">RP</div>
+                                <div class="profileBadge">RP</div>
+                            </div>
+                            <img src="/images/Property 1=Low.svg">
+                        </div>
+                    </section>
                     </div>
-                    <img src="/images/Property 1=Low.svg">
+                    <div id="feedback" class="taskLine">
+                    </div>
+                    <div id="done" class="taskLine">
+                    <section>
+                        <h2 class="userStory">User Story</h2>
+                        <article>
+                            <span class="taskTitle">Kochwelt Page & Recipe Recommender</span>
+                            <p class="taskDescription">Build start er</p>
+                        </article>
+                        <div id="subtask_contain">
+                            <div class="progressbar-container">
+                                <div class="progressbar"></div>
+                            </div>
+                            <span id="subtask">1/2 Subtasks</span>
+                        </div>
+                        <div class="profilePropertyContain">
+                            <div id="profile" class="profileContain">
+                                <div class="profileBadge">RP</div>
+                                <div class="profileBadge">RP</div>
+                                <div class="profileBadge">RP</div>
+                                <div class="profileBadge">RP</div>
+                            </div>
+                            <img src="/images/Property 1=Low.svg">
+                        </div>
+                    </section>
+                    </div>
                 </div>
-            </section>
-            </div>
-            <div id="in_progress" class="taskLine">
-            </div>
-            <div id="feedback" class="taskLine">
-            </div>
-            <div id="done" class="taskLine">
             </div>
         </div>
     `;
