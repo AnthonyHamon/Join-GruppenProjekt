@@ -50,7 +50,7 @@ gap: 8px;
 }
 
 textarea {
-    display: flex;
+display: flex;
 height: 120px;
 padding: 18px 16px;
 align-items: flex-start;
@@ -72,28 +72,48 @@ cursor: pointer;
 }
 
 .contacts-field  .custom-dropdown {
-    padding: 12px 16px;
+    display: flex;
     width: 440px;
+    padding: 12px 16px;
+    justify-content: space-between;
+    align-items: center;
     border-radius: 10px;
-    background: var(--white, #FFF);
     border: 1px solid var(--Style, #D1D1D1);
+    background: var(--white, #FFF);
 }
 
-.contacts-field  .custom-dropdown .icon {
+.contacts-field  .custom-dropdown .assign-input {
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-clear-button {
+    display: none;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.assign-button {
+    border: none;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
-.contacts-field  .custom-dropdown .icon .dropdown-content {
-    display: none;
-    position: absolute;
-    top: calc(50% + 20px); /* Adjust this value as needed */
-    right: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    padding: 10px;
+.contacs-container {
+    
 }
+
+
 
 
 h4 {

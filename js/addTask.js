@@ -46,27 +46,9 @@ function selectCategory(category) {
     toggleDropdown();
 }
 
-function toggleCustomDropdown() {
-    const customIcon = document.getElementById('customIcon');
-    const customDropdownContent = document.getElementById('customDropdownContent');
-
-    isCustomDropdownVisible = !isCustomDropdownVisible;
-
-    if (isCustomDropdownVisible) {
-        customIcon.classList.add('rotate');
-        customDropdownContent.style.display = 'block';
-    } else {
-        customIcon.classList.remove('rotate');
-        customDropdownContent.style.display = 'none';
-    }
-}
-
-function selectCustomContact(contactName) {
-    const selectedCustomContacts = document.getElementById('selectedCustomContacts');
-    const newContact = document.createElement('div');
-    newContact.innerText = contactName;
-    selectedCustomContacts.appendChild(newContact);
-    toggleCustomDropdown();  // Schließe das Dropdown nach der Auswahl
+function rotateIcon() {
+    const icon = document.querySelector('.assign-button img');
+    icon.classList.toggle('rotate');
 }
 
 
