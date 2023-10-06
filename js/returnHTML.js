@@ -96,6 +96,6 @@ function returnPrivacyPoliceErrorMsg(){
 
 function returnPasswordError(){
     return `
-    Wrong Pasword, please try it again!
+    Wrong Password, please try it again!
     `
 }

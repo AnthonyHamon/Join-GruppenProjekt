@@ -5,6 +5,7 @@ let isValid = false;
 
 async function initLogin() {
     await loadUsers();
+    checkSavedLogin();
 }
 
 function login() {
@@ -13,6 +14,7 @@ function login() {
     let user = users.find(u => u.user == username || u.email == username);
     let password = users.find(u => u.password == userpassword);
     if (user && password) {
+        rememberMe();
         window.location.href = '../index.html';
     }else if (user &&!password){
         showPasswordError();
@@ -34,6 +36,26 @@ async function loadUsers() {
     } catch (e) {
         console.log('users could not be loaded');
     }
+}
+
+function checkSavedLogin(){
+    try{
+        let user = []
+        let username = document.getElementById('user-login');
+        let password = document.getElementById('password-input');
+        user = JSON.parse(localStorage.getItem('userdata'));
+        username.value = user['username'];
+        password.value = user['password'];
+    } catch(e){
+        console.log('users could not be loaded');
+    };
+}
+
+function rememberMe(){
+    let username = document.getElementById('user-login').value;
+    let password = document.getElementById('password-input').value;
+    let user = {username, password}
+    isChecked ? localStorage.setItem('userdata', JSON.stringify(user)) : '';
 }
 
 async function signUp() {
@@ -104,6 +126,7 @@ function signUpValidation() {
 
 
 function toggleRememberMeButton() {
+    isChecked = !isChecked;
     document.getElementById('check-button').classList.toggle('d-none');
     document.getElementById('checked-button').classList.toggle('d-none');
 }
