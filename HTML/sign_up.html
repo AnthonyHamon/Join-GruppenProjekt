@@ -28,11 +28,11 @@
                 <div class="column_align_center">
                     <div class="sign_up_inputs">
                         <div class="sign_up_input_div">
-                            <input id="user-input" required minlength="3" type="text" placeholder="Name">
+                            <input onblur="checkExistingUser()" id="user-input" required minlength="3" type="text" placeholder="Name">
                             <img src="../images/person.svg" alt="">
                         </div>
                         <div class="sign_up_input_div">
-                            <input id="email-input" required type="email" placeholder="Email">
+                            <input onblur="checkExistingUser()" id="email-input" required type="email" placeholder="Email">
                             <img src="../images/mail.svg" alt="">
                         </div>
                         <div class="sign_up_input_div">
@@ -61,11 +61,11 @@
                             </div>
                             <span> I accept the <a href="privacy_policy.html" target="_blank">Privacy policy</a></span>
                         </div>
-                        <span id="input-error" class="opacity_zero">Please accept our Privacy Policy</span>
+                        <span id="input-error"></span>
                     </div>
                 </div>
                 <div>
-                    <button onmouseover="activateButton()" onmouseleave="signUpValidation()" id="signUpButton" class="sign_up">Sign up</button>
+                    <button type="submit" onmouseover="activateButton()" onmouseleave="signUpValidation()" id="signUpButton" class="sign_up">Sign up</button>
                 </div>
             </form>
 
@@ -80,9 +80,9 @@
         </footer>
     </div>
 
-
-    <script src="../js/register.js"></script>
     <script src="../js/storage.js"></script>
+    <script src="../js/register.js"></script>
+    <script src="../js/returnHTML.js"></script>
 </body>
 
 </html>

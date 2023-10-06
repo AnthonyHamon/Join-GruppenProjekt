@@ -1,4 +1,5 @@
 let iconRotated = false;
+let isCustomDropdownVisible = false;
 
 
 function renderAddTask() {
@@ -45,16 +46,13 @@ function selectCategory(category) {
     toggleDropdown();
 }
 
-
-function searchContacts() {
-    const customDropdown = document.getElementById('customDropdown');
-    const customIcon = document.getElementById('customIcon');
-
-    customIcon.classList.toggle('rotate');
-
-    if (customDropdown.style.display === 'block') {
-        customDropdown.style.display = 'none';
-    } else {
-        customDropdown.style.display = 'block';
-    }
+function rotateIcon() {
+    const icon = document.querySelector('.assign-button img');
+    icon.classList.toggle('rotate');
 }
+
+
+
+
+
+

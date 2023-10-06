@@ -5,6 +5,7 @@ let isValid = false;
 
 async function initLogin() {
     await loadUsers();
+    checkSavedLogin();
 }
 
 function login() {
@@ -13,6 +14,7 @@ function login() {
     let user = users.find(u => u.user == username || u.email == username);
     let password = users.find(u => u.password == userpassword);
     if (user && password) {
+        rememberMe();
         window.location.href = '../index.html';
     }else if (user &&!password){
         showPasswordError();
@@ -24,8 +26,8 @@ function login() {
 
 function showPasswordError(){
     let errorMsg = document.getElementById('input-error');
-    errorMsg.classList.contains('opacity_zero') ? errorMsg.classList.toggle('opacity_zero') :
-    errorMsg.classList.add('opacity_zero');
+    !errorMsg.textContent ? errorMsg.innerHTML = returnPasswordError():
+    errorMsg.innerHTML = '';
 }
 
 async function loadUsers() {
@@ -36,19 +38,59 @@ async function loadUsers() {
     }
 }
 
+function checkSavedLogin(){
+    try{
+        let user = []
+        let username = document.getElementById('user-login');
+        let password = document.getElementById('password-input');
+        user = JSON.parse(localStorage.getItem('userdata'));
+        username.value = user['username'];
+        password.value = user['password'];
+    } catch(e){
+        console.log('users could not be loaded');
+    };
+}
+
+function rememberMe(){
+    let username = document.getElementById('user-login').value;
+    let password = document.getElementById('password-input').value;
+    let user = {username, password}
+    isChecked ? localStorage.setItem('userdata', JSON.stringify(user)) : '';
+}
+
 async function signUp() {
     let user = document.getElementById('user-input').value;
     let email = document.getElementById('email-input').value;
     let password = document.getElementById('password-input').value;
     isValid && isChecked ? users.push({ user, email, password }) &&
-        // await setItem('users', JSON.stringify(users)) &&
+        await setItem('users', JSON.stringify(users)) &&
         resetForm() : '';
+}
+
+function checkExistingUser(){
+    let userError = document.getElementById('user-input');
+    let emailError = document.getElementById('email-input');
+    let username = document.getElementById('user-input').value;
+    let userEmail = document.getElementById('email-input').value;
+    let user = users.find(u => u.user == username);
+    let email = users.find(u => u.email == userEmail);
+    if (user){
+        !isValid
+        userError.setCustomValidity('This User Already exist')
+    }else if(email){
+        !isValid
+        emailError.setCustomValidity('This email adress has already been registered')
+    }else{
+        userError.setCustomValidity('');
+        emailError.setCustomValidity('');
+    }
 }
 
 function activateButton(){
     let signUpButton = document.getElementById('signUpButton');
     isChecked ? signUpButton.disabled = false : signUpButton.disabled = true && signUpValidation();
 }
+
 
 
 function resetForm() {
@@ -77,17 +119,14 @@ function passwordValidation() {
 }
 
 function signUpValidation() {
-    let user = document.getElementById('user-input').value;
-    let password = document.getElementById('password-input').value;
-    let confirmedPassword = document.getElementById('password-confirmation').value;
-    user.length >= 3 &&
-        password == /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/ &&
-        password == confirmedPassword &&
-        isChecked == true ?? 
+    let errorMsg = document.getElementById('input-error');
+    !isChecked && !errorMsg.textContent ? errorMsg.innerHTML = returnPrivacyPoliceErrorMsg() :
+    errorMsg.innerHTML = '';
 }
 
 
 function toggleRememberMeButton() {
+    isChecked = !isChecked;
     document.getElementById('check-button').classList.toggle('d-none');
     document.getElementById('checked-button').classList.toggle('d-none');
 }
