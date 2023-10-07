@@ -34,6 +34,16 @@ body {
     }
 }
 
+@keyframes signUpConfirmationAnimation{
+    from{
+        align-items: flex-end;
+    }
+
+    to{
+        align-items: center;
+    }
+}
+
 .logo_animation_ctn {
     position: absolute;
     top: 0;
@@ -55,6 +65,37 @@ body {
  .no_animation{
     animation: none !important;
  }
+
+ #sign-up-animation-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(184, 185, 186, 0.6);
+ }
+
+ .add_sign_Up_animation{
+    animation: signUpConfirmationAnimation 1.2sec ease-in-out;
+ }
+
+ .sign_up_animation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 74px;
+    padding: 0 25px;
+    background-color: #2A3647;
+    border-radius: 20px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.15);
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
 
 
 .sign_up_header {
@@ -311,9 +352,7 @@ footer a:hover {
     transition: all 100ms ease-in-out;
 }
 
-.d-none {
-    display: none;
-}
+
 
 /* for Sign up Page */
 
@@ -463,4 +502,8 @@ footer a:hover {
 
 .privacy_policy_div a:hover {
     font-weight: 700;
+}
+
+.d-none {
+    display: none !important;
 }

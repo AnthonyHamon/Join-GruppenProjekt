@@ -62,9 +62,18 @@ async function signUp() {
     let user = document.getElementById('user-input').value;
     let email = document.getElementById('email-input').value;
     let password = document.getElementById('password-input').value;
-    isValid && isChecked ? users.push({ user, email, password }) &&
-        await setItem('users', JSON.stringify(users)) &&
-        resetForm() : '';
+    if(isValid && isChecked){
+        users.push({ user, email, password });
+        // await setItem('users', JSON.stringify(users));
+        resetForm();
+        showSignUpConfirmation();
+        //  && window.location.href == "../HTML/login.html";
+    }
+}
+
+function showSignUpConfirmation(){
+    document.getElementById('sign-up-animation-div').classList.remove('d-none');
+    document.getElementById('sign-up-animation-div').classList.add('add_sign_Up_animation');
 }
 
 function checkExistingUser(){
