@@ -27,8 +27,9 @@
                     </div>
                     <div class="description-field">
                         <h4>Description</h4>
-                        <textarea name="myTextarea" placeholder="Enter a Description"spellcheck
-                            required></textarea>
+                        <div class="textarea-container">
+                            <textarea class="textarea attrebute" name="myTextarea" placeholder="Enter a Description"spellcheckrequired></textarea>
+                        </div>
                     </div>
                     <div class="contacts-field">
                         <h4>Assigned to</h4>
@@ -36,18 +37,23 @@
                             <input class="assign-input" type="search" placeholder="Select contacts to assign">
                             <button class="assign-button" onclick="rotateIcon()"><img src="../images/arrow_drop_downaa.svg" alt=""></button>
                         </div>
-                        <div class="contacs-container">
-                            <div>
-                                <div>
-                                    <div>
+                        <div class="contac-container">
+                            <div class="contact-box">
+                                <div class="contacts-topfield">
+                                    <div class="contakts-name">
                                         <img src="..//images/Property 1=Anton.svg" alt="">
-                                        <samp>Anton Mayer</samp>
+                                        <samp class="contact-name">Anton Mayer</samp>
                                     </div>
                                     <div>
-                                        <button><img src="../images/Rectangle 5.svg" alt=""></button>
+                                        <button class="check-button"><img src="../images/Rectangle 5.svg" alt=""></button>
                                     </div>
                                 </div>
-                                <button><img src="../images/Property 1=Variant4.svg" alt=""></button>
+                                <div class="add-contact-bottom">
+                                    <button class="add-buton">
+                                        <p class="add-button-name">Add new contacts</p>
+                                        <img class="add-icon" src="../images/person_add.svg" alt="">
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
