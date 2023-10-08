@@ -73,7 +73,7 @@ async function signUp() {
 
 function showSignUpConfirmation(){
     document.getElementById('sign-up-animation-div').classList.remove('d-none');
-    document.getElementById('sign-up-animation-div').classList.add('add_sign_Up_animation');
+    document.getElementById('sign-up-animation').classList.add('add_sign_Up_animation');
 }
 
 function checkExistingUser(){
