@@ -15,6 +15,10 @@ html {
     max-height: 100%;
 }
 
+.mobile {
+    display: none;
+}
+
 #content {
     position: relative;
     z-index: 98;
@@ -176,4 +180,58 @@ nav a {
     pointer-events: none;
 }
 
-@media (max-width:999px) {}
+@media (max-width:999px) {
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    body,
+    html {
+        height: 100vh;
+    }
+
+    nav {
+        position: absolute;
+        height: 80px;
+        width: 100%;
+        bottom: 0;
+    }
+
+    header {
+        position: absolute;
+        left: 0;
+        height: 80px;
+    }
+
+    .navLinkContain a {
+        display: flex;
+        align-items: center;
+        color: rgba(205, 205, 205, 1);
+        height: 46px;
+        padding-left: 56px;
+        gap: 10px;
+        font-size: 16px;
+    }
+
+    .navLinkContain img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .navLinkContain {
+        display: flex;
+        line-height: 19.2px;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .navLinkContain a:hover {
+        background-color: rgba(48, 70, 100, 0.5);
+        cursor: pointer;
+    }
+}

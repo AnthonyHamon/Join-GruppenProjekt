@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mobile_template</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="flex">
+    <div class="mobile">
+        <header>
+            <p class="headerTitle">Kanban Project Management Tool</p>
+            <div>
+                <div class="headerInfoContain">
+                    <img src="/images/help.svg">
+                    <p>SM</p>
+                </div>
+            </div>
+        </header>
+        <nav class="column">
+            <div class="navLinkContain">
+                <a id="summary" onclick="renderSummary()"><img src="/images/summary.svg"></a>
+                <a id="add_task" onclick="renderAddTask()"><img src="/images/add_task.svg"></a>
+                <a id="board" onclick="renderBoard()"><img src="/images/board.svg"></a>
+                <a id="contacts" onclick="renderContacts()"><img src="/images/contacts.svg"></a>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>
