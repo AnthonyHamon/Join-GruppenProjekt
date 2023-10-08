@@ -82,7 +82,7 @@ body {
     animation: signUpConfirmationAnimation 1.2sec ease-in-out;
 }
 
-.sign_up_animation {
+#sign-up-animation {
     display: flex;
     justify-content: center;
     align-items: center;

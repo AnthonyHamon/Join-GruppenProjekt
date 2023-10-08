@@ -4,8 +4,13 @@ let isValid = false;
 
 
 async function initLogin() {
+    // comingFromSignUP();
     await loadUsers();
     checkSavedLogin();
+}
+
+async function initSignUp() {
+    await loadUsers();
 }
 
 function login() {
@@ -16,18 +21,18 @@ function login() {
     if (user && password) {
         rememberMe();
         window.location.href = '../index.html';
-    }else if (user &&!password){
+    } else if (user && !password) {
         showPasswordError();
-    }else{
+    } else {
         console.log('this user could not be find.')
     }
 }
 
 
-function showPasswordError(){
+function showPasswordError() {
     let errorMsg = document.getElementById('input-error');
-    !errorMsg.textContent ? errorMsg.innerHTML = returnPasswordError():
-    errorMsg.innerHTML = '';
+    !errorMsg.textContent ? errorMsg.innerHTML = returnPasswordError() :
+        errorMsg.innerHTML = '';
 }
 
 async function loadUsers() {
@@ -38,23 +43,23 @@ async function loadUsers() {
     }
 }
 
-function checkSavedLogin(){
-    try{
+function checkSavedLogin() {
+    try {
         let user = []
         let username = document.getElementById('user-login');
         let password = document.getElementById('password-input');
         user = JSON.parse(localStorage.getItem('userdata'));
         username.value = user['username'];
         password.value = user['password'];
-    } catch(e){
+    } catch (e) {
         console.log('users could not be loaded');
     };
 }
 
-function rememberMe(){
+function rememberMe() {
     let username = document.getElementById('user-login').value;
     let password = document.getElementById('password-input').value;
-    let user = {username, password}
+    let user = { username, password }
     isChecked ? localStorage.setItem('userdata', JSON.stringify(user)) : '';
 }
 
@@ -62,40 +67,40 @@ async function signUp() {
     let user = document.getElementById('user-input').value;
     let email = document.getElementById('email-input').value;
     let password = document.getElementById('password-input').value;
-    if(isValid && isChecked){
+    if (isValid && isChecked) {
         users.push({ user, email, password });
         // await setItem('users', JSON.stringify(users));
         resetForm();
         showSignUpConfirmation();
-        //  && window.location.href == "../HTML/login.html";
+        setTimeout(()=>window.location.href = "../HTML/login.html", 2000);
     }
 }
 
-function showSignUpConfirmation(){
+function showSignUpConfirmation() {
     document.getElementById('sign-up-animation-div').classList.remove('d-none');
     document.getElementById('sign-up-animation').classList.add('add_sign_Up_animation');
 }
 
-function checkExistingUser(){
+function checkExistingUser() {
     let userError = document.getElementById('user-input');
     let emailError = document.getElementById('email-input');
     let username = document.getElementById('user-input').value;
     let userEmail = document.getElementById('email-input').value;
     let user = users.find(u => u.user == username);
     let email = users.find(u => u.email == userEmail);
-    if (user){
+    if (user) {
         !isValid
         userError.setCustomValidity('This User Already exist')
-    }else if(email){
+    } else if (email) {
         !isValid
         emailError.setCustomValidity('This email adress has already been registered')
-    }else{
+    } else {
         userError.setCustomValidity('');
         emailError.setCustomValidity('');
     }
 }
 
-function activateButton(){
+function activateButton() {
     let signUpButton = document.getElementById('signUpButton');
     isChecked ? signUpButton.disabled = false : signUpButton.disabled = true && signUpValidation();
 }
@@ -130,7 +135,7 @@ function passwordValidation() {
 function signUpValidation() {
     let errorMsg = document.getElementById('input-error');
     !isChecked && !errorMsg.textContent ? errorMsg.innerHTML = returnPrivacyPoliceErrorMsg() :
-    errorMsg.innerHTML = '';
+        errorMsg.innerHTML = '';
 }
 
 
@@ -182,16 +187,17 @@ function toggleShowPassword() {
 // trying to return to login without logo animation
 
 function loginRedirection() {
-    // localStorage.setItem('isComingFromSignUP', 'true')
+    localStorage.setItem('isComingFromSignUP', true);
     window.location.href = "login.html";
 }
 
-// function initLogin() {
+// function comingFromSignUP() {
 //     let isComingFromSignUP = localStorage.getItem('isComingFromSignUP');
-//     if (isComingFromSignUP = true) {
+//     if (isComingFromSignUP == true) {
 //         deactivateLoginAnimation();
+//     }else{
+//         isComingFromSignUP == false;
 //     }
-//     isComingFromSignUP = false;
 //     localStorage.setItem('isComingFromSignUP', isComingFromSignUP);
 // }
 
@@ -207,9 +213,9 @@ function loginRedirection() {
 //     `
 // }
 
-// function deactivateLoginAnimation() {
-//     document.getElementById('logo-animation').classList.remove('logo_animation_ctn');
-//     document.getElementById('logo-animation-img').classList.remove('logo_animation_img');
-//     document.getElementById('logo-animation-img').classList.add('no_animation');
-// }
+function deactivateLoginAnimation() {
+    document.getElementById('animation-ctn').classList.add('d-none');
+    document.getElementById('logo-animation-img').classList.remove('logo_animation_img');
+    document.getElementById('logo-animation-img').classList.add('no_animation');
+}
 
