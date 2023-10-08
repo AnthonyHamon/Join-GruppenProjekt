@@ -7,65 +7,6 @@
     padding-top: 90px;
 }
 
-.titel-input {
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    font-family: 'PT Sans', sans-serif;
-}
-
-.titel-input::placeholder {
-    color: rgba(209, 209, 209, 1);
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-}
-
-.titel-input:focus {
-    outline: none;
-}
-
-.textarea-container {
-    display: flex;
-    height: 120px;
-    padding: 18px 16px;
-    align-items: flex-start;
-    gap: 10px;
-    align-self: stretch;
-    border-radius: 10px;
-    border: 1px solid var(--Style, #D1D1D1);
-    background: #FFF;
-    cursor: pointer;
-}
-
-.textarea {
-    width: 100%;
-    height: 100%;
-    appearance: none;
-    background: url('../images/Recurso\ 1\ 1.svg') no-repeat right bottom;
-}
-
-.attrebute {
-    font-weight: 400;
-    background-color: #FFF;
-    font-size: 20px;
-    line-height: 24px;
-    font-family: 'PT Sans', sans-serif;
-}
-
-.textarea::placeholder {
-    color: rgba(209, 209, 209, 1);
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    font-family: 'PT Sans', sans-serif;
-}
-
-.textarea:focus {
-    outline: none;
-    border: none;
-}
-
 .assign-input {
     width: 246px;
     height: 25px;
@@ -100,16 +41,31 @@
 }
 
 .titel-input {
-height: 48px;
-display: flex;
-padding: 12px 21px;
-align-items: center;
-gap: 10px;
-align-self: stretch;
-border-radius: 10px;
-border: 1px solid var(--Style, #D1D1D1);
-background: #FFF;
-cursor: pointer;
+    display: flex;
+    padding: 12px 21px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 10px;
+    border: 1px solid var(--Style, #D1D1D1);
+    background: #FFF;
+    cursor: pointer;
+    font-weight: 400;
+    height: 48px;
+    font-size: 20px;
+    line-height: 24px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.titel-input::placeholder {
+    color: rgba(209, 209, 209, 1);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.titel-input:focus {
+    outline: none;
 }
 
 .description-field {
@@ -118,6 +74,61 @@ width: 440px;
 flex-direction: column;
 align-items: flex-start;
 gap: 8px;
+}
+
+.textarea-container {
+    position: relative;
+    display: flex;
+    padding: 18px 16px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 10px;
+    border: 1px solid var(--Style, #D1D1D1);
+    background: #FFF;
+    height: 120px;
+}
+
+.textarea-field {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.textarea {
+    width: 100%;
+    height: 25px;
+    flex: 1 0 0;
+    border: none;
+}
+
+.attrebute {
+    font-weight: 400;
+    background-color: #FFF;
+    font-size: 20px;
+    line-height: 24px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.description-icon {
+    width: 18.9px;
+    height: 18.9px;
+    position: absolute;
+    bottom: 6.1px;
+    right: 6.1px;
+}
+
+.textarea::placeholder {
+    color: rgba(209, 209, 209, 1);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.textarea:focus {
+    outline: none;
 }
 
 .contacts-field {
@@ -154,32 +165,37 @@ input[type="search"]::-webkit-search-clear-button {
     display: none;
 }
 
-.rotate {
-    transform: rotate(180deg);
-    transition: transform 0.3s ease;
-}
-
 .assign-button {
     border: none;
-    border-radius: 100%;
-    width: 20px;
-    height: 20px;
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.contac-container {
+.assign-button:hover {
+    border-radius: 10px;
+    background: var(--white, #D1D1D1);
+    border: 1px solid var(--Style, #D1D1D1);
+}
+
+.contact-container.hidden {
+    display: none;
+} 
+
+.contact-container {
     display: flex;
-    width: 440px;
+    width: 439px;
     height: auto;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
     background: #FFF;
-    box-shadow: 0px 1px 2px 0px rgba(42, 54, 71, 1);
+    box-shadow: 0px 1px 2px 0px #D1D1D1;
     border-radius: 3px 3px 10px 10px;
-    top: -12px;
+    top: -15px;
     position: relative;
     z-index: 1;
 }
@@ -253,6 +269,10 @@ input[type="search"]::-webkit-search-clear-button {
     font-weight: 700;
     font-size: 21px;
     line-height: 25.2px;
+}
+
+.rotate {
+    transform: rotate(180deg);
 }
 
 

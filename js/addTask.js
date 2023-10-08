@@ -52,6 +52,21 @@ function rotateIcon() {
 }
 
 
+function toggleContacts() {
+    const contactContainer = document.getElementById('contactContainer');
+    const arrowIcon = document.getElementById('arrowIcon');
+
+    contactContainer.classList.toggle('hidden');  // Ein- und Ausblenden des Kontaktcontainers
+
+    // Überprüfen, ob der Kontaktcontainer jetzt sichtbar ist
+    if (!contactContainer.classList.contains('hidden')) {
+        arrowIcon.classList.add('rotate');  // Drehen des Icons um 180 Grad, wenn sichtbar
+    } else {
+        arrowIcon.classList.remove('rotate');  // Entfernen der Rotation, wenn unsichtbar
+    }
+}
+
+
 
 
 
