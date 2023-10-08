@@ -1,17 +1,18 @@
-.scrollbar::-webkit-scrollbar {
-    width: 10px;
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
 }
 
-.scrollbar::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.scrollbar::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 10px;
 }
 
-.scrollbar::-webkit-scrollbar-thumb:hover {
+*::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 
@@ -118,7 +119,7 @@
     display: flex;
     align-items: center;
     margin: 0;
-    padding: 0 20px 0 10px;
+    padding: 30px 20px 0 10px;
     gap: 34px;
 }
 
@@ -132,7 +133,7 @@
 }
 
 
-.progressNamesContain p {
+.progressName {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -168,7 +169,7 @@
     min-width: 180px;
 }
 
-.taskContain section {
+.section {
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
@@ -191,12 +192,12 @@
     color: #ffffff;
 }
 
-.taskContain p {
+.section p {
     margin: 0;
 
 }
 
-.taskContain article {
+.section article {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -276,9 +277,23 @@
     padding-left: 10px;
 }
 
+.emptyTaskLine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E7E7E7;
+    border: 1px dashed #A8A8A8;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    width: 100%;
+    margin: 0;
+    font-size: 16px;
+    color: #A8A8A8;
+    height: 54px;
+    text-wrap: nowrap;
+}
+
 .scrollbar {
-    position: relative;
-    z-index: 99;
     height: 570px;
     overflow-y: scroll;
     padding: 12px 12px 0 0;
@@ -286,10 +301,6 @@
     width: 100%;
     max-width: 1380px;
     min-width: 860px;
-}
-
-.maxWithFlex {
-    margin-top: 30px;
 }
 
 .d-none {
@@ -304,9 +315,6 @@
 }
 
 @media(max-width:1299px) {
-    .maxWithFlex {
-        display: flex;
-    }
 
     .progressNamesContain {
         display: flex;
@@ -314,6 +322,85 @@
         align-items: center;
         margin: 0;
         padding: 0 0 0 10px;
-        gap: 34px;
+        gap: 0;
+    }
+
+    .progressNameWithLine {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+
+    .taskLine {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        background-color: transparent;
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        height: 100%;
+        gap: 20px;
+        padding: 20px 10px 10px 0;
+        margin-left: 0;
+    }
+
+    .scrollbar {
+        height: 620px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding: 0 12px 0 0;
+        margin: 30px 0px 0 0;
+        width: auto;
+        max-width: none;
+        min-width: 0;
+    }
+
+    .scrollbarTaskLine {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        width: 100%;
+    }
+
+    .section {
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
+        border-radius: 24px;
+        padding: 16px;
+        gap: 18px;
+        width: 100%;
+        min-width: 285px;
+        max-width: 285px;
+        margin: 0 0 0 10px;
+    }
+
+    .emptyTaskLine {
+        max-width: 311px;
+    }
+
+    .titleContain {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 73px;
+        margin: 80px 0 0 0;
+        padding: 0 0 0 10px;
+    }
+
+    .boardContent {
+        padding-left: -10px !important;
+    }
+}
+
+@media(max-width:1099px) {
+    .addBtnText {
+        display: none;
+    }
+
+    #add_taskBtn {
+        min-width: 0;
+        padding: 0 6px 0 6px;
     }
 }
