@@ -321,16 +321,101 @@ h4 {
     align-self: stretch;
     width: 440px;
     padding: 12px 16px;
+    position: relative;
+    z-index: 2;
 }
 
-.date-field .date-input {
+.custom-date-text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    font-family: 'PT Sans', sans-serif;
     border: none;
-
 }
 
-.date-field .date-input .date-icon {
+.custom-date-text:focus {
+    outline: none;
+    border: none;
+}
+
+.calendar-container{
+    display: none;
+}
+
+.calendar-container {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFF;
+    width: 439px;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    background: #FFF;
+    box-shadow: 0px 1px 2px 0px #D1D1D1;
+    border-radius: 3px 3px 10px 10px;
+    top: 345px;
+}
+
+.month {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-top: 15px;
+}
+.month-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prev-month, .next-month {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.days {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #f0f0f0;
+    padding: 5px;
+}
+
+.day {
+    width: calc(100% / 7);
+    text-align: center;
+}
+
+.dates {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.date {
+    width: calc(100% / 7);
+    padding: 10px;
+    text-align: center;
+}
+
+.date:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.date-button {
+    border: none;
+    background-color: transparent;
     width: 24px;
     height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 .butto-selection {

@@ -1,5 +1,6 @@
 let iconRotated = false;
 let isCustomDropdownVisible = false;
+let datesContainer = document.querySelector('.dates');
 
 
 function renderAddTask() {
@@ -65,6 +66,38 @@ function toggleContacts() {
         arrowIcon.classList.remove('rotate');  // Entfernen der Rotation, wenn unsichtbar
     }
 }
+
+
+function toggleCalendar() {
+    const calendar = document.getElementById('calendar');
+    calendar.style.display = (calendar.style.display === 'block') ? 'none' : 'block';
+}
+
+
+function generateCalendar() {
+    const daysInMonth = 30;  // Replace with actual number of days in the month
+    datesContainer.innerHTML = '';
+
+    const currentDate = new Date();
+    const currentDay = currentDate.getDate();
+    const currentMonth = currentDate.getMonth() + 1;  // Monate sind 0-basiert
+    const currentYear = currentDate.getFullYear();
+
+    for (let i = 1; i <= daysInMonth; i++) {
+        const dateElement = document.createElement('div');
+        dateElement.classList.add('date');
+        dateElement.innerText = i;
+
+        // Setze den aktuellen Tag
+        if (i === currentDay && currentMonth === new Date().getMonth() + 1 && currentYear === new Date().getFullYear()) {
+            dateElement.classList.add('current-day');
+        }
+
+        datesContainer.appendChild(dateElement);
+    }
+}
+
+generateCalendar();
 
 
 
