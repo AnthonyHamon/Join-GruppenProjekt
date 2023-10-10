@@ -164,6 +164,8 @@ body {
 .login_form form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
 }
 
@@ -187,6 +189,8 @@ body {
 .login_inputs {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     min-width: 422px;
     height: 152px;
     gap: 32px;
@@ -512,6 +516,7 @@ footer a:hover {
     display: none !important;
 }
 
+
 @media (max-width: 700px) {
     main {
         display: flex;
@@ -541,7 +546,7 @@ footer a:hover {
         font-size: 47px;
     }
 
-    .login_form_ctn{
+    .login_form_ctn {
         height: calc(100vh - 280px);
     }
 
@@ -568,5 +573,126 @@ footer a:hover {
 
     .login_buttons {
         flex-direction: column;
+        gap: 21px;
+    }
+}
+
+@media (max-width: 500px) {
+    .logo_animation_img {
+        height: 78px;
+        width: 64px;
+    }
+
+    .login_title {
+        min-width: 240px;
+    }
+
+    #login-button {
+        min-width: 180px;
+        height: 51px;
+    }
+
+    #guest-login-button {
+        min-width: 180px;
+        height: 51px;
+    }
+
+    .login_input {
+        max-width: 364px;
+    }
+
+    .login_input_div input{
+        max-width: 170px;
+    }
+
+    .login_parameters {
+        width: 396px;
+    }
+}
+
+@media (max-height: 850px){
+
+    .login_form_ctn {
+        height: calc(100vh - 200px);
+    }
+
+    .logo_animation_img {
+        top: 17px;
+        left: 18px;
+    }
+
+
+    footer{
+        bottom: 4px;
+    }
+
+    footer div{
+        min-height: 0;
+    }
+}
+
+@media (max-height: 750px){
+    .login_form_ctn {
+        height: calc(100vh - 160px);
+    }
+
+    .logo_animation_img {
+        height: 64px;
+        width: 50px;
+    }
+}
+
+@media (max-width: 420px){
+    .login_form{
+        min-width: 388px;
+    }
+}
+
+@media (max-width: 360px){
+    .login_form{
+        min-width: 388px;
+    }
+
+    .login_parameters{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+        gap: 4px;
+    }
+
+    .remember_me{
+        min-width: 152px;
+        margin-left: 0;
+    }
+
+    .login_input {
+        max-width: 300px;
+    }
+
+    .login_inputs {
+        min-width: 300px;
+    }
+
+    .login_input_div{
+        width: 300px;
+    }
+
+    .login_form{
+        min-width: 300px;
+    }
+
+    main{
+        gap: 20px;
+    }
+
+    .login_form_ctn{
+        justify-content: flex-end;
+    }
+
+    .logo_animation_img {
+        height: 54px;
+
     }
 }
