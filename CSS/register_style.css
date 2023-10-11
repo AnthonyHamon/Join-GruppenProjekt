@@ -571,9 +571,18 @@ footer a:hover {
         padding: 0;
     }
 
+    .login_parameters a{
+        margin-right: 39px;
+    }
+
     .login_buttons {
         flex-direction: column;
         gap: 21px;
+    }
+
+    #login-button {
+        min-width: 180px;
+        height: 51px;
     }
 }
 
@@ -585,11 +594,6 @@ footer a:hover {
 
     .login_title {
         min-width: 240px;
-    }
-
-    #login-button {
-        min-width: 180px;
-        height: 51px;
     }
 
     #guest-login-button {
@@ -610,48 +614,44 @@ footer a:hover {
     }
 }
 
-@media (max-height: 850px){
-
-    .login_form_ctn {
-        height: calc(100vh - 200px);
-    }
-
-    .logo_animation_img {
-        top: 17px;
-        left: 18px;
-    }
-
-
-    footer{
-        bottom: 4px;
-    }
-
-    footer div{
-        min-height: 0;
-    }
-}
-
-@media (max-height: 750px){
-    .login_form_ctn {
-        height: calc(100vh - 160px);
-    }
-
-    .logo_animation_img {
-        height: 64px;
-        width: 50px;
-    }
-}
-
-@media (max-width: 420px){
+@media (max-width: 410px){
     .login_form{
         min-width: 388px;
+    }
+
+    .login_parameters{
+        max-width: 320px;
+        justify-content: center;
+        gap: 32px;
+    }
+
+    .login_parameters a{
+        margin-right: 0;
+    }
+
+    .remember_me{
+        margin-left: 0;
+        gap: 4px;
+    }
+
+    .login_input {
+        max-width: 360px;
+    }
+
+    .login_inputs {
+        min-width: 360px;
+    }
+
+    .login_input_div{
+        width: 360px;
+    }
+
+    .login_form{
+        min-width: 360px;
     }
 }
 
 @media (max-width: 360px){
-    .login_form{
-        min-width: 388px;
-    }
 
     .login_parameters{
         display: flex;
@@ -693,6 +693,37 @@ footer a:hover {
 
     .logo_animation_img {
         height: 54px;
+    }
 
+    .login_buttons{
+        min-width: 200px;
+    }
+}
+
+@media (max-height: 850px){
+
+    .login_form_ctn {
+        height: calc(100vh - 200px);
+    }
+
+    .logo_animation_img {
+        top: 17px;
+        left: 18px;
+    }
+
+
+    footer{
+        bottom: 4px;
+    }
+}
+
+@media (max-height: 750px){
+    .login_form_ctn {
+        height: calc(100vh - 160px);
+    }
+
+    .logo_animation_img {
+        height: 64px;
+        width: 50px;
     }
 }
