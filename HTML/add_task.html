@@ -69,7 +69,7 @@
                             <h4>Due Date<span class="letter-color">*</span></h4>
                             <form class="date-container">
                                 <div>
-                                    <input type="text" class="custom-date-text" id="customDateText" placeholder="dd/mm/yyyy">
+                                    <input type="text" class="custom-date-text" id="customDateText" placeholder="dd/mm/yyyy" readonly>
                                 </div>
                                 <div>
                                     <button class="date-button" type="button" onclick="toggleCalendar()">
@@ -80,30 +80,7 @@
                             <div id="calendar" class="calendar-container">
                                 <div class="calendar">
                                     <div class="month">
-                                        <div class="month-navigation">
-                                            <button class="prev-month">&#8249;</button>
-                                            <select id="month-select" onchange="updateCalendar()">
-                                                <option value="1">Januar</option>
-                                                <option value="2">Februar</option>
-                                                <option value="3">März</option>
-                                                <!-- ... Füge die restlichen Monate hinzu ... -->
-                                            </select>
-                                            <span>2023</span>
-                                            <button class="next-month">&#8250;</button>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="days">
-                                        <div class="day">Sun</div>
-                                        <div class="day">Mon</div>
-                                        <div class="day">Tue</div>
-                                        <div class="day">Wed</div>
-                                        <div class="day">Thu</div>
-                                        <div class="day">Fri</div>
-                                        <div class="day">Sat</div>
-                                    </div>
-                                    <div class="dates">
-                                        <!-- Dates will be populated here -->
+                                        
                                     </div>
                                 </div>
                             </div>
