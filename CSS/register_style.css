@@ -516,6 +516,12 @@ footer a:hover {
     display: none !important;
 }
 
+@media (max-width: 1440px){
+    .logo{
+        padding: 37px 38px;
+    }
+}
+
 
 @media (max-width: 700px) {
     main {
@@ -583,6 +589,40 @@ footer a:hover {
     #login-button {
         min-width: 180px;
         height: 51px;
+    }
+
+    @keyframes mobileAnimation{
+        from{
+            background-color: #2A3647;
+            z-index: 3;
+        }
+
+        to{
+            background-color: #F6F7F8;
+            z-index: 1;
+        }
+    }
+
+    @keyframes mobileAnimationLogo {
+        from {
+            top: 45%;
+            left: 45%;
+            transform: 0px;
+            scale: 200%;
+        }
+    
+        to {
+            top: 37px;
+            left: 38px;
+        }
+    }
+
+    .logo_animation_ctn{
+        animation: mobileAnimation 1.8s ease-in-out;
+    }
+
+    .logo_animation_img{
+        animation: mobileAnimationLogo 1.4s ease-in-out;
     }
 }
 

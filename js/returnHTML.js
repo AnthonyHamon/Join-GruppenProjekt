@@ -27,8 +27,6 @@ function generateContactsHTML() {
     console.table({ name: 'generateContactsHTML', where: 'in /js/contacts.js', function: 'renderContacts()' });
 }
 
-window.addEventListener("resize", checkWidthInBoard);
-
 function generateBoardHTML() {
     content.innerHTML = '';
     content.innerHTML =/*html*/`
@@ -44,14 +42,6 @@ function generateBoardHTML() {
         </div>
         <div id="width_HTML"></div>
     `;
-}
-
-function checkWidthInBoard() {
-    if (window.innerWidth >= 1300) {
-        generateBoardWidthPlus1300HTML();
-    } else {
-        generateBoardWidthMinus1300HTML();
-    }
 }
 
 function generateBoardWidthPlus1300HTML() {

@@ -55,3 +55,13 @@ function addTask(category) {
         </section>
     `;
 }
+
+window.addEventListener("resize", checkWidthInBoard);
+
+function checkWidthInBoard() {
+    if (window.innerWidth >= 1300) {
+        generateBoardWidthPlus1300HTML();
+    } else {
+        generateBoardWidthMinus1300HTML();
+    }
+}
