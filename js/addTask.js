@@ -98,13 +98,10 @@ function toggleCalendar() {
 }
 
 
-function generateCalendar(monthIndex) {
-    const daysInMonth = 30;  // Replace with actual number of days in the month
+function generateCalendar(monthIndex, year) {
+    const daysInMonth = new Date(year, monthIndex + 1, 0).getDate(); // Get the number of days in the month
 
-    const currentDate = new Date();
-    const currentDay = currentDate.getDate();
     const currentMonth = months[monthIndex];
-    const currentYear = currentDate.getFullYear();
 
     const calendar = document.getElementById('calendar');
     calendar.innerHTML = `
@@ -113,7 +110,7 @@ function generateCalendar(monthIndex) {
                 <button class="prev-month" onclick="changeMonth(-1)">&#8249;</button>
             </div>
             <div class="month-name">
-                <span class="month-name-style" onclick="selectMonth()">${currentMonth} ${currentYear}</span>
+                <span class="month-name-style" onclick="selectMonth(${year}, ${monthIndex})">${currentMonth} ${year}</span>
             </div>
             <div>
                 <button class="next-month" onclick="changeMonth(1)">&#8250;</button>
@@ -134,19 +131,22 @@ function generateCalendar(monthIndex) {
     const datesContainer = document.querySelector('.dates');
     const customDateText = document.getElementById('customDateText');
 
+    const currentDate = new Date();
+    const currentDay = currentDate.getDate();
+
     for (let i = 1; i <= daysInMonth; i++) {
         const dateElement = document.createElement('div');
         dateElement.classList.add('date');
         dateElement.innerText = i;
 
-        if (monthIndex === new Date().getMonth()) {
+        if (year === currentDate.getFullYear() && monthIndex === currentDate.getMonth()) {
             if (i === currentDay) {
                 dateElement.classList.add('current-day');
             }
 
             if (i >= currentDay) {
                 dateElement.addEventListener('click', () => {
-                    const formattedDate = `${i}/${currentMonthIndex + 1}/${currentYear}`;
+                    const formattedDate = `${i}/${monthIndex + 1}/${year}`;
                     customDateText.value = formattedDate;
                 });
             }
@@ -158,6 +158,26 @@ function generateCalendar(monthIndex) {
 
 
 
+function changeMonth(offset) {
+    currentMonthIndex += offset;
+
+    if (currentMonthIndex < 0) {
+        currentMonthIndex = 11;  // Dezember des vorherigen Jahres
+        currentYear -= 1;  // Wechsel zum vorherigen Jahr
+    } else if (currentMonthIndex > 11) {
+        currentMonthIndex = 0;  // Januar des nächsten Jahres
+        currentYear += 1;  // Wechsel zum nächsten Jahr
+    }
+
+    // Update year based on the month change
+    if (currentMonthIndex === 0 && offset === 1) {
+        currentYear += 1;
+    } else if (currentMonthIndex === 11 && offset === -1) {
+        currentYear -= 1;
+    }
+
+    generateCalendar(currentMonthIndex);
+}
 
 
 function changeMonth(offset) {
@@ -171,14 +191,8 @@ function changeMonth(offset) {
     generateCalendar(currentMonthIndex);
 }
 
-function selectMonth() {
-    // Hier kannst du eine Auswahl des Monats implementieren, z.B. ein Dropdown-Menü
-    // Für dieses Beispiel öffnen wir einfach die Konsole und zeigen den ausgewählten Monat an
-    console.log('Selected month:', months[currentMonthIndex]);
-}
-
 // Initialanzeige des Kalenders
-generateCalendar(currentMonthIndex);
+generateCalendar(currentMonthIndex, currentYear);
 
 
 
