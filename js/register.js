@@ -69,7 +69,7 @@ async function signUp() {
     let password = document.getElementById('password-input').value;
     if (isValid && isChecked) {
         users.push({ user, email, password });
-        // await setItem('users', JSON.stringify(users));
+        await setItem('users', JSON.stringify(users));
         resetForm();
         showSignUpConfirmation();
         setTimeout(()=> window.location.href = "../HTML/login.html", 2000);
