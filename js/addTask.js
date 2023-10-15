@@ -1,5 +1,6 @@
 let iconRotated = false;
 let datesContainer = document.querySelector('.dates');
+let selectedButton = null;
 const months = [
     'January', 'February', 'March', 'April',
     'May', 'June', 'July', 'August',
@@ -7,15 +8,12 @@ const months = [
 ];
 
 let currentMonthIndex = new Date().getMonth();
+currentYear = new Date().getFullYear(); 
 
-const daysOfWeek = ['Sunday', 
-                    'Monday', 
-                    'Tuesday', 
-                    'Wednesday', 
-                    'Thursday', 
-                    'Friday', 
-                    'Saturday'];
-
+const daysOfWeek = [
+    'Sunday', 'Monday', 'Tuesday', 'Wednesday',
+    'Thursday', 'Friday', 'Saturday'
+];
 
 
 function renderAddTask() {
@@ -99,9 +97,11 @@ function toggleCalendar() {
 
 
 function generateCalendar(monthIndex, year) {
-    const daysInMonth = new Date(year, monthIndex + 1, 0).getDate(); // Get the number of days in the month
+    const daysInMonth = getDaysInMonth(year, monthIndex);
 
     const currentMonth = months[monthIndex];
+    const currentDate = new Date();
+    const currentDay = currentDate.getDate();
 
     const calendar = document.getElementById('calendar');
     calendar.innerHTML = `
@@ -131,25 +131,27 @@ function generateCalendar(monthIndex, year) {
     const datesContainer = document.querySelector('.dates');
     const customDateText = document.getElementById('customDateText');
 
-    const currentDate = new Date();
-    const currentDay = currentDate.getDate();
-
     for (let i = 1; i <= daysInMonth; i++) {
         const dateElement = document.createElement('div');
         dateElement.classList.add('date');
         dateElement.innerText = i;
 
-        if (year === currentDate.getFullYear() && monthIndex === currentDate.getMonth()) {
-            if (i === currentDay) {
-                dateElement.classList.add('current-day');
-            }
+        const currentDateInMonth = new Date(year, monthIndex, i);
 
-            if (i >= currentDay) {
-                dateElement.addEventListener('click', () => {
-                    const formattedDate = `${i}/${monthIndex + 1}/${year}`;
-                    customDateText.value = formattedDate;
-                });
-            }
+        if (currentDateInMonth >= currentDate) {
+            dateElement.addEventListener('click', () => {
+                const formattedDate = `${i}/${monthIndex + 1}/${year}`;
+                customDateText.value = formattedDate;
+
+                // Nach Auswahl des Datums, den Kalender ausblenden
+                toggleCalendar();
+            });
+        } else {
+            dateElement.classList.add('inactive'); // Mark days in the past as inactive
+        }
+
+        if (i === currentDay && monthIndex === currentDate.getMonth() && year === currentDate.getFullYear()) {
+            dateElement.classList.add('current-day');
         }
 
         datesContainer.appendChild(dateElement);
@@ -157,42 +159,85 @@ function generateCalendar(monthIndex, year) {
 }
 
 
+function getDaysInMonth(year, monthIndex) {
+    if (monthIndex === 11) {
+        return new Date(year + 1, 0, 0).getDate();
+    } else {
+        return new Date(year, monthIndex + 1, 0).getDate();
+    }
+}
+
+
+function toggleCalendar() {
+    const calendar = document.getElementById('calendar');
+    const calendarDisplay = calendar.style.display;
+
+    if (calendarDisplay === 'block') {
+        calendar.style.display = 'none';
+    } else {
+        calendar.style.display = 'block';
+    }
+}
+
 
 function changeMonth(offset) {
     currentMonthIndex += offset;
 
+    // Monatswechsel: Von Dezember zum Januar des nächsten Jahres
     if (currentMonthIndex < 0) {
-        currentMonthIndex = 11;  // Dezember des vorherigen Jahres
+        currentMonthIndex = 11;  // Dezember
         currentYear -= 1;  // Wechsel zum vorherigen Jahr
     } else if (currentMonthIndex > 11) {
-        currentMonthIndex = 0;  // Januar des nächsten Jahres
+        currentMonthIndex = 0;  // Januar
         currentYear += 1;  // Wechsel zum nächsten Jahr
     }
 
-    // Update year based on the month change
-    if (currentMonthIndex === 0 && offset === 1) {
-        currentYear += 1;
-    } else if (currentMonthIndex === 11 && offset === -1) {
-        currentYear -= 1;
-    }
-
-    generateCalendar(currentMonthIndex);
+    generateCalendar(currentMonthIndex, currentYear);
 }
 
-
-function changeMonth(offset) {
-    currentMonthIndex += offset;
-    if (currentMonthIndex < 0) {
-        currentMonthIndex = 11;  // Dezember
-    } else if (currentMonthIndex > 11) {
-        currentMonthIndex = 0;   // Januar
-    }
-
-    generateCalendar(currentMonthIndex);
-}
 
 // Initialanzeige des Kalenders
 generateCalendar(currentMonthIndex, currentYear);
+
+
+function changeButtonStyles(button, color) {
+    // Zurücksetzen des vorher ausgewählten Buttons
+    if (selectedButton) {
+        selectedButton.classList.remove('selected');
+    }
+
+    // Ändern des aktuellen Buttons
+    button.classList.add('selected');
+    selectedButton = button;
+
+    // Zurücksetzen der Hintergrundfarbe und des Textes für alle Buttons
+    document.querySelectorAll('.prio-button').forEach(btn => {
+        btn.style.backgroundColor = '';
+        btn.style.color = '';
+    });
+
+    // Einstellen der Farben für den ausgewählten Button
+    if (color === '#ff3d00') {
+        button.style.backgroundColor = '#ff3d00';
+        button.style.color = 'white';
+    } else if (color === '#ffa800') {
+        button.style.backgroundColor = '#ffa800';
+        button.style.color = 'black';
+    } else if (color === '#7ae229') {
+        button.style.backgroundColor = '#7ae229';
+        button.style.color = 'white';
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
