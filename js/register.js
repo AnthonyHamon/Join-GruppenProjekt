@@ -24,8 +24,8 @@ function login() {
     } else if (user && !password) {
         showPasswordError();
     } else {
-        console.log('this user could not be find.')
-    }
+        showNoUserError();
+        setTimeout(()=> window.location.href = '../HTML/sign_up.html', 3000);    }
 }
 
 
@@ -69,11 +69,16 @@ async function signUp() {
     let password = document.getElementById('password-input').value;
     if (isValid && isChecked) {
         users.push({ user, email, password });
-        await setItem('users', JSON.stringify(users));
+        // await setItem('users', JSON.stringify(users));
         resetForm();
         showSignUpConfirmation();
         setTimeout(()=> window.location.href = "../HTML/login.html", 2000);
     }
+}
+
+function showNoUserError(){
+    document.getElementById('no-user-animation-div').classList.remove('d-none');
+    document.getElementById('no-user-animation').classList.add('.add_login_signUp_animation');
 }
 
 function showSignUpConfirmation() {
