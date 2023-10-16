@@ -204,28 +204,35 @@ function changeButtonStyles(button, color) {
     // Zurücksetzen des vorher ausgewählten Buttons
     if (selectedButton) {
         selectedButton.classList.remove('selected');
+        // Setze die Icon-Farbe des vorherigen Buttons zurück
+        const prevIcon = selectedButton.querySelector('.prio-image');
+        if (prevIcon) {
+            prevIcon.style.color = '';  // Setze die Icon-Farbe zurück
+        }
     }
 
     // Ändern des aktuellen Buttons
     button.classList.add('selected');
     selectedButton = button;
 
-    // Zurücksetzen der Hintergrundfarbe und des Textes für alle Buttons
+    // Zurücksetzen der Hintergrundfarbe für alle Buttons
     document.querySelectorAll('.prio-button').forEach(btn => {
         btn.style.backgroundColor = '';
-        btn.style.color = '';
     });
 
     // Einstellen der Farben für den ausgewählten Button
-    if (color === '#ff3d00') {
+    if (color === 'orange') {
         button.style.backgroundColor = '#ff3d00';
-        button.style.color = 'white';
-    } else if (color === '#ffa800') {
+    } else if (color === 'yellow') {
         button.style.backgroundColor = '#ffa800';
-        button.style.color = 'black';
-    } else if (color === '#7ae229') {
+    } else if (color === 'green') {
         button.style.backgroundColor = '#7ae229';
-        button.style.color = 'white';
+    }
+
+    // Setze die Icon-Farbe des ausgewählten Buttons
+    const icon = button.querySelector('.prio-image');
+    if (icon) {
+        icon.style.color = 'white';
     }
 }
 
