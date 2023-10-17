@@ -24,8 +24,8 @@ function login() {
     } else if (user && !password) {
         showPasswordError();
     } else {
-        console.log('this user could not be find.')
-    }
+        showNoUserError();
+        setTimeout(()=> window.location.href = '../HTML/sign_up.html', 3000);    }
 }
 
 
@@ -74,6 +74,11 @@ async function signUp() {
         showSignUpConfirmation();
         setTimeout(()=> window.location.href = "../HTML/login.html", 2000);
     }
+}
+
+function showNoUserError(){
+    document.getElementById('no-user-animation-div').classList.remove('d-none');
+    document.getElementById('no-user-animation').classList.add('.add_login_signUp_animation');
 }
 
 function showSignUpConfirmation() {
