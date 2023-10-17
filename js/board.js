@@ -7,10 +7,12 @@ function renderBoard() {
     removeBgrColorWithoutBoard();
     addJoinLogoClickable();
     generateBoardHTML();
+    checkWidthInBoard();
 }
 
 function boardBgrColor() {
     document.getElementById('board').classList.add('currentTemplate', 'p-none');
+    document.getElementById('board_mobile').classList.add('currentTemplate', 'p-none');
 
 }
 
@@ -18,10 +20,14 @@ function removeBgrColorWithoutBoard() {
     document.getElementById('add_task').classList.remove('currentTemplate', 'p-none');
     document.getElementById('summary').classList.remove('currentTemplate', 'p-none');
     document.getElementById('contacts').classList.remove('currentTemplate', 'p-none');
+    document.getElementById('add_task_mobile').classList.remove('currentTemplate', 'p-none');
+    document.getElementById('summary_mobile').classList.remove('currentTemplate', 'p-none');
+    document.getElementById('contacts_mobile').classList.remove('currentTemplate', 'p-none');
 }
 
 function addJoinLogoClickable() {
     document.getElementById('join_logo').classList.remove('p-none');
+    document.getElementById('join_logo_mobile').classList.remove('p-none');
 }
 
 function returnAddBtn(category) {

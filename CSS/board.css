@@ -404,3 +404,83 @@
         padding: 0 6px 0 6px;
     }
 }
+
+@media(max-width:999px) {
+
+    .scrollbar {
+        height: 560px !important;
+        padding-bottom: 24px;
+    }
+
+    *::-webkit-scrollbar {
+        display: none;
+    }
+
+    .progressName {
+        max-width: none;
+        font-size: 27px;
+        color: #2A3647;
+    }
+
+    .svgHover {
+        height: 30px;
+        width: 30px;
+    }
+}
+
+@media(max-width:730px) {
+    #content {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 58px !important;
+    }
+
+    .titleContain {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        height: auto;
+        margin: 0 0 0 0;
+        padding: 0 0 0 10px;
+    }
+
+    .inputPlusBtn {
+        justify-content: space-between;
+        gap: 10%;
+        margin-right: 20px;
+        width: 100%;
+    }
+
+    .scrollbar {
+        padding: 0;
+        height: 570px !important;
+    }
+
+    .progressNamesContain {
+        padding: 0;
+    }
+
+    .section {
+        max-width: 252px;
+        min-width: 252px;
+    }
+
+    .boardInputBox {
+        width: 100%;
+    }
+
+    #add_taskBtn {
+        min-width: 50px;
+        padding: 0 6px 0 6px;
+    }
+
+    .inputFindTask {
+        width: 100%;
+    }
+}

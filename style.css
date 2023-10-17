@@ -42,6 +42,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 9999;
 }
 
 .headerTitle {
@@ -96,7 +97,7 @@ nav {
     gap: 120px;
     padding: 64px 0 64px 0;
     box-sizing: border-box;
-    z-index: 10;
+    z-index: 9999;
 }
 
 nav a {
@@ -197,6 +198,7 @@ nav a {
 
     nav {
         position: absolute;
+        z-index: 99999;
         height: 80px;
         width: 100%;
         bottom: 0;
@@ -249,7 +251,6 @@ nav a {
 
     .headerInfoContain p {
         margin: 0;
-        padding: 2px 2px 0 0;
         font-size: 16px;
         height: 48px;
         width: 48px;

@@ -8,13 +8,13 @@ const months = [
 
 let currentMonthIndex = new Date().getMonth();
 
-const daysOfWeek = ['Sunday', 
-                    'Monday', 
-                    'Tuesday', 
-                    'Wednesday', 
-                    'Thursday', 
-                    'Friday', 
-                    'Saturday'];
+const daysOfWeek = ['Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'];
 
 
 
@@ -27,6 +27,7 @@ function renderAddTask() {
 
 function addTaskBgrColor() {
     document.getElementById('add_task').classList.add('currentTemplate', 'p-none');
+    document.getElementById('add_task_mobile').classList.add('currentTemplate', 'p-none');
 
 }
 
@@ -34,10 +35,14 @@ function removeBgrColorWithoutAddTask() {
     document.getElementById('summary').classList.remove('currentTemplate', 'p-none');
     document.getElementById('board').classList.remove('currentTemplate', 'p-none');
     document.getElementById('contacts').classList.remove('currentTemplate', 'p-none');
+    document.getElementById('summary_mobile').classList.remove('currentTemplate', 'p-none');
+    document.getElementById('board_mobile').classList.remove('currentTemplate', 'p-none');
+    document.getElementById('contacts_mobile').classList.remove('currentTemplate', 'p-none');
 }
 
 function addJoinLogoClickable() {
     document.getElementById('join_logo').classList.remove('p-none');
+    document.getElementById('join_logo_mobile').classList.remove('p-none');
 }
 
 function toggleDropdown() {
@@ -47,11 +52,11 @@ function toggleDropdown() {
     iconRotated = !iconRotated;
 
     if (iconRotated) {
-    dropdownOptions.style.display = 'block';
-    icon.style.transform = 'rotate(180deg)';
+        dropdownOptions.style.display = 'block';
+        icon.style.transform = 'rotate(180deg)';
     } else {
-    dropdownOptions.style.display = 'none';
-    icon.style.transform = 'rotate(0deg)';
+        dropdownOptions.style.display = 'none';
+        icon.style.transform = 'rotate(0deg)';
     }
 }
 
