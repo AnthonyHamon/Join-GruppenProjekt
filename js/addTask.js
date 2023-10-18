@@ -17,7 +17,6 @@ const daysOfWeek = [
 ];
 
 
-
 function renderAddTask() {
     addTaskBgrColor();
     removeBgrColorWithoutAddTask();
@@ -208,15 +207,16 @@ generateCalendar(currentMonthIndex, currentYear);
 
 
 function changeButtonStyles(color) {
-    // Reset all icons to hidden
-    const icons = document.querySelectorAll('.prio-image');
-    icons.forEach(icon => icon.style.display = 'none');
+    // Zurücksetzen des vorher ausgewählten Buttons
+    if (selectedButton) {
+        selectedButton.classList.remove('selected');
+    }
 
-    // Show the specific icon based on the color parameter
-    const specificIcon = document.getElementById(`icon${color.charAt(0).toUpperCase() + color.slice(1)}`);
-    specificIcon.style.display = 'block';
+    // Ändern des aktuellen Buttons
+    const button = document.getElementById(`button${color.charAt(0).toUpperCase() + color.slice(1)}`);
+    button.classList.add('selected');
+    selectedButton = button;
 }
-
 
 
 

@@ -328,7 +328,6 @@ h4 {
     width: 440px;
     padding: 12px 16px;
     position: relative;
-    z-index: 2;
 }
 
 .custom-date-text {
@@ -512,23 +511,18 @@ h4 {
 }
 
 #buttonOrange.selected {
-    
-    color: white;
-    background-color: #ff3d00;
+    background-color: #FF3D00; /* Orange */
+    color: white; /* Textfarbe */
 }
 
 #buttonYellow.selected {
-    color: white;
-    background-color: #ffa800;
+    background-color: #FFA800; /* Gelb */
+    color: rgb(251, 249, 249); /* Textfarbe */
 }
 
 #buttonGreen.selected {
-    color: white;
-    background-color: #7ae229;
-}
-
-#iconOrange {
-    color: #f0f0f0;
+    background-color: #7AE229; /* Grün */
+    color: white; /* Textfarbe */
 }
 
 .prio-button:hover {
