@@ -10,21 +10,12 @@ const months = [
 let currentMonthIndex = new Date().getMonth();
 currentYear = new Date().getFullYear(); 
 
-<<<<<<< HEAD
-const daysOfWeek = ['Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday'];
 
-=======
 const daysOfWeek = [
     'Sunday', 'Monday', 'Tuesday', 'Wednesday',
     'Thursday', 'Friday', 'Saturday'
 ];
->>>>>>> f1890d585e23187261f8a807eca659c80a8e7a91
+
 
 
 function renderAddTask() {
@@ -216,40 +207,14 @@ function changeMonth(offset) {
 generateCalendar(currentMonthIndex, currentYear);
 
 
-function changeButtonStyles(button, color) {
-    // Zurücksetzen des vorher ausgewählten Buttons
-    if (selectedButton) {
-        selectedButton.classList.remove('selected');
-        // Setze die Icon-Farbe des vorherigen Buttons zurück
-        const prevIcon = selectedButton.querySelector('.prio-image');
-        if (prevIcon) {
-            prevIcon.style.color = '';  // Setze die Icon-Farbe zurück
-        }
-    }
+function changeButtonStyles(color) {
+    // Reset all icons to hidden
+    const icons = document.querySelectorAll('.prio-image');
+    icons.forEach(icon => icon.style.display = 'none');
 
-    // Ändern des aktuellen Buttons
-    button.classList.add('selected');
-    selectedButton = button;
-
-    // Zurücksetzen der Hintergrundfarbe für alle Buttons
-    document.querySelectorAll('.prio-button').forEach(btn => {
-        btn.style.backgroundColor = '';
-    });
-
-    // Einstellen der Farben für den ausgewählten Button
-    if (color === 'orange') {
-        button.style.backgroundColor = '#ff3d00';
-    } else if (color === 'yellow') {
-        button.style.backgroundColor = '#ffa800';
-    } else if (color === 'green') {
-        button.style.backgroundColor = '#7ae229';
-    }
-
-    // Setze die Icon-Farbe des ausgewählten Buttons
-    const icon = button.querySelector('.prio-image');
-    if (icon) {
-        icon.style.color = 'white';
-    }
+    // Show the specific icon based on the color parameter
+    const specificIcon = document.getElementById(`icon${color.charAt(0).toUpperCase() + color.slice(1)}`);
+    specificIcon.style.display = 'block';
 }
 
 
