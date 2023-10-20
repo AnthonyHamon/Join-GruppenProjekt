@@ -1,0 +1,59 @@
+.contacts_content {
+    display: flex;
+}
+
+.contact_list_section {
+    width: 40%;
+}
+
+.add_contact_btn_div {
+    padding: 22.5px 0;
+}
+
+#add-contact-button {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    padding: 12px;
+    gap: 16px;
+    color: white;
+    background-color: #2A3647;
+}
+
+.contact_circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #FF7A00;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 47px;
+}
+
+.selected_contact_infos{
+    width: 60%;
+    padding-top: 64px;
+}
+
+.contact_title{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.contact_title h1{
+    font-size: 61px;
+}
+
+.contact_title span{
+    font-size: 21px;
+}
+
+.selected_contact_name_div{
+    display: flex;
+    align-items: center;
+}

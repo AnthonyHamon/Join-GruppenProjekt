@@ -6,19 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../CSS/contacts.css">
 </head>
 
 <body onload="initContacts()">
     <div w3-include-html="../assets/templates/desktop_template.html"></div>
     <div id="content">
-        <main>
-            <section>
+        <main class="contacts_content">
+            <section class="contact_list_section">
                 <!-- contact list -->
-                <div>
-                    <div>
+                <div class="add_contact_btn_div">
+                    <div id="add-contact-button">
                         <span>Add new contact</span>
                         <img src="../images/person_add.svg" alt="">
                     </div>
+                </div>
+                <div>
                     <div>
                         <div>
                             <div>
@@ -29,13 +32,39 @@
                     </div>
                 </div>
             </section>
-            <section>
+            <section class="selected_contact_infos">
                 <!-- contact info -->
-                <div>
-                    <h2>Contacts</h2>
-                    <svg width="4" height="63" viewBox="0 0 4 63" fill="none">
-                        <path d="M2 2V61" stroke="#29ABE2" stroke-width="3" stroke-linecap="round"/>
-                    </svg>
+                <div class="contact_title">
+                    <h1>Contacts</h1>
+                    <img src="../images/Vector 5.svg" alt="">
+                    <span>Better with a Team</span>
+                </div>
+                <div id="selected-contact-content">
+                    <div class="selected_contact_name_div">
+                        <div class="contact_circle">AM</div>
+                        <div>
+                            <div>
+                                Anton Mayer
+                            </div>
+                            <div>
+                                <img src="../images/edit.svg" alt="">
+                                <span>Edit</span>
+                                <img src="../images/delete.svg" alt="">
+                                <span>Delete</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        Contact Information
+                    </div>
+                    <div>
+                        <span>Email</span>
+                        <span>anton@gmail.com</span>
+                    </div>
+                    <div>
+                        <span>Phone</span>
+                        <span>+49 0123 456 789</span>
+                    </div>
                 </div>
             </section>
         </main>
