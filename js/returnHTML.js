@@ -20,9 +20,6 @@ function generateAddTaskHTML() {
 
 function generateContactsHTML() {
     content.innerHTML = '';
-    content.innerHTML =/*html*/`
-        <h1>Contacts</h1>
-    `;
     console.clear();
     console.table({ name: 'generateContactsHTML', where: 'in /js/contacts.js', function: 'renderContacts()' });
 }

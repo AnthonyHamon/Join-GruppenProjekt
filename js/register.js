@@ -28,6 +28,12 @@ function login() {
         setTimeout(()=> window.location.href = '../HTML/sign_up.html', 3000);    }
 }
 
+function guestLogin(){
+    isChecked;
+    isValid;
+    window.location.href= "../index.html"
+}
+
 
 function showPasswordError() {
     let errorMsg = document.getElementById('input-error');
