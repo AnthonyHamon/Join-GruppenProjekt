@@ -206,6 +206,9 @@ function changeMonth(offset) {
 generateCalendar(currentMonthIndex, currentYear);
 
 
+
+
+
 function changeButtonStyles(color) {
     // Zurücksetzen des vorher ausgewählten Buttons
     if (selectedButton) {
