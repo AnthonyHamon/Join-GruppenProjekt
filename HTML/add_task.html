@@ -99,25 +99,30 @@
                         <div onclick="toggleDropdown()">
                             <form class="custom-list">
                                 <span id="selectedCategory">Select task category</span>
-                                <img class="drop-option" id="icon" src="../images/arrow_drop_downaa.svg" alt="Arrow">
-                                <ul id="dropdownOptions" class="dropdown-options">
-                                <li onclick="selectCategory('Technical Task')">Technical Task</li>
-                                <li onclick="selectCategory('User Story')">User Story</li>
+                                <div class="category-icon-field">
+                                    <img class="drop-option" id="selectIcon" src="../images/arrow_drop_downaa.svg" alt="Arrow">
+                                </div>
+                                <ul id="dropdownOptions" class="dropdown-options" onclick="selectCategory(event)">
+                                    <li onclick="toggleDropdown()" data-category="Technical Task">Technical Task</li>
+                                    <li onclick="toggleDropdown()" data-category="User Story">User Story</li>
                                 </ul>
                             </form>
                         </div>
                     </div>
                     <div class="subtask-container">
                         <h4>Subtasks</h4>
-                        <div class="subtask-field">
-                            <div>
+                        <div class="subtask-field" onclick="toggleImages()">
+                            <div class="subtask-input-container">
                                 <input class="subtask-input" type="text" name="myInput" placeholder="Add new subtask">
                             </div>
-                            <div>
-                                <img src="../images/Property 1=add hover.svg" alt="">
+                            <div class="subtask-image-field" id="imageContainer">
+                                <img src="../images/Property 1=add.svg" alt="">
+                            </div>
+                            <div class="subtask-image-field" id="newImages" style="display: none;">
+                                <img src="../images/Property 1=close.svg" alt="">
+                                <img src="../images/Property 1=check.svg" alt="">
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
