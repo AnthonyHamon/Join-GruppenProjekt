@@ -146,6 +146,7 @@ nav a {
 .profileMenu a:hover {
     background-color: rgba(48, 70, 100, 0.5);
     cursor: pointer;
+    scale: 0.98;
 }
 
 .menuBgr {
