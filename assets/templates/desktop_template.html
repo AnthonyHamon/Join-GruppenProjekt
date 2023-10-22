@@ -14,10 +14,17 @@
         <div>
             <div class="headerInfoContain">
                 <img src="/images/help.svg">
-                <p>SM</p>
+                <p onclick="openProfilMenu()">SM</p>
             </div>
         </div>
     </header>
+    <div id="profile_menu_contain" onclick="closeProfilMenu()" class="menuBgr d-none">
+        <div onclick="stop(event)" class="profileMenu">
+            <a href="#">Legal Notice</a>
+            <a href="/HTML/privacy_policy.html">Privacy Policy</a>
+            <a href="#">Log out</a>
+        </div>
+    </div>
     <nav class="column">
         <div id="join_logo" class="joinContain" onclick="renderSummary()">
             <a>
@@ -31,8 +38,8 @@
             <a id="contacts" onclick="renderContacts()"><img src="/images/contacts.svg"> Contacts</a>
         </div>
         <div class="privacyContain column">
-            <a class="privacyHoverEffect" href="./privacy_policy.html">Privacy Policy</a>
-            <a class="privacyHoverEffect" href="./legal_notice.html">Legal notice</a>
+            <a class="privacyHoverEffect" href="/HTML/privacy_policy.html">Privacy Policy</a>
+            <a class="privacyHoverEffect" href="/HTML/legal_notice.html">Legal notice</a>
         </div>
     </nav>
 </body>

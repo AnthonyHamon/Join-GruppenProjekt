@@ -19,8 +19,6 @@ html {
     display: none;
 }
 
-
-
 header {
     position: absolute;
     top: 0;
@@ -121,6 +119,43 @@ nav a {
     cursor: pointer;
 }
 
+.profileMenu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    top: 60px;
+    right: 80px;
+    background-color: #2A3647;
+    height: 158px;
+    width: 150px;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #091931;
+    border-radius: 20px 0px 20px 20px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.profileMenu a {
+    text-decoration: none;
+    margin: 0;
+    padding: 10px;
+    color: #CDCDCD;
+}
+
+.profileMenu a:hover {
+    background-color: rgba(48, 70, 100, 0.5);
+    cursor: pointer;
+}
+
+.menuBgr {
+    position: absolute;
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999999999;
+}
+
 .privacyContain {
     overflow: hidden;
     justify-content: flex-end;
@@ -172,11 +207,11 @@ nav a {
     pointer-events: none;
 }
 
-@media (max-width:999px) {
+.d-none {
+    display: none;
+}
 
-    .desktop {
-        display: none;
-    }
+@media (max-width:999px) {
 
     .mobile {
         display: block;
@@ -251,4 +286,18 @@ nav a {
         margin: 0 24px 0 0;
     }
 
+    .profileMenu {
+        top: 50px;
+        right: 60px;
+    }
+
+    .profileMenu a {
+        margin: 0;
+        padding: 10px;
+    }
+
+    .profileMenu a:hover {
+        background-color: rgba(48, 70, 100, 0.5);
+        cursor: pointer;
+    }
 }
