@@ -10,10 +10,6 @@ const months = [
 let currentMonthIndex = new Date().getMonth();
 currentYear = new Date().getFullYear();
 
-<<<<<<< HEAD
-=======
-
->>>>>>> dfe3f50a624d00710c2ea86ce817e6ce6de5b584
 const daysOfWeek = [
     'Sunday', 'Monday', 'Tuesday', 'Wednesday',
     'Thursday', 'Friday', 'Saturday'
