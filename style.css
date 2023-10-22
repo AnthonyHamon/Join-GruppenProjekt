@@ -51,7 +51,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 9999;
+    z-index: 999;
 }
 
 .headerTitle {
@@ -106,7 +106,7 @@ nav {
     gap: 120px;
     padding: 64px 0 64px 0;
     box-sizing: border-box;
-    z-index: 9999;
+    z-index: 999;
 }
 
 nav a {
