@@ -8,23 +8,12 @@ const months = [
 ];
 
 let currentMonthIndex = new Date().getMonth();
-currentYear = new Date().getFullYear(); 
+currentYear = new Date().getFullYear();
 
-<<<<<<< HEAD
-const daysOfWeek = ['Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday'];
-
-=======
 const daysOfWeek = [
     'Sunday', 'Monday', 'Tuesday', 'Wednesday',
     'Thursday', 'Friday', 'Saturday'
 ];
->>>>>>> f1890d585e23187261f8a807eca659c80a8e7a91
 
 
 function renderAddTask() {
