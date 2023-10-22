@@ -9,8 +9,7 @@ const months = [
 ];
 
 let currentMonthIndex = new Date().getMonth();
-currentYear = new Date().getFullYear(); 
-
+currentYear = new Date().getFullYear();
 
 const daysOfWeek = [
     'Sunday', 'Monday', 'Tuesday', 'Wednesday',

@@ -1,3 +1,12 @@
+#content {
+    position: fixed;
+    top: 96px;
+    right: 0;
+    bottom: 0;
+    left: 232px;
+    width: 100%;
+}
+
 .contacts_content {
     display: flex;
     flex-direction: row;
@@ -165,7 +174,7 @@
     font-weight: 500;
 }
 
-.contact_information_title{
+.contact_information_title {
     display: flex;
     align-items: center;
     height: 74px;
