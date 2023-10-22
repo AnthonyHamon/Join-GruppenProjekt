@@ -1,6 +1,7 @@
 let iconRotated = false;
 let datesContainer = document.querySelector('.dates');
 let selectedButton = null;
+
 const months = [
     'January', 'February', 'March', 'April',
     'May', 'June', 'July', 'August',
@@ -8,8 +9,7 @@ const months = [
 ];
 
 let currentMonthIndex = new Date().getMonth();
-currentYear = new Date().getFullYear(); 
-
+currentYear = new Date().getFullYear();
 
 const daysOfWeek = [
     'Sunday', 'Monday', 'Tuesday', 'Wednesday',
@@ -46,25 +46,28 @@ function addJoinLogoClickable() {
 
 function toggleDropdown() {
     const dropdownOptions = document.getElementById('dropdownOptions');
-    const icon = document.getElementById('icon');
+    const icon = document.getElementById('selectIcon');
 
     iconRotated = !iconRotated;
 
     if (iconRotated) {
-        dropdownOptions.style.display = 'block';
+        dropdownOptions.style.display = 'block'; // Dropdown anzeigen
         icon.style.transform = 'rotate(180deg)';
     } else {
-        dropdownOptions.style.display = 'none';
+        dropdownOptions.style.display = 'none'; // Dropdown ausblenden
         icon.style.transform = 'rotate(0deg)';
     }
 }
 
 
-function selectCategory(category) {
-    document.getElementById('selectedCategory').innerHTML = category;
-
-    toggleDropdown();
+function selectCategory(event) {
+    if (event.target.tagName === 'LI') {
+        const category = event.target.getAttribute('data-category');
+        document.getElementById('selectedCategory').innerHTML = category;
+        toggleDropdown();
+    }
 }
+
 
 function rotateIcon() {
     const icon = document.querySelector('.assign-button img');
@@ -206,9 +209,6 @@ function changeMonth(offset) {
 generateCalendar(currentMonthIndex, currentYear);
 
 
-
-
-
 function changeButtonStyles(color) {
     // Zurücksetzen des vorher ausgewählten Buttons
     if (selectedButton) {
@@ -219,6 +219,15 @@ function changeButtonStyles(color) {
     const button = document.getElementById(`button${color.charAt(0).toUpperCase() + color.slice(1)}`);
     button.classList.add('selected');
     selectedButton = button;
+}
+
+
+function toggleImages() {
+    const imageContainer = document.getElementById("imageContainer");
+    const newImages = document.getElementById("newImages");
+
+    imageContainer.style.display = "none";
+    newImages.style.display = "block";
 }
 
 
