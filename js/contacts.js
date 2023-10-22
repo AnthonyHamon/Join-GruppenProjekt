@@ -1,3 +1,7 @@
+async function initContacts(){
+    await includeHTML();
+}
+
 function renderContacts() {
     contactsBgrColor();
     removeBgrColorWithoutContacts();

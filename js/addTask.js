@@ -10,6 +10,10 @@ const months = [
 let currentMonthIndex = new Date().getMonth();
 currentYear = new Date().getFullYear();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> dfe3f50a624d00710c2ea86ce817e6ce6de5b584
 const daysOfWeek = [
     'Sunday', 'Monday', 'Tuesday', 'Wednesday',
     'Thursday', 'Friday', 'Saturday'
@@ -205,42 +209,20 @@ function changeMonth(offset) {
 generateCalendar(currentMonthIndex, currentYear);
 
 
-function changeButtonStyles(button, color) {
+
+
+
+function changeButtonStyles(color) {
     // Zurücksetzen des vorher ausgewählten Buttons
     if (selectedButton) {
         selectedButton.classList.remove('selected');
-        // Setze die Icon-Farbe des vorherigen Buttons zurück
-        const prevIcon = selectedButton.querySelector('.prio-image');
-        if (prevIcon) {
-            prevIcon.style.color = '';  // Setze die Icon-Farbe zurück
-        }
     }
 
     // Ändern des aktuellen Buttons
+    const button = document.getElementById(`button${color.charAt(0).toUpperCase() + color.slice(1)}`);
     button.classList.add('selected');
     selectedButton = button;
-
-    // Zurücksetzen der Hintergrundfarbe für alle Buttons
-    document.querySelectorAll('.prio-button').forEach(btn => {
-        btn.style.backgroundColor = '';
-    });
-
-    // Einstellen der Farben für den ausgewählten Button
-    if (color === 'orange') {
-        button.style.backgroundColor = '#ff3d00';
-    } else if (color === 'yellow') {
-        button.style.backgroundColor = '#ffa800';
-    } else if (color === 'green') {
-        button.style.backgroundColor = '#7ae229';
-    }
-
-    // Setze die Icon-Farbe des ausgewählten Buttons
-    const icon = button.querySelector('.prio-image');
-    if (icon) {
-        icon.style.color = 'white';
-    }
 }
-
 
 
 
