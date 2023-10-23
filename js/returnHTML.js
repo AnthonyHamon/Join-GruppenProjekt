@@ -20,8 +20,75 @@ function generateAddTaskHTML() {
 
 function generateContactsHTML() {
     content.innerHTML = '';
-    console.clear();
-    console.table({ name: 'generateContactsHTML', where: 'in /js/contacts.js', function: 'renderContacts()' });
+    content.innerHTML = `
+        <main class="contacts_content">
+            <section class="contact_list_section">
+
+                <div class="add_contact_btn_div">
+                    <div id="add-contact-button">
+                        <span>Add new contact</span>
+                        <img src="../images/person_add.svg" alt="">
+                    </div>
+                </div>
+                <div class="contacts_list_div">
+                    <div>
+                        <div class="contact_organizer">
+                            <span>A</span>
+                        </div>
+                        <hr class="divider">
+                 </div>
+                    <div class="contact_div">
+                        <div class="contact_circle">
+                            AM
+                        </div>
+                <div class="flex_column gap_5">
+                            <div id="contact-name">
+                                Anton Mayer
+                            </div>
+                            <span id="contact-email">antonm@gmail.com<span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="selected_contact_infos">
+                <!-- contact info -->
+                <div class="contact_title">
+                    <h1>Contacts</h1>
+                    <img src="../images/Vector 5.svg" alt="">
+                    <span>Better with a Team</span>
+                </div>
+                <div id="selected-contact-content" class="padding_left_62">
+                    <div class="align_item_center gap_54">
+                        <div class="selected_contact_circle">
+                            AM
+                        </div>
+                        <div class="flex_column align_item_start gap_8">
+                            <div id="selected-contact-name">
+                                Anton Mayer
+                            </div>
+                            <div class="align_item_center gap_8">
+                                <img src="../images/edit.svg" alt="">
+                                <span>Edit</span>
+                                <img src="../images/delete.svg" alt="">
+                                <span>Delete</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact_information_title">
+                        Contact Information
+                    </div>
+                    <div class="flex_column gap_15">
+                        <span class="font_weight_700">Email</span>
+                        <span id="selected-contact-email">anton@gmail.com</span>
+                    </div>
+                    <div class="flex_column gap_15">
+                        <span class="font_weight_700">Phone</span>
+                        <span id="selected-contact-phone">+49 0123 456 789</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    `
 }
 
 function generateBoardHTML() {
