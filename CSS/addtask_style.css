@@ -599,6 +599,7 @@ h4 {
 }
 
 .subtask-field {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -611,12 +612,31 @@ h4 {
 
 .subtask-image-field {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     cursor: pointer;
 }
 
-.subtask-image-field:hover {
+.subtask-button-close {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.subtask-button-close:hover {
+    border-radius: 100px;
+    background: var(--white, #D1D1D1);
+    border: 1px solid var(--Style, #D1D1D1);
+    transform: scale(1.01);
+}
+
+.subtask-button-check {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.subtask-button-check:hover{
     border-radius: 100px;
     background: var(--white, #D1D1D1);
     border: 1px solid var(--Style, #D1D1D1);
