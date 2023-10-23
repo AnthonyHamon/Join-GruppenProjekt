@@ -119,9 +119,12 @@
                                 <img src="../images/Property 1=add.svg" alt="">
                             </div>
                             <div class="subtask-image-field" id="newImages" style="display: none;">
-                                <img src="../images/Property 1=close.svg" alt="">
-                                <img src="../images/Property 1=check.svg" alt="">
+                                <img onclick="closeImages()"  class="subtask-button-close" src="../images/Property 1=close.svg" alt="">
+                                <img class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask()">
                             </div>
+                        </div>
+                        <div class="subtask-content">
+                            <ul id="taskList"></ul>
                         </div>
                     </div>
                 </div>
