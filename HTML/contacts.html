@@ -106,18 +106,23 @@
                 </div>
                 <div class="flex_column width_100">
                     <div class="flex_end padding_48">
-                        <img src="../images/close.svg" alt="">
+                        <div id="close-add-contact-popup">
+                            <img src="../images/close.svg">
+                        </div>
                     </div>
-                    <form class="add_contact_form">
+                    <form onsubmit="addContact(); return false" class="add_contact_form">
                         <div class="add_contact_inputs_ctn">
                             <div class="add_contact_input">
                                 <input type="text" placeholder="Name">
+                                <img src="../images/person.svg" alt=""> 
                             </div>
                             <div class="add_contact_input">
                                 <input type="Email" placeholder="Email">
+                                <img src="../images/mail.svg" alt="">
                             </div>
                             <div class="add_contact_input">
                                 <input type="tel" placeholder="Phone">
+                                <img src="../images/call.svg" alt="">
                             </div>
                         </div>
                         <div class="add_contact_buttons_ctn">
@@ -126,7 +131,7 @@
                                 <img src="../images/close.svg" alt="">
                             </div>
                             <div class="create_contact_button_div">
-                                <buttton>Create contact</buttton>
+                                <buttton type="submit">Create contact</buttton>
                                 <img src="../images/check.svg" alt="">
                             </div>
                         </div>

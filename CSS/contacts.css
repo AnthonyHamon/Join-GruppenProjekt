@@ -284,6 +284,20 @@
     border-radius: 30px;
 }
 
+#close-add-contact-popup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+}
+
+#close-add-contact-popup:hover{
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background-color: #D1D1D1;
+    cursor: pointer;
+}
+
 .contact_profil_ctn {
     height: 100%;
     display: flex;
@@ -335,6 +349,7 @@
 
 .add_contact_input {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     border-radius: 10px;
     padding: 13px 21px;
@@ -348,10 +363,12 @@
     line-height: 24px;
     min-width: min-content;
     font-size: 20px;
+    width: 100%;
 }
 
 .add_contact_input input::placeholder {
     font-size: 20px;
+    color: rgba(209, 209, 209, 1);
 }
 
 .add_contact_buttons_ctn {
@@ -371,14 +388,17 @@
     font-size: 20px;
     max-height: 58px;
     min-width: 126px;
+    cursor: pointer;
 }
 
 .cancel_contact_button_div:hover {
     border: 2px solid #29ABE2;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     color: #29ABE2; 
-    /* filter muss be added via js */
-    /* filter: invert(70%) sepia(74%) saturate(3560%) hue-rotate(165deg) brightness(95%) contrast(85%); */
+}
+
+.cancel_contact_button_div:hover img{
+    filter: invert(70%) sepia(74%) saturate(3560%) hue-rotate(165deg) brightness(95%) contrast(85%);
 }
 
 .create_contact_button_div {
@@ -392,6 +412,7 @@
     color: white;
     font-size: 21px;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .create_contact_button_div:hover {
