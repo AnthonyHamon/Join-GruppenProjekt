@@ -66,11 +66,15 @@ function generateContactsHTML() {
                             <div id="selected-contact-name">
                                 Anton Mayer
                             </div>
-                            <div class="align_item_center gap_8">
-                                <img src="../images/edit.svg" alt="">
-                                <span>Edit</span>
-                                <img src="../images/delete.svg" alt="">
-                                <span>Delete</span>
+                            <div class="align_item_center gap_16">
+                                <div id="edit-selected-contact" class="align_item_center gap_8">
+                                    <img src="../images/edit.svg" alt="">
+                                    <span>Edit</span>
+                                </div>
+                                <div id="delete-selected-contact" class="align_item_center gap_8">
+                                    <img src="../images/delete.svg" alt="">
+                                    <span>Delete</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -88,6 +92,11 @@ function generateContactsHTML() {
                 </div>
             </section>
         </main>
+        <div class="mobile_add_contact_button_ctn">
+            <div class="mobile_add_contact_button">
+                <img src="..//images/person_add.svg">
+            </div>
+        </div>
     `
 }
 

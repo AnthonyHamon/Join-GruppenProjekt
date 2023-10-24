@@ -213,6 +213,13 @@ nav a {
     width: 100%;
 }
 
+@media (max-width: 999px) {
+    #content {
+        top: 80px;
+        left: 0;
+    }
+}
+
 .p-none {
     pointer-events: none;
 }
@@ -309,5 +316,9 @@ nav a {
     .profileMenu a:hover {
         background-color: rgba(48, 70, 100, 0.5);
         cursor: pointer;
+    }
+
+    #profile_menu_contain{
+        display: none;
     }
 }

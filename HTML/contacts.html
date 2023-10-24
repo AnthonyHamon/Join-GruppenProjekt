@@ -11,6 +11,8 @@
 
 <body onload="initContacts()">
     <div w3-include-html="../assets/templates/desktop_template.html"></div>
+    <div w3-include-html="../assets/templates/mobile_template.html"></div>
+
     <div id="content">
         <main class="contacts_content">
             <section class="contact_list_section">
@@ -57,11 +59,15 @@
                             <div id="selected-contact-name">
                                 Anton Mayer
                             </div>
-                            <div class="align_item_center gap_8">
-                                <img src="../images/edit.svg" alt="">
-                                <span>Edit</span>
-                                <img src="../images/delete.svg" alt="">
-                                <span>Delete</span>
+                            <div class="align_item_center gap_16">
+                                <div id="edit-selected-contact" class="align_item_center gap_8">
+                                    <img src="../images/edit.svg" alt="">
+                                    <span>Edit</span>
+                                </div>
+                                <div id="delete-selected-contact" class="align_item_center gap_8">
+                                    <img src="../images/delete.svg" alt="">
+                                    <span>Delete</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -79,9 +85,14 @@
                 </div>
             </section>
         </main>
+        <div class="mobile_add_contact_button_ctn">
+            <div class="mobile_add_contact_button">
+                <img src="..//images/person_add.svg">
+            </div>
+        </div>
     </div>
 
-    <div class="popup_ctn d-none">
+    <div class="add_contact_popup_ctn d-none">
         <div class="add_contact_popup">
             <section class="section_left">
                 <div class="call_to_action_ctn">
