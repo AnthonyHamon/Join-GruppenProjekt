@@ -206,7 +206,6 @@ function changeMonth(offset) {
     generateCalendar(currentMonthIndex, currentYear);
 }
 
-
 // Initialanzeige des Kalenders
 generateCalendar(currentMonthIndex, currentYear);
 
@@ -241,9 +240,13 @@ function toggleImages() {
 
 
 function closeImages() {
-    const imageContainer = document.getElementById("newImages");
-    imageContainer.style.display = "none";
+    const newImages = document.getElementById("newImages");
+    const imageContainer = document.getElementById("imageContainer");
+
+    newImages.style.display = "none";
+    imageContainer.style.display = "block";
 }
+
 
 function addSubtask() {
     const inputField = document.querySelector(".subtask-input");
@@ -257,7 +260,6 @@ function addSubtask() {
         inputField.value = ""; // Leeren Sie das Eingabefeld
     }
 }
-
 
 
 

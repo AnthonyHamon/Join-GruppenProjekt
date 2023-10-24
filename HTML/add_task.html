@@ -120,11 +120,17 @@
                             </div>
                             <div class="subtask-image-field" id="newImages" style="display: none;">
                                 <img onclick="closeImages()"  class="subtask-button-close" src="../images/Property 1=close.svg" alt="">
-                                <img class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask()">
+                                <img class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask(); closeImages(); toggleImages();">
                             </div>
                         </div>
                         <div class="subtask-content">
-                            <ul id="taskList"></ul>
+                            <div>
+                                <ul id="taskList"></ul>
+                            </div>
+                            <div class="subtask-content-img-container">
+                                <img class="subtask-content-image1" src="../images/Property 1=edit.svg" alt="">
+                                <img class="subtask-content-image2" src="../images/Property 1=delete.svg" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
