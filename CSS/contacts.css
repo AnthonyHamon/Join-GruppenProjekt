@@ -91,7 +91,7 @@
     right: 0;
     bottom: 80px;
     left: 0;
-    display: flex;
+    display: none;
     justify-content: flex-end;
     align-items: flex-end;
     padding: 18px;
@@ -506,6 +506,10 @@
     .add_contact_btn_div{
         display: none;
     }
+
+    .mobile_add_contact_button_ctn{
+        display: flex;
+        }
 
     .contacts_list_div{
         padding: 24px;

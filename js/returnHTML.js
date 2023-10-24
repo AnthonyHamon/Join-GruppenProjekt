@@ -92,7 +92,7 @@ function generateContactsHTML() {
                 </div>
             </section>
         </main>
-        <div class="mobile_add_contact_button_ctn">
+        <div class="mobile_add_contact_button_ctn d-none">
             <div class="mobile_add_contact_button">
                 <img src="..//images/person_add.svg">
             </div>
