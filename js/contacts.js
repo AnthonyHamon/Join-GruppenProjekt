@@ -4,6 +4,7 @@ async function initContacts(){
 
 function renderContacts() {
     contactsBgrColor();
+    addContactsCSS();
     removeBgrColorWithoutContacts();
     addJoinLogoClickable();
     generateContactsHTML();
@@ -27,4 +28,9 @@ function removeBgrColorWithoutContacts() {
 function addJoinLogoClickable() {
     document.getElementById('join_logo').classList.remove('p-none');
     document.getElementById('join_logo_mobile').classList.remove('p-none');
+}
+
+function addContactsCSS(){
+    document.getElementById('content').classList.remove('content');
+    document.getElementById('content').classList.add('content-section');
 }

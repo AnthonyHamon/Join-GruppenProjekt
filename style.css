@@ -204,7 +204,7 @@ nav a {
     display: flex;
 }
 
-#content {
+.content-section {
     position: fixed;
     top: 96px;
     right: 0;
@@ -214,7 +214,7 @@ nav a {
 }
 
 @media (max-width: 999px) {
-    #content {
+    .content-section {
         top: 80px;
         left: 0;
     }
@@ -318,7 +318,7 @@ nav a {
         cursor: pointer;
     }
 
-    #profile_menu_contain{
+    #profile_menu_contain {
         display: none;
     }
 }
