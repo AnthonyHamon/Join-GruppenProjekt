@@ -85,7 +85,7 @@
     color: #d1d1d1;
 }
 
-#add_taskBtn {
+.addTaskBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,14 +102,14 @@
     text-wrap: nowrap;
 }
 
-#add_taskBtn:hover {
+.addTaskBtn:hover {
     background-color: #29ABE2;
     transition: 100ms ease-in-out;
     cursor: pointer;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
-#add_taskBtn img {
+.addTaskBtn img {
     width: 32px;
     height: 32px;
 }
@@ -406,7 +406,7 @@
         display: none;
     }
 
-    #add_taskBtn {
+    .addTaskBtn {
         min-width: 0;
         padding: 0 6px 0 6px;
     }
@@ -478,7 +478,7 @@
         width: 100%;
     }
 
-    #add_taskBtn {
+    .addTaskBtn {
         min-width: 50px;
         padding: 0 6px 0 6px;
     }

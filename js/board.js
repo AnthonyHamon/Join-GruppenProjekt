@@ -67,7 +67,9 @@ window.addEventListener("resize", checkWidthInBoard);
 function checkWidthInBoard() {
     if (window.innerWidth >= 1300) {
         generateBoardWidthPlus1300HTML();
+        renderAllTasks();
     } else {
         generateBoardWidthMinus1300HTML();
+        renderAllTasks();
     }
 }

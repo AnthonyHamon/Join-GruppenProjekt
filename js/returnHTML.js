@@ -34,7 +34,7 @@ function generateBoardHTML() {
                     <input id="find_task" class="inputFindTask" type="text" placeholder="Find Task">
                     <img src="/images/search.svg">
                 </div>
-                <button id="add_taskBtn"><span class="addBtnText">Add task</span><img src="/images/add.svg"></button>
+                <button onclick="addTask()" class="addTaskBtn"><span class="addBtnText">Add task</span><img src="/images/add.svg"></button>
             </div>
         </div>
         <div id="width_HTML"></div>
@@ -52,33 +52,6 @@ function generateBoardWidthPlus1300HTML() {
             <div class="scrollbar">
                 <div class="taskContain">
                     <div id="to_do" class="taskLine">
-                        <section class="section">
-                            <h2 class="userStory">User Story</h2>
-                            <article>
-                                <span class="taskTitle">Kochwelt Page & Recipe Recommender</span>
-                                <p class="taskDescription">Build start page with recipe recommender</p>
-                            </article>
-                            <div id="subtask_contain">
-                                <div class="progressbar-container">
-                                    <div class="progressbar"></div>
-                                </div>
-                                <span id="subtask">1/2 Subtasks</span>
-                            </div>
-                            <div class="profilePropertyContain">
-                                <div id="profile" class="profileContain">
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                </div>
-                                <img src="/images/Property 1=Low.svg">
-                            </div>
-                        </section>
                     </div>
                     <div id="in_progress" class="taskLine">
                         <section class="section">
@@ -149,33 +122,10 @@ function generateBoardWidthMinus1300HTML() {
                 <div class="progressNameWithLine">
                     <p class="progressName">In progress ${returnAddBtn('in_progress')}</p>
                     <div id="in_progress" class="taskLine scrollbarTaskLine">
-                        <section class="section">
-                            <h2 class="userStory">User Story</h2>
-                            <article>
-                                <span class="taskTitle">Kochwelt Page & Recipe Recommender</span>
-                                <p class="taskDescription">Build start page with recipe recommender</p>
-                            </article>
-                            <div id="subtask_contain">
-                                <div class="progressbar-container">
-                                    <div class="progressbar"></div>
-                                </div>
-                                <span id="subtask">1/2 Subtasks</span>
+                        <div class="emptyTaskLine">
+                                <span>No tasks to do</span>
                             </div>
-                            <div class="profilePropertyContain">
-                                <div id="profile" class="profileContain">
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                    <div class="profileBadge">RP</div>
-                                </div>
-                                <img src="/images/Property 1=Low.svg">
-                            </div>
-                        </section>
+                        </div>
                     </div>
                 </div>
                 <div class="progressNameWithLine">
