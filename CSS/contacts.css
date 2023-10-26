@@ -1,12 +1,3 @@
-#content {
-    position: fixed;
-    top: 96px;
-    right: 0;
-    bottom: 0;
-    left: 232px;
-    width: 100%;
-}
-
 .contacts_content {
     display: flex;
     flex-direction: row;
@@ -94,6 +85,28 @@
     font-size: 12px;
 }
 
+.mobile_add_contact_button_ctn{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 80px;
+    left: 0;
+    display: none;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 18px;
+}
+
+.mobile_add_contact_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2A3647;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
 #selected-contact-content {
     display: flex;
     flex-direction: column;
@@ -150,6 +163,10 @@
     gap: 8px;
 }
 
+.gap_16 {
+    gap: 16px;
+}
+
 .gap_5 {
     gap: 5px;
 }
@@ -172,6 +189,17 @@
 #selected-contact-name {
     font-size: 47px;
     font-weight: 500;
+}
+
+#edit-selected-contact {
+    width: 63px;
+}
+
+#edit-selected-contact:hover,
+#delete-selected-contact:hover {
+    cursor: pointer;
+    filter: invert(70%) sepia(74%) saturate(3560%) hue-rotate(165deg) brightness(95%) contrast(85%);
+    font-weight: 700;
 }
 
 .contact_information_title {
@@ -197,7 +225,8 @@
     font-weight: 700;
 }
 
-.popup_ctn {
+/* CSS for contact popup */
+.add_contact_popup_ctn {
     z-index: 1000;
     position: absolute;
     top: 0;
@@ -284,6 +313,20 @@
     border-radius: 30px;
 }
 
+#close-add-contact-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+}
+
+#close-add-contact-popup:hover {
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background-color: #D1D1D1;
+    cursor: pointer;
+}
+
 .contact_profil_ctn {
     height: 100%;
     display: flex;
@@ -335,6 +378,7 @@
 
 .add_contact_input {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     border-radius: 10px;
     padding: 13px 21px;
@@ -348,10 +392,12 @@
     line-height: 24px;
     min-width: min-content;
     font-size: 20px;
+    width: 100%;
 }
 
 .add_contact_input input::placeholder {
     font-size: 20px;
+    color: rgba(209, 209, 209, 1);
 }
 
 .add_contact_buttons_ctn {
@@ -371,14 +417,17 @@
     font-size: 20px;
     max-height: 58px;
     min-width: 126px;
+    cursor: pointer;
 }
 
 .cancel_contact_button_div:hover {
     border: 2px solid #29ABE2;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    color: #29ABE2; 
-    /* filter muss be added via js */
-    /* filter: invert(70%) sepia(74%) saturate(3560%) hue-rotate(165deg) brightness(95%) contrast(85%); */
+    color: #29ABE2;
+}
+
+.cancel_contact_button_div:hover img {
+    filter: invert(70%) sepia(74%) saturate(3560%) hue-rotate(165deg) brightness(95%) contrast(85%);
 }
 
 .create_contact_button_div {
@@ -392,6 +441,7 @@
     color: white;
     font-size: 21px;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .create_contact_button_div:hover {
@@ -399,8 +449,70 @@
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-
-
 .d-none {
     display: none;
+}
+
+/* CSS responsive */
+
+
+@media (min-width: 1000px)  and (max-width:1200px) {
+    .add_contact_btn_div {
+        padding: 22.5px 42px;
+    }
+
+    .contacts_list_div {
+        padding: 0 14px;
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+
+    .contact_div {
+        gap: 25px;
+        padding: 15px 0;
+    }
+
+    .contact_title {
+        padding-left: 25px;
+        gap: 15px;
+    }
+
+    .contact_title h1 {
+        font-size: 55px;
+    }
+
+    #selected-contact-content {
+        padding-left: 42px;
+    }
+
+    .selected_contact_circle {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 999px) {
+    
+    .selected_contact_infos {
+        display: none;
+    }
+
+    .contact_list_section{
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px){
+    .add_contact_btn_div{
+        display: none;
+    }
+
+    .mobile_add_contact_button_ctn{
+        display: flex;
+        }
+
+    .contacts_list_div{
+        padding: 24px;
+        margin: 0;
+    }
 }

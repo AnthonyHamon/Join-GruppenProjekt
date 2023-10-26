@@ -599,6 +599,7 @@ h4 {
 }
 
 .subtask-field {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -611,12 +612,31 @@ h4 {
 
 .subtask-image-field {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     cursor: pointer;
 }
 
-.subtask-image-field:hover {
+.subtask-button-close {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.subtask-button-close:hover {
+    border-radius: 100px;
+    background: var(--white, #D1D1D1);
+    border: 1px solid var(--Style, #D1D1D1);
+    transform: scale(1.01);
+}
+
+.subtask-button-check {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.subtask-button-check:hover{
     border-radius: 100px;
     background: var(--white, #D1D1D1);
     border: 1px solid var(--Style, #D1D1D1);
@@ -644,6 +664,39 @@ h4 {
     outline: none;
 }
 
-#content {
-    margin: 100px 0 0 100px;
+.subtask-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.subtask-content-img-container {
+    display: none;
+}
+
+.subtask-content:hover .subtask-content-img-container {
+    display: block;
+}
+
+
+.subtask-content-image1, .subtask-content-image2 {
+    width: 24px;
+    height: 24px;
+}
+
+.subtask-content-image2 {
+    border-left: 2px solid #D1D1D1;
+    margin-left: -4px;
+}
+
+li {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+/* #content {
+    margin: 100px 0 0 100px;
+} */

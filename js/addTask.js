@@ -16,6 +16,8 @@ const daysOfWeek = [
     'Thursday', 'Friday', 'Saturday'
 ];
 
+let isImagesOpen = false;
+
 
 function renderAddTask() {
     addTaskBgrColor();
@@ -204,7 +206,6 @@ function changeMonth(offset) {
     generateCalendar(currentMonthIndex, currentYear);
 }
 
-
 // Initialanzeige des Kalenders
 generateCalendar(currentMonthIndex, currentYear);
 
@@ -226,9 +227,42 @@ function toggleImages() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
 
-    imageContainer.style.display = "none";
-    newImages.style.display = "block";
+    if (isImagesOpen) {
+        imageContainer.style.display = "block";
+        newImages.style.display = "none";
+        isImagesOpen = false;
+    } else {
+        imageContainer.style.display = "none";
+        newImages.style.display = "block";
+        isImagesOpen = true;
+    }
 }
+
+
+function closeImages() {
+    const newImages = document.getElementById("newImages");
+    const imageContainer = document.getElementById("imageContainer");
+
+    newImages.style.display = "none";
+    imageContainer.style.display = "block";
+}
+
+
+function addSubtask() {
+    const inputField = document.querySelector(".subtask-input");
+    const taskList = document.getElementById("taskList");
+
+    const text = inputField.value.trim();
+    if (text) {
+        const listItem = document.createElement("li");
+        listItem.textContent = text;
+        taskList.appendChild(listItem);
+        inputField.value = ""; // Leeren Sie das Eingabefeld
+    }
+}
+
+
+
 
 
 

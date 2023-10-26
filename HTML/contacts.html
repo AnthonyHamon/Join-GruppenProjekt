@@ -11,6 +11,8 @@
 
 <body onload="initContacts()">
     <div w3-include-html="../assets/templates/desktop_template.html"></div>
+    <div w3-include-html="../assets/templates/mobile_template.html"></div>
+
     <div id="content">
         <main class="contacts_content">
             <section class="contact_list_section">
@@ -36,9 +38,7 @@
                             <div id="contact-name">
                                 Anton Mayer
                             </div>
-                            <span id="contact-email">
-                                antonm@gmail.com
-                                <span>
+                            <span id="contact-email">antonm@gmail.com<span>
                         </div>
                     </div>
                 </div>
@@ -59,11 +59,15 @@
                             <div id="selected-contact-name">
                                 Anton Mayer
                             </div>
-                            <div class="align_item_center gap_8">
-                                <img src="../images/edit.svg" alt="">
-                                <span>Edit</span>
-                                <img src="../images/delete.svg" alt="">
-                                <span>Delete</span>
+                            <div class="align_item_center gap_16">
+                                <div id="edit-selected-contact" class="align_item_center gap_8">
+                                    <img src="../images/edit.svg" alt="">
+                                    <span>Edit</span>
+                                </div>
+                                <div id="delete-selected-contact" class="align_item_center gap_8">
+                                    <img src="../images/delete.svg" alt="">
+                                    <span>Delete</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -81,9 +85,14 @@
                 </div>
             </section>
         </main>
+        <div class="mobile_add_contact_button_ctn">
+            <div class="mobile_add_contact_button">
+                <img src="..//images/person_add.svg">
+            </div>
+        </div>
     </div>
 
-    <div class="popup_ctn">
+    <div class="add_contact_popup_ctn d-none">
         <div class="add_contact_popup">
             <section class="section_left">
                 <div class="call_to_action_ctn">
@@ -106,18 +115,23 @@
                 </div>
                 <div class="flex_column width_100">
                     <div class="flex_end padding_48">
-                        <img src="../images/close.svg" alt="">
+                        <div id="close-add-contact-popup">
+                            <img src="../images/close.svg">
+                        </div>
                     </div>
-                    <form class="add_contact_form">
+                    <form onsubmit="addContact(); return false" class="add_contact_form">
                         <div class="add_contact_inputs_ctn">
                             <div class="add_contact_input">
                                 <input type="text" placeholder="Name">
+                                <img src="../images/person.svg" alt="">
                             </div>
                             <div class="add_contact_input">
                                 <input type="Email" placeholder="Email">
+                                <img src="../images/mail.svg" alt="">
                             </div>
                             <div class="add_contact_input">
                                 <input type="tel" placeholder="Phone">
+                                <img src="../images/call.svg" alt="">
                             </div>
                         </div>
                         <div class="add_contact_buttons_ctn">
@@ -126,7 +140,7 @@
                                 <img src="../images/close.svg" alt="">
                             </div>
                             <div class="create_contact_button_div">
-                                <buttton>Create contact</buttton>
+                                <buttton type="submit">Create contact</buttton>
                                 <img src="../images/check.svg" alt="">
                             </div>
                         </div>
