@@ -22,7 +22,7 @@ function generateContactsHTML() {
     content.innerHTML = '';
     content.innerHTML = `
         <main class="contacts_content">
-            <section class="contact_list_section">
+            <section class="contact_list_section d-none">
 
                 <div class="add_contact_btn_div">
                     <div id="add-contact-button">
@@ -54,8 +54,12 @@ function generateContactsHTML() {
                 <!-- contact info -->
                 <div class="contact_title">
                     <h1>Contacts</h1>
-                    <img src="../images/Vector 5.svg" alt="">
-                    <span>Better with a Team</span>
+                    <div class="contacts_subtitle">
+                        <div class="contacts_title_vector">
+                            <img src="../images/Vector 5.svg" alt="">
+                        </div>
+                        <span>Better with a Team</span>
+                    </div>
                 </div>
                 <div id="selected-contact-content" class="padding_left_62">
                     <div class="align_item_center gap_54">
@@ -92,7 +96,7 @@ function generateContactsHTML() {
                 </div>
             </section>
         </main>
-        <div class="mobile_add_contact_button_ctn d-none">
+        <div class="mobile_add_contact_button_ctn">
             <div class="mobile_add_contact_button">
                 <img src="..//images/person_add.svg">
             </div>

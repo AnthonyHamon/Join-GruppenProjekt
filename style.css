@@ -204,7 +204,7 @@ nav a {
     display: flex;
 }
 
-.content-section {
+.content_section {
     position: fixed;
     top: 96px;
     right: 0;
@@ -214,7 +214,7 @@ nav a {
 }
 
 @media (max-width: 999px) {
-    .content-section {
+    .content_section {
         top: 80px;
         left: 0;
     }

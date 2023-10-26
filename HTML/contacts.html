@@ -6,16 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/CSS/fonts.css">
     <link rel="stylesheet" href="../CSS/contacts.css">
+
 </head>
 
 <body onload="initContacts()">
     <div w3-include-html="../assets/templates/desktop_template.html"></div>
     <div w3-include-html="../assets/templates/mobile_template.html"></div>
 
-    <div id="content">
+    <div id="content" class="content_section">
         <main class="contacts_content">
-            <section class="contact_list_section">
+            <section class="contact_list_section d-none">
 
                 <div class="add_contact_btn_div">
                     <div id="add-contact-button">
@@ -47,8 +49,12 @@
                 <!-- contact info -->
                 <div class="contact_title">
                     <h1>Contacts</h1>
-                    <img src="../images/Vector 5.svg" alt="">
-                    <span>Better with a Team</span>
+                    <div class="contacts_subtitle">
+                        <div class="contacts_title_vector">
+                            <img src="../images/Vector 5.svg" alt="">
+                        </div>
+                        <span>Better with a Team</span>
+                    </div>
                 </div>
                 <div id="selected-contact-content" class="padding_left_62">
                     <div class="align_item_center gap_54">
