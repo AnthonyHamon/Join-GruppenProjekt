@@ -86,28 +86,6 @@
     font-size: 12px;
 }
 
-.mobile_add_contact_button_ctn {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 80px;
-    left: 0;
-    display: none;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding: 18px;
-}
-
-.mobile_add_contact_button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #2A3647;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-}
-
 #selected-contact-content {
     display: flex;
     flex-direction: column;
@@ -148,8 +126,14 @@
     font-size: 61px;
 }
 
-.contact_title span {
-    font-size: 21px;
+.contacts_subtitle {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.contacts_subtitle span {
+    font-size: 27px;
 }
 
 .gap_54 {
@@ -227,7 +211,7 @@
 }
 
 /* CSS for contact popup */
-.add_contact_popup_ctn {
+.contact_popup_ctn {
     z-index: 1000;
     position: absolute;
     top: 0;
@@ -494,23 +478,18 @@
 
 @media (max-width: 999px) {
 
-    .selected_contact_infos {
+    .mobile_selected_contact_infos {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        gap: 48px;
+    }
+
+    .selected_contact_infos{
+        display: none;
     }
 
     .contact_list_section {
         width: 100%;
-    }
-}
-
-@media (max-width: 999px) {
-
-    .selected_contact_infos {
-        display: flex;
-        flex-direction: column;
-        gap: 48px;
     }
 
     .contact_title {
@@ -518,20 +497,26 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
+        padding: 48px 0 0 16px;
     }
 
-    .contact_title h1{
+    .contact_title h1 {
         margin: 0;
         font-size: 61px !important;
     }
 
-    .contacts_subtitle{
+    .contacts_subtitle {
         display: flex;
         flex-direction: column-reverse;
         align-items: flex-start;
+        gap: 0;
     }
 
-    .contacts_title_vector{
+    .contacts_subtitle span {
+        font-size: 20px;
+    }
+
+    .contacts_title_vector {
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -539,10 +524,115 @@
         height: 34px;
     }
 
-    .contacts_title_vector img{
+    .contacts_title_vector img {
         transform: rotate(90deg);
     }
 
+    #selected-contact-content {
+        display: flex;
+        flex-direction: column;
+        gap: 21px;
+        padding-left: 22px;
+    }
+
+    .gap_20 {
+        gap: 20px;
+    }
+
+    .selected_contact_circle {
+        width: 80px;
+        height: 80px;
+        font-size: 27px;
+    }
+
+    #edit-selected-contact {
+        display: none;
+    }
+
+    #delete-selected-contact {
+        display: none;
+    }
+
+
+    /* CSS for mobile add contact popup */
+
+    .mobile_add_contact_popup {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 95%;
+        height: calc(100% - 168px);
+    }
+
+    .section_left {
+        width: 100%;
+        border-radius: 30px 30px 0 0;
+        height: 46%;
+    }
+
+    .close_add_contact_popup_div{
+        display: flex;
+        justify-content: flex-end;
+        padding: 48px 48px 0 0;
+    }
+
+    #close-add-contact-popup img{
+        filter: brightness(0) saturate(100%);
+        filter: invert(99%) sepia(4%) saturate(102%) hue-rotate(155deg) brightness(115%) contrast(100%);
+    }
+
+    #close-add-contact-popup:hover{
+        border: 1px solid transparent;
+        background-color: unset;
+    }
+
+    .call_to_action_ctn {
+        align-items: flex-start;
+        height: unset;
+        padding: 66px 24px;
+    }
+
+    .call_to_action_logo {
+        display: none;
+    }
+
+    .call_to_action_text h2 {
+        font-size: 47px;
+    }
+
+    .call_to_action_text span {
+        font-size: 20px;
+    }
+
+    .call_to_action_vector {
+        padding: 16px 0
+    }
+
+    .section_right{
+        flex-direction: column;
+        border-radius: 0 0 30px 30px;
+        gap: 32px;
+        height: 56%;
+    }
+
+    .contact_profil_ctn{
+        justify-content: center;
+        padding: 0;
+        margin-top: -60px;
+        height: max-content;
+    }
+
+    .add_contact_form{
+        gap: 32px;
+    }
+
+    .add_contact_inputs_ctn{
+        gap: 15px;
+    }
+
+    .cancel_contact_button_div{
+        display: none;
+    }
 }
 
 @media (max-width: 500px) {
@@ -551,11 +641,40 @@
     }
 
     .mobile_add_contact_button_ctn {
+        position: absolute;
+        right: 0;
+        bottom: 80px;
+        left: 0;
         display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 18px;
+    }
+
+    .mobile_add_contact_button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #2A3647;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
     }
 
     .contacts_list_div {
         padding: 24px;
         margin: 0;
+    }
+
+    #selected-contact-name {
+        font-size: 36px;
+        font-weight: 700;
+    }
+}
+
+@media(max-width: 320px){
+    .contact_div{
+        gap: 20px;
     }
 }

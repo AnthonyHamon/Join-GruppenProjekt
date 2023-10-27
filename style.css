@@ -205,7 +205,7 @@ nav a {
 }
 
 .content_section {
-    position: fixed;
+    position: absolute;
     top: 96px;
     right: 0;
     bottom: 0;
