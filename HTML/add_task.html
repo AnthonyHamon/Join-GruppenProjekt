@@ -120,21 +120,24 @@
                     </div>
                     <div class="subtask-container">
                         <h4>Subtasks</h4>
-                        <div class="subtask-field" onclick="toggleImages()">
-                            <div class="subtask-input-container">
+                        <div class="subtask-field">
+                            <div class="subtask-input-container" onclick="toggleImages('imageContainer')">
                                 <input class="subtask-input" type="text" name="myInput" placeholder="Add new subtask">
                             </div>
-                            <div class="subtask-image-field" id="imageContainer">
-                                <img src="../images/Property 1=add.svg" alt="">
+                            <div class="subtask-image-field-first" id="imageContainer">
+                                <img src="../images/Property 1=add.svg" alt="" onclick="toggleImages('newImages')">
                             </div>
-                            <div class="subtask-image-field" id="newImages" style="display: none;">
-                                <img onclick="closeImages()"  class="subtask-button-close" src="../images/Property 1=close.svg" alt="">
-                                <img class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask(); closeImages(); toggleImages();">
+                            <div class="subtask-image-field-second" id="newImages" style="display: none;">
+                                <img onclick="closeImages('newImages')" class="subtask-button-close" src="../images/Property 1=close.svg" alt="">
+                                <img class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask(); toggleImages('imageContainer'); closeImages('newImages');">
                             </div>
                         </div>
+                        
                         <div class="subtask-content">
                             <div>
-                                <ul id="taskList"></ul>
+                                <ul id="taskList">
+                                    <li></li>
+                                </ul>
                             </div>
                             <div class="subtask-content-img-container">
                                 <img class="subtask-content-image1" src="../images/Property 1=edit.svg" alt="">

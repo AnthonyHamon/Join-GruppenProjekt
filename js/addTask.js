@@ -223,8 +223,8 @@ function changeButtonStyles(color) {
 }
 
 
-function toggleImages() {
-    const imageContainer = document.getElementById("imageContainer");
+function toggleImages(targetID) {
+    const imageContainer = document.getElementById(targetID);
     const newImages = document.getElementById("newImages");
 
     if (isImagesOpen) {
@@ -238,15 +238,13 @@ function toggleImages() {
     }
 }
 
+function closeImages(targetID) {
+    const imageContainer = document.getElementById(targetID);
+    const inputField = document.querySelector(".subtask-input");
 
-function closeImages() {
-    const newImages = document.getElementById("newImages");
-    const imageContainer = document.getElementById("imageContainer");
-
-    newImages.style.display = "none";
-    imageContainer.style.display = "block";
+    imageContainer.style.display = "none";
+    inputField.value = ""; // Leert das Eingabefeld
 }
-
 
 function addSubtask() {
     const inputField = document.querySelector(".subtask-input");
@@ -260,6 +258,11 @@ function addSubtask() {
         inputField.value = ""; // Leeren Sie das Eingabefeld
     }
 }
+
+
+
+
+
 
 
 
