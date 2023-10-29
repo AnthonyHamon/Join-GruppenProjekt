@@ -12,12 +12,13 @@ function renderContacts() {
 
 function showContactInformation() {
     let width = window.innerWidth;
-    if (width < 900) {
+    if (width < 1000) {
         showSelectedContactInformations();
         toggleCSSContactInformation()
         toggleAddcontactMobileMenu();
     } else {
         showSelectedContactInformations();
+        addSelectedContactAnimation();
     }
 }
 
@@ -26,7 +27,11 @@ function showSelectedContactInformations() {
     contactInformations.innerHTML = returnContactInformations();
 }
 
-function closeSelectedContactInformation(){
+function addSelectedContactAnimation() {
+    document.getElementById('selected-contact-content').classList.add('slide_selected_contact');
+}
+
+function closeSelectedContactInformation() {
     toggleAddcontactMobileMenu();
     toggleCSSContactInformation();
 }
@@ -40,21 +45,36 @@ function toggleCSSContactInformation() {
 }
 
 function openAddContact() {
-    let addContactCtn = document.getElementById('add-contact-popup-ctn');
-    openOrCloseAddContactPopup();
-    addContactCtn.innerHTML = returnContactPopup(); 
-    }
+    let addContactCtn = document.getElementById('contact-popup-ctn');
+    openOrCloseContactPopup();
+    addContactCtn.innerHTML = returnAddContactPopup();
+}
 
-function openOrCloseAddContactPopup(){
-    let addContactCtn = document.getElementById('add-contact-popup-ctn');
+function openOrCloseContactPopup() {
+    let addContactCtn = document.getElementById('contact-popup-ctn');
     addContactCtn.classList.toggle('d-none');
 }
 
-function toggleAddcontactMobileMenu(){
+function toggleAddcontactMobileMenu() {
     document.getElementById('mobile-add-contact-button').classList.toggle('d-none');
     document.getElementById('mobile-contact-edit-menu').classList.toggle('d-none');
 }
 
+function openEditContact() {
+    let editContactCtn = document.getElementById('contact-popup-ctn');
+    openOrCloseContactPopup();
+    editContactCtn.innerHTML = returnEditContactPopup();
+}
+
+
+function addNewContact(){
+    openOrCloseContactPopup();
+    showContactCreatedPopup();
+}
+
+function showContactCreatedPopup(){
+    document.getElementById('contact-created-popup').classList.add('animate_contact_created_popup')
+}
 
 
 function contactsBgrColor() {
