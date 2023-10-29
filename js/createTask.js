@@ -2,23 +2,30 @@ let tasks = [{
     'id': 0,
     'title': 'The Title 0',
     'description': 'here you see the description 0',
+    'category': 'user',
     'status': 'done'
 }, {
     'id': 1,
     'title': 'The Title 1',
     'description': 'here you see the description 1',
+    'category': 'user',
     'status': 'feedback'
 }, {
     'id': 2,
     'title': 'The Title 2',
-    'description': 'here you see the description 2',
+    'description': 'here you sa segoj oerahja ujgn awn asd3 ip ti as sas on 2',
+    'category': 'user',
     'status': 'todo'
 }, {
     'id': 3,
     'title': 'The Title 3',
     'description': 'here you see the description 3',
+    'category': 'user',
     'status': 'inProgress'
 }];
+
+let currentTask = 'small'
+
 
 
 function renderAllTasks() {
@@ -34,10 +41,65 @@ function renderAllTasks() {
 }
 
 function renderTasksTodo(todo) {
-    document.getElementById('to_do').innerHTML = '';
+    let todoContain = document.getElementById('to_do');
+    todoContain.innerHTML = '';
+
     for (i = 0; i < todo.length; i++) {
         let element = todo[i];
-        console.log(`todo : (${element['id']})`, element);
+
+        todoContain.innerHTML = /*html*/`
+            <section id="${element['id']}" class="section">
+                <div>
+                    ${checkTaskCategory(element['category'])}
+                </div>
+                <article>
+                    <span class="taskTitle">${checkTaskTitle(element['title'])}</span>
+                    <p class="taskDescription">${checkTaskDescription(element['description'])}</p>
+                </article>
+                <div id="subtask_contain">
+                    <div class="progressbar-container">
+                        <div class="progressbar"></div>
+                    </div>
+                    <span id="subtask">1/2 Subtasks</span>
+                </div>
+                <div class="profilePropertyContain">
+                    <div id="profile" class="profileContain">
+                        <div class="profileBadge">RP</div>
+                        <div class="profileBadge">RP</div>
+                        <div class="profileBadge">RP</div>
+                        <div class="profileBadge">RP</div>
+                        <div class="profileBadge">RP</div>
+                        <div class="profileBadge">RP</div>
+                        <div class="profileBadge">RP</div>
+                        <div class="profileBadge">RP</div>
+                        <div class="profileBadge">RP</div>
+                    </div>
+                    <img src="/images/Property 1=Low.svg">
+                </div>
+            </section>        
+        `;
+    }
+}
+
+function checkTaskDescription(description) {
+    if (description.length > 48 && currentTask == 'small') {
+        return description.substring(0, 48) + '...';
+    } else if (description.length <= 48 && currentTask == 'small') {
+        return description;
+    } else if (currentTask == 'big') {
+        return description;
+    }
+}
+
+function checkTaskTitle(title) {
+
+}
+
+function checkTaskCategory(category) {
+    if (category == 'user') {
+        return `<h2 class="userStory">User Story</h2>`;
+    } else {
+        return `<h2 class="technicalTask">Technical Task</h2>`;
     }
 }
 
