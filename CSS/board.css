@@ -437,7 +437,7 @@
 }
 
 @media(max-width:730px) {
-    #content {
+    .content {
         padding-left: 16px !important;
         padding-right: 16px !important;
     }
