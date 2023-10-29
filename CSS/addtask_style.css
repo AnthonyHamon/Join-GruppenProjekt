@@ -616,6 +616,10 @@ h4 {
     cursor: pointer;
 }
 
+.subtask-image-field-first {
+    cursor: pointer;
+}
+
 .subtask-button-close {
     width: 24px;
     height: 24px;
@@ -666,19 +670,63 @@ h4 {
 .subtask-content {
     display: none;
     width: 100%;
+}
+
+.subtask-block {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.image1, .subtask-content-image2 {
-    width: 24px;
+#taskList {
+    padding: 0;
+    align-items: center;
+}
+
+.list-container {
+    width: 100%;
+    transform: none;
+}
+
+.list-field {
+    padding: 5px 16px 5px 16px;
+}
+
+.list-field .content-div{
+    display: none;
+    transform: none;
+}
+
+.list-field:hover .content-div{
+    display: block;
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    border: none;
+    border-left: 1px solid rgba(209, 209, 209, 1);
     height: 24px;
+    margin: 0 3px;
+}
+
+.subtask-content-image1, .subtask-content-image2 {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 
 .subtask-content-image2 {
     border-left: 2px solid #D1D1D1;
     margin-left: -4px;
+}
+
+.list-field {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .list-field {

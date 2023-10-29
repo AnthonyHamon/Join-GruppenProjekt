@@ -228,6 +228,7 @@ function changeButtonStyles(color) {
 function toggleImages() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
+    document.getElementById("subtaskInput").disabled = false;
 
     if (imageContainer.style.display !== "none") {
         imageContainer.style.display = "none";
@@ -256,15 +257,38 @@ function addSubtask() {
 
     if (text) {
         const listItem = document.createElement("li");
+        
+        const contentDiv = document.createElement("div");
+        contentDiv.classList.add("content-div"); // Füge dem div eine Klasse hinzu (falls gewünscht)
+
+        const editImage = document.createElement("img");
+        editImage.setAttribute("src", "../images/Property 1=edit.svg");
+        editImage.setAttribute("alt", "");
+
+        const line = document.createElement("div");
+        line.classList.add("line");
+        
+        const deleteImage = document.createElement("img");
+        deleteImage.setAttribute("src", "../images/Property 1=delete.svg");
+        deleteImage.setAttribute("alt", "");
+        deleteImage.addEventListener('click', deleteListTask);
+
+        contentDiv.appendChild(editImage);
+        contentDiv.appendChild(line);
+        contentDiv.appendChild(deleteImage);
+
         listItem.textContent = text;
+        listItem.appendChild(contentDiv);
+
+        listItem.classList.add("list-field");
+
         taskList.appendChild(listItem);
-        inputField.value = ""; // Leert das Eingabefeld
+        inputField.value = "";
 
         const subtaskContent = document.querySelector(".subtask-content");
-        subtaskContent.style.display = "block"; // Zeige das subtask-content-Element an
+        subtaskContent.style.display = "block";
     }
 }
-
 
 
 function clearInputField(inputsField) {
@@ -273,6 +297,15 @@ function clearInputField(inputsField) {
         inputField.value = "";
     }
 }
+
+
+function deleteListTask() {
+    const listField = document.querySelector(".list-field");
+    if (listField) {
+        listField.remove();
+    }
+}
+
 
 
 
