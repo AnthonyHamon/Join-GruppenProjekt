@@ -8,19 +8,19 @@ let tasks = [{
     'id': 1,
     'title': 'The Title 1',
     'description': 'here you see the description 1',
-    'category': 'user',
+    'category': 'technical',
     'status': 'feedback'
 }, {
     'id': 2,
-    'title': 'The Title 2',
-    'description': 'here you sa segoj oerahja ujgn awn asd3 ip ti as sas on 2',
+    'title': 'asssssssssssssss sssssss sssssssasdadssssss asdadssssssasdadfas fasfsdasdsfsadsad2',
+    'description': 'hoch hinauf war der kleine bär der mutvoll um den mond renn nt, doch als die krähe kam, gint er seines weges 2',
     'category': 'user',
     'status': 'todo'
 }, {
     'id': 3,
     'title': 'The Title 3',
     'description': 'here you see the description 3',
-    'category': 'user',
+    'category': 'technical',
     'status': 'inProgress'
 }];
 
@@ -43,56 +43,99 @@ function renderAllTasks() {
 function renderTasksTodo(todo) {
     let todoContain = document.getElementById('to_do');
     todoContain.innerHTML = '';
-
     for (i = 0; i < todo.length; i++) {
         let element = todo[i];
-
         todoContain.innerHTML = /*html*/`
-            <section id="${element['id']}" class="section">
-                <div>
-                    ${checkTaskCategory(element['category'])}
-                </div>
-                <article>
-                    <span class="taskTitle">${checkTaskTitle(element['title'])}</span>
-                    <p class="taskDescription">${checkTaskDescription(element['description'])}</p>
-                </article>
-                <div id="subtask_contain">
-                    <div class="progressbar-container">
-                        <div class="progressbar"></div>
-                    </div>
-                    <span id="subtask">1/2 Subtasks</span>
-                </div>
-                <div class="profilePropertyContain">
-                    <div id="profile" class="profileContain">
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
-                        <div class="profileBadge">RP</div>
-                    </div>
-                    <img src="/images/Property 1=Low.svg">
-                </div>
-            </section>        
+            ${renderTaskHTML(element['id'], element['title'], element['description'], element['category'])}
         `;
     }
 }
 
-function checkTaskDescription(description) {
-    if (description.length > 48 && currentTask == 'small') {
-        return description.substring(0, 48) + '...';
-    } else if (description.length <= 48 && currentTask == 'small') {
-        return description;
-    } else if (currentTask == 'big') {
-        return description;
+function renderTasksInProgress(inProgress) {
+    let inProgressContain = document.getElementById('in_progress');
+    inProgressContain.innerHTML = '';
+    for (i = 0; i < inProgress.length; i++) {
+        let element = inProgress[i];
+        inProgressContain.innerHTML = /*html*/`
+            ${renderTaskHTML(element['id'], element['title'], element['description'], element['category'])}
+        `;
     }
 }
 
-function checkTaskTitle(title) {
+function renderTasksFeedback(feedback) {
+    let feedbackContain = document.getElementById('feedback');
+    feedbackContain.innerHTML = '';
+    for (i = 0; i < feedback.length; i++) {
+        let element = feedback[i];
+        feedbackContain.innerHTML = /*html*/`
+            ${renderTaskHTML(element['id'], element['title'], element['description'], element['category'])}
+        `;
+    }
+}
 
+function renderTasksDone(done) {
+    let doneContain = document.getElementById('done');
+    doneContain.innerHTML = '';
+    for (i = 0; i < done.length; i++) {
+        let element = done[i];
+        doneContain.innerHTML = /*html*/`
+            ${renderTaskHTML(element['id'], element['title'], element['description'], element['category'])}
+        `;
+    }
+}
+
+function renderTaskHTML(id, title, description, category) {
+    return /*html*/`
+        <section id="${id}" class="section">
+            <div>
+                ${checkTaskCategory(category)}
+            </div>
+            <article>
+                <span class="taskTitle">${returnTaskTitle(title)}</span>
+                <p class="taskDescription">${returnTaskDescription(description)}</p>
+            </article>
+            <div id="subtask_contain">
+                <div class="progressbar-container">
+                    <div class="progressbar"></div>
+                </div>
+                <span id="subtask">1/2 Subtasks</span>
+            </div>
+            <div class="profilePropertyContain">
+                <div id="profile" class="profileContain">
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                    <div class="profileBadge">RP</div>
+                </div>
+                <img src="/images/Property 1=Low.svg">
+            </div>
+        </section>
+    `;
+}
+
+function returnTaskTitle(title) {
+    if (title.length > 57 && currentTask == 'small') {
+        return title.charAt(0).toUpperCase() + title.slice(1).substring(0, 57) + '...';
+    } else if (title.length <= 57 && currentTask == 'small') {
+        return title.charAt(0).toUpperCase() + title.slice(1);
+    } else if (currentTask == 'big') {
+        return title.charAt(0).toUpperCase() + title.slice(1);
+    }
+}
+
+function returnTaskDescription(description) {
+    if (description.length > 57 && currentTask == 'small') {
+        return description.charAt(0).toUpperCase() + description.slice(1).substring(0, 57) + '...';
+    } else if (description.length <= 57 && currentTask == 'small') {
+        return description.charAt(0).toUpperCase() + description.slice(1);
+    } else if (currentTask == 'big') {
+        return description.charAt(0).toUpperCase() + description.slice(1);
+    }
 }
 
 function checkTaskCategory(category) {
@@ -102,31 +145,6 @@ function checkTaskCategory(category) {
         return `<h2 class="technicalTask">Technical Task</h2>`;
     }
 }
-
-function renderTasksInProgress(inProgress) {
-    document.getElementById('in_progress').innerHTML = '';
-    for (i = 0; i < inProgress.length; i++) {
-        let element = inProgress[i];
-        console.log(`in Progress : (${element['id']})`, element);
-    }
-}
-
-function renderTasksFeedback(feedback) {
-    document.getElementById('feedback').innerHTML = '';
-    for (i = 0; i < feedback.length; i++) {
-        let element = feedback[i];
-        console.log(`Feedback : (${element['id']})`, element);
-    }
-}
-
-function renderTasksDone(done) {
-    document.getElementById('done').innerHTML = '';
-    for (i = 0; i < done.length; i++) {
-        let element = done[i];
-        console.log(`Done : (${element['id']})`, element);
-    }
-}
-
 
 
 

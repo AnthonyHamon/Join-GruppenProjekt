@@ -3,7 +3,7 @@
 
 
 function renderBoard() {
-    changeId();
+    changeClass();
     boardBgrColor();
     removeBgrColorWithoutBoard();
     addJoinLogoClickable();
@@ -11,11 +11,9 @@ function renderBoard() {
     checkWidthInBoard();
 }
 
-function changeId() {
-    var element = document.getElementById('section-content');
-    if (element) {
-        element.id = 'content';
-    }
+function changeClass() {
+    document.getElementById('content').classList.remove('content_section');
+    document.getElementById('content').classList.add('content');
 }
 
 function boardBgrColor() {
@@ -39,14 +37,14 @@ function addJoinLogoClickable() {
 }
 
 function returnAddBtn(category) {
-    return /*html*/`<svg onclick="addTask('${category}')" class="svgHover" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    return /*html*/`<svg onclick="addTaskFromBtn('${category}')" class="svgHover" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M12.6665 8.5V16.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
     <path d="M16.6665 12.5754L8.6665 12.5754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
     <rect x="1.6665" y="1.5" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
     </svg>`;
 }
 
-function addTask(category) {
+function addTaskFromBtn(category) {
     let status = document.getElementById(`${category}`);
 
     status.innerHTML += /*html*/`
