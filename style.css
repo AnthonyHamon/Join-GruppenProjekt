@@ -204,6 +204,24 @@ nav a {
     display: flex;
 }
 
+<<<<<<< HEAD
+=======
+.content_section {
+    position: absolute;
+    top: 96px;
+    right: 0;
+    bottom: 0;
+    left: 232px;
+}
+
+@media (max-width: 999px) {
+    .content_section {
+        top: 80px;
+        left: 0;
+    }
+}
+
+>>>>>>> 7cc7259600f30f0f97c895f0050846cfe28f06ab
 .p-none {
     pointer-events: none;
 }

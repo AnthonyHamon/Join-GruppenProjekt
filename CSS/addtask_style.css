@@ -567,7 +567,6 @@ h4 {
     transform: scale(1.01);
 }
 
-
 .custom-list .dropdown-options li {
     padding: 15px;
     list-style: none;
@@ -678,7 +677,6 @@ h4 {
 .subtask-content:hover .subtask-content-img-container {
     display: block;
 }
-
 
 .subtask-content-image1, .subtask-content-image2 {
     width: 24px;

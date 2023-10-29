@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/CSS/fonts.css">
     <link rel="stylesheet" href="../CSS/contacts.css">
+
 </head>
 
 <body onload="initContacts()">
     <div w3-include-html="../assets/templates/desktop_template.html"></div>
     <div w3-include-html="../assets/templates/mobile_template.html"></div>
 
-    <div id="content">
+    <div id="content" class="content_section">
         <main class="contacts_content">
             <section class="contact_list_section">
 
@@ -46,12 +48,19 @@
             <section class="selected_contact_infos">
                 <!-- contact info -->
                 <div class="contact_title">
-                    <h1>Contacts</h1>
-                    <img src="../images/Vector 5.svg" alt="">
-                    <span>Better with a Team</span>
+                    <div>
+                        <h1>Contacts</h1>
+                        <img src="../images/a" alt="">
+                    </div>
+                    <div class="contacts_subtitle">
+                        <div class="contacts_title_vector">
+                            <img src="../images/Vector 5.svg" alt="">
+                        </div>
+                        <span>Better with a Team</span>
+                    </div>
                 </div>
                 <div id="selected-contact-content" class="padding_left_62">
-                    <div class="align_item_center gap_54">
+                    <div class="align_item_center gap_54 gap_20">
                         <div class="selected_contact_circle">
                             AM
                         </div>
@@ -85,69 +94,12 @@
                 </div>
             </section>
         </main>
+
         <div class="mobile_add_contact_button_ctn">
             <div class="mobile_add_contact_button">
                 <img src="..//images/person_add.svg">
+                <img class="d-none" src="..//images/more_menu.svg">
             </div>
-        </div>
-    </div>
-
-    <div class="add_contact_popup_ctn d-none">
-        <div class="add_contact_popup">
-            <section class="section_left">
-                <div class="call_to_action_ctn">
-                    <img class="call_to_action_logo" src="../images/join_logo.svg">
-                    <div class="call_to_action_text">
-                        <h2>Add contact</h2>
-                        <span>Tasks are better with a team!</span>
-                    </div>
-                    <div class="call_to_action_vector">
-                        <img src="../images/vector.svg" alt="">
-                    </div>
-                </div>
-            </section>
-
-            <section class="section_right">
-                <div class="contact_profil_ctn">
-                    <div class="contact_profil">
-                        <img src="../images/person_white.svg">
-                    </div>
-                </div>
-                <div class="flex_column width_100">
-                    <div class="flex_end padding_48">
-                        <div id="close-add-contact-popup">
-                            <img src="../images/close.svg">
-                        </div>
-                    </div>
-                    <form onsubmit="addContact(); return false" class="add_contact_form">
-                        <div class="add_contact_inputs_ctn">
-                            <div class="add_contact_input">
-                                <input type="text" placeholder="Name">
-                                <img src="../images/person.svg" alt="">
-                            </div>
-                            <div class="add_contact_input">
-                                <input type="Email" placeholder="Email">
-                                <img src="../images/mail.svg" alt="">
-                            </div>
-                            <div class="add_contact_input">
-                                <input type="tel" placeholder="Phone">
-                                <img src="../images/call.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="add_contact_buttons_ctn">
-                            <div class="cancel_contact_button_div">
-                                <buttton>Cancel</buttton>
-                                <img src="../images/close.svg" alt="">
-                            </div>
-                            <div class="create_contact_button_div">
-                                <buttton type="submit">Create contact</buttton>
-                                <img src="../images/check.svg" alt="">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </section>
-
         </div>
     </div>
 </body>

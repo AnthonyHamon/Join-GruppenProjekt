@@ -1,13 +1,61 @@
-async function initContacts(){
+async function initContacts() {
     await includeHTML();
 }
 
 function renderContacts() {
     contactsBgrColor();
+    addContactsCSS();
     removeBgrColorWithoutContacts();
     addJoinLogoClickable();
     generateContactsHTML();
 }
+
+function showContactInformation() {
+    let width = window.innerWidth;
+    if (width < 900) {
+        showSelectedContactInformations();
+        toggleCSSContactInformation()
+        toggleAddcontactMobileMenu();
+    } else {
+        showSelectedContactInformations();
+    }
+}
+
+function showSelectedContactInformations() {
+    let contactInformations = document.getElementById('selected-contact-content');
+    contactInformations.innerHTML = returnContactInformations();
+}
+
+function closeSelectedContactInformation(){
+    toggleAddcontactMobileMenu();
+    toggleCSSContactInformation();
+}
+
+function toggleCSSContactInformation() {
+    let contactList = document.getElementById('contact-list-section');
+    contactList.classList.toggle('d-none');
+    let contactInformations = document.getElementById('contactInformations');
+    contactInformations.classList.toggle('selected_contact_infos');
+    contactInformations.classList.toggle('mobile_selected_contact_infos');
+}
+
+function openAddContact() {
+    let addContactCtn = document.getElementById('add-contact-popup-ctn');
+    openOrCloseAddContactPopup();
+    addContactCtn.innerHTML = returnContactPopup(); 
+    }
+
+function openOrCloseAddContactPopup(){
+    let addContactCtn = document.getElementById('add-contact-popup-ctn');
+    addContactCtn.classList.toggle('d-none');
+}
+
+function toggleAddcontactMobileMenu(){
+    document.getElementById('mobile-add-contact-button').classList.toggle('d-none');
+    document.getElementById('mobile-contact-edit-menu').classList.toggle('d-none');
+}
+
+
 
 function contactsBgrColor() {
     document.getElementById('contacts').classList.add('currentTemplate', 'p-none');
@@ -27,4 +75,9 @@ function removeBgrColorWithoutContacts() {
 function addJoinLogoClickable() {
     document.getElementById('join_logo').classList.remove('p-none');
     document.getElementById('join_logo_mobile').classList.remove('p-none');
+}
+
+function addContactsCSS() {
+    document.getElementById('content').classList.remove('content');
+    document.getElementById('content').classList.add('content_section');
 }
