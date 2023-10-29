@@ -204,8 +204,6 @@ nav a {
     display: flex;
 }
 
-<<<<<<< HEAD
-=======
 .content_section {
     position: absolute;
     top: 96px;
@@ -214,14 +212,6 @@ nav a {
     left: 232px;
 }
 
-@media (max-width: 999px) {
-    .content_section {
-        top: 80px;
-        left: 0;
-    }
-}
-
->>>>>>> 7cc7259600f30f0f97c895f0050846cfe28f06ab
 .p-none {
     pointer-events: none;
 }
@@ -231,6 +221,11 @@ nav a {
 }
 
 @media (max-width:999px) {
+
+    .content_section {
+        top: 80px;
+        left: 0;
+    }
 
     .mobile {
         display: block;
