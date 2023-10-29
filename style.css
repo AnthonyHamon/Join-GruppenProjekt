@@ -204,22 +204,6 @@ nav a {
     display: flex;
 }
 
-#content {
-    position: fixed;
-    top: 96px;
-    right: 0;
-    bottom: 0;
-    left: 232px;
-    width: 100%;
-}
-
-@media (max-width: 999px) {
-    #content {
-        top: 80px;
-        left: 0;
-    }
-}
-
 .p-none {
     pointer-events: none;
 }
@@ -318,7 +302,7 @@ nav a {
         cursor: pointer;
     }
 
-    #profile_menu_contain{
+    #profile_menu_contain {
         display: none;
     }
 }

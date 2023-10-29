@@ -3,11 +3,19 @@
 
 
 function renderBoard() {
+    changeId();
     boardBgrColor();
     removeBgrColorWithoutBoard();
     addJoinLogoClickable();
     generateBoardHTML();
     checkWidthInBoard();
+}
+
+function changeId() {
+    var element = document.getElementById('section-content');
+    if (element) {
+        element.id = 'content';
+    }
 }
 
 function boardBgrColor() {
