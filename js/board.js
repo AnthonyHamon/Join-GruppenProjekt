@@ -3,11 +3,19 @@
 
 
 function renderBoard() {
+    changeId();
     boardBgrColor();
     removeBgrColorWithoutBoard();
     addJoinLogoClickable();
     generateBoardHTML();
     checkWidthInBoard();
+}
+
+function changeId() {
+    var element = document.getElementById('section-content');
+    if (element) {
+        element.id = 'content';
+    }
 }
 
 function boardBgrColor() {
@@ -39,9 +47,9 @@ function returnAddBtn(category) {
 }
 
 function addTask(category) {
-    let section = document.getElementById(`${category}`);
+    let status = document.getElementById(`${category}`);
 
-    section.innerHTML += /*html*/`
+    status.innerHTML += /*html*/`
         <section class="section">
             <h2 class="userStory">User Story</h2>
             <article>
