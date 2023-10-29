@@ -223,39 +223,54 @@ function changeButtonStyles(color) {
 }
 
 
-function toggleImages(targetID) {
-    const imageContainer = document.getElementById(targetID);
+// Subtask Element
+
+function toggleImages() {
+    const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
 
-    if (isImagesOpen) {
-        imageContainer.style.display = "block";
-        newImages.style.display = "none";
-        isImagesOpen = false;
-    } else {
+    if (imageContainer.style.display !== "none") {
         imageContainer.style.display = "none";
         newImages.style.display = "block";
-        isImagesOpen = true;
+    } else {
+        newImages.style.display = "none";
+        imageContainer.style.display = "block";
     }
 }
 
-function closeImages(targetID) {
-    const imageContainer = document.getElementById(targetID);
-    const inputField = document.querySelector(".subtask-input");
 
-    imageContainer.style.display = "none";
-    inputField.value = ""; // Leert das Eingabefeld
+function closeImages() {
+    const imageContainer = document.getElementById("imageContainer");
+    const newImages = document.getElementById("newImages");
+
+    imageContainer.style.display = "block";
+    newImages.style.display = "none";
+    clearInputField("subtaskInput");
 }
 
+
 function addSubtask() {
-    const inputField = document.querySelector(".subtask-input");
+    const inputField = document.getElementById("subtaskInput");
+    const text = inputField.value.trim();
     const taskList = document.getElementById("taskList");
 
-    const text = inputField.value.trim();
     if (text) {
         const listItem = document.createElement("li");
         listItem.textContent = text;
         taskList.appendChild(listItem);
-        inputField.value = ""; // Leeren Sie das Eingabefeld
+        inputField.value = ""; // Leert das Eingabefeld
+
+        const subtaskContent = document.querySelector(".subtask-content");
+        subtaskContent.style.display = "block"; // Zeige das subtask-content-Element an
+    }
+}
+
+
+
+function clearInputField(inputsField) {
+    const inputField = document.getElementById(inputsField);
+    if (inputField) {
+        inputField.value = "";
     }
 }
 

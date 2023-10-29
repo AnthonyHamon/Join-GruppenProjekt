@@ -664,21 +664,14 @@ h4 {
 }
 
 .subtask-content {
+    display: none;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.subtask-content-img-container {
-    display: none;
-}
-
-.subtask-content:hover .subtask-content-img-container {
-    display: block;
-}
-
-.subtask-content-image1, .subtask-content-image2 {
+.image1, .subtask-content-image2 {
     width: 24px;
     height: 24px;
 }
@@ -688,7 +681,7 @@ h4 {
     margin-left: -4px;
 }
 
-li {
+.list-field {
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
