@@ -276,6 +276,16 @@ function createLine() {
     return line;
 }
 
+
+function createEditImage() {
+    const editImage = document.createElement("img");
+    editImage.setAttribute("src", "../images/Property 1=edit.svg");
+    editImage.setAttribute("alt", "");
+    editImage.addEventListener('click', editTask);
+    return editImage;
+}
+
+
 function createDeleteImage() {
     const deleteImage = document.createElement("img");
     deleteImage.setAttribute("src", "../images/Property 1=delete.svg");
@@ -307,6 +317,33 @@ function addSubtask() {
         const subtaskContent = document.querySelector(".subtask-content");
         subtaskContent.style.display = "block";
     }
+}
+
+
+function editTask(event) {
+    const listItem = event.target.parentElement;
+    const editDiv = document.createElement('div');
+    editDiv.setAttribute('id', 'editDiv');
+    editDiv.classList.add('edit-div');
+
+    const editInput = document.createElement('input');
+    editInput.setAttribute('id', 'editInput');
+    editInput.classList.add('edit-input');
+    editInput.setAttribute('type', 'text');
+    editInput.value = listItem.textContent.trim();
+
+    const deleteImage = createDeleteImage();
+    const checkImage = createCheckImage();
+
+    deleteImage.addEventListener('click', deleteListTask);
+    checkImage.addEventListener('click', addSubtask); // AddSubtask function logic for checkImage
+
+    editDiv.appendChild(editInput);
+    editDiv.appendChild(deleteImage);
+    editDiv.appendChild(checkImage);
+
+    listItem.style.display = 'none';
+    listItem.parentNode.insertBefore(editDiv, listItem);
 }
 
 
