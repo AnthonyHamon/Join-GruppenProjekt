@@ -250,38 +250,57 @@ function closeImages() {
 }
 
 
+function createListItem(text) {
+    const listItem = document.createElement("li");
+    listItem.textContent = text;
+    listItem.classList.add("list-field");
+    return listItem;
+}
+
+function createContentDiv() {
+    const contentDiv = document.createElement("div");
+    contentDiv.classList.add("content-div");
+    return contentDiv;
+}
+
+function createEditImage() {
+    const editImage = document.createElement("img");
+    editImage.setAttribute("src", "../images/Property 1=edit.svg");
+    editImage.setAttribute("alt", "");
+    return editImage;
+}
+
+function createLine() {
+    const line = document.createElement("div");
+    line.classList.add("line");
+    return line;
+}
+
+function createDeleteImage() {
+    const deleteImage = document.createElement("img");
+    deleteImage.setAttribute("src", "../images/Property 1=delete.svg");
+    deleteImage.setAttribute("alt", "");
+    deleteImage.addEventListener('click', deleteListTask);
+    return deleteImage;
+}
+
 function addSubtask() {
     const inputField = document.getElementById("subtaskInput");
     const text = inputField.value.trim();
     const taskList = document.getElementById("taskList");
 
     if (text) {
-        const listItem = document.createElement("li");
-        
-        const contentDiv = document.createElement("div");
-        contentDiv.classList.add("content-div"); // Füge dem div eine Klasse hinzu (falls gewünscht)
-
-        const editImage = document.createElement("img");
-        editImage.setAttribute("src", "../images/Property 1=edit.svg");
-        editImage.setAttribute("alt", "");
-
-        const line = document.createElement("div");
-        line.classList.add("line");
-        
-        const deleteImage = document.createElement("img");
-        deleteImage.setAttribute("src", "../images/Property 1=delete.svg");
-        deleteImage.setAttribute("alt", "");
-        deleteImage.addEventListener('click', deleteListTask);
+        const listItem = createListItem(text);
+        const contentDiv = createContentDiv();
+        const editImage = createEditImage();
+        const line = createLine();
+        const deleteImage = createDeleteImage();
 
         contentDiv.appendChild(editImage);
         contentDiv.appendChild(line);
         contentDiv.appendChild(deleteImage);
 
-        listItem.textContent = text;
         listItem.appendChild(contentDiv);
-
-        listItem.classList.add("list-field");
-
         taskList.appendChild(listItem);
         inputField.value = "";
 
@@ -289,6 +308,7 @@ function addSubtask() {
         subtaskContent.style.display = "block";
     }
 }
+
 
 
 function clearInputField(inputsField) {
