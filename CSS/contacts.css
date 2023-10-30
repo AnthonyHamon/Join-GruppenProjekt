@@ -8,6 +8,16 @@
     }
 }
 
+@keyframes slide_to_right {
+    from {
+        margin-left: 0%;
+    }
+
+    to {
+        margin-left: 200%;
+    }
+}
+
 .contacts_content {
     display: flex;
     flex-direction: row;
@@ -262,7 +272,14 @@
     border: 1px solid transparent;
     width: 90%;
     height: 60%;
+}
+
+.open_animation_contact_popup{
     animation: slide_to_left 0.750s ease-in-out;
+}
+
+.close_animation_contact_popup{
+    animation: slide_to_right 0.750s ease-in-out;
 }
 
 .section_left {
@@ -683,13 +700,23 @@
 
     /* CSS for mobile add contact popup */
 
-    @keyframes slide_mobile_add_contact {
+    @keyframes slide_in_mobile_add_contact {
         from {
             margin-top: 200%
         }
 
         to {
             margin-top: 0;
+        }
+    }
+
+    @keyframes slide_out_mobile_add_contact {
+        from {
+            margin-top: 0%
+        }
+
+        to {
+            margin-top: 200%;
         }
     }
 
@@ -704,7 +731,14 @@
         justify-content: center;
         width: 95%;
         height: calc(100% - 168px);
-        animation: slide_mobile_add_contact 0.750s ease-in-out;
+    }
+
+    .open_mobile_animation_contact_popup{
+        animation: slide_in_mobile_add_contact 0.750s ease-in-out;
+    }
+
+    .close_mobile_animation_contact_popup{
+        animation: slide_out_mobile_add_contact 0.750s ease-in-out;
     }
 
     .section_left {
@@ -842,12 +876,21 @@
         font-weight: 700;
     }
 
-    @keyframes mobile_slide_edit_contact {
+    @keyframes slide_in_mobile_edit_contact {
         from{
             right: -200%;
         }
         to{
             right: 0%;
+        }
+    }
+
+    @keyframes slide_out_mobile_edit_contact {
+        from{
+            right: 0%;
+        }
+        to{
+            right: 200%;
         }
     }
 
@@ -862,7 +905,7 @@
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         position: absolute;
         bottom: 0;
-        animation: mobile_slide_edit_contact 0.5s ease-in-out;
+        animation: slide_in_mobile_edit_contact 0.5s ease-in-out;
     }
 
     .mobile_edit_contact_div{
@@ -873,6 +916,7 @@
         gap: 8px;
         width: 96px;
         border-radius: 10px;
+        cursor: pointer;
     }
 
     .curent_selected_mobile_contact_editor{

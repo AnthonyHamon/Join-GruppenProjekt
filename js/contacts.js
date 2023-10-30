@@ -46,14 +46,40 @@ function toggleCSSContactInformation() {
 
 function openAddContact() {
     let addContactCtn = document.getElementById('contact-popup-ctn');
-    openOrCloseContactPopup();
+    // openOrCloseContactPopup();
     addContactCtn.innerHTML = returnAddContactPopup();
+    openContactPopup();
 }
 
-function openOrCloseContactPopup() {
+function openContactPopup() {
+    let width = window.innerWidth;
     let addContactCtn = document.getElementById('contact-popup-ctn');
+    let addContact = document.getElementById('contact-popup');
+    if (width <= 1000) {
+        addContact.classList.add('open_mobile_animation_contact_popup')
+    } else {
+        addContact.classList.add('open_animation_contact_popup');
+    }
     addContactCtn.classList.toggle('d-none');
 }
+function closeContactPopup() {
+    let width = window.innerWidth;
+    let addContact = document.getElementById('contact-popup');
+    let addContactCtn = document.getElementById('contact-popup-ctn');
+    if (width <= 1000) {
+        addContact.classList.remove('open_mobile_animation_contact_popup');
+        addContact.classList.add('close_mobile_animation_contact_popup');
+    } else {
+        addContact.classList.remove('open_animation_contact_popup');
+        addContact.classList.add('close_animation_contact_popup');
+    }
+    setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
+}
+
+// function openOrCloseContactPopup() {
+//     let addContactCtn = document.getElementById('contact-popup-ctn');
+//     addContactCtn.classList.toggle('d-none');
+// }
 
 function toggleAddcontactMobileMenu() {
     document.getElementById('mobile-add-contact-button').classList.toggle('d-none');
@@ -62,13 +88,13 @@ function toggleAddcontactMobileMenu() {
 
 function openEditContact() {
     let editContactCtn = document.getElementById('contact-popup-ctn');
-    openOrCloseContactPopup();
     editContactCtn.innerHTML = returnEditContactPopup();
+    openContactPopup();
 }
 
 
 function addNewContact() {
-    openOrCloseContactPopup();
+    openContactPopup();
     showContactCreatedPopup();
     removeAnimationClass();
 }
@@ -80,7 +106,7 @@ function showContactCreatedPopup() {
 function removeAnimationClass() {
     setTimeout(() =>
         document.getElementById('contact-created-popup').classList.remove('animate_contact_created_popup')
-    ,5000);
+        , 5000);
 }
 
 

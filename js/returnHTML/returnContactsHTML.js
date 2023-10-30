@@ -59,7 +59,7 @@ function generateContactsHTML() {
                         <img src="..//images/more_menu.svg">
                     </div>
                     <div class="mobile_edit_contact_ctn">
-                        <div class="mobile_edit_contact_div">
+                        <div onclick="openEditContact()" class="mobile_edit_contact_div">
                             <img src="..//images/edit.svg">
                             <span>Edit</span>
                         </div>
@@ -113,10 +113,10 @@ function returnContactInformations() {
 
 function returnAddContactPopup() {
     return `
-        <div class="contact_popup">
+        <div id="contact-popup" class="contact_popup">
             <section class="section_left">
                 <div class="close_mobile_contact_popup_div">
-                    <div onclick="openOrCloseContactPopup()" id="close-contact-popup">
+                    <div onclick="closeContactPopup()" id="close-contact-popup">
                         <img src="../images/close.svg">
                     </div>
                 </div>
@@ -140,7 +140,7 @@ function returnAddContactPopup() {
                 </div>
                 <div class="flex_column width_100">
                     <div class="close_desktop_contact_popup_div">
-                        <div onclick="openOrCloseContactPopup()" id="close-contact-popup">
+                        <div onclick="closeContactPopup()" id="close-contact-popup">
                             <img  src="../images/close.svg">
                         </div>
                     </div>
@@ -160,7 +160,7 @@ function returnAddContactPopup() {
                             </div>
                         </div>
                         <div class="contact_buttons_ctn">
-                            <div onclick="openOrCloseContactPopup()" class="contact_popup_left_button_div">
+                            <div onclick="closeContactPopup()" class="contact_popup_left_button_div">
                                 <button>Cancel</button>
                                 <img src="../images/close.svg" alt="">
                             </div>
@@ -181,7 +181,7 @@ function returnEditContactPopup() {
         <div class="contact_popup">
             <section class="section_left">
                 <div class="close_mobile_contact_popup_div">
-                    <div onclick="openOrCloseContactPopup()" id="close-contact-popup">
+                    <div onclick="closeContactPopup()" id="close-contact-popup">
                         <img src="../images/close.svg">
                     </div>
                 </div>
@@ -204,7 +204,7 @@ function returnEditContactPopup() {
                 </div>
                 <div class="flex_column width_100">
                     <div class="close_desktop_contact_popup_div">
-                        <div onclick="openOrCloseContactPopup()" id="close-contact-popup">
+                        <div onclick="closeContactPopup()" id="close-contact-popup">
                             <img  src="../images/close.svg">
                         </div>
                     </div>
