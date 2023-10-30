@@ -50,12 +50,24 @@ function generateContactsHTML() {
                 </div>
             </section>
         </main>
-            <div class="mobile_add_contact_button_ctn">
-                <div onclick="openAddContact()" id="mobile-add-contact-button" class="mobile_add_contact_button">
-                    <img src="..//images/person_add.svg">
-                </div>
-                <div id="mobile-contact-edit-menu" class="mobile_add_contact_button d-none">
-                    <img src="..//images/more_menu.svg">
+            <div id="mobile-contact-editor" class="mobile_add_contact_button_ctn">
+                <div class="flex_end relative width_100">
+                    <div onclick="openAddContact()" id="mobile-add-contact-button" class="mobile_add_contact_button">
+                        <img src="..//images/person_add.svg">
+                    </div>
+                    <div id="mobile-contact-edit-menu" class="mobile_add_contact_button d-none">
+                        <img src="..//images/more_menu.svg">
+                    </div>
+                    <div class="mobile_edit_contact_ctn">
+                        <div class="mobile_edit_contact_div">
+                            <img src="..//images/edit.svg">
+                            <span>Edit</span>
+                        </div>
+                        <div class="mobile_edit_contact_div">
+                            <img src="..//images/delete.svg">
+                            <span>Delete</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -212,7 +224,7 @@ function returnEditContactPopup() {
                             </div>
                         </div>
                         <div class="contact_buttons_ctn">
-                            <div onclick="" class="contact_popup_left_button_div">
+                            <div onclick="deleteContact()" class="contact_popup_left_button_div">
                                 <button>Delete</button>
                             </div>
                             <div class="contact_popup_right_button_div">

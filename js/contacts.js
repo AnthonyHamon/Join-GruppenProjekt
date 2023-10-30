@@ -67,13 +67,20 @@ function openEditContact() {
 }
 
 
-function addNewContact(){
+function addNewContact() {
     openOrCloseContactPopup();
     showContactCreatedPopup();
+    removeAnimationClass();
 }
 
-function showContactCreatedPopup(){
+function showContactCreatedPopup() {
     document.getElementById('contact-created-popup').classList.add('animate_contact_created_popup')
+}
+
+function removeAnimationClass() {
+    setTimeout(() =>
+        document.getElementById('contact-created-popup').classList.remove('animate_contact_created_popup')
+    ,5000);
 }
 
 
