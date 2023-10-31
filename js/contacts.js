@@ -45,9 +45,12 @@ function toggleCSSContactInformation() {
 }
 
 function openAddContact() {
+    let width = window.innerWidth;
     let addContactCtn = document.getElementById('contact-popup-ctn');
-    // openOrCloseContactPopup();
     addContactCtn.innerHTML = returnAddContactPopup();
+    if (width < 1000) {
+        document.getElementById('contact-popup-left-button').classList.add('d-none');
+    }
     openContactPopup();
 }
 
@@ -76,22 +79,46 @@ function closeContactPopup() {
     setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
 }
 
-// function openOrCloseContactPopup() {
-//     let addContactCtn = document.getElementById('contact-popup-ctn');
-//     addContactCtn.classList.toggle('d-none');
-// }
 
 function toggleAddcontactMobileMenu() {
     document.getElementById('mobile-add-contact-button').classList.toggle('d-none');
     document.getElementById('mobile-contact-edit-menu').classList.toggle('d-none');
 }
 
-function openEditContact() {
+function openEditContact(event) {
+    setMobileEditContact(event);
     let editContactCtn = document.getElementById('contact-popup-ctn');
     editContactCtn.innerHTML = returnEditContactPopup();
     openContactPopup();
 }
 
+function setMobileEditContact(event) {
+    let width = window.innerWidth;
+    if (width < 1000) {
+        event.stopPropagation();
+        let editContact = document.getElementById('edit-contact');
+        editContact.classList.add('curent_selected_mobile_contact_editor');
+    }
+
+}
+
+function openMobileEditMenu() {
+    let mobileEditMenuCtn = document.getElementById('mobile-edit-contact-menu-ctn');
+    mobileEditMenuCtn.innerHTML = returnMobileEditContactMenu();
+    let mobileEditMenu = document.getElementById('mobile-edit-contact-menu');
+    mobileEditMenuCtn.classList.remove('d-none');
+    mobileEditMenu.classList.add('animate_edit_contact_menu');
+}
+
+function closeMobileEditMenu() {
+    let mobileEditMenuCtn = document.getElementById('mobile-edit-contact-menu-ctn');
+    let mobileEditMenu = document.getElementById('mobile-edit-contact-menu');
+    let editContact = document.getElementById('edit-contact');
+    editContact.classList.remove('curent_selected_mobile_contact_editor');
+    mobileEditMenu.classList.remove('animate_edit_contact_menu');
+    mobileEditMenu.classList.add('close_edit_contact_menu');
+    setTimeout(() => mobileEditMenuCtn.classList.add('d-none'), 300);
+}
 
 function addNewContact() {
     openContactPopup();
