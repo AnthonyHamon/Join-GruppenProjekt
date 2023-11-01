@@ -831,6 +831,8 @@
 
     .contact_form {
         gap: 32px;
+        padding-left: none;
+        margin-right: none;
     }
 
     .contact_inputs_ctn {
@@ -861,26 +863,28 @@
 
     /* CSS for edit contact menu */
 
-    
+
     @keyframes slide_in_mobile_edit_contact {
-        from{
+        from {
             margin-right: -50%;
         }
-        to{
+
+        to {
             margin-right: 15px;
         }
     }
 
     @keyframes slide_out_mobile_edit_contact {
-        from{
+        from {
             margin-right: 15px;
         }
-        to{
+
+        to {
             margin-right: -50%;
         }
     }
 
-    .mobile_edit_contact_ctn{
+    .mobile_edit_contact_ctn {
         position: absolute;
         top: 0;
         right: 0;
@@ -891,7 +895,7 @@
         align-items: flex-end;
     }
 
-    .mobile_edit_contact_menu{
+    .mobile_edit_contact_menu {
         background-color: white;
         border-radius: 20px 20px 0 20px;
         padding: 10px;
@@ -904,15 +908,15 @@
         margin-right: 15px;
     }
 
-    .animate_edit_contact_menu{
+    .animate_edit_contact_menu {
         animation: slide_in_mobile_edit_contact 0.5s ease-in-out;
     }
 
-    .close_edit_contact_menu{
+    .close_edit_contact_menu {
         animation: slide_out_mobile_edit_contact 0.5s ease-in-out;
     }
 
-    .mobile_edit_contact{
+    .mobile_edit_contact {
         padding: 8px;
         display: flex;
         justify-content: center;
@@ -923,12 +927,13 @@
         cursor: pointer;
     }
 
-    .curent_selected_mobile_contact_editor{
+    .curent_selected_mobile_contact_editor {
         background-color: rgb(238, 238, 238);
         color: #29ABE2;
         font-weight: 700;
     }
-    .curent_selected_mobile_contact_editor img{
+
+    .curent_selected_mobile_contact_editor img {
         filter: invert(70%) sepia(74%) saturate(3560%) hue-rotate(165deg) brightness(95%) contrast(85%);
     }
 }
@@ -956,5 +961,70 @@
         width: 50px;
         height: 50px;
         font-size: 20px;
+    }
+}
+
+@media(max-height: 851px) {
+    .close_mobile_contact_popup_div {
+        padding: 24px 24px 0 0;
+    }
+
+    .call_to_action_ctn {
+        padding: 17px 24px;
+    }
+
+    .section_right {
+        gap: 16px;
+    }
+
+    .contact_profil_ctn {
+        margin-top: -50px;
+    }
+
+    .contact_profil {
+        width: 100px;
+        height: 100px;
+    }
+
+    .contact_form {
+        gap: 24px;
+    }
+
+    .contact_input {
+        padding: 8px 21px;
+    }
+
+    .contact_popup_right_button_div {
+        padding: 10px;
+    }
+}
+
+@media(max-height:700px) {
+    .mobile_selected_contact_infos{
+        overflow: auto;
+    }
+
+    .mobile_edit_contact_menu{
+        padding: 4px;
+    }
+
+    .contact_popup {
+        justify-content: unset;
+        overflow: auto;
+    }
+
+    .section_left{
+        height: 100%;
+    }
+    .section_right{
+        height: 100%;
+    }
+
+    .call_to_action_ctn{
+        padding: 0 24px 32px 24px;
+    }
+    
+    .call_to_action_text h2{
+        font-size: 41px;
     }
 }
