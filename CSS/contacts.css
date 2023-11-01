@@ -460,6 +460,7 @@
     border: none;
     background-color: inherit;
     color: inherit;
+    cursor: pointer;
 }
 
 .contact_popup_left_button_div:hover {

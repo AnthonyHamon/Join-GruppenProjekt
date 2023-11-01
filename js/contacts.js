@@ -1,3 +1,5 @@
+let contacts = [];
+
 async function initContacts() {
     await includeHTML();
 }
@@ -99,7 +101,6 @@ function setMobileEditContact(event) {
         let editContact = document.getElementById('edit-contact');
         editContact.classList.add('curent_selected_mobile_contact_editor');
     }
-
 }
 
 function openMobileEditMenu() {
