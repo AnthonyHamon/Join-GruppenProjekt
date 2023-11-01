@@ -201,11 +201,11 @@
     align-items: flex-start;
 }
 
-.relative{
+.relative {
     position: relative;
 }
 
-.flex_end{
+.flex_end {
     display: flex;
     justify-content: flex-end;
 }
@@ -274,11 +274,11 @@
     height: 60%;
 }
 
-.open_animation_contact_popup{
+.open_animation_contact_popup {
     animation: slide_to_left 0.750s ease-in-out;
 }
 
-.close_animation_contact_popup{
+.close_animation_contact_popup {
     animation: slide_to_right 0.750s ease-in-out;
 }
 
@@ -489,7 +489,7 @@
     min-width: 111px;
 }
 
-.contact_popup_right_button_div button{
+.contact_popup_right_button_div button {
     border: none;
     background-color: inherit;
     color: white;
@@ -702,7 +702,7 @@
 
     @keyframes slide_in_mobile_add_contact {
         from {
-            margin-top: 200%
+            margin-top: 300%
         }
 
         to {
@@ -716,13 +716,39 @@
         }
 
         to {
-            margin-top: 200%;
+            margin-top: 300%;
         }
+    }
+
+    .add_contact_btn_div {
+        display: none;
+    }
+
+    .mobile_add_contact_button_ctn {
+        position: absolute;
+        right: 0;
+        bottom: 80px;
+        left: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 18px;
+    }
+
+    .mobile_add_contact_button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #2A3647;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
     }
 
     .contact_popup_ctn {
         z-index: 1;
-        background-color: rgb(191, 191, 191);
+        background-color: rgba(191, 191, 191, 0.2);
     }
 
     .contact_popup {
@@ -733,11 +759,11 @@
         height: calc(100% - 168px);
     }
 
-    .open_mobile_animation_contact_popup{
+    .open_mobile_animation_contact_popup {
         animation: slide_in_mobile_add_contact 0.750s ease-in-out;
     }
 
-    .close_mobile_animation_contact_popup{
+    .close_mobile_animation_contact_popup {
         animation: slide_out_mobile_add_contact 0.750s ease-in-out;
     }
 
@@ -832,46 +858,10 @@
         margin-left: 0;
         margin-bottom: -50%;
     }
-}
 
+    /* CSS for edit contact menu */
 
-@media (max-width: 500px) {
-    .add_contact_btn_div {
-        display: none;
-    }
-
-    .mobile_add_contact_button_ctn {
-        position: absolute;
-        right: 0;
-        bottom: 80px;
-        left: 0;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 18px;
-    }
-
-    .mobile_add_contact_button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #2A3647;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        cursor: pointer;
-    }
-
-    .contacts_list_div {
-        padding: 24px;
-        margin: 0;
-    }
-
-    #selected-contact-name {
-        font-size: 36px;
-        font-weight: 700;
-    }
-
+    
     @keyframes slide_in_mobile_edit_contact {
         from{
             margin-right: -50%;
@@ -941,7 +931,20 @@
     .curent_selected_mobile_contact_editor img{
         filter: invert(70%) sepia(74%) saturate(3560%) hue-rotate(165deg) brightness(95%) contrast(85%);
     }
+}
 
+
+@media (max-width: 500px) {
+
+    .contacts_list_div {
+        padding: 24px;
+        margin: 0;
+    }
+
+    #selected-contact-name {
+        font-size: 36px;
+        font-weight: 700;
+    }
 }
 
 @media(max-width: 320px) {
