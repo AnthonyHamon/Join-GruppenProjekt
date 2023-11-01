@@ -134,15 +134,15 @@ function returnAddContactPopup() {
                     <form onsubmit="addNewContact(); return false" class="contact_form">
                         <div class="contact_inputs_ctn">
                             <div class="contact_input">
-                                <input type="text" placeholder="Name">
+                                <input id="new-contact-name" type="text" placeholder="Name">
                                 <img src="../images/person.svg" alt="">
                             </div>
                             <div class="contact_input">
-                                <input type="Email" placeholder="Email">
+                                <input id="new-contact-email" type="Email" placeholder="Email">
                                 <img src="../images/mail.svg" alt="">
                             </div>
                             <div class="contact_input">
-                                <input type="tel" placeholder="Phone">
+                                <input id="new-contact-phone" type="tel" placeholder="Phone">
                                 <img src="../images/call.svg" alt="">
                             </div>
                         </div>
@@ -151,10 +151,7 @@ function returnAddContactPopup() {
                                 <button>Cancel</button>
                                 <img src="../images/close.svg" alt="">
                             </div>
-                            <div class="contact_popup_right_button_div">
-                                <button type="submit">Create contact</button>
-                                <img src="../images/check.svg" alt="">
-                            </div>
+                            <button class="contact_popup_right_button">Create contact <img src="../images/check.svg" alt=""></button>
                         </div>
                     </form>
                 </div>

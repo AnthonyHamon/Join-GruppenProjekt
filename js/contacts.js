@@ -12,6 +12,20 @@ function renderContacts() {
     generateContactsHTML();
 }
 
+function addNewContact() {
+    setNewContact();
+    openContactPopup();
+    showContactCreatedPopup();
+    removeAnimationClass();
+}
+
+function setNewContact(){
+    let name = document.getElementById('new-contact-name').value;
+    let email = document.getElementById('new-contact-email').value;
+    let phone = document.getElementById('new-contact-phone').value;
+    contacts.push({name, email, phone});
+}
+
 function showContactInformation() {
     let width = window.innerWidth;
     if (width < 1000) {
@@ -119,12 +133,6 @@ function closeMobileEditMenu() {
     mobileEditMenu.classList.remove('animate_edit_contact_menu');
     mobileEditMenu.classList.add('close_edit_contact_menu');
     setTimeout(() => mobileEditMenuCtn.classList.add('d-none'), 300);
-}
-
-function addNewContact() {
-    openContactPopup();
-    showContactCreatedPopup();
-    removeAnimationClass();
 }
 
 function showContactCreatedPopup() {
