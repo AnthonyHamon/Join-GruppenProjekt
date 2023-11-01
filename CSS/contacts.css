@@ -702,7 +702,7 @@
 
     @keyframes slide_in_mobile_add_contact {
         from {
-            margin-top: 300%
+            margin-top: 200vh;
         }
 
         to {
@@ -712,11 +712,11 @@
 
     @keyframes slide_out_mobile_add_contact {
         from {
-            margin-top: 0%
+            margin-top: 0;
         }
 
         to {
-            margin-top: 300%;
+            margin-top: 200vh;
         }
     }
 
@@ -864,7 +864,7 @@
     /* CSS for edit contact menu */
 
 
-    @keyframes slide_in_mobile_edit_contact {
+    @keyframes slide_in_mobile_edit_contact_menu {
         from {
             margin-right: -50%;
         }
@@ -874,7 +874,7 @@
         }
     }
 
-    @keyframes slide_out_mobile_edit_contact {
+    @keyframes slide_out_mobile_edit_contact_menu {
         from {
             margin-right: 15px;
         }
@@ -909,11 +909,11 @@
     }
 
     .animate_edit_contact_menu {
-        animation: slide_in_mobile_edit_contact 0.5s ease-in-out;
+        animation: slide_in_mobile_edit_contact_menu 0.5s ease-in-out;
     }
 
     .close_edit_contact_menu {
-        animation: slide_out_mobile_edit_contact 0.5s ease-in-out;
+        animation: slide_out_mobile_edit_contact_menu 0.5s ease-in-out;
     }
 
     .mobile_edit_contact {
@@ -953,6 +953,7 @@
 }
 
 @media(max-width: 320px) {
+
     .contact_div {
         gap: 20px;
     }

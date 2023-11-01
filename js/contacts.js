@@ -95,7 +95,7 @@ function openEditContact(event) {
 function setMobileEditContact(event) {
     let width = window.innerWidth;
     if (width < 1000) {
-        event.stopPropagation();
+        stop(event);
         let editContact = document.getElementById('edit-contact');
         editContact.classList.add('curent_selected_mobile_contact_editor');
     }
