@@ -257,11 +257,13 @@ function createListItem(text) {
     return listItem;
 }
 
+
 function createContentDiv() {
     const contentDiv = document.createElement("div");
     contentDiv.classList.add("content-div");
     return contentDiv;
 }
+
 
 function createEditImage() {
     const editImage = document.createElement("img");
@@ -269,6 +271,7 @@ function createEditImage() {
     editImage.setAttribute("alt", "");
     return editImage;
 }
+
 
 function createLine() {
     const line = document.createElement("div");
@@ -293,6 +296,7 @@ function createDeleteImage() {
     deleteImage.addEventListener('click', deleteListTask);
     return deleteImage;
 }
+
 
 function addSubtask() {
     const inputField = document.getElementById("subtaskInput");
@@ -321,31 +325,51 @@ function addSubtask() {
 
 
 function editTask(event) {
-    const listItem = event.target.parentElement;
-    const editDiv = document.createElement('div');
-    editDiv.setAttribute('id', 'editDiv');
-    editDiv.classList.add('edit-div');
+    const listItem = event.target.parentElement; // Das übergeordnete <li>-Element des angeklickten Bilds
 
+    const editContainer = document.createElement('div');
+    editContainer.setAttribute('id', 'editContainer');
+    editContainer.classList.add("edit-container");
+
+    const editInput = createEditInputDiv(listItem); // Übergabe von listItem
+    const editDeleteDiv = createDeleteAndCheckDiv();
+
+    editContainer.appendChild(editInput);
+    editContainer.appendChild(editDeleteDiv);
+
+    listItem.style.visibility = 'hidden'; // Versteckt das <li>-Element
+
+    listItem.parentNode.insertBefore(editContainer, listItem); // Container-DIV einfügen
+}
+
+function createEditInputDiv(listItem) { // Akzeptiert listItem als Argument
+    const editInputDiv = document.createElement('div');
+    editInputDiv.setAttribute('id', 'editContainer');
+    
     const editInput = document.createElement('input');
     editInput.setAttribute('id', 'editInput');
-    editInput.classList.add('edit-input');
     editInput.setAttribute('type', 'text');
     editInput.value = listItem.textContent.trim();
+
+    editInputDiv.appendChild(editInput);
+
+    return editInputDiv;
+}
+
+
+
+function createDeleteAndCheckDiv() {
+    const editDeleteDiv = document.createElement('div');
+    editDeleteDiv.classList.add('edit-delete-div');
 
     const deleteImage = createDeleteImage();
     const checkImage = createCheckImage();
 
-    deleteImage.addEventListener('click', deleteListTask);
-    checkImage.addEventListener('click', addSubtask); // AddSubtask function logic for checkImage
+    editDeleteDiv.appendChild(deleteImage);
+    editDeleteDiv.appendChild(checkImage);
 
-    editDiv.appendChild(editInput);
-    editDiv.appendChild(deleteImage);
-    editDiv.appendChild(checkImage);
-
-    listItem.style.display = 'none';
-    listItem.parentNode.insertBefore(editDiv, listItem);
+    return editDeleteDiv;
 }
-
 
 
 function clearInputField(inputsField) {
@@ -356,12 +380,30 @@ function clearInputField(inputsField) {
 }
 
 
+function createCheckImage() {
+    const checkImage = document.createElement("img");
+    checkImage.setAttribute("src", "../images/Property 1=check.svg");
+    checkImage.setAttribute("alt", "");
+    checkImage.addEventListener('click', function() {
+        addSubtask();
+        closeImages();
+        // Weitere Funktionen, die nach dem Klick ausgeführt werden sollen
+    });
+    return checkImage;
+}
+
+
 function deleteListTask() {
     const listField = document.querySelector(".list-field");
     if (listField) {
         listField.remove();
     }
 }
+
+
+
+
+
 
 
 
