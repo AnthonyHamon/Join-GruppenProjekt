@@ -1,15 +1,22 @@
 let contacts = [];
 
-async function initContacts() {
-    await includeHTML();
-}
-
-function renderContacts() {
+async function renderContactsPage() {
+    await loadContacts();
     contactsBgrColor();
     addContactsCSS();
     removeBgrColorWithoutContacts();
     addJoinLogoClickable();
     generateContactsHTML();
+    renderContacts()
+}
+
+function renderContacts() {
+    let contactList = document.getElementById('contact-list');
+    contactList.innerHTML = '';
+    for (let i = 0; i < contacts.length; i++) {
+        const contact = contacts[i];
+        contactList.innerHTML += returnContacts(contact);
+    }
 }
 
 function addNewContact() {
@@ -17,13 +24,23 @@ function addNewContact() {
     openContactPopup();
     showContactCreatedPopup();
     removeAnimationClass();
+    renderContacts();
 }
 
-function setNewContact(){
+async function setNewContact() {
     let name = document.getElementById('new-contact-name').value;
     let email = document.getElementById('new-contact-email').value;
     let phone = document.getElementById('new-contact-phone').value;
-    contacts.push({name, email, phone});
+    contacts.push({ name, email, phone });
+    await setItem('contacts', JSON.stringify(contacts));
+}
+
+async function loadContacts() {
+    try {
+        contacts = JSON.parse(await getItem('contacts'));
+    } catch {
+        console.log('the contatcs were not loaded');
+    }
 }
 
 function showContactInformation() {
@@ -41,10 +58,22 @@ function showContactInformation() {
 function showSelectedContactInformations() {
     let contactInformations = document.getElementById('selected-contact-content');
     contactInformations.innerHTML = returnContactInformations();
+    setSelectedContactColor();
 }
 
 function addSelectedContactAnimation() {
     document.getElementById('selected-contact-content').classList.add('slide_selected_contact');
+}
+
+function setSelectedContactColor() {
+    resetContactSelectionColor();
+    let contact = document.getElementById('contact');
+    contact.classList.add('contact_selected');
+}
+
+function resetContactSelectionColor() {
+    let contact = document.getElementById('contact');
+    contact.classList.remove('contact_selected');
 }
 
 function closeSelectedContactInformation() {

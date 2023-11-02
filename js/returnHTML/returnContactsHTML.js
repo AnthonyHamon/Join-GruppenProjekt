@@ -10,24 +10,7 @@ function generateContactsHTML() {
                         <img src="../images/person_add.svg" alt="">
                     </div>
                 </div>
-                <div class="contacts_list_div">
-                    <div>
-                        <div class="contact_organizer">
-                            <span>A</span>
-                        </div>
-                        <hr class="divider">
-                    </div>
-                        <div onclick="showContactInformation()" class="contact_div">
-                            <div class="contact_circle">
-                                AM
-                            </div>
-                    <div class="flex_column gap_5">
-                        <div id="contact-name">
-                            Anton Mayer
-                        </div>
-                        <span id="contact-email">antonm@gmail.com<span>
-                    </div>
-                </div>
+                <div id="contact-list" class="contacts_list_div"></div>
             </section>
             <section id="contactInformations" class="selected_contact_infos">
                 <div>
@@ -59,6 +42,26 @@ function generateContactsHTML() {
                     </div>
             </div>
             <div onclick="closeMobileEditMenu()" id="mobile-edit-contact-menu-ctn" class="mobile_edit_contact_ctn d-none"></div>
+    `
+}
+
+function returnContacts(contact){
+    return `
+        <div>
+            <div class="contact_organizer">
+                <span>A</span>
+            </div>
+            <hr class="divider">
+        </div>
+        <div onclick="showContactInformation()" id="contact" class="contact_div">
+            <div class="contact_circle">
+                AM
+            </div>
+            <div class="flex_column gap_5 overflow_hidden">
+                <span id="contact-name">${contact['name']}</span>
+                <span id="contact-email">${contact['email']}<span>
+            </div>
+        </div>
     `
 }
 

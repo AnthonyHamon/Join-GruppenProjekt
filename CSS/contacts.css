@@ -31,6 +31,7 @@
     width: 38%;
     box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.08);
     background-color: white;
+    overflow-y: scroll;
 }
 
 .add_contact_btn_div {
@@ -82,8 +83,14 @@
     cursor: pointer;
 }
 
-.contact_div:hover {
+.contact_div:not(.contact_selected):hover {
     background-color: rgb(243, 243, 243);
+}
+
+.contact_selected{
+    transition: all 0.350s ease-in-out;
+    background-color: #2A3647;
+    color: white;
 }
 
 #contact-name {
@@ -92,10 +99,13 @@
 
 #contact-email {
     color: rgba(0, 124, 238, 1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .contact_circle {
-    width: 42px;
+    min-width: 42px;
     height: 42px;
     border-radius: 50%;
     background-color: #FF7A00;
@@ -208,6 +218,10 @@
 .flex_end {
     display: flex;
     justify-content: flex-end;
+}
+
+.overflow_hidden{
+    overflow: hidden;
 }
 
 
