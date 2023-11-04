@@ -265,14 +265,6 @@ function createContentDiv() {
 }
 
 
-function createEditImage() {
-    const editImage = document.createElement("img");
-    editImage.setAttribute("src", "../images/Property 1=edit.svg");
-    editImage.setAttribute("alt", "");
-    return editImage;
-}
-
-
 function createLine() {
     const line = document.createElement("div");
     line.classList.add("line");
@@ -320,16 +312,18 @@ function addSubtask() {
 
         const subtaskContent = document.querySelector(".subtask-content");
         subtaskContent.style.display = "block";
+
+        editImage.addEventListener('click', function(event) {
+            editTask(event, listItem);
+        });
     }
 }
 
 
-function editTask(event) {
-    const listItem = event.target.parentElement; // Das übergeordnete <li>-Element des angeklickten Bilds
-
+function editTask(event, listItem) {
     const editContainer = document.createElement('div');
     editContainer.setAttribute('id', 'editContainer');
-    editContainer.classList.add("edit-container");
+    editContainer.classList.add('edit-container');
 
     const editInput = createEditInputDiv(listItem); // Übergabe von listItem
     const editDeleteDiv = createDeleteAndCheckDiv();
@@ -337,10 +331,40 @@ function editTask(event) {
     editContainer.appendChild(editInput);
     editContainer.appendChild(editDeleteDiv);
 
-    listItem.style.visibility = 'hidden'; // Versteckt das <li>-Element
+    // Hält den Zustand, ob die Bearbeitung im Gange ist
+    listItem.dataset.editing = 'true';
+
+    // Liste ausblenden
+    listItem.style.display = 'none';
 
     listItem.parentNode.insertBefore(editContainer, listItem); // Container-DIV einfügen
+
+    // 'checkImage' speichern
+    const checkImage = createCheckImage();
+
+    // 'checkImage' soll die Bearbeitung beenden und das neue Element bestätigen
+    checkImage.addEventListener('click', function() {
+        // Neue Daten im bearbeiteten Element speichern
+        listItem.textContent = editInput.querySelector('input').value;
+        // Anzeige der Liste wiederherstellen
+        listItem.style.display = 'block';
+        // Bearbeitungsstatus aktualisieren
+        listItem.dataset.editing = 'false';
+        // Entfernen des Container-DIVs
+        editContainer.remove();
+
+        // Hier füge die Zeile hinzu, um die Bilder wieder anzuzeigen
+        const contentDiv = listItem.querySelector(".content-div");
+        contentDiv.appendChild(createEditImage());
+        contentDiv.appendChild(createLine());
+        contentDiv.appendChild(createDeleteImage());
+        
+    });
+
+    editDeleteDiv.appendChild(checkImage);
 }
+
+
 
 function createEditInputDiv(listItem) { // Akzeptiert listItem als Argument
     const editInputDiv = document.createElement('div');
@@ -363,10 +387,8 @@ function createDeleteAndCheckDiv() {
     editDeleteDiv.classList.add('edit-delete-div');
 
     const deleteImage = createDeleteImage();
-    const checkImage = createCheckImage();
 
     editDeleteDiv.appendChild(deleteImage);
-    editDeleteDiv.appendChild(checkImage);
 
     return editDeleteDiv;
 }
