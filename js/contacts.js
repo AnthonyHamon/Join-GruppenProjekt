@@ -7,17 +7,8 @@ async function renderContactsPage() {
     removeBgrColorWithoutContacts();
     addJoinLogoClickable();
     generateContactsHTML();
-    // sortContacts();
     renderContacts()
 }
-
-// function sortOrganizer(){
-//     let firstCharFromName = new Set();
-//     contacts.forEach(contact => {
-//         let firstLetter = contact.name.charAt(0).toUpperCase();
-//         firstCharFromName.add(firstLetter);
-//     })
-// }
 
 function sortOrganizer(){
     let organizerArray = [];
@@ -41,7 +32,19 @@ function renderContacts() {
     for (let i = 0; i < organizer.length; i++) {
         const organizerLetter = organizer[i];
         contactList.innerHTML += returnContactsOrganizer(i, organizerLetter);
+        renderMatchedContact(i, organizerLetter);
     }
+}
+
+function renderMatchedContact(i, organizerLetter){
+    let contactList = document.getElementById('contact-list');
+    let contactMatches = contacts.filter(e => e.name.charAt(0) === organizerLetter);
+    contactMatches.sort((a, b) => {return compareStrings(a.name, b.name)});
+    for (let j = 0; j < contactMatches.length; j++) {
+        contactList.innerHTML += returnContacts(i, contactMatches[j]);
+        console.log(contactMatches);
+    }
+
 }
 
 function compareStrings(a, b) {
@@ -76,32 +79,39 @@ async function loadContacts() {
     }
 }
 
-function showContactInformation(i) {
+function showContactInformation(selectedContact) {
     let width = window.innerWidth;
     if (width < 1000) {
-        showSelectedContactInformations(i);
+        showSelectedContactInformations(selectedContact);
         toggleCSSContactInformation()
         toggleAddcontactMobileMenu();
     } else {
-        showSelectedContactInformations(i);
+        showSelectedContactInformations(selectedContact);
         addSelectedContactAnimation();
     }
 }
 
-function showSelectedContactInformations(i) {
+function findSelectedContactIndex(selectedContact){
+    let sortedContactArray = contacts.sort((a, b) => {return compareStrings(a.name, b.name)});
+    let index = sortedContactArray.findIndex(e => e.email === selectedContact);
+    return index;
+}
+
+function showSelectedContactInformations(selectedContact) {
+    findSelectedContactIndex(selectedContact);
     let width = window.innerWidth;
     let contactInformations = document.getElementById('selected-contact-content');
-    contactInformations.innerHTML = returnContactInformations();
-    width > 1000 ? setSelectedContactColor(i) : '';
+    contactInformations.innerHTML = returnContactInformations(selectedContact);
+    width > 1000 ? setSelectedContactColor(selectedContact) : '';
 }
 
 function addSelectedContactAnimation() {
     document.getElementById('selected-contact-content').classList.add('slide_selected_contact');
 }
 
-function setSelectedContactColor(i) {
+function setSelectedContactColor(selectedContact) {
     resetContactSelectionColor();
-    let contact = document.getElementById(`contact${i}`);
+    let contact = document.getElementById(selectedContact);
     contact.classList.add('contact_selected');
 }
 

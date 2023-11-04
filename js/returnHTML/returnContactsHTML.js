@@ -56,15 +56,15 @@ function returnContactsOrganizer(i, organizerLetter){
 `
 }
 
-function returnContacts(i, contact){
+function returnContacts(i, contactMatches){
     return `
-            <div onclick="showContactInformation(${i})" id="contact${i}" class="contact_div">
+            <div onclick="showContactInformation('${contactMatches['email']}')" id=${contactMatches['email']} class="contact_div">
                 <div class="contact_circle">
                     AM
                 </div>
                 <div class="flex_column gap_5 overflow_hidden">
-                    <span id="contact-name-${i}">${contact['name']}</span>
-                    <span id="contact-email-${i}" class="contact_email">${contact['email']}<span>
+                    <span id="contact-name-${i}">${contactMatches['name']}</span>
+                    <span id="contact-email-${i}" class="contact_email">${contactMatches['email']}<span>
                 </div>
             </div>
     `
