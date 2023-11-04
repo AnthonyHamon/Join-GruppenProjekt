@@ -7,17 +7,32 @@ async function renderContactsPage() {
     removeBgrColorWithoutContacts();
     addJoinLogoClickable();
     generateContactsHTML();
+    // sortContacts();
     renderContacts()
 }
 
+function renderContactOrganizer(){
+    let contactOrganizer = document.getElementById('contact-organizer');
+    contactOrganizer.innerHTML = returnContactsOrganizer();
+}
+
 function renderContacts() {
+    contacts.sort((a, b) => {return compareStrings(a.name, b.name)});
     let contactList = document.getElementById('contact-list');
     contactList.innerHTML = '';
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
-        contactList.innerHTML += returnContacts(contact);
+        contactList.innerHTML += returnContacts(i, contact);
     }
 }
+
+function compareStrings(a, b) {
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+
+    return (a < b) ? -1 : (a > b) ? 1 : 0;
+}
+
 
 function addNewContact() {
     setNewContact();
@@ -32,7 +47,7 @@ async function setNewContact() {
     let email = document.getElementById('new-contact-email').value;
     let phone = document.getElementById('new-contact-phone').value;
     contacts.push({ name, email, phone });
-    await setItem('contacts', JSON.stringify(contacts));
+    await setItem('contacts', JSON.stringify(contacts.sort()));
 }
 
 async function loadContacts() {
@@ -43,37 +58,40 @@ async function loadContacts() {
     }
 }
 
-function showContactInformation() {
+function showContactInformation(i) {
     let width = window.innerWidth;
     if (width < 1000) {
-        showSelectedContactInformations();
+        showSelectedContactInformations(i);
         toggleCSSContactInformation()
         toggleAddcontactMobileMenu();
     } else {
-        showSelectedContactInformations();
+        showSelectedContactInformations(i);
         addSelectedContactAnimation();
     }
 }
 
-function showSelectedContactInformations() {
+function showSelectedContactInformations(i) {
+    let width = window.innerWidth;
     let contactInformations = document.getElementById('selected-contact-content');
     contactInformations.innerHTML = returnContactInformations();
-    setSelectedContactColor();
+    width > 1000 ? setSelectedContactColor(i) : '';
 }
 
 function addSelectedContactAnimation() {
     document.getElementById('selected-contact-content').classList.add('slide_selected_contact');
 }
 
-function setSelectedContactColor() {
+function setSelectedContactColor(i) {
     resetContactSelectionColor();
-    let contact = document.getElementById('contact');
+    let contact = document.getElementById(`contact${i}`);
     contact.classList.add('contact_selected');
 }
 
 function resetContactSelectionColor() {
-    let contact = document.getElementById('contact');
-    contact.classList.remove('contact_selected');
+    let contactSelection  = document.querySelectorAll('.contact_div');
+    contactSelection.forEach((contactSelection) => {
+        contactSelection.classList.remove('contact_selected');
+    })
 }
 
 function closeSelectedContactInformation() {

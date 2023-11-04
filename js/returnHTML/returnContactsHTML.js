@@ -45,23 +45,28 @@ function generateContactsHTML() {
     `
 }
 
-function returnContacts(contact){
+function returnContactsOrganizer(){
     return `
-        <div>
-            <div class="contact_organizer">
-                <span>A</span>
-            </div>
-            <hr class="divider">
+    <div id="contact-organizer">
+        <div class="contact_organizer">
+            <span>A</span>
         </div>
-        <div onclick="showContactInformation()" id="contact" class="contact_div">
-            <div class="contact_circle">
-                AM
+        <hr class="divider">
+    </div>
+`
+}
+
+function returnContacts(i, contact){
+    return `
+            <div onclick="showContactInformation(${i})" id="contact${i}" class="contact_div">
+                <div class="contact_circle">
+                    AM
+                </div>
+                <div class="flex_column gap_5 overflow_hidden">
+                    <span id="contact-name-${i}">${contact['name']}</span>
+                    <span id="contact-email-${i}" class="contact_email">${contact['email']}<span>
+                </div>
             </div>
-            <div class="flex_column gap_5 overflow_hidden">
-                <span id="contact-name">${contact['name']}</span>
-                <span id="contact-email">${contact['email']}<span>
-            </div>
-        </div>
     `
 }
 

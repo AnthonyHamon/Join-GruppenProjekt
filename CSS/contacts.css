@@ -28,14 +28,18 @@
 .contact_list_section {
     display: flex;
     flex-direction: column;
-    width: 38%;
+    padding-bottom: 32px;
+    min-width: max-content;
     box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.08);
     background-color: white;
     overflow-y: scroll;
 }
 
 .add_contact_btn_div {
+    position: sticky;
+    top: 0;
     padding: 22.5px 52px;
+    background-color: white;
 }
 
 #add-contact-button {
@@ -97,7 +101,7 @@
     font-size: 20px;
 }
 
-#contact-email {
+.contact_email {
     color: rgba(0, 124, 238, 1);
     overflow: hidden;
     text-overflow: ellipsis;
@@ -578,6 +582,12 @@
 @media (min-width: 1000px) and (max-width:1200px) {
     .add_contact_btn_div {
         padding: 22.5px 42px;
+    }
+
+    .contact_list_section{
+        min-width: unset;
+        width: 55%;
+        
     }
 
     .contacts_list_div {
