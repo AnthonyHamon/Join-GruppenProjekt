@@ -11,18 +11,36 @@ async function renderContactsPage() {
     renderContacts()
 }
 
-function renderContactOrganizer(){
-    let contactOrganizer = document.getElementById('contact-organizer');
-    contactOrganizer.innerHTML = returnContactsOrganizer();
+// function sortOrganizer(){
+//     let firstCharFromName = new Set();
+//     contacts.forEach(contact => {
+//         let firstLetter = contact.name.charAt(0).toUpperCase();
+//         firstCharFromName.add(firstLetter);
+//     })
+// }
+
+function sortOrganizer(){
+    let organizerArray = [];
+    for (let index = 0; index < contacts.length; index++) {
+        const contact = contacts[index];
+        let firstCharFromName = contact['name'].charAt(0).toUpperCase();
+        organizerArray.push(firstCharFromName);
+        organizer = organizerArray.filter((item, index) => 
+        organizerArray.indexOf(item) === index);
+    }
+    return organizer;
 }
 
+
+
 function renderContacts() {
-    contacts.sort((a, b) => {return compareStrings(a.name, b.name)});
+    sortOrganizer();
+    organizer.sort((a, b) => {return compareStrings(a, b)});
     let contactList = document.getElementById('contact-list');
     contactList.innerHTML = '';
-    for (let i = 0; i < contacts.length; i++) {
-        const contact = contacts[i];
-        contactList.innerHTML += returnContacts(i, contact);
+    for (let i = 0; i < organizer.length; i++) {
+        const organizerLetter = organizer[i];
+        contactList.innerHTML += returnContactsOrganizer(i, organizerLetter);
     }
 }
 

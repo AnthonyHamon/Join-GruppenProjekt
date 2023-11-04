@@ -45,11 +45,11 @@ function generateContactsHTML() {
     `
 }
 
-function returnContactsOrganizer(){
+function returnContactsOrganizer(i, organizerLetter){
     return `
-    <div id="contact-organizer">
+    <div id="contact-organizer${i}">
         <div class="contact_organizer">
-            <span>A</span>
+            <span>${organizerLetter}</span>
         </div>
         <hr class="divider">
     </div>
