@@ -79,39 +79,43 @@ async function loadContacts() {
     }
 }
 
-function showContactInformation(selectedContact) {
+function showContactInformation(name, email, phone) {
     let width = window.innerWidth;
     if (width < 1000) {
-        showSelectedContactInformations(selectedContact);
+        showSelectedContactInformations(name, email, phone);
         toggleCSSContactInformation()
         toggleAddcontactMobileMenu();
     } else {
-        showSelectedContactInformations(selectedContact);
+        showSelectedContactInformations(name, email, phone);
         addSelectedContactAnimation();
     }
 }
 
-function findSelectedContactIndex(selectedContact){
+function showSelectedContactInformations(name, email, phone) {
+    findSelectedContactIndex(email);
+    let width = window.innerWidth;
+    let contactInformations = document.getElementById('selected-contact-content');
+    contactInformations.innerHTML = returnContactInformations(name, email, phone);
+    width > 1000 ? setSelectedContactColor(email) : '';
+}
+
+function findSelectedContactIndex(email){
     let sortedContactArray = contacts.sort((a, b) => {return compareStrings(a.name, b.name)});
-    let index = sortedContactArray.findIndex(e => e.email === selectedContact);
+    let index = sortedContactArray.findIndex(e => e.email === email);
     return index;
 }
 
-function showSelectedContactInformations(selectedContact) {
-    findSelectedContactIndex(selectedContact);
-    let width = window.innerWidth;
-    let contactInformations = document.getElementById('selected-contact-content');
-    contactInformations.innerHTML = returnContactInformations(selectedContact);
-    width > 1000 ? setSelectedContactColor(selectedContact) : '';
-}
 
 function addSelectedContactAnimation() {
     document.getElementById('selected-contact-content').classList.add('slide_selected_contact');
+    setTimeout(()=>
+    document.getElementById('selected-contact-content').classList.remove('slide_selected_contact')
+    ,400);
 }
 
-function setSelectedContactColor(selectedContact) {
+function setSelectedContactColor(email) {
     resetContactSelectionColor();
-    let contact = document.getElementById(selectedContact);
+    let contact = document.getElementById(email);
     contact.classList.add('contact_selected');
 }
 

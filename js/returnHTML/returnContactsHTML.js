@@ -58,34 +58,34 @@ function returnContactsOrganizer(i, organizerLetter){
 
 function returnContacts(i, contactMatches){
     return `
-            <div onclick="showContactInformation('${contactMatches['email']}')" id=${contactMatches['email']} class="contact_div">
+            <div onclick="showContactInformation('${contactMatches['name']}', '${contactMatches['email']}', '${contactMatches['phone']}')" id="${contactMatches['email']}" class="contact_div">
                 <div class="contact_circle">
                     AM
                 </div>
                 <div class="flex_column gap_5 overflow_hidden">
-                    <span id="contact-name-${i}">${contactMatches['name']}</span>
+                    <span id="contact-name-${i}" class="contact_name">${contactMatches['name']}</span>
                     <span id="contact-email-${i}" class="contact_email">${contactMatches['email']}<span>
                 </div>
             </div>
     `
 }
 
-function returnContactInformations() {
+function returnContactInformations(name, email, phone) {
     return `
         <div class="align_item_center gap_54 gap_20">
             <div class="selected_contact_circle">
                 AM
             </div>
             <div class="flex_column align_item_start gap_8">
-                <div id="selected-contact-name">
-                    Anton Mayer
+                <div id="selected-contact-${name}" class="selected_contact_name">
+                    ${name}
                 </div>
                 <div class="align_item_center gap_16">
-                    <div onclick="openEditContact()" id="edit-selected-contact" class="align_item_center gap_8">
+                    <div onclick="openEditContact()" id="edit-selected-contact-${name}" class="edit_selected_contact align_item_center gap_8">
                         <img src="../images/edit.svg" alt="">
                         <span>Edit</span>
                     </div>
-                    <div id="delete-selected-contact" class="align_item_center gap_8">
+                    <div id="delete-selected-contact-${name}" class="delete_selected_contact align_item_center gap_8">
                         <img src="../images/delete.svg" alt="">
                         <span>Delete</span>
                     </div>
@@ -97,11 +97,11 @@ function returnContactInformations() {
         </div>
         <div class="flex_column gap_15">
             <span class="font_weight_700">Email</span>
-            <span id="selected-contact-email">anton@gmail.com</span>
+            <a href="mailto:${email}" id="selected-contact-${email}" class="selected_contact_email">${email}</a>
         </div>
         <div class="flex_column gap_15">
             <span class="font_weight_700">Phone</span>
-            <span id="selected-contact-phone">+49 0123 456 789</span>
+            <a href="${phone}" id="${name}-phone-number" class="selected_contact_phone">${phone}</a>
         </div>
     `
 }
