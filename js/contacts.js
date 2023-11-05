@@ -198,10 +198,10 @@ function toggleAddcontactMobileMenu() {
     document.getElementById('mobile-contact-edit-menu').classList.toggle('d-none');
 }
 
-function openEditContact(event) {
+function openEditContact( name, email, phone, BgColor, event) {
     setMobileEditContact(event);
     let editContactCtn = document.getElementById('contact-popup-ctn');
-    editContactCtn.innerHTML = returnEditContactPopup();
+    editContactCtn.innerHTML = returnEditContactPopup(name, email, phone, BgColor);
     openContactPopup();
 }
 

@@ -81,7 +81,7 @@ function returnContactInformations(name, email, phone, BgColor) {
                     ${name}
                 </div>
                 <div class="align_item_center gap_16">
-                    <div onclick="openEditContact()" id="edit-selected-contact-${name}" class="edit_selected_contact align_item_center gap_8">
+                    <div onclick="openEditContact('${name}', '${email}', '${phone}', '${BgColor}')" id="edit-selected-contact-${name}" class="edit_selected_contact align_item_center gap_8">
                         <img src="../images/edit.svg" alt="">
                         <span>Edit</span>
                     </div>
@@ -168,7 +168,7 @@ function returnAddContactPopup() {
     `
 }
 
-function returnEditContactPopup() {
+function returnEditContactPopup(name, email, phone, BgColor) {
     return `
         <div id="contact-popup" class="contact_popup">
             <section class="section_left">
@@ -190,8 +190,8 @@ function returnEditContactPopup() {
 
             <section class="section_right">
                 <div class="contact_profil_ctn">
-                    <div class="selected_contact_circle">
-                        AM
+                    <div class="selected_contact_circle" style="background-color:${BgColor}">
+                    ${renderContactInitialLetter(name)}
                     </div>
                 </div>
                 <div class="flex_column width_100">
@@ -203,15 +203,15 @@ function returnEditContactPopup() {
                     <form onsubmit="editContact(); return false" class="contact_form">
                         <div class="contact_inputs_ctn">
                             <div class="contact_input">
-                                <input type="text">
+                                <input value="${name}" type="text">
                                 <img src="../images/person.svg" alt="">
                             </div>
                             <div class="contact_input">
-                                <input type="Email">
+                                <input value="${email}" type="Email">
                                 <img src="../images/mail.svg" alt="">
                             </div>
                             <div class="contact_input">
-                                <input type="tel">
+                                <input value="${phone}" type="tel">
                                 <img src="../images/call.svg" alt="">
                             </div>
                         </div>
@@ -219,10 +219,7 @@ function returnEditContactPopup() {
                             <div onclick="deleteContact()" class="contact_popup_left_button_div">
                                 <button>Delete</button>
                             </div>
-                            <div class="contact_popup_right_button_div">
-                                <button type="submit">Save</button>
-                                <img src="../images/check.svg" alt="">
-                            </div>
+                            <button class="contact_popup_right_button">Save<img src="../images/check.svg" alt=""></button>
                         </div>
                     </form>
                 </div>
