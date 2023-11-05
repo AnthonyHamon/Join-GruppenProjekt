@@ -321,6 +321,20 @@ function addSubtask() {
 
 
 function editTask(event, listItem) {
+    // Wenn das content-div noch nicht vorhanden ist, erstelle es und füge es hinzu
+    if (!listItem.querySelector('content-div')) {
+        const contentDiv = createContentDiv();
+        const editImage = createEditImage();
+        const line = createLine();
+        const deleteImage = createDeleteImage();
+
+        contentDiv.appendChild(editImage);
+        contentDiv.appendChild(line);
+        contentDiv.appendChild(deleteImage);
+
+        listItem.appendChild(contentDiv);
+    }
+
     const editContainer = document.createElement('div');
     editContainer.setAttribute('id', 'editContainer');
     editContainer.classList.add('edit-container');
@@ -358,11 +372,11 @@ function editTask(event, listItem) {
         contentDiv.appendChild(createEditImage());
         contentDiv.appendChild(createLine());
         contentDiv.appendChild(createDeleteImage());
-        
     });
 
     editDeleteDiv.appendChild(checkImage);
 }
+
 
 
 
