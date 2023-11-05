@@ -42,7 +42,6 @@ function renderMatchedContact(i, organizerLetter){
     contactMatches.sort((a, b) => {return compareStrings(a.name, b.name)});
     for (let j = 0; j < contactMatches.length; j++) {
         contactList.innerHTML += returnContacts(i, contactMatches[j]);
-        console.log(contactMatches);
     }
 
 }
@@ -67,7 +66,13 @@ async function setNewContact() {
     let name = document.getElementById('new-contact-name').value;
     let email = document.getElementById('new-contact-email').value;
     let phone = document.getElementById('new-contact-phone').value;
-    contacts.push({ name, email, phone });
+    let storedBgColor = contacts['BgColor'];
+    if(storedBgColor){
+        return storedBgColor;
+    }else{
+        setRandomColor();
+    }
+    contacts.push({ name, email, phone, BgColor });
     await setItem('contacts', JSON.stringify(contacts.sort()));
 }
 
@@ -79,24 +84,37 @@ async function loadContacts() {
     }
 }
 
-function showContactInformation(name, email, phone) {
+function setRandomColor(){
+    const letters = '0123456789ABCDEF';
+    let BgColor = '#';
+    for (let i = 0; i < 6; i++) {
+        BgColor += letters[Math.floor(Math.random() * 16)];
+    }
+    return BgColor;
+}
+
+function showContactInformation(name, email, phone, BgColor) {
     let width = window.innerWidth;
     if (width < 1000) {
-        showSelectedContactInformations(name, email, phone);
+        showSelectedContactInformations(name, email, phone, BgColor);
         toggleCSSContactInformation()
         toggleAddcontactMobileMenu();
     } else {
-        showSelectedContactInformations(name, email, phone);
-        addSelectedContactAnimation();
+        showSelectedContactInformations(name, email, phone, BgColor);
+        showSelectedContactAnimation();
     }
 }
 
-function showSelectedContactInformations(name, email, phone) {
+function showSelectedContactInformations(name, email, phone, BgColor) {
     findSelectedContactIndex(email);
     let width = window.innerWidth;
     let contactInformations = document.getElementById('selected-contact-content');
-    contactInformations.innerHTML = returnContactInformations(name, email, phone);
-    width > 1000 ? setSelectedContactColor(email) : '';
+    contactInformations.innerHTML = returnContactInformations(name, email, phone, BgColor);
+    width > 1000 ? setSelectedContactOnClickColor(email) : '';
+}
+
+function renderContactInitialLetter(name){
+    return name.replace(/[^A-Z]+/g, '');
 }
 
 function findSelectedContactIndex(email){
@@ -106,14 +124,14 @@ function findSelectedContactIndex(email){
 }
 
 
-function addSelectedContactAnimation() {
+function showSelectedContactAnimation() {
     document.getElementById('selected-contact-content').classList.add('slide_selected_contact');
     setTimeout(()=>
     document.getElementById('selected-contact-content').classList.remove('slide_selected_contact')
     ,400);
 }
 
-function setSelectedContactColor(email) {
+function setSelectedContactOnClickColor(email) {
     resetContactSelectionColor();
     let contact = document.getElementById(email);
     contact.classList.add('contact_selected');

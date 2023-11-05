@@ -75,6 +75,7 @@
 
 .divider {
     border: 1px solid #D1D1D1;
+    margin-bottom: 0;
 }
 
 .contact_div {
@@ -142,6 +143,7 @@
     justify-content: center;
     align-items: center;
     font-size: 47px;
+    border: 2px solid white;
 }
 
 .selected_contact_name_div {
@@ -266,6 +268,11 @@
     font-weight: 400;
     text-decoration: none;
     color: black;
+}
+
+.selected_contact_phone:hover{
+    color: rgba(0, 124, 238, 1);
+
 }
 
 .font_weight_700 {
@@ -643,6 +650,7 @@
 
     .contact_list_section {
         width: 100%;
+        min-width: unset;
     }
 
     .contact_title_ctn {

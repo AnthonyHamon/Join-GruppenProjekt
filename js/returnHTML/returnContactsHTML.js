@@ -58,23 +58,23 @@ function returnContactsOrganizer(i, organizerLetter){
 
 function returnContacts(i, contactMatches){
     return `
-            <div onclick="showContactInformation('${contactMatches['name']}', '${contactMatches['email']}', '${contactMatches['phone']}')" id="${contactMatches['email']}" class="contact_div">
-                <div class="contact_circle">
-                    AM
+            <div onclick="showContactInformation('${contactMatches['name']}', '${contactMatches['email']}', '${contactMatches['phone']}', '${contactMatches['BgColor']}')" id="${contactMatches['email']}" class="contact_div">
+                <div id="${contactMatches['name']}-profil-picture" class="contact_circle" style="background-color:${contactMatches['BgColor']}">
+                ${renderContactInitialLetter(contactMatches['name'])}
                 </div>
                 <div class="flex_column gap_5 overflow_hidden">
                     <span id="contact-name-${i}" class="contact_name">${contactMatches['name']}</span>
-                    <span id="contact-email-${i}" class="contact_email">${contactMatches['email']}<span>
+                    <span id="contact-email-${i}" class="contact_email">${contactMatches['email']}</span>
                 </div>
             </div>
     `
 }
 
-function returnContactInformations(name, email, phone) {
+function returnContactInformations(name, email, phone, BgColor) {
     return `
         <div class="align_item_center gap_54 gap_20">
-            <div class="selected_contact_circle">
-                AM
+            <div class="selected_contact_circle" style="background-color:${BgColor}">
+            ${renderContactInitialLetter(name)}
             </div>
             <div class="flex_column align_item_start gap_8">
                 <div id="selected-contact-${name}" class="selected_contact_name">
@@ -101,7 +101,7 @@ function returnContactInformations(name, email, phone) {
         </div>
         <div class="flex_column gap_15">
             <span class="font_weight_700">Phone</span>
-            <a href="${phone}" id="${name}-phone-number" class="selected_contact_phone">${phone}</a>
+            <a href="tel:${phone}" id="${name}-phone-number" class="selected_contact_phone">${phone}</a>
         </div>
     `
 }
