@@ -200,10 +200,10 @@ function returnEditContactPopup(name, email, phone, BgColor) {
                             <img  src="../images/close.svg">
                         </div>
                     </div>
-                    <form onsubmit="editContact(); return false" class="contact_form">
+                    <form onsubmit="editContact('${name}','${email}','${phone}'); return false" class="contact_form">
                         <div class="contact_inputs_ctn">
                             <div class="contact_input">
-                                <input value="${name}" type="text">
+                                <input id="edited-${name}" value="${name}" type="text">
                                 <img src="../images/person.svg" alt="">
                             </div>
                             <div class="contact_input">
