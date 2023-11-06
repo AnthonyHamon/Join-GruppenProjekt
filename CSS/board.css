@@ -241,7 +241,7 @@
     word-wrap: break-word;
 }
 
-#subtask_contain {
+.subtaskContain {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -262,7 +262,7 @@
     border-radius: 16px;
 }
 
-#subtask {
+.subtaskTxt {
     font-size: 12px;
     line-height: 14.4px;
     text-wrap: nowrap;
