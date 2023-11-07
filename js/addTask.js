@@ -291,103 +291,112 @@ function createDeleteImage() {
 
 
 function addSubtask() {
-    const inputField = document.getElementById("subtaskInput");
-    const text = inputField.value.trim();
-    const taskList = document.getElementById("taskList");
+    let inputField = document.getElementById("subtaskInput");
+    let text = inputField.value.trim();
+    let taskList = document.getElementById("taskList");
 
     if (text) {
-        const listItem = createListItem(text);
-        const contentDiv = createContentDiv();
-        const editImage = createEditImage();
-        const line = createLine();
-        const deleteImage = createDeleteImage();
-
-        contentDiv.appendChild(editImage);
-        contentDiv.appendChild(line);
-        contentDiv.appendChild(deleteImage);
-
-        listItem.appendChild(contentDiv);
+        let listItem = createListItem(text);
+        addImagesAndEventListener(listItem);
         taskList.appendChild(listItem);
         inputField.value = "";
 
-        const subtaskContent = document.querySelector(".subtask-content");
+        let subtaskContent = document.querySelector(".subtask-content");
         subtaskContent.style.display = "block";
-
-        editImage.addEventListener('click', function(event) {
-            editTask(event, listItem);
-        });
     }
 }
 
 
 function editTask(event, listItem) {
-    // Wenn das content-div noch nicht vorhanden ist, erstelle es und füge es hinzu
-    if (!listItem.querySelector('content-div')) {
-        const contentDiv = createContentDiv();
-        const editImage = createEditImage();
-        const line = createLine();
-        const deleteImage = createDeleteImage();
+    const editContainer = createEditContainer(listItem);
+    const editInput = createEditInput(listItem);
+    const editDeleteDiv = createDeleteAndCheckDiv();
 
-        contentDiv.appendChild(editImage);
-        contentDiv.appendChild(line);
-        contentDiv.appendChild(deleteImage);
+    setupEditing(listItem, editContainer, editInput, editDeleteDiv);
+    setupCheckImage(editInput, listItem, editContainer, editDeleteDiv);
+}
 
-        listItem.appendChild(contentDiv);
-    }
-
+function createEditContainer(listItem) {
     const editContainer = document.createElement('div');
     editContainer.setAttribute('id', 'editContainer');
     editContainer.classList.add('edit-container');
+    return editContainer;
+}
 
-    const editInput = createEditInputDiv(listItem); // Übergabe von listItem
-    const editDeleteDiv = createDeleteAndCheckDiv();
+function createEditInput(listItem) {
+    const editInput = createEditInputDiv(listItem);
+    return editInput;
+}
+
+function setupEditing(listItem, editContainer, editInput, editDeleteDiv) {
+    listItem.parentNode.insertBefore(editContainer, listItem); // Verschieben Sie die Container vor listItem
 
     editContainer.appendChild(editInput);
     editContainer.appendChild(editDeleteDiv);
+}
 
-    // Hält den Zustand, ob die Bearbeitung im Gange ist
-    listItem.dataset.editing = 'true';
-
-    // Liste ausblenden
-    listItem.style.display = 'none';
-
-    listItem.parentNode.insertBefore(editContainer, listItem); // Container-DIV einfügen
-
-    // 'checkImage' speichern
+function setupCheckImage(editInput, listItem, editContainer, editDeleteDiv) {
     const checkImage = createCheckImage();
-
-    // 'checkImage' soll die Bearbeitung beenden und das neue Element bestätigen
     checkImage.addEventListener('click', function() {
-        // Neue Daten im bearbeiteten Element speichern
-        listItem.textContent = editInput.querySelector('input').value;
-        // Anzeige der Liste wiederherstellen
-        listItem.style.display = 'block';
-        // Bearbeitungsstatus aktualisieren
-        listItem.dataset.editing = 'false';
-        // Entfernen des Container-DIVs
-        editContainer.remove();
-
-        // Hier füge die Zeile hinzu, um die Bilder wieder anzuzeigen
-        const contentDiv = listItem.querySelector(".content-div");
-        contentDiv.appendChild(createEditImage());
-        contentDiv.appendChild(createLine());
-        contentDiv.appendChild(createDeleteImage());
+        handleCheckImageClick(editInput, listItem, editContainer, editDeleteDiv);
     });
-
     editDeleteDiv.appendChild(checkImage);
 }
 
+function handleCheckImageClick(editInput, listItem, editContainer, editDeleteDiv) {
+    listItem.textContent = editInput.querySelector('input').value;
+    listItem.style.display = 'block';
+    listItem.dataset.editing = 'false';
+    editContainer.remove();
+
+    restoreOriginalElements(listItem); // Hier wird das ursprüngliche Erscheinungsbild des Listenelements wiederhergestellt
+}
+
+function restoreOriginalElements(listItem) {
+    const contentDiv = listItem.querySelector(".content-div");
+    contentDiv.innerHTML = ''; // Entferne den Inhalt des contentDiv
+
+    const editImage = createEditImage();
+    const line = createLine();
+    const deleteImage = createDeleteImage();
+
+    contentDiv.appendChild(editImage);
+    contentDiv.appendChild(line);
+    contentDiv.appendChild(deleteImage);
+    addImagesAndEventListener(listItem);
+}
 
 
+function addImagesAndEventListener(listItem) {
+    const contentDiv = createContentDiv();
+    const editImage = createEditImage();
+    const line = createLine();
+    const deleteImage = createDeleteImage();
 
-function createEditInputDiv(listItem) { // Akzeptiert listItem als Argument
+    contentDiv.appendChild(editImage);
+    contentDiv.appendChild(line);
+    contentDiv.appendChild(deleteImage);
+
+    listItem.appendChild(contentDiv);
+
+    editImage.addEventListener('click', function(event) {
+        editTask(event, listItem);
+    });
+}
+
+
+function createEditInputDiv(listItem) {
     const editInputDiv = document.createElement('div');
     editInputDiv.setAttribute('id', 'editContainer');
-    
+
     const editInput = document.createElement('input');
     editInput.setAttribute('id', 'editInput');
     editInput.setAttribute('type', 'text');
-    editInput.value = listItem.textContent.trim();
+
+    // Überprüfen, ob listItem und listItem.textContent definiert sind, bevor darauf zugegriffen wird
+    if (listItem && listItem.textContent) {
+        editInput.value = listItem.textContent.trim();
+    }
 
     editInputDiv.appendChild(editInput);
 
