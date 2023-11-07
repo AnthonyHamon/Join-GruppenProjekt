@@ -85,7 +85,7 @@ function returnContactInformations(name, email, phone, BgColor) {
                         <img src="../images/edit.svg" alt="">
                         <span>Edit</span>
                     </div>
-                    <div id="delete-selected-contact-${name}" class="delete_selected_contact align_item_center gap_8">
+                    <div onclick="deleteContact('${email}')" id="delete-selected-contact-${name}" class="delete_selected_contact align_item_center gap_8">
                         <img src="../images/delete.svg" alt="">
                         <span>Delete</span>
                     </div>
@@ -155,11 +155,8 @@ function returnAddContactPopup() {
                             </div>
                         </div>
                         <div class="contact_buttons_ctn">
-                            <div onclick="closeContactPopup()" id="contact-popup-left-button" class="contact_popup_left_button_div">
-                                <button>Cancel</button>
-                                <img src="../images/close.svg" alt="">
-                            </div>
-                            <button class="contact_popup_right_button">Create contact <img src="../images/check.svg" alt=""></button>
+                            <button type="button" onclick="closeContactPopup()"class="contact_popup_left_button">Cancel <img src="../images/close.svg"></button>
+                            <button class="contact_popup_right_button">Create contact <img src="../images/check.svg"></button>
                         </div>
                     </form>
                 </div>
@@ -200,23 +197,23 @@ function returnEditContactPopup(name, email, phone, BgColor) {
                             <img  src="../images/close.svg">
                         </div>
                     </div>
-                    <form onsubmit="editContact('${name}','${email}','${phone}'); return false" class="contact_form">
+                    <form onsubmit="editContact('${name}','${email}','${phone}','${BgColor}'); return false" class="contact_form">
                         <div class="contact_inputs_ctn">
                             <div class="contact_input">
                                 <input id="edited-${name}" value="${name}" type="text">
                                 <img src="../images/person.svg" alt="">
                             </div>
                             <div class="contact_input">
-                                <input value="${email}" type="Email">
+                                <input id="edited-${email}" value="${email}" type="Email">
                                 <img src="../images/mail.svg" alt="">
                             </div>
                             <div class="contact_input">
-                                <input value="${phone}" type="tel">
+                                <input id="edited-${phone}" value="${phone}" type="tel">
                                 <img src="../images/call.svg" alt="">
                             </div>
                         </div>
                         <div class="contact_buttons_ctn">
-                            <div onclick="deleteContact()" class="contact_popup_left_button_div">
+                            <div onclick="deleteContact('${email}')" class="contact_popup_left_button_div">
                                 <button>Delete</button>
                             </div>
                             <button class="contact_popup_right_button">Save<img src="../images/check.svg" alt=""></button>

@@ -59,28 +59,36 @@ function addNewContact() {
     renderContacts();
 }
 
-function editContact(name, email, phone) {
-    let index = contacts.findIndex(e => e.email === email);
-    let editedContactName = document.getElementById(`'edited-'${name}`);
-    let editedContactEmail = document.getElementById(`'edited-'${email}`);
-    let editedContactPhone = document.getElementById(`'edited-'${phone}`);
-    contacts.splice(index, 3);
-
-}
-
 async function setNewContact() {
     let name = document.getElementById('new-contact-name').value;
     let email = document.getElementById('new-contact-email').value;
     let phone = document.getElementById('new-contact-phone').value;
-    let storedBgColor = contacts['BgColor'];
-    if (storedBgColor) {
-        return storedBgColor;
-    } else {
-        let BgColor = setRandomColor();
-        contacts.push({ name, email, phone, BgColor });
-    }
+    let BgColor = setRandomColor();
+    contacts.push({ name, email, phone, BgColor });
     await setItem('contacts', JSON.stringify(contacts));
 }
+
+async function editContact(name, email, phone, BgColor) {
+    let index = contacts.findIndex(e => e.email === email);
+    name = document.getElementById(`edited-${name}`).value;
+    email = document.getElementById(`edited-${email}`).value;
+    phone = document.getElementById(`edited-${phone}`).value;
+    contacts.splice(index, 1, { name, email, phone, BgColor });
+    await setItem('contacts', JSON.stringify(contacts));
+    closeContactPopup();
+    renderContacts();
+    showContactInformation(name, email, phone, BgColor);
+}
+
+async function deleteContact(email) {
+    let index = contacts.findIndex(e => e.email === email);
+    contacts.splice(index, 1);
+    await setItem('contacts', JSON.stringify(contacts));
+    renderContacts();
+    let contactInformations = document.getElementById('selected-contact-content');
+    contactInformations.innerHTML = '';
+}
+
 
 async function loadContacts() {
     try {

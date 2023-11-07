@@ -261,6 +261,7 @@
     font-weight: 400;
     color: rgba(0, 124, 238, 1);
     text-decoration: none;
+    max-width: max-content;
 }
 
 .selected_contact_phone {
@@ -268,6 +269,7 @@
     font-weight: 400;
     text-decoration: none;
     color: black;
+    max-width: max-content;
 }
 
 .selected_contact_phone:hover{
@@ -473,7 +475,7 @@
     gap: 24px;
 }
 
-.contact_popup_left_button_div {
+.contact_popup_left_button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -481,29 +483,25 @@
     border: 1px solid #2A3647;
     border-radius: 10px;
     min-width: 113px;
-    cursor: pointer;
-}
-
-.contact_popup_left_button_div button {
     font-size: 20px;
-    border: none;
     background-color: inherit;
     color: inherit;
     cursor: pointer;
 }
 
-.contact_popup_left_button_div:hover {
+
+.contact_popup_left_button:hover {
     border: 2px solid #29ABE2;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     color: #29ABE2;
 }
 
-.contact_popup_left_button_div button:hover {
+.contact_popup_left_button button:hover {
     color: inherit;
 }
 
 
-.contact_popup_left_button_div:hover img {
+.contact_popup_left_button:hover img {
     filter: invert(70%) sepia(74%) saturate(3560%) hue-rotate(165deg) brightness(95%) contrast(85%);
 }
 
