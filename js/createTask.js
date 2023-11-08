@@ -1,32 +1,31 @@
-let tasks = [{
-    'id': 0,
-    'title': 'The Title 0',
-    'description': 'here you see the description 0',
-    'category': 'user',
-    'status': 'done'
-}, {
-    'id': 1,
-    'title': 'The Title 1',
-    'description': 'here you see the description 1',
-    'category': 'technical',
-    'status': 'feedback'
-}, {
-    'id': 2,
-    'title': 'asssssssssssssss sssssss sssssssasdadssssss asdadssssssasdadfas fasfsdasdsfsadsad2',
-    'description': 'hoch hinauf war der kleine bär der mutvoll um den mond renn nt, doch als die krähe kam, gint er seines weges 2',
-    'category': 'user',
-    'status': 'to_do'
-}, {
-    'id': 3,
-    'title': 'The Title 3',
-    'description': 'here you see the description 3',
-    'category': 'technical',
-    'status': 'in_progress'
-}];
-
+let tasks = [];
 let currentTask = 'small'
 
-function renderAllTasks() {
+
+async function setNewTask() {
+    let index = tasks.length;
+    let id = `${index}`;
+    let title = 'title title title title title title title title                                        ';
+    let description = 'description description description description description description description description          ';
+    let date = '11.11.2023';
+    let prio = 'low';
+    let category = 'user';
+    let status = 'in_progress';
+    tasks.push({ id, title, description, date, prio, category, status });
+    await setItem('task', JSON.stringify(tasks));
+}
+
+
+async function loadTasks() {
+    try {
+        tasks = JSON.parse(await getItem('task'));
+    } catch {
+        console.log('error');
+    }
+}
+
+async function renderAllTasks() {
+    await loadTasks();
     renderTasksByStatus('to_do');
     renderTasksByStatus('in_progress');
     renderTasksByStatus('feedback');
@@ -83,10 +82,10 @@ function renderTaskHTML(task) {
 }
 
 function formatTaskText(text) {
-    if (currentTask === 'small' && text.length > 57) {
-        return text.charAt(0).toUpperCase() + text.slice(1, 57) + '...';
-    }
-    return text.charAt(0).toUpperCase() + text.slice(1);
+    let trimmedText = text.trim();
+    return currentTask === 'small' && trimmedText.length > 57
+        ? trimmedText.charAt(0).toUpperCase() + trimmedText.slice(1, 57) + '...'
+        : trimmedText.charAt(0).toUpperCase() + trimmedText.slice(1);
 }
 
 function checkTaskCategory(category) {
@@ -129,4 +128,9 @@ function checkTaskCategory(category) {
         <img src="/images/Property 1=Low.svg">
     </div>
 </section>
+*/
+
+/** <div class="emptyTaskLine">
+        <span>No tasks to do</span>
+    </div>
 */
