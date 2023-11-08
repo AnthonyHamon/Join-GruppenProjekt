@@ -17,6 +17,7 @@ const daysOfWeek = [
 ];
 
 let isImagesOpen = false;
+let subtaskContents = [];
 
 
 function renderAddTask() {
@@ -250,173 +251,6 @@ function closeImages() {
 }
 
 
-function createListItem(text) {
-    const listItem = document.createElement("li");
-    listItem.textContent = text;
-    listItem.classList.add("list-field");
-    return listItem;
-}
-
-
-function createContentDiv() {
-    const contentDiv = document.createElement("div");
-    contentDiv.classList.add("content-div");
-    return contentDiv;
-}
-
-
-function createLine() {
-    const line = document.createElement("div");
-    line.classList.add("line");
-    return line;
-}
-
-
-function createEditImage() {
-    const editImage = document.createElement("img");
-    editImage.setAttribute("src", "../images/Property 1=edit.svg");
-    editImage.setAttribute("alt", "");
-    editImage.addEventListener('click', editTask);
-    return editImage;
-}
-
-
-function createDeleteImage() {
-    const deleteImage = document.createElement("img");
-    deleteImage.setAttribute("src", "../images/Property 1=delete.svg");
-    deleteImage.setAttribute("alt", "");
-    deleteImage.addEventListener('click', deleteListTask);
-    return deleteImage;
-}
-
-
-function addSubtask() {
-    let inputField = document.getElementById("subtaskInput");
-    let text = inputField.value.trim();
-    let taskList = document.getElementById("taskList");
-
-    if (text) {
-        let listItem = createListItem(text);
-        addImagesAndEventListener(listItem);
-        taskList.appendChild(listItem);
-        inputField.value = "";
-
-        let subtaskContent = document.querySelector(".subtask-content");
-        subtaskContent.style.display = "block";
-    }
-}
-
-
-function editTask(event, listItem) {
-    const editContainer = createEditContainer(listItem);
-    const editInput = createEditInput(listItem);
-    const editDeleteDiv = createDeleteAndCheckDiv();
-
-    setupEditing(listItem, editContainer, editInput, editDeleteDiv);
-    setupCheckImage(editInput, listItem, editContainer, editDeleteDiv);
-}
-
-function createEditContainer(listItem) {
-    const editContainer = document.createElement('div');
-    editContainer.setAttribute('id', 'editContainer');
-    editContainer.classList.add('edit-container');
-    return editContainer;
-}
-
-function createEditInput(listItem) {
-    const editInput = createEditInputDiv(listItem);
-    return editInput;
-}
-
-function setupEditing(listItem, editContainer, editInput, editDeleteDiv) {
-    listItem.parentNode.insertBefore(editContainer, listItem); // Verschieben Sie die Container vor listItem
-
-    editContainer.appendChild(editInput);
-    editContainer.appendChild(editDeleteDiv);
-}
-
-function setupCheckImage(editInput, listItem, editContainer, editDeleteDiv) {
-    const checkImage = createCheckImage();
-    checkImage.addEventListener('click', function() {
-        handleCheckImageClick(editInput, listItem, editContainer, editDeleteDiv);
-    });
-    editDeleteDiv.appendChild(checkImage);
-}
-
-function handleCheckImageClick(editInput, listItem, editContainer, editDeleteDiv) {
-    listItem.textContent = editInput.querySelector('input').value;
-    listItem.style.display = 'block';
-    listItem.dataset.editing = 'false';
-    editContainer.remove();
-
-    restoreOriginalElements(listItem); // Hier wird das ursprüngliche Erscheinungsbild des Listenelements wiederhergestellt
-}
-
-function restoreOriginalElements(listItem) {
-    const contentDiv = listItem.querySelector(".content-div");
-    contentDiv.innerHTML = ''; // Entferne den Inhalt des contentDiv
-
-    const editImage = createEditImage();
-    const line = createLine();
-    const deleteImage = createDeleteImage();
-
-    contentDiv.appendChild(editImage);
-    contentDiv.appendChild(line);
-    contentDiv.appendChild(deleteImage);
-    addImagesAndEventListener(listItem);
-}
-
-
-function addImagesAndEventListener(listItem) {
-    const contentDiv = createContentDiv();
-    const editImage = createEditImage();
-    const line = createLine();
-    const deleteImage = createDeleteImage();
-
-    contentDiv.appendChild(editImage);
-    contentDiv.appendChild(line);
-    contentDiv.appendChild(deleteImage);
-
-    listItem.appendChild(contentDiv);
-
-    editImage.addEventListener('click', function(event) {
-        editTask(event, listItem);
-    });
-}
-
-
-function createEditInputDiv(listItem) {
-    const editInputDiv = document.createElement('div');
-    editInputDiv.setAttribute('id', 'editContainer');
-
-    const editInput = document.createElement('input');
-    editInput.setAttribute('id', 'editInput');
-    editInput.setAttribute('type', 'text');
-
-    // Überprüfen, ob listItem und listItem.textContent definiert sind, bevor darauf zugegriffen wird
-    if (listItem && listItem.textContent) {
-        editInput.value = listItem.textContent.trim();
-    }
-
-    editInputDiv.appendChild(editInput);
-
-    return editInputDiv;
-}
-
-
-
-function createDeleteAndCheckDiv() {
-    const editDeleteDiv = document.createElement('div');
-    editDeleteDiv.classList.add('edit-delete-div');
-
-    const deleteImage = createDeleteImage();
-
-    editDeleteDiv.appendChild(deleteImage);
-
-    return editDeleteDiv;
-}
-
-
 function clearInputField(inputsField) {
     const inputField = document.getElementById(inputsField);
     if (inputField) {
@@ -425,25 +259,30 @@ function clearInputField(inputsField) {
 }
 
 
-function createCheckImage() {
-    const checkImage = document.createElement("img");
-    checkImage.setAttribute("src", "../images/Property 1=check.svg");
-    checkImage.setAttribute("alt", "");
-    checkImage.addEventListener('click', function() {
-        addSubtask();
-        closeImages();
-        // Weitere Funktionen, die nach dem Klick ausgeführt werden sollen
-    });
-    return checkImage;
-}
+function addSubtask() {
+    const subtaskInput = document.getElementById("subtaskInput");
+    const finishedContent = document.getElementById("finishedContent");
 
+    if (subtaskInput && finishedContent) {
+        const inputText = subtaskInput.value.trim();
 
-function deleteListTask() {
-    const listField = document.querySelector(".list-field");
-    if (listField) {
-        listField.remove();
+        if (inputText !== '') {
+            subtaskContents.push(inputText); // Füge den Input-Text zum Array hinzu
+
+            finishedContent.textContent = subtaskContents.join(", "); // Zeige die Inhalte an
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
