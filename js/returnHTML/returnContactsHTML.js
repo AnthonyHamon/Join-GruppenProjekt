@@ -223,10 +223,10 @@ function returnEditContactPopup(name, email, phone, BgColor) {
     `
 }
 
-function returnMobileEditContactMenu(){
+function returnMobileEditContactMenu(name, email, phone, BgColor){
     return `
     <div id="mobile-edit-contact-menu" class="mobile_edit_contact_menu">
-        <div onclick="openEditContact(event)" id="edit-contact" class="mobile_edit_contact">
+        <div onclick="openEditContact('${name}', '${email}', '${phone}', '${BgColor}', event)" id="edit-contact" class="mobile_edit_contact">
             <img src="..//images/edit.svg">
             <span>Edit</span>
         </div>
