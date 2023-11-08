@@ -696,7 +696,7 @@ h4 {
 }
 
 .finished-content {
-    width: auto;
+    width: 200px;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;

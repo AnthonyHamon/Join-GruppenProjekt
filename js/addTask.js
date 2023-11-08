@@ -261,18 +261,37 @@ function clearInputField(inputsField) {
 
 function addSubtask() {
     const subtaskInput = document.getElementById("subtaskInput");
-    const finishedContent = document.getElementById("finishedContent");
+    const subtaskContent = document.getElementById("subtaskContent");
 
-    if (subtaskInput && finishedContent) {
+    if (subtaskInput && subtaskContent) {
         const inputText = subtaskInput.value.trim();
 
         if (inputText !== '') {
-            subtaskContents.push(inputText); // Füge den Input-Text zum Array hinzu
+            const newListItem = document.createElement("div");
+            newListItem.className = "list-container";
+            newListItem.innerHTML = `
+                <div class="task-list">
+                    <div class="liest-field">
+                        <div class="tasks-content">
+                            <p class="finished-content">${inputText}</p>
+                        </div>
+                        <div class="edit-delete-container">
+                            <div class="edit-box">
+                            <img class="edit-image" id="editImage" src="../images/Property 1=edit.svg" alt="">
+                            </div>
+                            <div class="delete-box">
+                            <img class="delete-image" id="deleteImage" src="../images/Property 1=delete.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
 
-            finishedContent.textContent = subtaskContents.join(", "); // Zeige die Inhalte an
+            subtaskContent.appendChild(newListItem);
+            subtaskInput.value = "";
         }
     }
 }
+
 
 
 
