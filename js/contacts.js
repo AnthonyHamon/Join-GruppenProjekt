@@ -85,6 +85,7 @@ async function deleteContact(email) {
     contacts.splice(index, 1);
     await setItem('contacts', JSON.stringify(contacts));
     renderContacts();
+    closeContactPopup();
     let contactInformations = document.getElementById('selected-contact-content');
     contactInformations.innerHTML = '';
 }
@@ -168,10 +169,10 @@ function openAddContact() {
     let width = window.innerWidth;
     let addContactCtn = document.getElementById('contact-popup-ctn');
     addContactCtn.innerHTML = returnAddContactPopup();
+    openContactPopup();
     if (width < 1000) {
         document.getElementById('contact-popup-left-button').classList.add('d-none');
     }
-    openContactPopup();
 }
 
 function openContactPopup() {
@@ -186,15 +187,21 @@ function openContactPopup() {
     addContactCtn.classList.toggle('d-none');
 }
 function closeContactPopup() {
-    let width = window.innerWidth;
     let addContact = document.getElementById('contact-popup');
     let addContactCtn = document.getElementById('contact-popup-ctn');
-    if (width <= 1000) {
-        addContact.classList.remove('open_mobile_animation_contact_popup');
-        addContact.classList.add('close_mobile_animation_contact_popup');
-    } else {
+    if (window.matchMedia("(max-width: >1000px)")) {
         addContact.classList.remove('open_animation_contact_popup');
         addContact.classList.add('close_animation_contact_popup');
+    }  
+    setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
+}
+
+function closeMobileContactPopup(){
+    let addContact = document.getElementById('contact-popup');
+    let addContactCtn = document.getElementById('contact-popup-ctn');
+    if (window.matchMedia("(max-width: 1000px)")) {
+        addContact.classList.remove('open_mobile_animation_contact_popup');
+        addContact.classList.add('close_mobile_animation_contact_popup');
     }
     setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
 }
@@ -253,7 +260,6 @@ function removeAnimationClass() {
 function contactsBgrColor() {
     document.getElementById('contacts').classList.add('currentTemplate', 'p-none');
     document.getElementById('contacts_mobile').classList.add('currentTemplate', 'p-none');
-
 }
 
 function removeBgrColorWithoutContacts() {
