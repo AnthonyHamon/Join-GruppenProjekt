@@ -63,21 +63,23 @@ async function setNewContact() {
     let name = document.getElementById('new-contact-name').value;
     let email = document.getElementById('new-contact-email').value;
     let phone = document.getElementById('new-contact-phone').value;
+    let initial = returnContactInitialLetter(name);
     let BgColor = setRandomColor();
-    contacts.push({ name, email, phone, BgColor });
+    contacts.push({ name, email, phone, initial, BgColor });
     await setItem('contacts', JSON.stringify(contacts));
 }
 
-async function editContact(name, email, phone, BgColor) {
+async function editContact(name, email, phone, initial, BgColor) {
     let index = contacts.findIndex(e => e.email === email);
     name = document.getElementById(`edited-${name}`).value;
     email = document.getElementById(`edited-${email}`).value;
     phone = document.getElementById(`edited-${phone}`).value;
-    contacts.splice(index, 1, { name, email, phone, BgColor });
+    initial = returnContactInitialLetter(name);
+    contacts.splice(index, 1, { name, email, phone, initial, BgColor });
     await setItem('contacts', JSON.stringify(contacts));
     closeContactPopup();
     renderContacts();
-    showContactInformation(name, email, phone, BgColor);
+    showContactInformation(name, email, phone, initial, BgColor);
 }
 
 async function deleteContact(email) {
@@ -108,26 +110,26 @@ function setRandomColor() {
     return BgColor;
 }
 
-function showContactInformation(name, email, phone, BgColor) {
+function showContactInformation(name, email, phone, initial, BgColor) {
     let width = window.innerWidth;
     if (width < 1000) {
-        showSelectedContactInformations(name, email, phone, BgColor);
+        showSelectedContactInformations(name, email, phone, initial, BgColor);
         toggleCSSContactInformation()
         toggleAddcontactMobileMenu();
     } else {
-        showSelectedContactInformations(name, email, phone, BgColor);
+        showSelectedContactInformations(name, email, phone, initial, BgColor);
         showSelectedContactAnimation();
     }
 }
 
-function showSelectedContactInformations(name, email, phone, BgColor) {
+function showSelectedContactInformations(name, email, phone, initial, BgColor) {
     let width = window.innerWidth;
     let contactInformations = document.getElementById('selected-contact-content');
-    contactInformations.innerHTML = returnContactInformations(name, email, phone, BgColor);
+    contactInformations.innerHTML = returnContactInformations(name, email, phone, initial, BgColor);
     width > 1000 ? setSelectedContactOnClickColor(email) : '';
 }
 
-function renderContactInitialLetter(name) {
+function returnContactInitialLetter(name) {
     return name.replace(/[^A-Z]+/g, '');
 }
 
@@ -192,11 +194,11 @@ function closeContactPopup() {
     if (window.matchMedia("(max-width: >1000px)")) {
         addContact.classList.remove('open_animation_contact_popup');
         addContact.classList.add('close_animation_contact_popup');
-    }  
+    }
     setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
 }
 
-function closeMobileContactPopup(){
+function closeMobileContactPopup() {
     let addContact = document.getElementById('contact-popup');
     let addContactCtn = document.getElementById('contact-popup-ctn');
     if (window.matchMedia("(max-width: 1000px)")) {
@@ -212,10 +214,10 @@ function toggleAddcontactMobileMenu() {
     document.getElementById('mobile-contact-edit-menu').classList.toggle('d-none');
 }
 
-function openEditContact(name, email, phone, BgColor, event) {
+function openEditContact(event, name, email, phone, initial, BgColor) {
     setMobileEditContact(event);
     let editContactCtn = document.getElementById('contact-popup-ctn');
-    editContactCtn.innerHTML = returnEditContactPopup(name, email, phone, BgColor);
+    editContactCtn.innerHTML = returnEditContactPopup(name, email, phone, initial, BgColor);
     openContactPopup();
 }
 
@@ -228,9 +230,9 @@ function setMobileEditContact(event) {
     }
 }
 
-function openMobileEditMenu(name, email, phone, BgColor) {
+function openMobileEditMenu(name, email, phone, initial, BgColor) {
     let mobileEditMenuCtn = document.getElementById('mobile-edit-contact-menu-ctn');
-    mobileEditMenuCtn.innerHTML = returnMobileEditContactMenu(name, email, phone, BgColor);
+    mobileEditMenuCtn.innerHTML = returnMobileEditContactMenu(name, email, phone, initial, BgColor);
     let mobileEditMenu = document.getElementById('mobile-edit-contact-menu');
     mobileEditMenuCtn.classList.remove('d-none');
     mobileEditMenu.classList.add('animate_edit_contact_menu');

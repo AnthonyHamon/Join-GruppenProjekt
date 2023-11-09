@@ -4,7 +4,6 @@ let isValid = false;
 
 
 async function initLogin() {
-    // comingFromSignUP();
     await loadUsers();
     checkSavedLogin();
 }
