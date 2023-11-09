@@ -17,6 +17,7 @@ const daysOfWeek = [
 ];
 
 let isImagesOpen = false;
+let subtaskContents = [];
 
 
 function renderAddTask() {
@@ -443,14 +444,49 @@ function createCheckImage() {
     });
     return checkImage;
 }
+function addSubtask() {
+    const subtaskInput = document.getElementById("subtaskInput");
+    const subtaskContent = document.getElementById("subtaskContent");
 
+    if (subtaskInput && subtaskContent) {
+        const inputText = subtaskInput.value.trim();
 
-function deleteListTask() {
-    const listField = document.querySelector(".list-field");
-    if (listField) {
-        listField.remove();
+        if (inputText !== '') {
+            const newListItem = document.createElement("div");
+            newListItem.className = "list-container";
+            newListItem.innerHTML = `
+                <div class="task-list">
+                    <div class="liest-field">
+                        <div class="tasks-content">
+                            <p class="finished-content">${inputText}</p>
+                        </div>
+                        <div class="edit-delete-container">
+                            <div class="edit-box">
+                            <img class="edit-image" id="editImage" src="../images/Property 1=edit.svg" alt="">
+                            </div>
+                            <div class="delete-box">
+                            <img class="delete-image" id="deleteImage" src="../images/Property 1=delete.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+
+            subtaskContent.appendChild(newListItem);
+            subtaskInput.value = "";
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

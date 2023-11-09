@@ -155,7 +155,7 @@ function returnAddContactPopup() {
                             </div>
                         </div>
                         <div class="contact_buttons_ctn">
-                            <button type="button" onclick="closeContactPopup()"class="contact_popup_left_button">Cancel <img src="../images/close.svg"></button>
+                            <button type="button" id="contact-popup-left-button" onclick="closeContactPopup() "class="contact_popup_left_button">Cancel<img src="../images/close.svg"></button>
                             <button class="contact_popup_right_button">Create contact <img src="../images/check.svg"></button>
                         </div>
                     </form>
@@ -213,9 +213,7 @@ function returnEditContactPopup(name, email, phone, BgColor) {
                             </div>
                         </div>
                         <div class="contact_buttons_ctn">
-                            <div onclick="deleteContact('${email}')" class="contact_popup_left_button_div">
-                                <button>Delete</button>
-                            </div>
+                            <button type="button" onclick="deleteContact('${email}')" class="contact_popup_left_button">Delete<img src="../images/close.svg"></button>
                             <button class="contact_popup_right_button">Save<img src="../images/check.svg" alt=""></button>
                         </div>
                     </form>
@@ -225,10 +223,10 @@ function returnEditContactPopup(name, email, phone, BgColor) {
     `
 }
 
-function returnMobileEditContactMenu(){
+function returnMobileEditContactMenu(name, email, phone, BgColor){
     return `
     <div id="mobile-edit-contact-menu" class="mobile_edit_contact_menu">
-        <div onclick="openEditContact(event)" id="edit-contact" class="mobile_edit_contact">
+        <div onclick="openEditContact('${name}', '${email}', '${phone}', '${BgColor}', event)" id="edit-contact" class="mobile_edit_contact">
             <img src="..//images/edit.svg">
             <span>Edit</span>
         </div>
