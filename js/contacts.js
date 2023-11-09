@@ -228,9 +228,9 @@ function setMobileEditContact(event) {
     }
 }
 
-function openMobileEditMenu() {
+function openMobileEditMenu(name, email, phone, BgColor) {
     let mobileEditMenuCtn = document.getElementById('mobile-edit-contact-menu-ctn');
-    mobileEditMenuCtn.innerHTML = returnMobileEditContactMenu();
+    mobileEditMenuCtn.innerHTML = returnMobileEditContactMenu(name, email, phone, BgColor);
     let mobileEditMenu = document.getElementById('mobile-edit-contact-menu');
     mobileEditMenuCtn.classList.remove('d-none');
     mobileEditMenu.classList.add('animate_edit_contact_menu');

@@ -33,15 +33,6 @@ function generateContactsHTML() {
                 </div>
             </section>
         </main>
-            <div id="mobile-contact-editor" class="mobile_add_contact_button_ctn">
-                    <div onclick="openAddContact()" id="mobile-add-contact-button" class="mobile_add_contact_button">
-                        <img src="..//images/person_add.svg">
-                    </div>
-                    <div onclick="openMobileEditMenu()" id="mobile-contact-edit-menu" class="mobile_add_contact_button d-none">
-                        <img src="..//images/more_menu.svg">
-                    </div>
-            </div>
-            <div onclick="closeMobileEditMenu()" id="mobile-edit-contact-menu-ctn" class="mobile_edit_contact_ctn d-none"></div>
     `
 }
 
@@ -103,6 +94,15 @@ function returnContactInformations(name, email, phone, BgColor) {
             <span class="font_weight_700">Phone</span>
             <a href="tel:${phone}" id="${name}-phone-number" class="selected_contact_phone">${phone}</a>
         </div>
+        <div id="mobile-contact-editor" class="mobile_add_contact_button_ctn">
+                    <div onclick="openAddContact()" id="mobile-add-contact-button" class="mobile_add_contact_button">
+                        <img src="..//images/person_add.svg">
+                    </div>
+                    <div onclick="openMobileEditMenu('${name}', '${email}', '${phone}', '${BgColor}')" id="mobile-contact-edit-menu" class="mobile_add_contact_button d-none">
+                        <img src="..//images/more_menu.svg">
+                    </div>
+            </div>
+            <div onclick="closeMobileEditMenu()" id="mobile-edit-contact-menu-ctn" class="mobile_edit_contact_ctn d-none"></div>
     `
 }
 
