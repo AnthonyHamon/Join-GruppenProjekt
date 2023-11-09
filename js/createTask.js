@@ -12,15 +12,15 @@ async function setNewTask() {
     let category = 'user';
     let status = 'in_progress';
     tasks.push({ id, title, description, date, prio, category, status });
-    await setItem('task', JSON.stringify(tasks));
+    await setItem('tasks', JSON.stringify(tasks));
 }
 
 
 async function loadTasks() {
     try {
-        tasks = JSON.parse(await getItem('task'));
+        tasks = JSON.parse(await getItem('tasks'));
     } catch {
-        console.log('error');
+        await setItem('tasks', JSON.stringify(tasks));
     }
 }
 
@@ -39,6 +39,11 @@ function renderTasksByStatus(status) {
     tasksByStatus.forEach(task => {
         container.appendChild(renderTaskElement(task));
     });
+    ifContainerEmpty(container);
+}
+
+function ifContainerEmpty(container) {
+    container.innerHTML === '' && (container.innerHTML = `<div class="emptyTaskLine"><span>No tasks to do</span></div>`);
 }
 
 function renderTaskElement(task) {
@@ -130,7 +135,5 @@ function checkTaskCategory(category) {
 </section>
 */
 
-/** <div class="emptyTaskLine">
-        <span>No tasks to do</span>
-    </div>
+/** <div class="emptyTaskLine"><span>No tasks to do</span></div>
 */

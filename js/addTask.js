@@ -20,10 +20,17 @@ let isImagesOpen = false;
 
 
 function renderAddTask() {
+    changeAddTaskContent();
     addTaskBgrColor();
     removeBgrColorWithoutAddTask();
     addJoinLogoClickable();
     generateAddTaskHTML();
+}
+
+function changeAddTaskContent() {
+    document.getElementById('content').classList.remove('content_section');
+    document.getElementById('content').classList.remove('contentBoard');
+    document.getElementById('content').classList.add('content');
 }
 
 function addTaskBgrColor() {
@@ -337,7 +344,7 @@ function setupEditing(listItem, editContainer, editInput, editDeleteDiv) {
 
 function setupCheckImage(editInput, listItem, editContainer, editDeleteDiv) {
     const checkImage = createCheckImage();
-    checkImage.addEventListener('click', function() {
+    checkImage.addEventListener('click', function () {
         handleCheckImageClick(editInput, listItem, editContainer, editDeleteDiv);
     });
     editDeleteDiv.appendChild(checkImage);
@@ -379,7 +386,7 @@ function addImagesAndEventListener(listItem) {
 
     listItem.appendChild(contentDiv);
 
-    editImage.addEventListener('click', function(event) {
+    editImage.addEventListener('click', function (event) {
         editTask(event, listItem);
     });
 }
@@ -429,7 +436,7 @@ function createCheckImage() {
     const checkImage = document.createElement("img");
     checkImage.setAttribute("src", "../images/Property 1=check.svg");
     checkImage.setAttribute("alt", "");
-    checkImage.addEventListener('click', function() {
+    checkImage.addEventListener('click', function () {
         addSubtask();
         closeImages();
         // Weitere Funktionen, die nach dem Klick ausgeführt werden sollen
