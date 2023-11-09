@@ -278,5 +278,6 @@ function addJoinLogoClickable() {
 
 function addContactsCSS() {
     document.getElementById('content').classList.remove('content');
+    document.getElementById('content').classList.remove('contentBoard');
     document.getElementById('content').classList.add('content_section');
 }

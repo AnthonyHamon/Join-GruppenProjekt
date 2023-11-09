@@ -1,9 +1,5 @@
-
-
-
-
 function renderBoard() {
-    changeClass();
+    changeBoardContent();
     boardBgrColor();
     removeBgrColorWithoutBoard();
     addJoinLogoClickable();
@@ -11,9 +7,10 @@ function renderBoard() {
     checkWidthInBoard();
 }
 
-function changeClass() {
+function changeBoardContent() {
     document.getElementById('content').classList.remove('content_section');
-    document.getElementById('content').classList.add('content');
+    document.getElementById('content').classList.remove('content');
+    document.getElementById('content').classList.add('contentBoard');
 }
 
 function boardBgrColor() {
@@ -66,16 +63,4 @@ function addTaskFromBtn(category) {
             </div>
         </section>
     `;
-}
-
-window.addEventListener("resize", checkWidthInBoard);
-
-function checkWidthInBoard() {
-    if (window.innerWidth >= 1300) {
-        generateBoardWidthPlus1300HTML();
-        renderAllTasks();
-    } else {
-        generateBoardWidthMinus1300HTML();
-        renderAllTasks();
-    }
 }
