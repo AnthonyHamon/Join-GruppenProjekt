@@ -5,6 +5,7 @@ function renderBoard() {
     addJoinLogoClickable();
     generateBoardHTML();
     checkWidthInBoard();
+    loadingProcess();
 }
 
 function changeBoardContent() {

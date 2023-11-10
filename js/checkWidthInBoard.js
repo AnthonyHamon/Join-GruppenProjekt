@@ -1,6 +1,8 @@
 let resizeTimer;
+let lastAnimationTime = 0;
 
-function debounceResize() {
+function loadingProcess() {
+    restartAnimation();
     hideWidthHTML();
     showLoadingSpinner();
     clearTimeout(resizeTimer);
@@ -8,7 +10,18 @@ function debounceResize() {
         checkWidthInBoard();
         showWidthHTML();
         hideLoadingSpinner();
-    }, 500);
+    }, 1000);
+}
+
+function restartAnimation() {
+    let currentTime = new Date().getTime();
+    if (currentTime - lastAnimationTime > 1000) {
+        let animation = document.querySelector('animate');
+        if (animation) {
+            animation.beginElement();
+            lastAnimationTime = currentTime;
+        }
+    }
 }
 
 function showLoadingSpinner() {
@@ -45,4 +58,4 @@ function checkWidthInBoard() {
     }
 }
 
-window.addEventListener("resize", debounceResize);
+window.addEventListener("resize", loadingProcess);
