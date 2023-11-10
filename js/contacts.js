@@ -1,4 +1,6 @@
 let contacts = [];
+let contactIsValid = false;
+
 
 async function renderContactsPage() {
     await loadContacts();
@@ -52,11 +54,13 @@ function compareStrings(a, b) {
 }
 
 function addNewContact() {
-    setNewContact();
-    openContactPopup();
-    showContactCreatedPopup();
-    removeAnimationClass();
-    renderContacts();
+    contactIsValid ?
+        setNewContact() &
+        openContactPopup() &
+        showContactCreatedPopup() &
+        removeAnimationClass() &
+        renderContacts() &
+        console.log('contact already exist') : '';
 }
 
 async function setNewContact() {
@@ -67,6 +71,38 @@ async function setNewContact() {
     let BgColor = setRandomColor();
     contacts.push({ name, email, phone, initial, BgColor });
     await setItem('contacts', JSON.stringify(contacts));
+}
+
+function checkExistingContact() {
+    resetAddContactCustomValidity();
+    let contactName = document.getElementById('new-contact-name');
+    let contactEmail = document.getElementById('new-contact-email');
+    let contactPhone = document.getElementById('new-contact-phone');
+    let name = contacts.find(u => u.name == contactName.value);
+    let email = contacts.find(u => u.email == contactEmail.value);
+    let phone = contacts.find(u => u.phone == contactPhone.value);
+    returnCustomValidityMessage(name, email, phone, contactName, contactEmail, contactPhone);
+}
+
+function returnCustomValidityMessage(name, email, phone, contactName, contactEmail, contactPhone){
+    if (name) {
+        contactIsValid = false;
+        contactName.setCustomValidity('This Person already exist in your contacts');
+    } else if (email) {
+        contactIsValid = false;
+        contactEmail.setCustomValidity('This E-Mail adress has already been added to your contacts');
+    } else if (phone) {
+        contactIsValid = false;
+        contactPhone.setCustomValidity('This Phone Number is already attributed to a contact');
+    } else {
+        contactIsValid = true;
+    }
+}
+
+function resetAddContactCustomValidity(){
+    document.getElementById('new-contact-name').setCustomValidity('');
+    document.getElementById('new-contact-email').setCustomValidity('');
+    document.getElementById('new-contact-phone').setCustomValidity('');
 }
 
 async function editContact(name, email, phone, initial, BgColor) {

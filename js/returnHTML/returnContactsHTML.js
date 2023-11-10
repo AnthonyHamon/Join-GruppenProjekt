@@ -142,15 +142,15 @@ function returnAddContactPopup() {
                     <form onsubmit="addNewContact(); return false" class="contact_form">
                         <div class="contact_inputs_ctn">
                             <div class="contact_input">
-                                <input id="new-contact-name" type="text" placeholder="Name">
+                                <input onblur="checkExistingContact()" id="new-contact-name" required type="text" placeholder="Name">
                                 <img src="../images/person.svg" alt="">
                             </div>
                             <div class="contact_input">
-                                <input id="new-contact-email" type="Email" placeholder="Email">
+                                <input onblur="checkExistingContact()" id="new-contact-email" required type="Email" placeholder="Email">
                                 <img src="../images/mail.svg" alt="">
                             </div>
                             <div class="contact_input">
-                                <input id="new-contact-phone" type="tel" placeholder="Phone">
+                                <input onblur="checkExistingContact()" id="new-contact-phone" required type="tel" placeholder="Phone">
                                 <img src="../images/call.svg" alt="">
                             </div>
                         </div>
