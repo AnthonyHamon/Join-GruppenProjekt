@@ -6,6 +6,16 @@ function renderSummary() {
     generateSummaryHTML();
 }
 
+function renderCurrentdate(){
+    let currentDate = new Date();
+    const monthOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'September', 'November', 'December'];
+    const day = currentDate.getDate();
+    const month = monthOfYear[currentDate.getMonth()];
+    const year = currentDate.getFullYear();
+    const formattedDate = `${month} ${day}, ${year}`;
+    return formattedDate;
+}
+
 function summaryBgrColor() {
     document.getElementById('summary').classList.add('currentTemplate', 'p-none');
     document.getElementById('summary_mobile').classList.add('currentTemplate', 'p-none');

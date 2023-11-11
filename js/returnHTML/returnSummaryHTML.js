@@ -39,7 +39,7 @@ function generateSummaryHTML(){
                     </div>
                     <img src="../images/summary_second_row_vector.svg" alt="">
                     <div class="second_row_right_section">
-                        <span id="current-date-summary">November 11, 2023</span>
+                        <span id="current-date-summary">${renderCurrentdate()}</span>
                         <span>Upcoming Deadline</span>
                     </div>
                 </div>
