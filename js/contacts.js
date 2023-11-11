@@ -5,11 +5,11 @@ let contactIsValid = false;
 async function renderContactsPage() {
     await loadContacts();
     contactsBgrColor();
-    addContactsCSS();
+    addContentCSS();
     removeBgrColorWithoutContacts();
     addJoinLogoClickable();
     generateContactsHTML();
-    renderContacts()
+    renderContacts();
 }
 
 function sortOrganizer() {
@@ -314,8 +314,7 @@ function addJoinLogoClickable() {
     document.getElementById('join_logo_mobile').classList.remove('p-none');
 }
 
-function addContactsCSS() {
-    document.getElementById('content').classList.remove('content');
+function addContentCSS() {
     document.getElementById('content').classList.remove('contentBoard');
     document.getElementById('content').classList.add('content_section');
 }
