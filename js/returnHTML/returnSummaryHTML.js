@@ -59,8 +59,8 @@ function generateSummaryHTML(){
                 </div>
             </section>
             <section class="summary_section_right">
-                    <span id="greeting">Good morning,</span>
-                    <span id="greeted_name">Sofia Müller</span>
+                    <span id="greeting">${renderGreetingMessage()}</span>
+                    <span id="greeted_name">Dear Guest</span>
             </section>
         </div>
     </main>

@@ -59,8 +59,7 @@ function addNewContact() {
         openContactPopup() &
         showContactCreatedPopup() &
         removeAnimationClass() &
-        renderContacts() &
-        console.log('contact already exist') : '';
+        renderContacts() : '';
 }
 
 async function setNewContact() {
@@ -84,7 +83,7 @@ function checkExistingContact() {
     returnCustomValidityMessage(name, email, phone, contactName, contactEmail, contactPhone);
 }
 
-function returnCustomValidityMessage(name, email, phone, contactName, contactEmail, contactPhone){
+function returnCustomValidityMessage(name, email, phone, contactName, contactEmail, contactPhone) {
     if (name) {
         contactIsValid = false;
         contactName.setCustomValidity('This Person already exist in your contacts');
@@ -99,7 +98,7 @@ function returnCustomValidityMessage(name, email, phone, contactName, contactEma
     }
 }
 
-function resetAddContactCustomValidity(){
+function resetAddContactCustomValidity() {
     document.getElementById('new-contact-name').setCustomValidity('');
     document.getElementById('new-contact-email').setCustomValidity('');
     document.getElementById('new-contact-phone').setCustomValidity('');
@@ -227,21 +226,25 @@ function openContactPopup() {
 function closeContactPopup() {
     let addContact = document.getElementById('contact-popup');
     let addContactCtn = document.getElementById('contact-popup-ctn');
-    if (window.matchMedia("(max-width: >1000px)")) {
+    if (window.matchMedia("(min-width: 1000px)").matches &
+        addContact.classList.contains('open_animation_contact_popup')) {
         addContact.classList.remove('open_animation_contact_popup');
         addContact.classList.add('close_animation_contact_popup');
+        setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
+    }else{
+        closeMobileContactPopup();
     }
-    setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
 }
 
 function closeMobileContactPopup() {
     let addContact = document.getElementById('contact-popup');
     let addContactCtn = document.getElementById('contact-popup-ctn');
-    if (window.matchMedia("(max-width: 1000px)")) {
+    if (window.matchMedia("(max-width: 1000px)").matches &
+        addContact.classList.contains('open_mobile_animation_contact_popup')) {
         addContact.classList.remove('open_mobile_animation_contact_popup');
         addContact.classList.add('close_mobile_animation_contact_popup');
+        setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
     }
-    setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
 }
 
 

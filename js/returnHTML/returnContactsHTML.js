@@ -13,23 +13,21 @@ function generateContactsHTML() {
                 <div id="contact-list" class="contacts_list_div"></div>
             </section>
             <section id="contactInformations" class="selected_contact_infos">
-                <div>
-                    <div class="contact_title_ctn">
-                        <div class="contact_title">
-                            <h1>Contacts</h1>
-                            <img onclick="closeSelectedContactInformation()" src="../images/arrow-left-line.svg">
-                        </div>
-                        <div class="contacts_subtitle">
-                            <div class="contacts_title_vector">
-                                <img src="../images/Vector 5.svg" alt="">
-                            </div>
-                            <span>Better with a Team</span>
-                        </div>
+                <div class="contact_title_ctn">
+                    <div class="contact_title">
+                        <h1>Contacts</h1>
+                        <img onclick="closeSelectedContactInformation()" src="../images/arrow-left-line.svg">
                     </div>
-                    <div id="selected-contact-content" class="padding_left_62"></div>
-                    <div id="contact-created-popup">
-                        <span>Contact created successfully</span>
+                    <div class="contacts_subtitle">
+                        <div class="contacts_title_vector">
+                            <img src="../images/Vector 5.svg" alt="">
+                        </div>
+                        <span>Better with a Team</span>
                     </div>
+                </div>
+                <div id="selected-contact-content" class="padding_left_62"></div>
+                <div id="contact-created-popup">
+                    <span>Contact created successfully</span>
                 </div>
             </section>
         </main>
@@ -94,15 +92,16 @@ function returnContactInformations(name, email, phone, initial, BgColor) {
             <span class="font_weight_700">Phone</span>
             <a href="tel:${phone}" id="${name}-phone-number" class="selected_contact_phone">${phone}</a>
         </div>
+        
         <div id="mobile-contact-editor" class="mobile_add_contact_button_ctn">
-                    <div onclick="openAddContact()" id="mobile-add-contact-button" class="mobile_add_contact_button">
-                        <img src="..//images/person_add.svg">
-                    </div>
-                    <div onclick="openMobileEditMenu('${name}', '${email}', '${phone}', '${initial}', '${BgColor}')" id="mobile-contact-edit-menu" class="mobile_add_contact_button d-none">
-                        <img src="..//images/more_menu.svg">
-                    </div>
+            <div onclick="openAddContact()" id="mobile-add-contact-button" class="mobile_add_contact_button">
+                <img src="..//images/person_add.svg">
             </div>
-            <div onclick="closeMobileEditMenu()" id="mobile-edit-contact-menu-ctn" class="mobile_edit_contact_ctn d-none"></div>
+            <div onclick="openMobileEditMenu('${name}', '${email}', '${phone}', '${initial}', '${BgColor}')" id="mobile-contact-edit-menu" class="mobile_add_contact_button d-none">
+                <img src="..//images/more_menu.svg">
+            </div>
+        </div>
+        <div onclick="closeMobileEditMenu()" id="mobile-edit-contact-menu-ctn" class="mobile_edit_contact_ctn d-none"></div>
     `
 }
 
