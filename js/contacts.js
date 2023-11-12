@@ -8,7 +8,7 @@ async function renderContactsPage() {
     addContentCSS();
     removeBgrColorWithoutContacts();
     addJoinLogoClickable();
-    generateContactsHTML();
+    returnContactPage();
     renderContacts();
 }
 
@@ -43,7 +43,6 @@ function renderMatchedContact(i, organizerLetter) {
     for (let j = 0; j < contactMatches.length; j++) {
         contactList.innerHTML += returnContacts(i, contactMatches[j]);
     }
-
 }
 
 function compareStrings(a, b) {
@@ -231,7 +230,7 @@ function closeContactPopup() {
         addContact.classList.remove('open_animation_contact_popup');
         addContact.classList.add('close_animation_contact_popup');
         setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
-    }else{
+    } else {
         closeMobileContactPopup();
     }
 }

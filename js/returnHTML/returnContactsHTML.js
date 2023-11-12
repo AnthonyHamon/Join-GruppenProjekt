@@ -1,4 +1,5 @@
-function generateContactsHTML() {
+function returnContactPage() {
+    let content = document.getElementById('content');
     content.innerHTML = '';
     content.innerHTML = `
         <main class="contacts_content">
@@ -30,6 +31,12 @@ function generateContactsHTML() {
                     <span>Contact created successfully</span>
                 </div>
             </section>
+
+            <div class="mobile_add_contact_button_ctn">
+                <div onclick="openAddContact()" id="mobile-add-contact-button" class="mobile_add_contact_button">
+                    <img src="..//images/person_add.svg">
+                </div>
+            </div>
         </main>
     `
 }
@@ -94,9 +101,6 @@ function returnContactInformations(name, email, phone, initial, BgColor) {
         </div>
         
         <div id="mobile-contact-editor" class="mobile_add_contact_button_ctn">
-            <div onclick="openAddContact()" id="mobile-add-contact-button" class="mobile_add_contact_button">
-                <img src="..//images/person_add.svg">
-            </div>
             <div onclick="openMobileEditMenu('${name}', '${email}', '${phone}', '${initial}', '${BgColor}')" id="mobile-contact-edit-menu" class="mobile_add_contact_button d-none">
                 <img src="..//images/more_menu.svg">
             </div>
