@@ -114,7 +114,7 @@ function returnAddContactPopup() {
         <div id="contact-popup" class="contact_popup">
             <section class="section_left">
                 <div class="close_mobile_contact_popup_div">
-                    <div onclick="closeContactPopup()" id="close-contact-popup">
+                    <div onclick="closeMobileContactPopup()" id="close-contact-popup">
                         <img src="../images/close.svg">
                     </div>
                 </div>
@@ -173,7 +173,7 @@ function returnEditContactPopup(name, email, phone, initial, BgColor) {
         <div id="contact-popup" class="contact_popup">
             <section class="section_left">
                 <div class="close_mobile_contact_popup_div">
-                    <div onclick="closeContactPopup()" id="close-contact-popup">
+                    <div onclick="closeMobileContactPopup()" id="close-contact-popup">
                         <img src="../images/close.svg">
                     </div>
                 </div>
@@ -233,7 +233,7 @@ function returnMobileEditContactMenu(name, email, phone, initial, BgColor){
             <img src="..//images/edit.svg">
             <span>Edit</span>
         </div>
-        <div id="delete-contact" class="mobile_edit_contact">
+        <div onclick="deleteContact('${email}')" id="delete-contact" class="mobile_edit_contact">
             <img src="..//images/delete.svg">
             <span>Delete</span>
         </div>

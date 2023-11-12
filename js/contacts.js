@@ -62,13 +62,18 @@ function addNewContact() {
 }
 
 async function setNewContact() {
-    let name = document.getElementById('new-contact-name').value;
+    let inputedName = document.getElementById('new-contact-name').value;
+    let name = formatName(inputedName);
     let email = document.getElementById('new-contact-email').value;
     let phone = document.getElementById('new-contact-phone').value;
     let initial = returnContactInitialLetter(name);
     let BgColor = setRandomColor();
     contacts.push({ name, email, phone, initial, BgColor });
     await setItem('contacts', JSON.stringify(contacts));
+}
+
+function formatName(name) {
+    return name.replace(/\b\w/g, l => l.toUpperCase());
 }
 
 function checkExistingContact() {
@@ -225,25 +230,23 @@ function openContactPopup() {
 function closeContactPopup() {
     let addContact = document.getElementById('contact-popup');
     let addContactCtn = document.getElementById('contact-popup-ctn');
-    if (window.matchMedia("(min-width: 1000px)").matches &
-        addContact.classList.contains('open_animation_contact_popup')) {
+    if (window.matchMedia("(min-width: 1000px)").matches &&
+        !addContactCtn.classList.contains('d-none')) {
         addContact.classList.remove('open_animation_contact_popup');
         addContact.classList.add('close_animation_contact_popup');
         setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
-    } else {
-        closeMobileContactPopup();
+    } else if (window.matchMedia("(max-width: 1000px)").matches) {
+        closeMobileEditMenu();
+        closeSelectedContactInformation();
     }
 }
 
 function closeMobileContactPopup() {
     let addContact = document.getElementById('contact-popup');
     let addContactCtn = document.getElementById('contact-popup-ctn');
-    if (window.matchMedia("(max-width: 1000px)").matches &
-        addContact.classList.contains('open_mobile_animation_contact_popup')) {
-        addContact.classList.remove('open_mobile_animation_contact_popup');
-        addContact.classList.add('close_mobile_animation_contact_popup');
-        setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
-    }
+    addContact.classList.remove('open_mobile_animation_contact_popup');
+    addContact.classList.add('close_mobile_animation_contact_popup');
+    setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
 }
 
 
