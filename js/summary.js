@@ -2,7 +2,36 @@ function renderSummary() {
     summaryBgrColor();
     removeBgrColorWithoutSummary();
     removeJoinLogoClickable();
+    addContentCSS();
     generateSummaryHTML();
+}
+
+function renderCurrentdate(){
+    let currentDate = new Date();
+    const monthOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const day = currentDate.getDate();
+    const month = monthOfYear[currentDate.getMonth()];
+    const year = currentDate.getFullYear();
+    const formattedDate = `${month} ${day}, ${year}`;
+    return formattedDate;
+}
+
+function renderGreetingMessage(){
+    let x = new Date();
+    let hour = x.getHours();
+    if (hour < 12){
+        return 'Good morning,'
+    }else if (hour > 12 && hour < 14){
+        return 'Good day,'
+    }else if (hour > 14 && hour < 19){
+        return 'Good afternoon,'
+    }else{
+        return 'Good evening,'
+    }
+}
+
+function renderGreetsUserName(){
+
 }
 
 function summaryBgrColor() {

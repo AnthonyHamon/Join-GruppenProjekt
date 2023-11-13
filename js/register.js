@@ -1,10 +1,9 @@
 let users = [];
 let isChecked = false;
-let isValid = false;
+let loginIsValid = false;
 
 
 async function initLogin() {
-    // comingFromSignUP();
     await loadUsers();
     checkSavedLogin();
 }
@@ -25,13 +24,14 @@ function login() {
         showPasswordError();
     } else {
         showNoUserError();
-        setTimeout(()=> window.location.href = '../HTML/sign_up.html', 3000);    }
+        setTimeout(() => window.location.href = '../HTML/sign_up.html', 3000);
+    }
 }
 
-function guestLogin(){
+function guestLogin() {
     isChecked;
-    isValid;
-    window.location.href= "../index.html"
+    loginIsValid;
+    window.location.href = "../index.html"
 }
 
 
@@ -73,16 +73,16 @@ async function signUp() {
     let user = document.getElementById('user-input').value;
     let email = document.getElementById('email-input').value;
     let password = document.getElementById('password-input').value;
-    if (isValid && isChecked) {
+    if (loginIsValid && isChecked) {
         users.push({ user, email, password });
         await setItem('users', JSON.stringify(users));
         resetForm();
         showSignUpConfirmation();
-        setTimeout(()=> window.location.href = "../HTML/login.html", 2000);
+        setTimeout(() => window.location.href = "../HTML/login.html", 2000);
     }
 }
 
-function showNoUserError(){
+function showNoUserError() {
     document.getElementById('no-user-animation-div').classList.remove('d-none');
     document.getElementById('no-user-animation').classList.add('.add_login_signUp_animation');
 }
@@ -93,30 +93,37 @@ function showSignUpConfirmation() {
 }
 
 function checkExistingUser() {
+    resetSignUpCustomValidity();
     let userError = document.getElementById('user-input');
     let emailError = document.getElementById('email-input');
     let username = document.getElementById('user-input').value;
     let userEmail = document.getElementById('email-input').value;
     let user = users.find(u => u.user == username);
     let email = users.find(u => u.email == userEmail);
+    returnLoginCustomValidityMessage(user, email, userError, emailError)
+}
+
+function returnLoginCustomValidityMessage(user, email, userError, emailError){
     if (user) {
-        !isValid
-        userError.setCustomValidity('This User Already exist')
+        !loginIsValid
+        userError.setCustomValidity('This User Already exist');
     } else if (email) {
-        !isValid
-        emailError.setCustomValidity('This email adress has already been registered')
+        !loginIsValid
+        emailError.setCustomValidity('This email adress has already been registered');
     } else {
-        userError.setCustomValidity('');
-        emailError.setCustomValidity('');
+        loginIsValid;
     }
+}
+
+function resetSignUpCustomValidity(){
+    document.getElementById('user-input').setCustomValidity('');
+    document.getElementById('email-input').setCustomValidity('');
 }
 
 function activateButton() {
     let signUpButton = document.getElementById('signUpButton');
     isChecked ? signUpButton.disabled = false : signUpButton.disabled = true && signUpValidation();
 }
-
-
 
 function resetForm() {
     let signUpButton = document.getElementById('signUpButton');
@@ -135,11 +142,11 @@ function passwordValidation() {
     let password = document.getElementById('password-input');
     let confirmedPassword = document.getElementById('password-confirmation');
     let passwordValidation = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    passwordValidation.test(password.value) ? isValid = true : isValid = false;
-    !isValid ? password.setCustomValidity('The Password must be at least 8 characters with at least one lowercase, one uppercase and one digit. ') :
+    passwordValidation.test(password.value) ? loginIsValid = true : loginIsValid = false;
+    !loginIsValid ? password.setCustomValidity('The Password must be at least 8 characters with at least one lowercase, one uppercase and one digit. ') :
         password.setCustomValidity('');
-    password.value === confirmedPassword.value ? isValid = true : isValid = false;
-    !isValid ? confirmedPassword.setCustomValidity('The Confirm Password confirmation does not match') :
+    password.value === confirmedPassword.value ? loginIsValid = true : loginIsValid = false;
+    !loginIsValid ? confirmedPassword.setCustomValidity('The Confirm Password confirmation does not match') :
         confirmedPassword.setCustomValidity('');
 }
 
@@ -201,28 +208,6 @@ function loginRedirection() {
     localStorage.setItem('isComingFromSignUP', true);
     window.location.href = "login.html";
 }
-
-// function comingFromSignUP() {
-//     let isComingFromSignUP = localStorage.getItem('isComingFromSignUP');
-//     if (isComingFromSignUP == true) {
-//         deactivateLoginAnimation();
-//     }else{
-//         isComingFromSignUP == false;
-//     }
-//     localStorage.setItem('isComingFromSignUP', isComingFromSignUP);
-// }
-
-// function deactivateLoginAnimation() {
-//     document.getElementById('animation-ctn').innerHTML = returnLoginAnimationHTML();
-// }
-
-// function returnLoginAnimationHTML() {
-//     return `
-//     <div class="logo_animation_ctn no_animation" id="logo-animation">
-//         <img id="logo-animation-img" class="logo_animation_img no_animation" src="../images/join_login_animation_logo.svg" alt="">
-//     </div>
-//     `
-// }
 
 function deactivateLoginAnimation() {
     document.getElementById('animation-ctn').classList.add('d-none');

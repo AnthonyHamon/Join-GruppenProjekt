@@ -5,22 +5,21 @@ let currentTask = 'small'
 async function setNewTask() {
     let index = tasks.length;
     let id = `${index}`;
-    let title = 'title title title title title title title title                                        ';
-    let description = 'description description description description description description description description          ';
-    let date = '11.11.2023';
-    let prio = 'low';
-    let category = 'user';
-    let status = 'in_progress';
-    tasks.push({ id, title, description, date, prio, category, status });
-    await setItem('task', JSON.stringify(tasks));
+    let title = 'Lorem, ipsum dolor sit epelle ndis impedit.';
+    let description = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem eos a repellendus numquam libero consectetur non ut omnis illum mollitia dignissimos maiores aliquid exercitationem, optio facilis, porro, maxime reiciendis impedit.';
+    let date = '33.33.2023';
+    let priority = 'Low';
+    let category = 'Backend';
+    let status = 'to_do';
+    tasks.push({ id, title, description, date, priority, category, status });
+    await setItem('tasks', JSON.stringify(tasks));
 }
-
 
 async function loadTasks() {
     try {
-        tasks = JSON.parse(await getItem('task'));
+        tasks = JSON.parse(await getItem('tasks'));
     } catch {
-        console.log('error');
+        await setItem('tasks', JSON.stringify(tasks));
     }
 }
 
@@ -39,14 +38,74 @@ function renderTasksByStatus(status) {
     tasksByStatus.forEach(task => {
         container.appendChild(renderTaskElement(task));
     });
+    ifContainerEmpty(container);
+}
+
+function ifContainerEmpty(container) {
+    if (container.innerHTML === '') {
+        container.innerHTML = `<div class="emptyTaskLine"><span>No tasks to do</span></div>`;
+    }
 }
 
 function renderTaskElement(task) {
     let section = document.createElement('section');
-    section.id = task.id;
     section.className = 'section';
+    section.onclick = function () {
+        openTask(task);
+    };
     section.innerHTML = renderTaskHTML(task);
     return section;
+}
+
+function openTask(task) {
+    let contain = document.getElementById('taskDetailsContain');
+    currentTask = 'big';
+    contain.innerHTML = /*html*/`
+        <div onclick="stop(event)" class="taskDetails">
+            ${renderTaskHTMLDetails(task)}
+        </div>
+    `;
+    contain.classList.remove('d-none');
+}
+
+function closeTask() {
+    let contain = document.getElementById('taskDetailsContain');
+    currentTask = 'small';
+    contain.classList.add('d-none');
+}
+
+function renderTaskHTMLDetails(task) {
+    return /*html*/`
+        <div>
+            ${checkTaskCategory(task.category)}
+        </div>
+        <span class="taskTitleDetails">${formatTaskText(task.title)}</span>
+        <p class="taskDescriptionDetails">${formatTaskText(task.description)}</p>
+        <div>
+            <span class="dateTitleDetails">Due date:</span>
+            <span class="dateTxtDetails">12.11.2023</span>
+        </div>
+        <div>
+            <span class="priorityTitleDetails">Priority:</span>
+            <span class="priorityTxtDetails">${checkPriority(task.priority)}</span>
+        </div>
+        <span class="assignedTitle">Assigned To:</span>
+        <div class="assignedContain">
+            <div class="assignedProfil">
+                <div class="assignedBadge">ED</div>
+                <span>Elisabeth Derella</span>
+            </div>
+            <div class="assignedProfil">
+                <div class="assignedBadge">RP</div>
+                <span>René Porzelt</span>
+            </div>
+        </div>
+        <span>Subtasks</span>
+        <div>
+            <p></p>
+            <p></p>
+        </div>
+    `;
 }
 
 function renderTaskHTML(task) {
@@ -76,25 +135,38 @@ function renderTaskHTML(task) {
                 <div class="profileBadge">RP</div>
                 <div class="profileBadge">RP</div>
             </div>
-            <img src="/images/Property 1=Low.svg">
+            <div id="task_priority_contain">
+                ${checkPriority(task.priority)}
+            </div>
         </div>
     `;
 }
 
 function formatTaskText(text) {
     let trimmedText = text.trim();
-    return currentTask === 'small' && trimmedText.length > 57
-        ? trimmedText.charAt(0).toUpperCase() + trimmedText.slice(1, 57) + '...'
-        : trimmedText.charAt(0).toUpperCase() + trimmedText.slice(1);
+    if (currentTask === 'small' && trimmedText.length > 57) {
+        return trimmedText.charAt(0).toUpperCase() + trimmedText.slice(1, 57) + '...';
+    } else {
+        return trimmedText.charAt(0).toUpperCase() + trimmedText.slice(1);
+    }
+}
+
+function checkPriority(priority) {
+    if (currentTask === 'small') {
+        return returnTaskPrioritySmallHTML(priority);
+    } else if (currentTask === 'big') {
+        return returnTaskPriorityBigHTML(priority);
+    }
 }
 
 function checkTaskCategory(category) {
-    return category === 'user' ?
-        `<h2 class="userStory">User Story</h2>` :
-        `<h2 class="technicalTask">Technical Task</h2>`;
+    let formattedCategory = category.replace(/_/g, ' ');
+    if (currentTask === 'small') {
+        return returnTaskCategorySmallHTML(category, formattedCategory);
+    } else if (currentTask === 'big') {
+        return returnTaskCategoryBigHTML(category, formattedCategory);
+    }
 }
-
-
 
 
 
@@ -130,7 +202,5 @@ function checkTaskCategory(category) {
 </section>
 */
 
-/** <div class="emptyTaskLine">
-        <span>No tasks to do</span>
-    </div>
+/** <div class="emptyTaskLine"><span>No tasks to do</span></div>
 */

@@ -1,4 +1,5 @@
-function generateContactsHTML() {
+function returnContactPage() {
+    let content = document.getElementById('content');
     content.innerHTML = '';
     content.innerHTML = `
         <main class="contacts_content">
@@ -13,39 +14,34 @@ function generateContactsHTML() {
                 <div id="contact-list" class="contacts_list_div"></div>
             </section>
             <section id="contactInformations" class="selected_contact_infos">
-                <div>
-                    <div class="contact_title_ctn">
-                        <div class="contact_title">
-                            <h1>Contacts</h1>
-                            <img onclick="closeSelectedContactInformation()" src="../images/arrow-left-line.svg">
-                        </div>
-                        <div class="contacts_subtitle">
-                            <div class="contacts_title_vector">
-                                <img src="../images/Vector 5.svg" alt="">
-                            </div>
-                            <span>Better with a Team</span>
-                        </div>
+                <div class="contact_title_ctn">
+                    <div class="contact_title">
+                        <h1>Contacts</h1>
+                        <img onclick="closeSelectedContactInformation()" src="../images/arrow-left-line.svg">
                     </div>
-                    <div id="selected-contact-content" class="padding_left_62"></div>
-                    <div id="contact-created-popup">
-                        <span>Contact created successfully</span>
+                    <div class="contacts_subtitle">
+                        <div class="contacts_title_vector">
+                            <img src="../images/Vector 5.svg" alt="">
+                        </div>
+                        <span>Better with a Team</span>
                     </div>
                 </div>
+                <div id="selected-contact-content" class="padding_left_62"></div>
+                <div id="contact-created-popup">
+                    <span>Contact created successfully</span>
+                </div>
             </section>
-        </main>
-            <div id="mobile-contact-editor" class="mobile_add_contact_button_ctn">
-                    <div onclick="openAddContact()" id="mobile-add-contact-button" class="mobile_add_contact_button">
-                        <img src="..//images/person_add.svg">
-                    </div>
-                    <div onclick="openMobileEditMenu()" id="mobile-contact-edit-menu" class="mobile_add_contact_button d-none">
-                        <img src="..//images/more_menu.svg">
-                    </div>
+
+            <div class="mobile_add_contact_button_ctn">
+                <div onclick="openAddContact()" id="mobile-add-contact-button" class="mobile_add_contact_button">
+                    <img src="..//images/person_add.svg">
+                </div>
             </div>
-            <div onclick="closeMobileEditMenu()" id="mobile-edit-contact-menu-ctn" class="mobile_edit_contact_ctn d-none"></div>
+        </main>
     `
 }
 
-function returnContactsOrganizer(i, organizerLetter){
+function returnContactsOrganizer(i, organizerLetter) {
     return `
     <div id="contact-organizer${i}">
         <div class="contact_organizer">
@@ -56,11 +52,11 @@ function returnContactsOrganizer(i, organizerLetter){
 `
 }
 
-function returnContacts(i, contactMatches){
+function returnContacts(i, contactMatches) {
     return `
-            <div onclick="showContactInformation('${contactMatches['name']}', '${contactMatches['email']}', '${contactMatches['phone']}', '${contactMatches['BgColor']}')" id="${contactMatches['email']}" class="contact_div">
+            <div onclick="showContactInformation('${contactMatches['name']}', '${contactMatches['email']}', '${contactMatches['phone']}','${contactMatches['initial']}', '${contactMatches['BgColor']}')" id="${contactMatches['email']}" class="contact_div">
                 <div id="${contactMatches['name']}-profil-picture" class="contact_circle" style="background-color:${contactMatches['BgColor']}">
-                ${renderContactInitialLetter(contactMatches['name'])}
+                ${contactMatches['initial']}
                 </div>
                 <div class="flex_column gap_5 overflow_hidden">
                     <span id="contact-name-${i}" class="contact_name">${contactMatches['name']}</span>
@@ -70,18 +66,18 @@ function returnContacts(i, contactMatches){
     `
 }
 
-function returnContactInformations(name, email, phone, BgColor) {
+function returnContactInformations(name, email, phone, initial, BgColor) {
     return `
         <div class="align_item_center gap_54 gap_20">
             <div class="selected_contact_circle" style="background-color:${BgColor}">
-            ${renderContactInitialLetter(name)}
+            ${initial}
             </div>
             <div class="flex_column align_item_start gap_8">
                 <div id="selected-contact-${name}" class="selected_contact_name">
                     ${name}
                 </div>
                 <div class="align_item_center gap_16">
-                    <div onclick="openEditContact('${name}', '${email}', '${phone}', '${BgColor}')" id="edit-selected-contact-${name}" class="edit_selected_contact align_item_center gap_8">
+                    <div onclick="openEditContact(event, '${name}', '${email}', '${phone}', '${initial}', '${BgColor}')" id="edit-selected-contact-${name}" class="edit_selected_contact align_item_center gap_8">
                         <img src="../images/edit.svg" alt="">
                         <span>Edit</span>
                     </div>
@@ -103,6 +99,13 @@ function returnContactInformations(name, email, phone, BgColor) {
             <span class="font_weight_700">Phone</span>
             <a href="tel:${phone}" id="${name}-phone-number" class="selected_contact_phone">${phone}</a>
         </div>
+        
+        <div id="mobile-contact-editor" class="mobile_add_contact_button_ctn">
+            <div onclick="openMobileEditMenu('${name}', '${email}', '${phone}', '${initial}', '${BgColor}')" id="mobile-contact-edit-menu" class="mobile_add_contact_button d-none">
+                <img src="..//images/more_menu.svg">
+            </div>
+        </div>
+        <div onclick="closeMobileEditMenu()" id="mobile-edit-contact-menu-ctn" class="mobile_edit_contact_ctn d-none"></div>
     `
 }
 
@@ -111,7 +114,7 @@ function returnAddContactPopup() {
         <div id="contact-popup" class="contact_popup">
             <section class="section_left">
                 <div class="close_mobile_contact_popup_div">
-                    <div onclick="closeContactPopup()" id="close-contact-popup">
+                    <div onclick="closeMobileContactPopup()" id="close-contact-popup">
                         <img src="../images/close.svg">
                     </div>
                 </div>
@@ -136,21 +139,21 @@ function returnAddContactPopup() {
                 <div class="flex_column width_100">
                     <div class="close_desktop_contact_popup_div">
                         <div onclick="closeContactPopup()" id="close-contact-popup">
-                            <img  src="../images/close.svg">
+                            <img src="../images/close.svg">
                         </div>
                     </div>
                     <form onsubmit="addNewContact(); return false" class="contact_form">
                         <div class="contact_inputs_ctn">
                             <div class="contact_input">
-                                <input id="new-contact-name" type="text" placeholder="Name">
+                                <input onblur="checkExistingContact()" id="new-contact-name" required type="text" placeholder="Name">
                                 <img src="../images/person.svg" alt="">
                             </div>
                             <div class="contact_input">
-                                <input id="new-contact-email" type="Email" placeholder="Email">
+                                <input onblur="checkExistingContact()" id="new-contact-email" required type="Email" placeholder="Email">
                                 <img src="../images/mail.svg" alt="">
                             </div>
                             <div class="contact_input">
-                                <input id="new-contact-phone" type="tel" placeholder="Phone">
+                                <input onblur="checkExistingContact()" id="new-contact-phone" required type="tel" placeholder="Phone">
                                 <img src="../images/call.svg" alt="">
                             </div>
                         </div>
@@ -165,12 +168,12 @@ function returnAddContactPopup() {
     `
 }
 
-function returnEditContactPopup(name, email, phone, BgColor) {
+function returnEditContactPopup(name, email, phone, initial, BgColor) {
     return `
         <div id="contact-popup" class="contact_popup">
             <section class="section_left">
                 <div class="close_mobile_contact_popup_div">
-                    <div onclick="closeContactPopup()" id="close-contact-popup">
+                    <div onclick="closeMobileContactPopup()" id="close-contact-popup">
                         <img src="../images/close.svg">
                     </div>
                 </div>
@@ -188,16 +191,16 @@ function returnEditContactPopup(name, email, phone, BgColor) {
             <section class="section_right">
                 <div class="contact_profil_ctn">
                     <div class="selected_contact_circle" style="background-color:${BgColor}">
-                    ${renderContactInitialLetter(name)}
+                    ${initial}
                     </div>
                 </div>
                 <div class="flex_column width_100">
                     <div class="close_desktop_contact_popup_div">
                         <div onclick="closeContactPopup()" id="close-contact-popup">
-                            <img  src="../images/close.svg">
+                            <img src="../images/close.svg">
                         </div>
                     </div>
-                    <form onsubmit="editContact('${name}','${email}','${phone}','${BgColor}'); return false" class="contact_form">
+                    <form onsubmit="editContact('${name}','${email}','${phone}','${initial}','${BgColor}'); return false" class="contact_form">
                         <div class="contact_inputs_ctn">
                             <div class="contact_input">
                                 <input id="edited-${name}" value="${name}" type="text">
@@ -223,14 +226,14 @@ function returnEditContactPopup(name, email, phone, BgColor) {
     `
 }
 
-function returnMobileEditContactMenu(name, email, phone, BgColor){
+function returnMobileEditContactMenu(name, email, phone, initial, BgColor) {
     return `
     <div id="mobile-edit-contact-menu" class="mobile_edit_contact_menu">
-        <div onclick="openEditContact('${name}', '${email}', '${phone}', '${BgColor}', event)" id="edit-contact" class="mobile_edit_contact">
+        <div onclick="openEditContact(event, '${name}', '${email}', '${phone}', '${initial}', '${BgColor}')" id="edit-contact" class="mobile_edit_contact">
             <img src="..//images/edit.svg">
             <span>Edit</span>
         </div>
-        <div id="delete-contact" class="mobile_edit_contact">
+        <div onclick="deleteContact('${email}')" id="delete-contact" class="mobile_edit_contact">
             <img src="..//images/delete.svg">
             <span>Delete</span>
         </div>
