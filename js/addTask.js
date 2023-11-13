@@ -270,17 +270,17 @@ function addSubtask() {
             const newListItem = document.createElement("div");
             newListItem.className = "list-container";
             newListItem.innerHTML = `
-                <div class="task-list">
-                    <div class="liest-field">
-                        <div class="tasks-content">
-                            <p class="finished-content">${inputText}</p>
+                <div class="task-list" id="taskList">
+                    <div class="liest-field" id="listField">
+                        <div class="tasks-content"id="taskContent">
+                            <p class="finished-content" id="finishedContent">${inputText}</p>
                         </div>
-                        <div class="edit-delete-container">
+                        <div class="edit-delete-container" id="editDeleteContainer">
                             <div class="edit-box">
-                            <img class="edit-image" id="editImage" src="../images/Property 1=edit.svg" alt="">
+                                <img class="edit-image" id="editImage" src="../images/Property 1=edit.svg" alt="">
                             </div>
-                            <div class="delete-box">
-                            <img class="delete-image" id="deleteImage" src="../images/Property 1=delete.svg" alt="">
+                            <div class="delete-box" id="deleteBox">
+                                <img class="delete-image" id="deleteImage" src="../images/Property 1=delete.svg" alt="" onclick="deleteButton()">
                             </div>
                         </div>
                     </div>
@@ -290,7 +290,28 @@ function addSubtask() {
             subtaskInput.value = "";
         }
     }
+};
+
+
+// Globale Variable zum Speichern der erstellten Elemente
+let elements = [];
+
+
+function deleteButton() {
+    console.log('Hallo');
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
