@@ -27,7 +27,7 @@ header {
     background-color: white;
     height: 96px;
     z-index: 0;
-    box-shadow: 0px -23px 12px 16px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -205,7 +205,7 @@ nav a {
 }
 
 .content_section {
-    position: absolute;
+    position: fixed;
     top: 96px;
     right: 0;
     bottom: 0;
