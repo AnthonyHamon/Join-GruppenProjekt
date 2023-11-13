@@ -1,5 +1,6 @@
 let resizeTimer;
 let lastAnimationTime = 0;
+let miliseconds = 1000;
 
 function loadingProcess() {
     restartAnimation();
@@ -8,14 +9,13 @@ function loadingProcess() {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
         checkWidthInBoard();
-        showWidthHTML();
         hideLoadingSpinner();
-    }, 1000);
+    }, miliseconds);
 }
 
 function restartAnimation() {
     let currentTime = new Date().getTime();
-    if (currentTime - lastAnimationTime > 1000) {
+    if (currentTime - lastAnimationTime > miliseconds) {
         let animation = document.querySelector('animate');
         if (animation) {
             animation.beginElement();
@@ -46,7 +46,7 @@ function showWidthHTML() {
     }
 }
 
-function checkWidthInBoard() {
+async function checkWidthInBoard() {
     let contentDiv = document.querySelector('.contentBoard');
     if (contentDiv) {
         if (window.innerWidth >= 1300) {
@@ -54,7 +54,8 @@ function checkWidthInBoard() {
         } else {
             generateBoardWidthMinus1300HTML();
         }
-        renderAllTasks();
+        await renderAllTasks();
+        showWidthHTML();
     }
 }
 

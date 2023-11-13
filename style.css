@@ -212,6 +212,18 @@ nav a {
     left: 232px;
 }
 
+.closeWindowImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.closeWindowImage:hover {
+    background-color: #D1D1D1;
+    cursor: pointer;
+}
+
 .p-none {
     pointer-events: none;
 }

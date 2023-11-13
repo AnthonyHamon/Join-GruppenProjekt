@@ -36,7 +36,7 @@ function generateContactsHTML() {
     `
 }
 
-function returnContactsOrganizer(i, organizerLetter){
+function returnContactsOrganizer(i, organizerLetter) {
     return `
     <div id="contact-organizer${i}">
         <div class="contact_organizer">
@@ -47,7 +47,7 @@ function returnContactsOrganizer(i, organizerLetter){
 `
 }
 
-function returnContacts(i, contactMatches){
+function returnContacts(i, contactMatches) {
     return `
             <div onclick="showContactInformation('${contactMatches['name']}', '${contactMatches['email']}', '${contactMatches['phone']}','${contactMatches['initial']}', '${contactMatches['BgColor']}')" id="${contactMatches['email']}" class="contact_div">
                 <div id="${contactMatches['name']}-profil-picture" class="contact_circle" style="background-color:${contactMatches['BgColor']}">
@@ -136,7 +136,7 @@ function returnAddContactPopup() {
                 <div class="flex_column width_100">
                     <div class="close_desktop_contact_popup_div">
                         <div onclick="closeContactPopup()" id="close-contact-popup">
-                            <img  src="../images/close.svg">
+                            <img src="../images/close.svg">
                         </div>
                     </div>
                     <form onsubmit="addNewContact(); return false" class="contact_form">
@@ -194,7 +194,7 @@ function returnEditContactPopup(name, email, phone, initial, BgColor) {
                 <div class="flex_column width_100">
                     <div class="close_desktop_contact_popup_div">
                         <div onclick="closeContactPopup()" id="close-contact-popup">
-                            <img  src="../images/close.svg">
+                            <img src="../images/close.svg">
                         </div>
                     </div>
                     <form onsubmit="editContact('${name}','${email}','${phone}','${initial}','${BgColor}'); return false" class="contact_form">
@@ -223,7 +223,7 @@ function returnEditContactPopup(name, email, phone, initial, BgColor) {
     `
 }
 
-function returnMobileEditContactMenu(name, email, phone, initial, BgColor){
+function returnMobileEditContactMenu(name, email, phone, initial, BgColor) {
     return `
     <div id="mobile-edit-contact-menu" class="mobile_edit_contact_menu">
         <div onclick="openEditContact(event, '${name}', '${email}', '${phone}', '${initial}', '${BgColor}')" id="edit-contact" class="mobile_edit_contact">

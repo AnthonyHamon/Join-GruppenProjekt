@@ -87,3 +87,19 @@ function returnLoadingJoinSvg() {
         </svg>
     `;
 }
+
+function returnTaskCategorySmallHTML(category, formattedCategory) {
+    return `<h2 class="taskCategorySmall ${category}">${formattedCategory}</h2>`;
+}
+
+function returnTaskCategoryBigHTML(category, formattedCategory) {
+    return `<h2 class="taskCategoryBig ${category}">${formattedCategory}</h2><img class="closeWindowImage" src="/images/close.svg" onclick="closeTask()"></img>`;
+}
+
+function returnTaskPrioritySmallHTML(priority) {
+    return `<img src="/images/${priority}.svg">`
+}
+
+function returnTaskPriorityBigHTML(priority) {
+    return `<span>${priority}</span> <img src="/images/${priority}.svg">`
+}
