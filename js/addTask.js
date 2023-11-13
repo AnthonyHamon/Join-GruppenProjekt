@@ -17,7 +17,7 @@ const daysOfWeek = [
 ];
 
 let isImagesOpen = false;
-let subtaskContents = [];
+let subtasks = [];
 
 
 function renderAddTask() {
@@ -444,6 +444,50 @@ function createCheckImage() {
     });
     return checkImage;
 }
+
+
+function addSubtask() {
+    let subtaskInput = document.getElementById('subtaskInput').value;
+    subtasks.push(subtaskInput);
+
+    renderSubtask();
+}
+
+
+function renderSubtask() {
+    let subtaskContent = document.getElementById('subtaskContent');
+    subtaskContent.innerHTML = '';
+    for (let index = 0; index < subtasks.length; index++) {
+        const subtask = subtasks[index];
+
+        subtaskContent.innerHTML += returnSubtask(subtask, index);
+        
+    }
+}
+
+
+function returnSubtask(inputText, i) {
+    return`
+    <div class="task-list" id="taskList${i}">
+        <div class="liest-field">
+            <div class="tasks-content">
+                <p class="finished-content" id="finishedContent${i}">${inputText}</p>
+                <input id="subtaskInput" class="subtask-input" value="${inputText}" type="text">
+            </div>
+        <div class="edit-delete-container">
+            <div class="edit-box">
+                <img class="edit-image" id="editImage${i}" src="../images/Property 1=edit.svg" alt="">
+            </div>
+            <div class="delete-box" id="deleteBox">
+                <img class="delete-image" id="deleteImage${i}" src="../images/Property 1=delete.svg" alt="" onclick="deleteButton(${i})">
+            </div>
+        </div>
+    </div>
+    </div>`;
+}
+
+
+/*
 function addSubtask() {
     const subtaskInput = document.getElementById("subtaskInput");
     const subtaskContent = document.getElementById("subtaskContent");
@@ -475,15 +519,18 @@ function addSubtask() {
             subtaskInput.value = "";
         }
     }
-};
+};*/
 
 
 // Globale Variable zum Speichern der erstellten Elemente
-let elements = [];
 
 
-function deleteButton() {
-    console.log('Hallo');
+
+function deleteButton(i) {
+    subtasks.splice(i, 1);
+
+    renderSubtask();
+
 }
 
 
