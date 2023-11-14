@@ -55,10 +55,18 @@ function compareStrings(a, b) {
 function addNewContact() {
     contactIsValid ?
         setNewContact() &
-        openContactPopup() &
+        closeContactPopup() &
         showContactCreatedPopup() &
         removeAnimationClass() &
-        renderContacts() : '';
+        renderContacts() & 
+        jumpToCreatedContact() : '';
+}
+
+function jumpToCreatedContact() {
+    let lastCreatedContact = contacts[contacts.length - 1];
+    let lastCreatedContactEmail = lastCreatedContact['email'];
+    let justCreatedContactInformation = document.getElementById(lastCreatedContactEmail);
+    justCreatedContactInformation.click();
 }
 
 async function setNewContact() {
@@ -81,7 +89,9 @@ function checkExistingContact() {
     let contactName = document.getElementById('new-contact-name');
     let contactEmail = document.getElementById('new-contact-email');
     let contactPhone = document.getElementById('new-contact-phone');
-    let name = contacts.find(u => u.name == contactName.value);
+    let inputedName = document.getElementById('new-contact-name').value;
+    let name = formatName(inputedName);
+    name = contacts.find(u => u.name == name);
     let email = contacts.find(u => u.email == contactEmail.value);
     let phone = contacts.find(u => u.phone == contactPhone.value);
     returnCustomValidityMessage(name, email, phone, contactName, contactEmail, contactPhone);

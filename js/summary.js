@@ -21,9 +21,9 @@ function renderGreetingMessage(){
     let hour = x.getHours();
     if (hour < 12){
         return 'Good morning,'
-    }else if (hour > 12 && hour < 14){
+    }else if (hour >= 12 && hour < 14){
         return 'Good day,'
-    }else if (hour > 14 && hour < 19){
+    }else if (hour >= 14 && hour < 19){
         return 'Good afternoon,'
     }else{
         return 'Good evening,'
