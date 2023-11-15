@@ -3,10 +3,16 @@ function generateSummaryHTML(){
     content.innerHTML = '';
     content.innerHTML = `
     <main>
-        <div class="summary_title">
-            <h1>Join 360</h1>
-            <img src="../images/Vector 5.svg" alt="">
-            <span>Key Metrics at a Glance</span>
+        <div class="summary_title_ctn">
+            <div class="summary_title">
+                <h1>Join 360</h1>
+                <div class="summary_subtitle_ctn">
+                    <div class="vector_ctn">
+                        <img src="../images/Vector 5.svg" alt="">
+                    </div>
+                    <span>Key Metrics at a Glance</span>
+                </div>
+            </div>
         </div>
 
         <div class="summary_content_ctn">
@@ -60,10 +66,9 @@ function generateSummaryHTML(){
             </section>
             <section class="summary_section_right">
                     <span id="greeting">${renderGreetingMessage()}</span>
-                    <span id="greeted_name">Dear Guest</span>
+                    <span id="greeted-name">Dear Guest</span>
             </section>
         </div>
     </main>
-
     `
 }
