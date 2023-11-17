@@ -34,6 +34,7 @@ function renderGreetsUserName(){
 
 }
 
+
 function summaryBgrColor() {
     document.getElementById('summary').classList.add('currentTemplate', 'p-none');
     document.getElementById('summary_mobile').classList.add('currentTemplate', 'p-none');
