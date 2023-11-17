@@ -16,7 +16,7 @@
     font-size: 27px;
 }
 
-.summary_title{
+.summary_title {
     display: flex;
     gap: 30px;
 }
@@ -304,7 +304,7 @@
 }
 
 @media(max-width: 600px) {
-    .summary_section_left{
+    .summary_section_left {
         width: 97%;
     }
 
@@ -320,7 +320,7 @@
         gap: 0;
     }
 
-    .summary_title{
+    .summary_title {
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
@@ -345,131 +345,178 @@
         width: 8px;
     }
 
-    .summary_content_ctn{
-        padding: 30px 16px ;
+    .summary_content_ctn {
+        padding: 30px 16px;
     }
 
-    .summary_start_row{
+    .summary_start_row {
         height: 138px;
         gap: 24px;
     }
 
-    .summary_start_row_thumbnails{
+    .summary_start_row_thumbnails {
         height: 138px;
         width: 234px;
     }
 
-    .summary_start_row_thumbnails img{
+    .summary_start_row_thumbnails:hover {
+        transform: unset;
+        background-color: white;
+        color: black;
+    }
+
+    .summary_start_row_thumbnails img {
         width: 59px;
         height: 59px;
     }
 
-    .summary_second_row{
+    .summary_second_row {
         height: 138px;
         gap: 31px;
     }
 
-    .summary_ending_row{
+    .summary_second_row:hover {
+        transform: unset;
+        background-color: white;
+        color: black;
+    }
+
+    .summary_ending_row {
         height: 144px;
     }
 
-    .summary_ending_row_thumbnails{
+    .summary_ending_row_thumbnails {
         width: 144px;
         height: 144px;
     }
 
-    .nowrap_justify_center{
+    .summary_ending_row_thumbnails:hover {
+        transform: unset;
+        background-color: white;
+        color: black;
+    }
+
+    #to-do-thumbnail:hover img {
+        content: url(../images/to_do_thumbnail.svg);
+    }
+    
+    #done-thumbnail:hover img {
+        content: url(../images/done_thumbnail.svg);
+    }
+
+    .nowrap_justify_center {
         max-width: 70px;
     }
 }
 
-@media(max-width: 550px){
-    .summary_section_left{
+@media(max-width: 550px) {
+    .summary_section_left {
         align-items: center;
     }
 
-    .summary_start_row{
+    .summary_start_row {
         height: 110px;
     }
 
-    .summary_start_row_thumbnails{
+    .summary_start_row_thumbnails {
         height: 110px;
         width: 186px;
     }
 
-    .summary_start_row_thumbnails img{
+    .summary_start_row_thumbnails img {
         width: 40px;
         height: 40px;
     }
 
-    .summary_digits{
+    .summary_digits {
         font-size: 47px;
     }
 
-    .font_20px{
+    .font_20px {
         font-size: 14px;
     }
 
-    .summary_second_row{
+    .summary_second_row {
         height: 110px;
         width: 396px;
         gap: 20px;
     }
 
-    .prio_circle{
+    .prio_circle {
         width: 40px;
         height: 40px;
     }
 
-    .prio_circle img{
+    .prio_circle img {
         width: 25px;
     }
 
-    .second_row_right_section{
+    .second_row_right_section {
         gap: 8px;
     }
-    
-    #current-date-summary{
+
+    #current-date-summary {
         font-size: 16px;
     }
 
-    .summary_ending_row{
+    .summary_ending_row {
         height: 116px;
         width: 396px;
     }
 
-    .summary_ending_row_thumbnails{
+    .summary_ending_row_thumbnails {
         width: 116px;
         height: 116px;
     }
 }
 
-@media(max-width:400px){
-    .summary_section_left{
+@media(max-width:400px) {
+    .summary_section_left {
         overflow: scroll;
     }
 
-    .summary_start_row{
+    .summary_start_row {
         justify-content: unset;
         flex-direction: column;
         height: 280px;
     }
 
-    .summary_start_row_thumbnails{
+    .summary_start_row_thumbnails {
         height: 128px;
         width: 224px;
     }
 
-    .summary_second_row{
+    .summary_second_row {
         flex-direction: column;
         width: 224px;
         height: unset;
     }
 
-    .summary_second_row_separator_ctn{
+    .summary_second_row_separator_ctn {
         display: flex;
         align-items: center;
         height: 18px;
         transform: rotate(90deg);
+    }
+
+    .summary_ending_row {
+        flex-direction: column;
+        align-items: center;
+        height: unset;
+        width: 224px;
+        margin-bottom: 70px;
+    }
+
+    .summary_ending_row_thumbnails {
+        height: 128px;
+        width: 224px;
+    }
+
+    .nowrap_justify_center {
+        max-width: unset;
+    }
+
+    .font_20px {
+        font-size: 18px;
     }
 }
