@@ -233,6 +233,8 @@ function changeButtonStyles(color) {
 
 // Subtask Element
 
+
+
 function toggleImages() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
@@ -248,6 +250,7 @@ function toggleImages() {
 }
 
 
+
 function closeImages() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
@@ -255,173 +258,6 @@ function closeImages() {
     imageContainer.style.display = "block";
     newImages.style.display = "none";
     clearInputField("subtaskInput");
-}
-
-
-function createListItem(text) {
-    const listItem = document.createElement("li");
-    listItem.textContent = text;
-    listItem.classList.add("list-field");
-    return listItem;
-}
-
-
-function createContentDiv() {
-    const contentDiv = document.createElement("div");
-    contentDiv.classList.add("content-div");
-    return contentDiv;
-}
-
-
-function createLine() {
-    const line = document.createElement("div");
-    line.classList.add("line");
-    return line;
-}
-
-
-function createEditImage() {
-    const editImage = document.createElement("img");
-    editImage.setAttribute("src", "../images/Property 1=edit.svg");
-    editImage.setAttribute("alt", "");
-    editImage.addEventListener('click', editTask);
-    return editImage;
-}
-
-
-function createDeleteImage() {
-    const deleteImage = document.createElement("img");
-    deleteImage.setAttribute("src", "../images/Property 1=delete.svg");
-    deleteImage.setAttribute("alt", "");
-    deleteImage.addEventListener('click', deleteListTask);
-    return deleteImage;
-}
-
-
-function addSubtask() {
-    let inputField = document.getElementById("subtaskInput");
-    let text = inputField.value.trim();
-    let taskList = document.getElementById("taskList");
-
-    if (text) {
-        let listItem = createListItem(text);
-        addImagesAndEventListener(listItem);
-        taskList.appendChild(listItem);
-        inputField.value = "";
-
-        let subtaskContent = document.querySelector(".subtask-content");
-        subtaskContent.style.display = "block";
-    }
-}
-
-
-function editTask(event, listItem) {
-    const editContainer = createEditContainer(listItem);
-    const editInput = createEditInput(listItem);
-    const editDeleteDiv = createDeleteAndCheckDiv();
-
-    setupEditing(listItem, editContainer, editInput, editDeleteDiv);
-    setupCheckImage(editInput, listItem, editContainer, editDeleteDiv);
-}
-
-function createEditContainer(listItem) {
-    const editContainer = document.createElement('div');
-    editContainer.setAttribute('id', 'editContainer');
-    editContainer.classList.add('edit-container');
-    return editContainer;
-}
-
-function createEditInput(listItem) {
-    const editInput = createEditInputDiv(listItem);
-    return editInput;
-}
-
-function setupEditing(listItem, editContainer, editInput, editDeleteDiv) {
-    listItem.parentNode.insertBefore(editContainer, listItem); // Verschieben Sie die Container vor listItem
-
-    editContainer.appendChild(editInput);
-    editContainer.appendChild(editDeleteDiv);
-}
-
-function setupCheckImage(editInput, listItem, editContainer, editDeleteDiv) {
-    const checkImage = createCheckImage();
-    checkImage.addEventListener('click', function () {
-        handleCheckImageClick(editInput, listItem, editContainer, editDeleteDiv);
-    });
-    editDeleteDiv.appendChild(checkImage);
-}
-
-function handleCheckImageClick(editInput, listItem, editContainer, editDeleteDiv) {
-    listItem.textContent = editInput.querySelector('input').value;
-    listItem.style.display = 'block';
-    listItem.dataset.editing = 'false';
-    editContainer.remove();
-
-    restoreOriginalElements(listItem); // Hier wird das ursprüngliche Erscheinungsbild des Listenelements wiederhergestellt
-}
-
-function restoreOriginalElements(listItem) {
-    const contentDiv = listItem.querySelector(".content-div");
-    contentDiv.innerHTML = ''; // Entferne den Inhalt des contentDiv
-
-    const editImage = createEditImage();
-    const line = createLine();
-    const deleteImage = createDeleteImage();
-
-    contentDiv.appendChild(editImage);
-    contentDiv.appendChild(line);
-    contentDiv.appendChild(deleteImage);
-    addImagesAndEventListener(listItem);
-}
-
-
-function addImagesAndEventListener(listItem) {
-    const contentDiv = createContentDiv();
-    const editImage = createEditImage();
-    const line = createLine();
-    const deleteImage = createDeleteImage();
-
-    contentDiv.appendChild(editImage);
-    contentDiv.appendChild(line);
-    contentDiv.appendChild(deleteImage);
-
-    listItem.appendChild(contentDiv);
-
-    editImage.addEventListener('click', function (event) {
-        editTask(event, listItem);
-    });
-}
-
-
-function createEditInputDiv(listItem) {
-    const editInputDiv = document.createElement('div');
-    editInputDiv.setAttribute('id', 'editContainer');
-
-    const editInput = document.createElement('input');
-    editInput.setAttribute('id', 'editInput');
-    editInput.setAttribute('type', 'text');
-
-    // Überprüfen, ob listItem und listItem.textContent definiert sind, bevor darauf zugegriffen wird
-    if (listItem && listItem.textContent) {
-        editInput.value = listItem.textContent.trim();
-    }
-
-    editInputDiv.appendChild(editInput);
-
-    return editInputDiv;
-}
-
-
-
-function createDeleteAndCheckDiv() {
-    const editDeleteDiv = document.createElement('div');
-    editDeleteDiv.classList.add('edit-delete-div');
-
-    const deleteImage = createDeleteImage();
-
-    editDeleteDiv.appendChild(deleteImage);
-
-    return editDeleteDiv;
 }
 
 
@@ -484,17 +320,17 @@ function returnSubtask(inputText, i) {
             </div>
         </div>
     </div>
-    <div class="task-list" id="taskList${i}">
+    <div class="task-list" id="editTaskList${i}">
         <div class="liest-field">
             <div class="tasks-content">
                 <input id="subtaskInput" class="subtask-input d-none" value="${inputText}" type="text">
             </div>
             <div class="edit-delete-container">
-                <div class="edit-box">
-                <img id="checkImage" class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask(); closeImages();">
-                </div>
                 <div class="delete-box">
                     <img onclick="deleteButton(${i})" class="delete-image" src="../images/Property 1=delete.svg" alt="">
+                </div>
+                <div class="edit-box">
+                    <img id="checkImage" class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask(); closeImages();">
                 </div>
             </div>
         </div>
@@ -507,45 +343,6 @@ function toggleSubtask() {
     document.getElementById('').classList.toggle('d-none');
     document.getElementById('').classList.toggle('d-none');
 }
-
-
-/*
-function addSubtask() {
-    const subtaskInput = document.getElementById("subtaskInput");
-    const subtaskContent = document.getElementById("subtaskContent");
-
-    if (subtaskInput && subtaskContent) {
-        const inputText = subtaskInput.value.trim();
-
-        if (inputText !== '') {
-            const newListItem = document.createElement("div");
-            newListItem.className = "list-container";
-            newListItem.innerHTML = `
-                <div class="task-list" id="taskList">
-                    <div class="liest-field" id="listField">
-                        <div class="tasks-content"id="taskContent">
-                            <p class="finished-content" id="finishedContent">${inputText}</p>
-                        </div>
-                        <div class="edit-delete-container" id="editDeleteContainer">
-                            <div class="edit-box">
-                                <img class="edit-image" id="editImage" src="../images/Property 1=edit.svg" alt="">
-                            </div>
-                            <div class="delete-box" id="deleteBox">
-                                <img class="delete-image" id="deleteImage" src="../images/Property 1=delete.svg" alt="" onclick="deleteButton()">
-                            </div>
-                        </div>
-                    </div>
-                </div>`;
-
-            subtaskContent.appendChild(newListItem);
-            subtaskInput.value = "";
-        }
-    }
-};*/
-
-
-// Globale Variable zum Speichern der erstellten Elemente
-
 
 
 function deleteButton(i) {
