@@ -8,11 +8,12 @@ async function setNewTask() {
     let title = 'Lorem, ipsum dolor sit epelle ndis impedit.';
     let description = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem eos a repellendus numquam libero consectetur non ut omnis illum mollitia dignissimos maiores aliquid exercitationem, optio facilis, porro, maxime reiciendis impedit.';
     let date = '33.33.2023';
-    let priority = 'Low';
-    let category = 'Backend';
-    let status = 'to_do';
+    let priority = 'Medium';
+    let category = 'Web_Performance';
+    let status = 'done';
     tasks.push({ id, title, description, date, priority, category, status });
     await setItem('tasks', JSON.stringify(tasks));
+    loadingProcess();
 }
 
 async function loadTasks() {
@@ -60,52 +61,23 @@ function renderTaskElement(task) {
 function openTask(task) {
     let contain = document.getElementById('taskDetailsContain');
     currentTask = 'big';
-    contain.innerHTML = /*html*/`
-        <div onclick="stop(event)" class="taskDetails">
-            ${renderTaskHTMLDetails(task)}
-        </div>
+    contain.innerHTML = `
+        ${renderTaskHTMLDetails(task)}
     `;
     contain.classList.remove('d-none');
 }
 
 function closeTask() {
     let contain = document.getElementById('taskDetailsContain');
+    let popup = document.getElementById('taskDetails');
+    let background = document.getElementById('backgroundFromTaskPopup');
     currentTask = 'small';
-    contain.classList.add('d-none');
-}
-
-function renderTaskHTMLDetails(task) {
-    return /*html*/`
-        <div>
-            ${checkTaskCategory(task.category)}
-        </div>
-        <span class="taskTitleDetails">${formatTaskText(task.title)}</span>
-        <p class="taskDescriptionDetails">${formatTaskText(task.description)}</p>
-        <div>
-            <span class="dateTitleDetails">Due date:</span>
-            <span class="dateTxtDetails">12.11.2023</span>
-        </div>
-        <div>
-            <span class="priorityTitleDetails">Priority:</span>
-            <span class="priorityTxtDetails">${checkPriority(task.priority)}</span>
-        </div>
-        <span class="assignedTitle">Assigned To:</span>
-        <div class="assignedContain">
-            <div class="assignedProfil">
-                <div class="assignedBadge">ED</div>
-                <span>Elisabeth Derella</span>
-            </div>
-            <div class="assignedProfil">
-                <div class="assignedBadge">RP</div>
-                <span>René Porzelt</span>
-            </div>
-        </div>
-        <span>Subtasks</span>
-        <div>
-            <p></p>
-            <p></p>
-        </div>
-    `;
+    popup.classList.add('slideOutToRight');
+    contain.classList.add('fadeOut');
+    background.classList.add('fadeOutBackground');
+    popup.addEventListener('animationend', function () {
+        contain.classList.add('d-none');
+    }, { once: true });
 }
 
 function renderTaskHTML(task) {
