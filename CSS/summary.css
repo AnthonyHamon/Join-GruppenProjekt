@@ -229,18 +229,26 @@
 }
 
 @media(min-width: 1000px) and (max-width: 1150px) {
+    .summary_content_ctn{
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 36px;
+        padding: 56px 96px 0 96px;
+    }
     .summary_section_left {
-        height: 380px;
-        width: 380px;
+        height: 410px;
+        width: 80%;
     }
 
     .summary_start_row {
-        height: 108px;
+        height: 118px;
+        width: 100%;
+        gap: 32px;
     }
 
     .summary_start_row_thumbnails {
-        height: 108px;
-        width: 174px;
+        height: 118px;
+        width: 50%;
     }
 
     .summary_start_row_thumbnails img {
@@ -248,13 +256,16 @@
     }
 
     .summary_second_row {
-        height: 108px;
-        gap: 20px;
+        height: 118px;
+    }
+
+    .summary_second_row_separator_ctn img{
+        height: 72px;
     }
 
     .summary_ending_row_thumbnails {
-        height: 108px;
-        width: 108px;
+        height: 118px;
+        width: 33%;
     }
 
     .summary_digits {

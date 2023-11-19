@@ -14,3 +14,16 @@ function closeProfilMenu() {
 function stop(event) {
     event.stopPropagation();
 }
+
+// Javascript for Legal section (Lagel notice and Privacy Policy)
+
+function renderLegalNoticePage(){
+    let legalContent = document.getElementById('legal-content-section');
+    legalContent.innerHTML = returnLegalNoticeHTML();
+    legalContent.classList.toggle('d-none');
+}
+
+function returnToPreviousPage(){
+    let legalContent = document.getElementById('legal-content-section');
+    legalContent.classList.toggle('d-none');
+}
