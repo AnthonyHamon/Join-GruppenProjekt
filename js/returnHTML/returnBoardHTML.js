@@ -65,6 +65,43 @@ function generateBoardWidthMinus1300HTML() {
     `;
 }
 
+function renderTaskHTMLDetails(task) {
+    return /*html*/`
+        <div id="backgroundFromTaskPopup" class="background fadeInBackground"></div>
+        <div onclick="stop(event)" id ="taskDetails" class="taskDetails slideInFromRight">
+            <div class="flex spaceBetween">
+                ${checkTaskCategory(task.category)}
+            </div>
+            <span class="taskTitleDetails">${formatTaskText(task.title)}</span>
+            <p class="taskDescriptionDetails">${formatTaskText(task.description)}</p>
+            <div>
+                <span class="dateTitleDetails">Due date:</span>
+                <span class="dateTxtDetails">12.11.2023</span>
+            </div>
+            <div>
+                <span class="priorityTitleDetails">Priority:</span>
+                <span class="priorityTxtDetails">${checkPriority(task.priority)}</span>
+            </div>
+            <span class="assignedTitle">Assigned To:</span>
+            <div class="assignedContain">
+                <div class="assignedProfil">
+                    <div class="assignedBadge">ED</div>
+                    <span>Elisabeth Derella</span>
+                </div>
+                <div class="assignedProfil">
+                    <div class="assignedBadge">RP</div>
+                    <span>René Porzelt</span>
+                </div>
+            </div>
+            <span>Subtasks</span>
+            <div>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+    `;
+}
+
 function returnLoadingJoinSvg() {
     return /*html*/`
         <svg width="122" height="142" viewBox="0 0 102 122" fill="none" xmlns="http://www.w3.org/2000/svg">

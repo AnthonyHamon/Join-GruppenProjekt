@@ -3,6 +3,9 @@ let lastAnimationTime = 0;
 let miliseconds = 1000;
 
 function loadingProcess() {
+    if (!document.querySelector('#content').classList.contains('contentBoard')) {
+        return;
+    }
     restartAnimation();
     hideWidthHTML();
     showLoadingSpinner();
@@ -55,8 +58,13 @@ async function checkWidthInBoard() {
             generateBoardWidthMinus1300HTML();
         }
         await renderAllTasks();
+        let currentTime = new Date().getTime();
+        if (currentTime - lastAnimationTime < miliseconds) {
+            await new Promise(resolve => setTimeout(resolve, miliseconds - (currentTime - lastAnimationTime)));
+        }
         showWidthHTML();
+        hideLoadingSpinner();
     }
 }
 
-window.addEventListener("resize", loadingProcess);
+window.addEventListener('resize', loadingProcess);
