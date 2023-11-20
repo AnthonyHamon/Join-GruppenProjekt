@@ -31,7 +31,7 @@ function login() {
 }
 
 function setCurrentUser(user){
-    currentUser.push({user})
+    currentUser.push({user});
 }
 
 function guestLogin() {
@@ -64,7 +64,7 @@ function checkSavedLogin() {
         username.value = user['username'];
         password.value = user['password'];
     } catch (e) {
-        console.log('users could not be loaded');
+        console.log(`there's currently no saved login information`);
     };
 }
 
