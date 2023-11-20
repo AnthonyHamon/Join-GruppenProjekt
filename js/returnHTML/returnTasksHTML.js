@@ -19,8 +19,8 @@ function generateAddTaskHTML() {
                     <h4>Description</h4>
                     <div class="textarea-container">
                         <div class="textarea-field">
-                            <input class="textarea attrebute" type="text" name="myTextarea"
-                                placeholder="Enter a Description" spellcheck required>
+                            <textarea class="textarea attrebute" type="text" name="myTextarea"
+                                placeholder="Enter a Description" spellcheck required></textarea>
                         </div>
                         <div>
                             <img class="description-icon" src="../images/Recurso 1 1.svg" alt="">
@@ -57,7 +57,7 @@ function generateAddTaskHTML() {
                         <input class="calender_input" type="date" placeholder="dd/mm/yyyy">
                         <form class="date-container">
                             <div>
-                                <input type="text" class="custom-date-text" id="customDateText"
+                                <input type="date" class="custom-date-text" id="customDateText"
                                     placeholder="dd/mm/yyyy" readonly>
                             </div>
                             <div>

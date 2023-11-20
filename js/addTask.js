@@ -99,7 +99,7 @@ function toggleContacts() {
     }
 }
 
-
+/*
 function updateCurrentDate() {
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleDateString(); // Formatieren des Datums nach Bedarf
@@ -229,6 +229,7 @@ function changeButtonStyles(color) {
     button.classList.add('selected');
     selectedButton = button;
 }
+*/
 
 
 // Subtask Element
