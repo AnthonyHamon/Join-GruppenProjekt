@@ -344,16 +344,19 @@ h4 {
     outline: none;
     cursor: pointer;
     font-size: 20px;
-    color: #D1D1D1;
     font-weight: 100;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+.date-field input[type="date"]::-webkit-calendar-picker-indicator {
     background-image: url('../images/date.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 25px;
     cursor: pointer;
+}
+
+input[type=date]:invalid::-webkit-datetime-edit {
+    color: #D1D1D1;
 }
 
 .date-field .date-container {
