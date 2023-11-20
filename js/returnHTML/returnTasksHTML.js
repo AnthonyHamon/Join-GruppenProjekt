@@ -54,6 +54,7 @@ function generateAddTaskHTML() {
                 <div>
                     <div class="date-field">
                         <h4>Due Date<span class="letter-color">*</span></h4>
+                        <input class="calender_input" type="date" placeholder="dd/mm/yyyy">
                         <form class="date-container">
                             <div>
                                 <input type="text" class="custom-date-text" id="customDateText"
