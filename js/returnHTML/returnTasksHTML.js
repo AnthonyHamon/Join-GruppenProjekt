@@ -46,12 +46,6 @@ function generateAddTaskHTML() {
                                             alt=""></button>
                                 </div>
                             </div>
-                            <div class="add-contact-bottom">
-                                <button class="add-buton">
-                                    <p class="add-button-name">Add new contacts</p>
-                                    <img class="add-icon" src="../images/person_add.svg" alt="">
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>
