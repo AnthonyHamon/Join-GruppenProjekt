@@ -20,10 +20,16 @@ function stop(event) {
 function renderLegalNoticePage(){
     let legalContent = document.getElementById('legal-content-section');
     legalContent.innerHTML = returnLegalNoticeHTML();
-    legalContent.classList.toggle('d-none');
+    legalContent.classList.remove('d-none');
 }
 
-function returnToPreviousPage(){
+function renderPrivacyPolicyPage(){
     let legalContent = document.getElementById('legal-content-section');
-    legalContent.classList.toggle('d-none');
+    legalContent.innerHTML = returnPrivacyPolicyHTML();
+    legalContent.classList.remove('d-none');
+}
+
+function hideLegalContent(){
+    let legalContent = document.getElementById('legal-content-section');
+    legalContent.classList.add('d-none');
 }

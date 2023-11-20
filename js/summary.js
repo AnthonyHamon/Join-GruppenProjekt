@@ -4,6 +4,7 @@ function renderSummary() {
     removeJoinLogoClickable();
     addContentCSS();
     generateSummaryHTML();
+    hideLegalContent();
 }
 
 function renderCurrentdate(){

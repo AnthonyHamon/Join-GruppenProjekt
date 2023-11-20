@@ -10,6 +10,7 @@ async function renderContactsPage() {
     addJoinLogoClickable();
     returnContactPage();
     renderContacts();
+    hideLegalContent();
 }
 
 function sortOrganizer() {

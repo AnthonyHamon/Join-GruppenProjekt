@@ -8,7 +8,13 @@
     z-index: 100;
 }
 
-.legal_notice_ctn{
+.legal_content_section section{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.legal_content_ctn{
     display: flex;
     flex-direction: column;
     padding: 110px 98px 0 96px;
@@ -17,22 +23,22 @@
     height: 100vh;
 }
 
-.legal_notice_ctn h2{
+.legal_content_ctn h2{
     margin: 0;
 }
 
-.legal_notice_title{
+.legal_content_title{
     display: flex;
     justify-content: space-between;
     margin-bottom: 32px;
 }
 
-.legal_notice_title h1{
+.legal_content_title h1{
     margin: 0;
     font-size: 61px;
 }
 
-.legal_notice_title img{
+.legal_content_title img{
 cursor: pointer;
 }
 
@@ -44,7 +50,7 @@ cursor: pointer;
         left: 0;
     }
 
-    .legal_notice_ctn{
+    .legal_content_ctn{
         height: calc(100vh - 160px);
         padding: 48px 16px 48px 16px;
     }
