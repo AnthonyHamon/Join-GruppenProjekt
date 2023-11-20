@@ -260,13 +260,11 @@ input[type="search"]::-webkit-search-clear-button {
     background-color: transparent;
 }
 
-.add-contact-bottom {
-    background-color: rgba(42, 54, 71, 1);
-    width: 91%;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.circle {
+    
+    border: 100%;
+    border-radius: 2px solid weith;
+    background: #FF3D00;
 }
 
 .add-contact-bottom:hover {

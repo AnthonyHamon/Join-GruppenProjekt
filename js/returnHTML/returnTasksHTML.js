@@ -38,12 +38,24 @@ function generateAddTaskHTML() {
                         <div class="contact-box">
                             <div class="contacts-topfield">
                                 <div class="contakts-name">
-                                    <img src="..//images/Property 1=Anton.svg" alt="">
-                                    <samp class="contact-name">Anton Mayer</samp>
+                                    <div class="circle">
+                                        <span classe="circle-name"> WG </span>
+                                    </div>
+                                    <samp class="contact-name">Anton Mayer (You)</samp>
                                 </div>
                                 <div>
                                     <button class="check-button"><img src="../images/Rectangle 5.svg"
-                                            alt=""></button>
+                                    alt=""></button>
+                                </div>
+                            </div>
+                            <div class="contacts-topfield">
+                                <div class="contakts-name">
+                                    <img src="..//images/Property 1=Anton.svg" alt="">
+                                    <samp class="contact-name">${contacts}</samp>
+                                </div>
+                                <div>
+                                    <button class="check-button"><img src="../images/Rectangle 5.svg"
+                                    alt=""></button>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +72,7 @@ function generateAddTaskHTML() {
                                     placeholder="dd/mm/yyyy" readonly>
                             </div>
                             <div>
-                                <button class="date-button" type="button" onclick="toggleCalendar()">
+                                <button class="date-button" type="button">
                                     <img class="date-icon" src="../images/date.svg" alt="Calendar">
                                 </button>
                             </div>
