@@ -99,124 +99,6 @@ function toggleContacts() {
     }
 }
 
-/*
-function updateCurrentDate() {
-    const currentDate = new Date();
-    const formattedDate = currentDate.toLocaleDateString(); // Formatieren des Datums nach Bedarf
-
-    // Hier kannst du die aktualisierte Datum-Anzeige aktualisieren
-    document.getElementById('current-date-display').innerText = formattedDate;
-}
-
-
-function toggleCalendar() {
-    const calendar = document.getElementById('calendar');
-    calendar.style.display = (calendar.style.display === 'block') ? 'none' : 'block';
-}
-
-
-function generateCalendar(monthIndex, year) {
-    const daysInMonth = getDaysInMonth(year, monthIndex);
-
-    const currentMonth = months[monthIndex];
-    const currentDate = new Date();
-    const currentDay = currentDate.getDate();
-
-    const calendar = document.getElementById('calendar');
-    calendar.innerHTML = `
-        <div class="month">
-            <div>
-                <button class="prev-month" onclick="changeMonth(-1)">&#8249;</button>
-            </div>
-            <div class="month-name">
-                <span class="month-name-style" onclick="selectMonth(${year}, ${monthIndex})">${currentMonth} ${year}</span>
-            </div>
-            <div>
-                <button class="next-month" onclick="changeMonth(1)">&#8250;</button>
-            </div>
-        </div>
-        <div class="days">
-            <div class="day">Sun</div>
-            <div class="day">Mon</div>
-            <div class="day">Tue</div>
-            <div class="day">Wed</div>
-            <div class="day">Thu</div>
-            <div class="day">Fri</div>
-            <div class="day">Sat</div>
-        </div>
-        <div class="dates"></div>
-    `;
-
-    const datesContainer = document.querySelector('.dates');
-    const customDateText = document.getElementById('customDateText');
-
-    for (let i = 1; i <= daysInMonth; i++) {
-        const dateElement = document.createElement('div');
-        dateElement.classList.add('date');
-        dateElement.innerText = i;
-
-        const currentDateInMonth = new Date(year, monthIndex, i);
-
-        if (currentDateInMonth >= currentDate) {
-            dateElement.addEventListener('click', () => {
-                const formattedDate = `${i}/${monthIndex + 1}/${year}`;
-                customDateText.value = formattedDate;
-
-                // Nach Auswahl des Datums, den Kalender ausblenden
-                toggleCalendar();
-            });
-        } else {
-            dateElement.classList.add('inactive'); // Mark days in the past as inactive
-        }
-
-        if (i === currentDay && monthIndex === currentDate.getMonth() && year === currentDate.getFullYear()) {
-            dateElement.classList.add('current-day');
-        }
-
-        datesContainer.appendChild(dateElement);
-    }
-}
-
-
-function getDaysInMonth(year, monthIndex) {
-    if (monthIndex === 11) {
-        return new Date(year + 1, 0, 0).getDate();
-    } else {
-        return new Date(year, monthIndex + 1, 0).getDate();
-    }
-}
-
-
-function toggleCalendar() {
-    const calendar = document.getElementById('calendar');
-    const calendarDisplay = calendar.style.display;
-
-    if (calendarDisplay === 'block') {
-        calendar.style.display = 'none';
-    } else {
-        calendar.style.display = 'block';
-    }
-}
-
-
-function changeMonth(offset) {
-    currentMonthIndex += offset;
-
-    // Monatswechsel: Von Dezember zum Januar des nächsten Jahres
-    if (currentMonthIndex < 0) {
-        currentMonthIndex = 11;  // Dezember
-        currentYear -= 1;  // Wechsel zum vorherigen Jahr
-    } else if (currentMonthIndex > 11) {
-        currentMonthIndex = 0;  // Januar
-        currentYear += 1;  // Wechsel zum nächsten Jahr
-    }
-
-    generateCalendar(currentMonthIndex, currentYear);
-}
-
-// Initialanzeige des Kalenders
-generateCalendar(currentMonthIndex, currentYear);
-
 
 function changeButtonStyles(color) {
     // Zurücksetzen des vorher ausgewählten Buttons
@@ -229,8 +111,6 @@ function changeButtonStyles(color) {
     button.classList.add('selected');
     selectedButton = button;
 }
-*/
-
 
 // Subtask Element
 

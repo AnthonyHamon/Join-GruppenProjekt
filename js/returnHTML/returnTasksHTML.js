@@ -39,9 +39,9 @@ function generateAddTaskHTML() {
                             <div class="contacts-topfield">
                                 <div class="contakts-name">
                                     <div class="circle">
-                                        <span classe="circle-name"> WG </span>
+                                        <span class="circle-name">WG</span>
                                     </div>
-                                    <samp class="contact-name">Anton Mayer (You)</samp>
+                                    <span class="contact-name">Anton Mayer (You)</span>
                                 </div>
                                 <div>
                                     <button class="check-button"><img src="../images/Rectangle 5.svg"
@@ -50,7 +50,9 @@ function generateAddTaskHTML() {
                             </div>
                             <div class="contacts-topfield">
                                 <div class="contakts-name">
-                                    <img src="..//images/Property 1=Anton.svg" alt="">
+                                    <div class="circle">
+                                        <span class="circle-name"></span>
+                                    </div>
                                     <samp class="contact-name">${contacts}</samp>
                                 </div>
                                 <div>
