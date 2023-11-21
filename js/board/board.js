@@ -1,8 +1,8 @@
 function renderBoard() {
     generateBoardHTML();
     changeBoardContent();
-    checkWidthInBoard();
     loadingProcess();
+    checkWidthInBoard();
     boardBgrColor();
     removeBgrColorWithoutBoard();
     addJoinLogoClickable();
