@@ -1,5 +1,3 @@
-let content = document.getElementById('content');
-
 function generateBoardHTML() {
     content.innerHTML = '';
     content.innerHTML =/*html*/`
@@ -25,9 +23,9 @@ function generateBoardHTML() {
 function generateBoardWidthPlus1300HTML() {
     document.getElementById('width_HTML').innerHTML = /*html*/`
                     <div class="progressNamesContain">
-                <p class="progressName">To do ${returnAddBtn('to_do')}</p>
-                <p class="progressName">In progress ${returnAddBtn('in_progress')}</p>
-                <p class="progressName">Await feedback ${returnAddBtn('feedback')}</p>
+                <p class="progressName">To do ${returnAddBtnSVG('to_do')}</p>
+                <p class="progressName">In progress ${returnAddBtnSVG('in_progress')}</p>
+                <p class="progressName">Await feedback ${returnAddBtnSVG('feedback')}</p>
                 <p class="progressName">Done</p>
             </div>
             <div class="scrollbar">
@@ -47,14 +45,14 @@ function generateBoardWidthMinus1300HTML() {
         <div class="scrollbar">
             <div class="progressNamesContain">
                 <div class="progressNameWithLine">
-                    <p class="progressName">To do ${returnAddBtn('to_do')}</p>
+                    <p class="progressName">To do ${returnAddBtnSVG('to_do')}</p>
                     <div id="to_do" class="taskLine scrollbarTaskLine"></div>
                 <div class="progressNameWithLine">
-                    <p class="progressName">In progress ${returnAddBtn('in_progress')}</p>
+                    <p class="progressName">In progress ${returnAddBtnSVG('in_progress')}</p>
                     <div id="in_progress" class="taskLine scrollbarTaskLine"></div>
                 </div>
                 <div class="progressNameWithLine">
-                    <p class="progressName">Await feedback ${returnAddBtn('feedback')}</p>
+                    <p class="progressName">Await feedback ${returnAddBtnSVG('feedback')}</p>
                     <div id="feedback" class="taskLine scrollbarTaskLine"></div>
                 <div class="progressNameWithLine">
                     <p class="progressName">Done</p>
@@ -74,23 +72,39 @@ function renderTaskHTMLDetails(task) {
             </div>
             <span class="taskTitleDetails">${formatTaskText(task.title)}</span>
             <p class="taskDescriptionDetails">${formatTaskText(task.description)}</p>
-            <div>
-                <span class="dateTitleDetails">Due date:</span>
-                <span class="dateTxtDetails">12.11.2023</span>
+            <div class="titleTxtDetailsContain">
+                <span class="titleDetails">Due date:</span>
+                <span class="dateTxtDetails">10/05/2023</span>
             </div>
-            <div>
-                <span class="priorityTitleDetails">Priority:</span>
+            <div class="titleTxtDetailsContain">
+                <span class="titleDetails">Priority:</span>
                 <span class="priorityTxtDetails">${checkPriority(task.priority)}</span>
             </div>
-            <span class="assignedTitle">Assigned To:</span>
+            <span class="titleDetails">Assigned To:</span>
             <div class="assignedContain">
                 <div class="assignedProfil">
                     <div class="assignedBadge">ED</div>
-                    <span>Elisabeth Derella</span>
+                    <div class="assignedName">
+                        <span class="assignedNameText">René Porzelt</span>
+                    </div>
                 </div>
                 <div class="assignedProfil">
-                    <div class="assignedBadge">RP</div>
-                    <span>René Porzelt</span>
+                <div class="assignedBadge">ED</div>
+                    <div class="assignedName">
+                        <span class="assignedNameText">Elisa Papetti</span>
+                    </div>
+                </div>
+                <div class="assignedProfil">
+                <div class="assignedBadge">ED</div>
+                    <div class="assignedName">
+                        <span class="assignedNameText">DieElisabeth Großhausendurchhausen</span>
+                    </div>
+                </div>
+                <div class="assignedProfil">
+                <div class="assignedBadge">ED</div>
+                    <div class="assignedName">
+                        <span class="assignedNameText">Renéasf asfasgasfasfsafafssss</span>
+                    </div>
                 </div>
             </div>
             <span>Subtasks</span>
@@ -139,4 +153,14 @@ function returnTaskPrioritySmallHTML(priority) {
 
 function returnTaskPriorityBigHTML(priority) {
     return `<span>${priority}</span> <img src="/images/${priority}.svg">`
+}
+
+function returnAddBtnSVG(status) {
+    return /*html*/`
+        <svg onclick="addTaskFromBtn('${status}')" class="svgHover" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.6665 8.5V16.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+            <path d="M16.6665 12.5754L8.6665 12.5754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+            <rect x="1.6665" y="1.5" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+        </svg>
+    `;
 }

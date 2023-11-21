@@ -1,11 +1,25 @@
 function renderBoard() {
     generateBoardHTML();
-    /* loadingProcess(); */
     changeBoardContent();
     checkWidthInBoard();
+    loadingProcess();
     boardBgrColor();
     removeBgrColorWithoutBoard();
     addJoinLogoClickable();
+}
+
+function loadingProcess() {
+    if (!document.querySelector('#content').classList.contains('contentBoard')) {
+        return;
+    }
+    restartLoadingElementJoinAnimation();
+    hideWidthHTML();
+    showLoadingElementJoin();
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        checkWidthInBoard();
+        hideLoadingElementJoin();
+    }, mininamLoadingElementJoinTime);
 }
 
 function changeBoardContent() {
@@ -34,16 +48,28 @@ function addJoinLogoClickable() {
     document.getElementById('join_logo_mobile').classList.remove('p-none');
 }
 
-function returnAddBtn(status) {
-    return /*html*/`
-        <svg onclick="addTaskFromBtn('${status}')" class="svgHover" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.6665 8.5V16.5" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
-            <path d="M16.6665 12.5754L8.6665 12.5754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
-            <rect x="1.6665" y="1.5" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
-        </svg>
-    `;
-}
-
 function addTaskFromBtn(status) {
     console.info(`function is in progress.... and the status from button is -> ${status} <-`);
+}
+
+function showLoadingElementJoin() {
+    document.getElementById('loading_spinner').classList.remove('d-none');
+}
+
+function hideLoadingElementJoin() {
+    document.getElementById('loading_spinner').classList.add('d-none');
+}
+
+function hideWidthHTML() {
+    let widthHTML = document.getElementById('width_HTML');
+    if (widthHTML) {
+        widthHTML.style.display = 'none';
+    }
+}
+
+function showWidthHTML() {
+    let widthHTML = document.getElementById('width_HTML');
+    if (widthHTML) {
+        widthHTML.style.display = 'block';
+    }
 }

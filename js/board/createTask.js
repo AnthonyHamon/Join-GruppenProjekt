@@ -1,16 +1,12 @@
-let tasks = [];
-let currentTask = 'small'
-
-
 async function setNewTask() {
     let index = tasks.length;
     let id = `${index}`;
     let title = 'Lorem, ipsum dolor sit epelle ndis impedit.';
-    let description = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem eos a repellendus numquam libero consectetur non ut omnis illum mollitia dignissimos maiores aliquid exercitationem, optio facilis, porro, maxime reiciendis impedit.';
+    let description = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem eos a repelle Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem eos a repell endus numquam libero consectetur non ut omnis illum mollitia dignissimos maiores aliquid exercitationem, optio facilis, porro, maxime reiciendis impedit.';
     let date = '33.33.2023';
     let priority = 'Medium';
     let category = 'Web_Performance';
-    let status = 'done';
+    let status = 'to_do';
     tasks.push({ id, title, description, date, priority, category, status });
     await setItem('tasks', JSON.stringify(tasks));
     loadingProcess();
@@ -60,18 +56,19 @@ function renderTaskElement(task) {
 
 function openTask(task) {
     let contain = document.getElementById('taskDetailsContain');
-    currentTask = 'big';
+    currentTaskStatus = 'big';
     contain.innerHTML = `
         ${renderTaskHTMLDetails(task)}
     `;
     contain.classList.remove('d-none');
+    longerTextAnimation();
 }
 
 function closeTask() {
     let contain = document.getElementById('taskDetailsContain');
     let popup = document.getElementById('taskDetails');
     let background = document.getElementById('backgroundFromTaskPopup');
-    currentTask = 'small';
+    currentTaskStatus = 'small';
     popup.classList.add('slideOutToRight');
     contain.classList.add('fadeOut');
     background.classList.add('fadeOutBackground');
@@ -116,7 +113,7 @@ function renderTaskHTML(task) {
 
 function formatTaskText(text) {
     let trimmedText = text.trim();
-    if (currentTask === 'small' && trimmedText.length > 57) {
+    if (currentTaskStatus === 'small' && trimmedText.length > 57) {
         return trimmedText.charAt(0).toUpperCase() + trimmedText.slice(1, 57) + '...';
     } else {
         return trimmedText.charAt(0).toUpperCase() + trimmedText.slice(1);
@@ -124,18 +121,18 @@ function formatTaskText(text) {
 }
 
 function checkPriority(priority) {
-    if (currentTask === 'small') {
+    if (currentTaskStatus === 'small') {
         return returnTaskPrioritySmallHTML(priority);
-    } else if (currentTask === 'big') {
+    } else if (currentTaskStatus === 'big') {
         return returnTaskPriorityBigHTML(priority);
     }
 }
 
 function checkTaskCategory(category) {
     let formattedCategory = category.replace(/_/g, ' ');
-    if (currentTask === 'small') {
+    if (currentTaskStatus === 'small') {
         return returnTaskCategorySmallHTML(category, formattedCategory);
-    } else if (currentTask === 'big') {
+    } else if (currentTaskStatus === 'big') {
         return returnTaskCategoryBigHTML(category, formattedCategory);
     }
 }
