@@ -1,4 +1,5 @@
-let users = [];
+let users = []; 
+let currentUser = [];
 let isChecked = false;
 let loginIsValid = false;
 
@@ -18,6 +19,7 @@ function login() {
     let user = users.find(u => u.user == username || u.email == username);
     let password = users.find(u => u.password == userpassword);
     if (user && password) {
+        setCurrentUser(user);
         rememberMe();
         window.location.href = '../index.html';
     } else if (user && !password) {
@@ -26,6 +28,10 @@ function login() {
         showNoUserError();
         setTimeout(() => window.location.href = '../HTML/sign_up.html', 3000);
     }
+}
+
+function setCurrentUser(user){
+    currentUser.push({user});
 }
 
 function guestLogin() {
@@ -58,7 +64,7 @@ function checkSavedLogin() {
         username.value = user['username'];
         password.value = user['password'];
     } catch (e) {
-        console.log('users could not be loaded');
+        console.log(`there's currently no saved login information`);
     };
 }
 
@@ -103,7 +109,7 @@ function checkExistingUser() {
     returnLoginCustomValidityMessage(user, email, userError, emailError)
 }
 
-function returnLoginCustomValidityMessage(user, email, userError, emailError){
+function returnLoginCustomValidityMessage(user, email, userError, emailError) {
     if (user) {
         !loginIsValid
         userError.setCustomValidity('This User Already exist');
@@ -115,7 +121,7 @@ function returnLoginCustomValidityMessage(user, email, userError, emailError){
     }
 }
 
-function resetSignUpCustomValidity(){
+function resetSignUpCustomValidity() {
     document.getElementById('user-input').setCustomValidity('');
     document.getElementById('email-input').setCustomValidity('');
 }

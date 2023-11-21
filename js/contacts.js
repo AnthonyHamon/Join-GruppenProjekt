@@ -10,6 +10,7 @@ async function renderContactsPage() {
     addJoinLogoClickable();
     returnContactPage();
     renderContacts();
+    hideLegalContent();
 }
 
 function sortOrganizer() {
@@ -175,7 +176,7 @@ function showSelectedContactInformations(name, email, phone, initial, BgColor) {
     let width = window.innerWidth;
     let contactInformations = document.getElementById('selected-contact-content');
     contactInformations.innerHTML = returnContactInformations(name, email, phone, initial, BgColor);
-    width > 1000 ? setSelectedContactOnClickColor(email) : '';
+    width > 1000 ? setSelectedContactOnClick(email) : '';
 }
 
 function returnContactInitialLetter(name) {
@@ -190,16 +191,18 @@ function showSelectedContactAnimation() {
         , 400);
 }
 
-function setSelectedContactOnClickColor(email) {
-    resetContactSelectionColor();
+function setSelectedContactOnClick(email) {
+    resetContactSelection();
     let contact = document.getElementById(email);
     contact.classList.add('contact_selected');
+    contact.classList.add('p-none');
 }
 
-function resetContactSelectionColor() {
+function resetContactSelection() {
     let contactSelection = document.querySelectorAll('.contact_div');
     contactSelection.forEach((contactSelection) => {
         contactSelection.classList.remove('contact_selected');
+        contactSelection.classList.remove('p-none');
     })
 }
 

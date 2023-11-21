@@ -483,7 +483,7 @@
     min-width: 113px;
     font-size: 20px;
     background-color: inherit;
-    color: inherit;
+    /* color: inherit; */
     cursor: pointer;
 }
 
@@ -494,9 +494,9 @@
     color: #29ABE2;
 }
 
-.contact_popup_left_button button:hover {
+/* .contact_popup_left_button button:hover {
     color: inherit;
-}
+} */
 
 
 .contact_popup_left_button:hover img {
@@ -579,6 +579,20 @@
     }
 }
 
+@media(max-width:1290px) {
+    .contact_title_ctn{
+        padding-left: 35px;
+    }
+
+    #selected-contact-content{
+        padding-left: 42px;
+    }
+
+    .selected_contact_circle{
+        min-width: 120px;
+    }
+}
+
 @media(max-width:1170px) {
     .call_to_action_logo {
         top: 86px;
@@ -624,6 +638,7 @@
     .selected_contact_circle {
         width: 100px;
         height: 100px;
+        min-width: unset;
     }
 }
 
@@ -715,6 +730,7 @@
         width: 80px;
         height: 80px;
         font-size: 27px;
+        min-width: unset;
     }
 
     .edit_selected_contact {

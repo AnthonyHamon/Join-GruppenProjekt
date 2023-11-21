@@ -20,8 +20,8 @@
     </header>
     <div id="profile_menu_contain" onclick="closeProfilMenu()" class="menuBgr d-none">
         <div onclick="stop(event)" class="profileMenu">
-            <a href="#">Legal Notice</a>
-            <a href="/HTML/privacy_policy.html">Privacy Policy</a>
+            <a onclick="renderLegalNoticePage()">Legal Notice</a>
+            <a onclick="renderPrivacyPolicyPage()">Privacy Policy</a>
             <a href="/HTML/login.html">Log out</a>
         </div>
     </div>
@@ -38,8 +38,8 @@
             <a id="contacts" onclick="renderContactsPage()"><img src="/images/contacts.svg"> Contacts</a>
         </div>
         <div class="privacyContain column">
-            <a class="privacyHoverEffect" href="/HTML/privacy_policy.html">Privacy Policy</a>
-            <a class="privacyHoverEffect" href="/HTML/legal_notice.html">Legal notice</a>
+            <a onclick="renderPrivacyPolicyPage()" class="privacyHoverEffect">Privacy Policy</a>
+            <a onclick="renderLegalNoticePage()" class="privacyHoverEffect">Legal notice</a>
         </div>
     </nav>
 </body>

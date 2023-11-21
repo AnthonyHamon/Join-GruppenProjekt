@@ -93,15 +93,15 @@ gap: 8px;
 
 .textarea-field {
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
 }
 
 .textarea {
-    width: 440px;
-    height: 25px;
     flex: 1 0 0;
     border: none;
+    resize: none;
 }
 
 .attrebute {
@@ -111,6 +111,7 @@ gap: 8px;
     line-height: 24px;
     font-family: 'PT Sans', sans-serif;
 }
+
 
 .description-icon {
     width: 18.9px;
@@ -259,13 +260,24 @@ input[type="search"]::-webkit-search-clear-button {
     background-color: transparent;
 }
 
-.add-contact-bottom {
-    background-color: rgba(42, 54, 71, 1);
-    width: 91%;
-    border-radius: 10px;
+.circle {
+    width: 40px;
+    height: 40px;
+    border: 3px solid weith;
+    border-radius: 50%;
+    background: #FF3D00;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.circle-name {
+    color: #FFFFFF;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    font-size: 12px;
 }
 
 .add-contact-bottom:hover {
@@ -333,6 +345,29 @@ h4 {
     align-items: flex-start;
     gap: 8px;
     width: 440px;
+}
+
+.calender_input{
+    border: 1px solid #D1D1D1;
+    padding: 12px 16px;
+    width: 100%;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.date-field input[type="date"]::-webkit-calendar-picker-indicator {
+    background-image: url('../images/date.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    cursor: pointer;
+}
+
+input[type=date]:invalid::-webkit-datetime-edit {
+    color: #D1D1D1;
 }
 
 .date-field .date-container {
@@ -580,7 +615,6 @@ gap: 8px;
 }
 
 .span-category {
-    font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -588,7 +622,6 @@ gap: 8px;
 }
 
 li {
-    font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -811,7 +844,6 @@ li {
 
 .create-button {
     background: #2A3647;
-    font-family: Inter;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
