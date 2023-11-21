@@ -1,16 +1,9 @@
-function longerTextAnimation() {
+function checkNameTextLengthToSlideAnimation() {
     let assignedNameElements = document.querySelectorAll('.assignedNameText');
 
     assignedNameElements.forEach(text => {
         if (text.scrollWidth > text.parentElement.offsetWidth) {
-            text.style.animation = 'none';
-            void text.offsetWidth;
-            text.style.animation = 'slideTextToLeftAndStop 3s linear forwards 2s';
-            setTimeout(() => {
-                text.style.animation = 'none';
-                void text.offsetWidth;
-                text.style.animation = 'slideTextToRightAndStop 0.2s linear forwards';
-            }, 7000);
+            textSlideAnimation(text);
         } else {
             text.style.animation = 'none';
         }
@@ -18,11 +11,22 @@ function longerTextAnimation() {
     resetTimerForTextAnimation();
 }
 
+function textSlideAnimation(text) {
+    text.style.animation = 'none';
+    void text.offsetWidth;
+    text.style.animation = 'slideTextToLeftAndStop 3s linear forwards 2s';
+    setTimeout(() => {
+        text.style.animation = 'none';
+        void text.offsetWidth;
+        text.style.animation = 'slideTextToRightAndStop 0.2s linear forwards';
+    }, 7000);
+}
+
 function resetTimerForTextAnimation() {
     if (textSlideAnimationTimer) {
         clearTimeout(textSlideAnimationTimer);
     }
-    textSlideAnimationTimer = setTimeout(longerTextAnimation, 8000);
+    textSlideAnimationTimer = setTimeout(checkNameTextLengthToSlideAnimation, 8000);
 }
 
 function restartLoadingElementJoinAnimation() {

@@ -1,6 +1,7 @@
 async function init() {
     await includeHTML();
-    renderSummary();
+    // renderSummary();
+    renderBoard();
 }
 
 function openProfilMenu() {
@@ -17,19 +18,19 @@ function stop(event) {
 
 // Javascript for Legal section (Lagel notice and Privacy Policy)
 
-function renderLegalNoticePage(){
+function renderLegalNoticePage() {
     let legalContent = document.getElementById('legal-content-section');
     legalContent.innerHTML = returnLegalNoticeHTML();
     legalContent.classList.remove('d-none');
 }
 
-function renderPrivacyPolicyPage(){
+function renderPrivacyPolicyPage() {
     let legalContent = document.getElementById('legal-content-section');
     legalContent.innerHTML = returnPrivacyPolicyHTML();
     legalContent.classList.remove('d-none');
 }
 
-function hideLegalContent(){
+function hideLegalContent() {
     let legalContent = document.getElementById('legal-content-section');
     legalContent.classList.add('d-none');
 }

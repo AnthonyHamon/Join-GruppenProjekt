@@ -6,13 +6,32 @@ async function checkWidthInBoard() {
         } else {
             generateBoardWidthMinus1300HTML();
         }
+        checkTaskStatusWhetherBig();
         await renderAllTasks();
-        let currentTime = new Date().getTime();
-        if (currentTime - lastAnimationTimestamp < mininamLoadingElementJoinTime) {
-            await new Promise(resolve => setTimeout(resolve, mininamLoadingElementJoinTime - (currentTime - lastAnimationTimestamp)));
-        }
+        await checkMinLoadingTime();
         showWidthHTML();
         hideLoadingElementJoin();
+    }
+}
+
+function delayedWidthCheckAndHide() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        checkWidthInBoard();
+        hideLoadingElementJoin();
+    }, mininamLoadingElementJoinTime);
+}
+
+function checkTaskStatusWhetherBig() {
+    if (currentTaskStatus == 'big') {
+        currentTaskStatus = 'small';
+    }
+}
+
+async function checkMinLoadingTime() {
+    let currentTime = new Date().getTime();
+    if (currentTime - lastAnimationTimestamp < mininamLoadingElementJoinTime) {
+        await new Promise(resolve => setTimeout(resolve, mininamLoadingElementJoinTime - (currentTime - lastAnimationTimestamp)));
     }
 }
 

@@ -164,3 +164,37 @@ function returnAddBtnSVG(status) {
         </svg>
     `;
 }
+
+function renderTaskHTML(task) {
+    return /*html*/`
+        <div>
+            ${checkTaskCategory(task.category)}
+        </div>
+        <article>
+            <span class="taskTitle">${formatTaskText(task.title)}</span>
+            <p class="taskDescription">${formatTaskText(task.description)}</p>
+        </article>
+        <div id="subtask_contain${task.id}" class="subtaskContain">
+            <div class="progressbar-container">
+                <div class="progressbar"></div>
+            </div>
+            <span id="subtaskTxt${task.id}" class="subtaskTxt">1/2 Subtasks</span>
+        </div>
+        <div class="profilePropertyContain">
+            <div id="profile${task.id}" class="profileContain">
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
+            </div>
+            <div id="task_priority_contain">
+                ${checkPriority(task.priority)}
+            </div>
+        </div>
+    `;
+}

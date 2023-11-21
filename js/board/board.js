@@ -1,7 +1,6 @@
 function renderBoard() {
     generateBoardHTML();
     changeBoardContent();
-    checkWidthInBoard();
     loadingProcess();
     boardBgrColor();
     removeBgrColorWithoutBoard();
@@ -15,11 +14,15 @@ function loadingProcess() {
     restartLoadingElementJoinAnimation();
     hideWidthHTML();
     showLoadingElementJoin();
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        checkWidthInBoard();
-        hideLoadingElementJoin();
-    }, mininamLoadingElementJoinTime);
+    delayedWidthCheckAndHide();
+}
+
+async function renderAllTasks() {
+    await loadTasks();
+    assignTaskElementsToStatus('to_do');
+    assignTaskElementsToStatus('in_progress');
+    assignTaskElementsToStatus('feedback');
+    assignTaskElementsToStatus('done');
 }
 
 function changeBoardContent() {
@@ -72,4 +75,27 @@ function showWidthHTML() {
     if (widthHTML) {
         widthHTML.style.display = 'block';
     }
+}
+
+function openTask(task) {
+    let contain = document.getElementById('taskDetailsContain');
+    currentTaskStatus = 'big';
+    contain.innerHTML = `
+        ${renderTaskHTMLDetails(task)}
+    `;
+    contain.classList.remove('d-none');
+    checkNameTextLengthToSlideAnimation();
+}
+
+function closeTask() {
+    let contain = document.getElementById('taskDetailsContain');
+    let popup = document.getElementById('taskDetails');
+    let background = document.getElementById('backgroundFromTaskPopup');
+    currentTaskStatus = 'small';
+    popup.classList.add('slideOutToRight');
+    contain.classList.add('fadeOut');
+    background.classList.add('fadeOutBackground');
+    popup.addEventListener('animationend', function () {
+        contain.classList.add('d-none');
+    }, { once: true });
 }
