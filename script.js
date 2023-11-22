@@ -4,6 +4,14 @@ async function init() {
     renderSummary();
 }
 
+function getCurrentUser() {
+    try {
+        currentUser = JSON.parse(localStorage.getItem('currentUser'))
+    } catch (e) {
+        console.log(`Current User is a guest.`);
+    }
+}
+
 function openProfilMenu() {
     document.getElementById('profile_menu_contain').classList.remove('d-none');
 }
