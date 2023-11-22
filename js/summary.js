@@ -5,6 +5,7 @@ function renderSummary() {
     addContentCSS();
     generateSummaryHTML();
     hideLegalContent();
+    renderGreetsUserName();
 }
 
 function renderCurrentdate(){
@@ -32,7 +33,11 @@ function renderGreetingMessage(){
 }
 
 function renderGreetsUserName(){
-
+    if (currentUser){
+        return currentUser[0]['user']['user'];
+    }else{
+        return 'Guest';
+    }
 }
 
 

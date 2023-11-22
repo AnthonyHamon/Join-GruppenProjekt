@@ -2,6 +2,7 @@ function renderBoard() {
     generateBoardHTML();
     changeBoardContent();
     loadingProcess();
+    checkWidthInBoard();
     boardBgrColor();
     removeBgrColorWithoutBoard();
     addJoinLogoClickable();

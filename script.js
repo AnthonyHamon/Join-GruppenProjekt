@@ -1,7 +1,7 @@
 async function init() {
     await includeHTML();
-    // renderSummary();
-    renderBoard();
+    getCurrentUser();
+    renderSummary();
 }
 
 function openProfilMenu() {
@@ -16,7 +16,7 @@ function stop(event) {
     event.stopPropagation();
 }
 
-// Javascript for Legal section (Lagel notice and Privacy Policy)
+// Javascript for Legal section (Legal notice and Privacy Policy)
 
 function renderLegalNoticePage() {
     let legalContent = document.getElementById('legal-content-section');
