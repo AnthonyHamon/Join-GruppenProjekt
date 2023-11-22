@@ -13,6 +13,11 @@ async function initSignUp() {
     await loadUsers();
 }
 
+function logOut(){
+    localStorage.removeItem('currentUser');
+    window.location.href = '../HTML/login.html';
+}
+
 function login() {
     let username = document.getElementById('user-login').value;
     let userpassword = document.getElementById('password-input').value;
@@ -32,6 +37,7 @@ function login() {
 
 function setCurrentUser(user){
     currentUser.push({user});
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
 }
 
 function guestLogin() {
@@ -39,7 +45,6 @@ function guestLogin() {
     loginIsValid;
     window.location.href = "../index.html"
 }
-
 
 function showPasswordError() {
     let errorMsg = document.getElementById('input-error');
@@ -106,7 +111,7 @@ function checkExistingUser() {
     let userEmail = document.getElementById('email-input').value;
     let user = users.find(u => u.user == username);
     let email = users.find(u => u.email == userEmail);
-    returnLoginCustomValidityMessage(user, email, userError, emailError)
+    returnLoginCustomValidityMessage(user, email, userError, emailError);
 }
 
 function returnLoginCustomValidityMessage(user, email, userError, emailError) {

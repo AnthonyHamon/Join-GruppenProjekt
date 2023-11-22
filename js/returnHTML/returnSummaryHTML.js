@@ -68,7 +68,7 @@ function generateSummaryHTML(){
             </section>
             <section class="summary_section_right">
                     <span id="greeting">${renderGreetingMessage()}</span>
-                    <span id="greeted-name">Dear Guest</span>
+                    <span id="greeted-name">${renderGreetsUserName()}</span>
             </section>
         </div>
     </main>
