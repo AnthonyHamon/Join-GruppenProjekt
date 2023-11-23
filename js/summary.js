@@ -34,7 +34,7 @@ function renderGreetingMessage(){
 
 function renderGreetsUserName(){
     if (currentUser){
-        return currentUser[0]['user']['user'];
+        return currentUser[0]['user'];
     }else{
         return 'Guest';
     }

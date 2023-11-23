@@ -24,6 +24,7 @@ function login() {
     let user = users.find(u => u.user == username || u.email == username);
     let password = users.find(u => u.password == userpassword);
     if (user && password) {
+        debugger
         setCurrentUser(user);
         rememberMe();
         window.location.href = '../index.html';
@@ -36,9 +37,25 @@ function login() {
 }
 
 function setCurrentUser(user){
-    currentUser.push({user});
+    let initial = returnContactInitialLetter(user['user']);
+    let BgColor = setRandomColor();
+    currentUser.push({user: user['user'], email: user['email'], initial: initial, BgColor: BgColor});
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
 }
+
+function returnContactInitialLetter(name) {
+    return name.replace(/[^A-Z]+/g, '');
+}
+
+function setRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let BgColor = '#';
+    for (let i = 0; i < 6; i++) {
+        BgColor += letters[Math.floor(Math.random() * 16)];
+    }
+    return BgColor;
+}
+
 
 function guestLogin() {
     isChecked;

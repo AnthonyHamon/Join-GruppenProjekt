@@ -1,6 +1,7 @@
 async function init() {
     await includeHTML();
     getCurrentUser();
+    renderUserInitial();
     renderSummary();
 }
 
@@ -11,6 +12,16 @@ function getCurrentUser() {
         console.log(`Current User is a guest.`);
     }
 }
+
+function renderUserInitial(){
+    if (currentUser){
+        document.getElementById('log-out-menu').innerHTML = currentUser[0]['initial'];
+    }else{
+        document.getElementById('log-out-menu').innerHTML = 'G';
+    }
+}
+
+
 
 function openProfilMenu() {
     document.getElementById('profile_menu_contain').classList.remove('d-none');
