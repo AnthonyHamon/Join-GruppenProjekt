@@ -21,8 +21,6 @@ function renderUserInitial(){
     }
 }
 
-
-
 function openProfilMenu() {
     document.getElementById('profile_menu_contain').classList.remove('d-none');
 }

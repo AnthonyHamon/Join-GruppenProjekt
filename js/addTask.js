@@ -1,6 +1,5 @@
 let iconRotated = false;
 let datesContainer = document.querySelector('.dates');
-let selectedButton = null;
 
 const months = [
     'January', 'February', 'March', 'April',
@@ -101,16 +100,28 @@ function toggleContacts() {
 
 
 function changeButtonStyles(color) {
+    let button = document.getElementById(`button${color}`);
+    let icon = document.getElementById(`icon${color}`);
+
     // Zurücksetzen des vorher ausgewählten Buttons
-    if (selectedButton) {
-        selectedButton.classList.remove('selected');
-    }
+    resetSelectedPrioButton();
 
     // Ändern des aktuellen Buttons
-    const button = document.getElementById(`button${color.charAt(0).toUpperCase() + color.slice(1)}`);
     button.classList.add('selected');
-    selectedButton = button;
+    icon.classList.add('selected_icon');
 }
+
+function resetSelectedPrioButton() {
+    let allPrioSelectedButton = document.querySelectorAll('.selected');
+    allPrioSelectedButton.forEach((allPrioSelectedButton) => {
+        allPrioSelectedButton.classList.remove('selected');
+    });
+    let allPrioSelectedIcon = document.querySelectorAll('.selected_icon');
+    allPrioSelectedIcon.forEach((allPrioSelectedIcon) => {
+        allPrioSelectedIcon.classList.remove('selected_icon');
+    });
+}
+
 
 // Subtask Element
 
@@ -178,13 +189,13 @@ function renderSubtask() {
         const subtask = subtasks[index];
 
         subtaskContent.innerHTML += returnSubtask(subtask, index);
-        
+
     }
 }
 
 
 function returnSubtask(inputText, i) {
-    return`
+    return `
     <div class="task-list" id="taskList${i}">
         <div class="liest-field">
             <div class="tasks-content">
