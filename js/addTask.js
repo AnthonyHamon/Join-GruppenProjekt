@@ -1,20 +1,7 @@
 let iconRotated = false;
-let datesContainer = document.querySelector('.dates');
+
 let selectedButton = null;
 
-const months = [
-    'January', 'February', 'March', 'April',
-    'May', 'June', 'July', 'August',
-    'September', 'October', 'November', 'December'
-];
-
-let currentMonthIndex = new Date().getMonth();
-currentYear = new Date().getFullYear();
-
-const daysOfWeek = [
-    'Sunday', 'Monday', 'Tuesday', 'Wednesday',
-    'Thursday', 'Friday', 'Saturday'
-];
 
 let isImagesOpen = false;
 let subtasks = [];
@@ -112,10 +99,8 @@ function changeButtonStyles(color) {
     selectedButton = button;
 }
 
+
 // Subtask Element
-
-
-
 function toggleImages() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
@@ -183,12 +168,9 @@ function renderSubtask() {
 }
 
 
-
-
-
-function toggleSubtask() {
-    document.getElementById('').classList.toggle('d-none');
-    document.getElementById('').classList.toggle('d-none');
+function toggleSubtask(i) {
+    document.getElementById(`taskList${i}`).classList.toggle('d-none');
+    document.getElementById(`editTaskList${i}`).classList.toggle('d-none');
 }
 
 
