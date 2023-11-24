@@ -90,13 +90,15 @@ function toggleContacts() {
 function changeButtonStyles(color) {
     let button = document.getElementById(`button${color}`);
     let icon = document.getElementById(`icon${color}`);
+    
+    if (button.classList.contains('selected')) {
+        resetSelectedPrioButton();
+    } else {
+        resetSelectedPrioButton();
+        button.classList.add('selected');
+        icon.classList.add('selected_icon');
+    }
 
-    // Zurücksetzen des vorher ausgewählten Buttons
-    resetSelectedPrioButton();
-
-    // Ändern des aktuellen Buttons
-    button.classList.add('selected');
-    icon.classList.add('selected_icon');
 }
 
 function resetSelectedPrioButton() {
