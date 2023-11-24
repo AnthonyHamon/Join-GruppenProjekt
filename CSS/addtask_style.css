@@ -46,7 +46,7 @@ h1 {
     align-self: stretch;
     border-radius: 10px;
     border: 1px solid var(--Style, #D1D1D1);
-    background: #FFF;
+    background-color: #FFFFFF;
     cursor: pointer;
     font-weight: 400;
     height: 48px;
@@ -842,6 +842,10 @@ li {
     color: #29ABE2;
 }
 
+.clear-button:hover img {
+    filter: invert(70%) sepia(74%) saturate(3560%) hue-rotate(165deg) brightness(95%) contrast(85%);
+}
+
 .create-button {
     background: #2A3647;
     font-style: normal;
@@ -862,14 +866,14 @@ li {
     background: #2A3647;
 }
 
-.clear-create-img {
-    width: 24px;
-    height: 24px;
+.create-button:hover {
+    background-color: #29ABE2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.clear-button:hover img {
-    filter: invert(70%) sepia(74%) saturate(3560%) hue-rotate(165deg) brightness(95%) contrast(85%);
-}
+
+
+
 
 
 
