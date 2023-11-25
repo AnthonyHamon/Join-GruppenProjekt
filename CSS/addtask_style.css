@@ -563,31 +563,31 @@ input[type=date]:invalid::-webkit-datetime-edit {
     font-family: PT Sans, sans-serif;
 }
 
-#buttonRed.selected {
+#buttonUrgent.selected {
     background-color: #FF3D00; /* Red */
     color: white; /* Textfarbe */
 }
 
-#buttonOrange.selected {
+#buttonMedium.selected {
     background-color: #FFA800; /* Orange */
     color: white; /* Textfarbe */
 }
 
-#buttonGreen.selected {
+#buttonLow.selected {
     background-color: #7AE229; /* Grün */
     color: #ffffff; /* Textfarbe */
 }
 
 
-#iconRed.selected_icon{
+#iconUrgent.selected_icon{
     content: url('../images/prio_urgent_white.svg');
 }
 
-#iconOrange.selected_icon{
+#iconMedium.selected_icon{
     content: url('../images/prio_medium_white.svg');
 }
 
-#iconGreen.selected_icon{
+#iconLow.selected_icon{
     content: url('../images/prio_low_white.svg');
 }
 

@@ -2,6 +2,8 @@ let users = [];
 let currentUser = [];
 let isChecked = false;
 let loginIsValid = false;
+let hasBeenGreeted = false;
+
 
 
 async function initLogin() {
@@ -24,7 +26,6 @@ function login() {
     let user = users.find(u => u.user == username || u.email == username);
     let password = users.find(u => u.password == userpassword);
     if (user && password) {
-        debugger
         setCurrentUser(user);
         rememberMe();
         window.location.href = '../index.html';
@@ -58,8 +59,9 @@ function setRandomColor() {
 
 
 function guestLogin() {
-    isChecked;
-    loginIsValid;
+    isChecked = true;
+    loginIsValid = true;
+    localStorage.setItem('hasBeenGreeted', false);
     window.location.href = "../index.html"
 }
 

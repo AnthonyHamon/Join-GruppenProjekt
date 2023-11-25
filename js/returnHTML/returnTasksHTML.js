@@ -80,12 +80,12 @@ function generateAddTaskHTML() {
                 <div class="prio-container">
                     <h4>Prio</h4>
                     <div class="button-selection">
-                        <button class="prio-button" id="buttonRed" onclick="changeButtonStyles('Red')">Urgent
-                            <img class="prio-image" id="iconRed" src="../images/capa 2.svg" alt=""></button>
-                        <button class="prio-button" id="buttonOrange" onclick="changeButtonStyles('Orange')">Medium
-                            <img class="prio-image" id="iconOrange" src="../images/prio media.svg" alt=""></button>
-                        <button class="prio-button" id="buttonGreen" onclick="changeButtonStyles('Green')">Low <img
-                                class="prio-image" id="iconGreen" src="../images/prio baja.svg" alt=""></button>
+                        <button class="prio-button" id="buttonUrgent" onclick="changeButtonStyles('Urgent')">Urgent
+                            <img class="prio-image" id="iconUrgent" src="../images/capa 2.svg" alt=""></button>
+                        <button class="prio-button" id="buttonMedium" onclick="changeButtonStyles('Medium')">Medium
+                            <img class="prio-image" id="iconMedium" src="../images/prio media.svg" alt=""></button>
+                        <button class="prio-button" id="buttonLow" onclick="changeButtonStyles('Low')">Low <img
+                                class="prio-image" id="iconLow" src="../images/prio baja.svg" alt=""></button>
                     </div>
                 </div>
                 <div class="category-fields">

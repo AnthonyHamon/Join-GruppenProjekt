@@ -1,3 +1,4 @@
+
 function renderSummary() {
     summaryBgrColor();
     removeBgrColorWithoutSummary();
@@ -6,6 +7,8 @@ function renderSummary() {
     generateSummaryHTML();
     hideLegalContent();
     renderGreetsUserName();
+    let hasBeenGreeted = localStorage.getItem('hasBeenGreeted');
+    showMobileGreeting(hasBeenGreeted);
 }
 
 function renderCurrentdate(){
@@ -38,6 +41,20 @@ function renderGreetsUserName(){
     }else{
         return 'Guest';
     }
+}
+
+function showMobileGreeting(hasBeenGreeted){
+    let mobileGreeting = document.getElementById('mobile-greeting-ctn');
+    if(window.matchMedia('max-width: 1000px') && hasBeenGreeted && hasBeenGreeted === 'false'){
+        mobileGreeting.innerHTML = returnMobileGreeting();
+        mobileGreeting.classList.remove('d-none');
+        mobileGreeting.classList.add('mobile_greeting_animation');
+        setTimeout(() => {
+            mobileGreeting.classList.add('d-none');
+            localStorage.removeItem('hasBeenGreeted');
+            hasBeenGreeted = true;
+        },1600)
+    } 
 }
 
 
