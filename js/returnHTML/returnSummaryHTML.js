@@ -1,4 +1,4 @@
-function generateSummaryHTML(){
+function generateSummaryHTML() {
     let content = document.getElementById('content');
     content.innerHTML = '';
     content.innerHTML = `
@@ -21,14 +21,14 @@ function generateSummaryHTML(){
                     <div onclick="renderBoard()" id="to-do-thumbnail" class="summary_start_row_thumbnails">
                         <img src="../images/to_do_thumbnail.svg" alt="">
                         <div class="flex_colum_align_center">
-                            <span id="to-do-task-number" class="summary_digits">1</span>
+                            <span id="to-do-task-number" class="summary_digits">${filterAndReturnToDoTasks()}</span>
                             <span class="font_20px">To-Do</span>
                         </div>
                     </div>
                     <div onclick="renderBoard()" id="done-thumbnail" class="summary_start_row_thumbnails">
                         <img src="../images/done_thumbnail.svg" alt="">
                         <div class="flex_colum_align_center">
-                            <span id="done-tasks-number" class="summary_digits">1</span>
+                            <span id="done-tasks-number" class="summary_digits">${filterAndReturnDoneTasks()}</span>
                             <span class="font_20px">Done</span>
                         </div>
                     </div>
@@ -39,7 +39,7 @@ function generateSummaryHTML(){
                             <img src="../images/summary_prio_alta.svg" alt="">
                         </div>
                         <div class="flex_colum_align_center">
-                            <span class="summary_digits">1</span>
+                            <span class="summary_digits">${filterAndReturnUrgentTasks()}</span>
                             <span class="font_20px">Urgent</span>
                         </div>
                     </div>
@@ -53,15 +53,15 @@ function generateSummaryHTML(){
                 </div>
                 <div class="summary_ending_row">
                     <div onclick="renderBoard()" class="summary_ending_row_thumbnails">
-                        <span class="summary_digits">5</span>
+                        <span class="summary_digits">${tasks.length}</span>
                         <span class="nowrap_justify_center font_20px">Tasks in Board</span>
                     </div>
                     <div onclick="renderBoard()" class="summary_ending_row_thumbnails">
-                        <span class="summary_digits">2</span>
+                        <span class="summary_digits">${filterAndReturnInProgressTasks()}</span>
                         <span class="nowrap_justify_center font_20px">Tasks in Progress</span>
                     </div>
                     <div onclick="renderBoard()" class="summary_ending_row_thumbnails">
-                        <span class="summary_digits">2</span>
+                        <span class="summary_digits">${filterAndReturnAwaitFeedbackTasks()}</span>
                         <span class="nowrap_justify_center font_20px">Awaiting feedback</span>
                     </div>
                 </div>
@@ -75,7 +75,7 @@ function generateSummaryHTML(){
     `
 }
 
-function returnMobileGreeting(){
+function returnMobileGreeting() {
     return `
         <span id="mobile-greeting">${renderGreetingMessage()}</span>
         <span id="mobile-greeted-name">${renderGreetsUserName()}</span>

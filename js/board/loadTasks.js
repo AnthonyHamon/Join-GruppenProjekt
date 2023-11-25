@@ -1,3 +1,11 @@
+async function loadTasks() {
+    try {
+        tasks = JSON.parse(await getItem('tasks'));
+    } catch {
+        await setItem('tasks', JSON.stringify(tasks));
+    }
+}
+
 function renderTaskElement(task) {
     let section = document.createElement('section');
     section.className = 'section';

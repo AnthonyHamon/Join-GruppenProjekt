@@ -1,9 +1,10 @@
 
-function renderSummary() {
+async function renderSummary() {
     summaryBgrColor();
     removeBgrColorWithoutSummary();
     removeJoinLogoClickable();
     addContentCSS();
+    await loadTasks();
     generateSummaryHTML();
     hideLegalContent();
     renderGreetsUserName();
@@ -11,7 +12,7 @@ function renderSummary() {
     showMobileGreeting(hasBeenGreeted);
 }
 
-function renderCurrentdate(){
+function renderCurrentdate() {
     let currentDate = new Date();
     const monthOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const day = currentDate.getDate();
@@ -21,31 +22,31 @@ function renderCurrentdate(){
     return formattedDate;
 }
 
-function renderGreetingMessage(){
+function renderGreetingMessage() {
     let x = new Date();
     let hour = x.getHours();
-    if (hour < 12){
+    if (hour < 12) {
         return 'Good morning,'
-    }else if (hour >= 12 && hour < 14){
+    } else if (hour >= 12 && hour < 14) {
         return 'Good day,'
-    }else if (hour >= 14 && hour < 19){
+    } else if (hour >= 14 && hour < 19) {
         return 'Good afternoon,'
-    }else{
+    } else {
         return 'Good evening,'
     }
 }
 
-function renderGreetsUserName(){
-    if (currentUser){
+function renderGreetsUserName() {
+    if (currentUser) {
         return currentUser[0]['user'];
-    }else{
+    } else {
         return 'Dear Guest';
     }
 }
 
-function showMobileGreeting(hasBeenGreeted){
+function showMobileGreeting(hasBeenGreeted) {
     let mobileGreeting = document.getElementById('mobile-greeting-ctn');
-    if(window.matchMedia('max-width: 1000px') && hasBeenGreeted && hasBeenGreeted === 'false'){
+    if (window.matchMedia('max-width: 1000px') && hasBeenGreeted && hasBeenGreeted === 'false') {
         mobileGreeting.innerHTML = returnMobileGreeting();
         mobileGreeting.classList.remove('d-none');
         mobileGreeting.classList.add('mobile_greeting_animation');
@@ -53,8 +54,8 @@ function showMobileGreeting(hasBeenGreeted){
             mobileGreeting.classList.add('d-none');
             localStorage.removeItem('hasBeenGreeted');
             hasBeenGreeted = true;
-        },1600)
-    } 
+        }, 1600)
+    }
 }
 
 
@@ -75,4 +76,30 @@ function removeBgrColorWithoutSummary() {
 function removeJoinLogoClickable() {
     document.getElementById('join_logo').classList.add('p-none');
     document.getElementById('join_logo_mobile').classList.add('p-none');
+}
+
+
+function filterAndReturnToDoTasks() {
+    let task = tasks.filter(task => task.status === "to_do").length;
+    return task;
+}
+
+function filterAndReturnInProgressTasks() {
+    let task = tasks.filter(task => task.status === "in_progress").length;
+    return task;
+}
+
+function filterAndReturnAwaitFeedbackTasks() {
+    let task = tasks.filter(task => task.status === "feedback").length;
+    return task;
+}
+
+function filterAndReturnDoneTasks() {
+    let task = tasks.filter(task => task.status === "done").length;
+    return task;
+}
+
+function filterAndReturnUrgentTasks() {
+    let task = tasks.filter(task => task.priority === "Urgent").length;
+    return task;
 }
