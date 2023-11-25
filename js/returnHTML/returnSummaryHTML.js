@@ -78,6 +78,6 @@ function generateSummaryHTML(){
 function returnMobileGreeting(){
     return `
         <span id="mobile-greeting">${renderGreetingMessage()}</span>
-        <span id="mobile-greeted-name">Dear ${renderGreetsUserName()}</span>
+        <span id="mobile-greeted-name">${renderGreetsUserName()}</span>
     `
 }

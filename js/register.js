@@ -26,6 +26,7 @@ function login() {
     let user = users.find(u => u.user == username || u.email == username);
     let password = users.find(u => u.password == userpassword);
     if (user && password) {
+        localStorage.setItem('hasBeenGreeted', false);
         setCurrentUser(user);
         rememberMe();
         window.location.href = '../index.html';

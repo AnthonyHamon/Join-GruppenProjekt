@@ -39,7 +39,7 @@ function renderGreetsUserName(){
     if (currentUser){
         return currentUser[0]['user'];
     }else{
-        return 'Guest';
+        return 'Dear Guest';
     }
 }
 

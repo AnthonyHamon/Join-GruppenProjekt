@@ -16,17 +16,19 @@ function getCurrentUser() {
 function renderUserInitial(){
     if (currentUser){
         document.getElementById('log-out-menu').innerHTML = currentUser[0]['initial'];
+        document.getElementById('mobile-log-out-menu').innerHTML = currentUser[0]['initial'];
     }else{
         document.getElementById('log-out-menu').innerHTML = 'G';
+        document.getElementById('mobile-log-out-menu').innerHTML = 'G';
     }
 }
 
 function openProfilMenu() {
-    document.getElementById('profile_menu_contain').classList.remove('d-none');
+    document.getElementById('profile_menu_contain').classList.toggle('d-none');
 }
 
 function closeProfilMenu() {
-    document.getElementById('profile_menu_contain').classList.add('d-none');
+    document.getElementById('profile_menu_contain').classList.toggle('d-none');
 }
 
 function stop(event) {
