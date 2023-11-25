@@ -99,3 +99,22 @@ function closeTask() {
         contain.classList.add('d-none');
     }, { once: true });
 }
+
+function searchTaskFromInput() {
+    let value = document.getElementById('find_task').value.toLowerCase();
+
+    tasks.forEach(task => {
+        let taskSection = document.getElementById(`section${task.id}`);
+
+        if (!taskSection) return;
+
+        let title = task.title.toLowerCase();
+        let description = task.description.toLowerCase();
+
+        if (title.includes(value) || description.includes(value)) {
+            taskSection.style.display = '';
+        } else {
+            taskSection.style.display = 'none';
+        }
+    });
+}

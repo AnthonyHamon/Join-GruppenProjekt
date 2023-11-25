@@ -1,6 +1,7 @@
 function renderTaskElement(task) {
     let section = document.createElement('section');
     section.className = 'section';
+    section.id = `section${task.id}`;
     section.onclick = function () {
         openTask(task);
     };
