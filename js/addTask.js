@@ -8,17 +8,11 @@ let subtasks = [];
 
 
 function renderAddTask() {
-    changeAddTaskContent();
+    addContentCSS()
     addTaskBgrColor();
     removeBgrColorWithoutAddTask();
     addJoinLogoClickable();
     generateAddTaskHTML();
-}
-
-function changeAddTaskContent() {
-    document.getElementById('content').classList.remove('content_section');
-    document.getElementById('content').classList.remove('contentBoard');
-    document.getElementById('content').classList.add('content');
 }
 
 function addTaskBgrColor() {
