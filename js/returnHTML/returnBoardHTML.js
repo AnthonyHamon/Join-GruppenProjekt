@@ -107,10 +107,19 @@ function renderTaskHTMLDetails(task) {
                     </div>
                 </div>
             </div>
-            <span>Subtasks</span>
+            <span class="titleDetails">Subtasks</span>
             <div>
                 <p></p>
                 <p></p>
+            </div>
+            <div class="editOptionsDetailsContain">
+                <div onclick="confirmTaskDeletion(${task.id}, '${task.title}')" class="deleteDetailsContain">
+                    <img src="/images/delete.svg"><span>Delete</span>
+                </div>
+                <div class="seperator"></div>
+                <div class="editDetailsContain">
+                    <img src="/images/edit.svg"><span>Edit</span>
+                </div>
             </div>
         </div>
     `;
@@ -196,5 +205,23 @@ function renderTaskHTML(task) {
                 ${checkPriority(task.priority)}
             </div>
         </div>
+    `;
+}
+
+function returnConfirmationPopupHTML(id, msg) {
+    return /*html*/`
+        <div class="confirmationContent">
+        <p>${msg}</p>
+        <div class="confirmationPopupBtnContain">
+            <button onclick="deleteTask(${id})" style="color:rgba(255,0,0,90%);">Delete</button>
+            <button onclick="closeConfirmationPopup()">Cancel</button>
+        </div>
+        </div>
+    `;
+}
+
+function returnConfirmationMessageHTML(taskTitle) {
+    return /*html*/`
+        Are you sure you want to delete the task titled <br><b>"${taskTitle}"</b> ?
     `;
 }
