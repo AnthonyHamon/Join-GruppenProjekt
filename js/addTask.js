@@ -169,11 +169,11 @@ function addSubtask() {
 
 
 function checkEditedTaskList(i, subtask) {
-        let index = subtasks.findIndex(s => s.subtask === subtask);
+        let index = subtasks.findIndex(s => s === subtask);
         subtask= document.getElementById(`editInput${i}`).value;
         
-        contacts.splice(index, 1, { subtask });
-        
+        subtasks.splice(index, 1, (subtask));
+
         renderSubtask();
 }
 
