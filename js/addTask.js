@@ -168,6 +168,16 @@ function addSubtask() {
 }
 
 
+function checkEditedTaskList(i, subtask) {
+        let index = subtasks.findIndex(s => s.subtask === subtask);
+        subtask= document.getElementById(`editInput${i}`).value;
+        
+        contacts.splice(index, 1, { subtask });
+        addSubtask()
+        renderSubtask()
+}
+
+
 function renderSubtask() {
     let subtaskContent = document.getElementById('subtaskContent');
     subtaskContent.innerHTML = '';
@@ -193,22 +203,14 @@ function deleteButton(i) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 function addTaskBgrColor() {
     document.getElementById('add_task').classList.add('currentTemplate', 'p-none');
     document.getElementById('add_task_mobile').classList.add('currentTemplate', 'p-none');
-
 }
+
+
+
+
 
 function removeBgrColorWithoutAddTask() {
     document.getElementById('summary').classList.remove('currentTemplate', 'p-none');
@@ -218,6 +220,7 @@ function removeBgrColorWithoutAddTask() {
     document.getElementById('board_mobile').classList.remove('currentTemplate', 'p-none');
     document.getElementById('contacts_mobile').classList.remove('currentTemplate', 'p-none');
 }
+
 
 function addJoinLogoClickable() {
     document.getElementById('join_logo').classList.remove('p-none');
