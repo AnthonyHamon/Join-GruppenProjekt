@@ -275,6 +275,7 @@ input[type="search"]::-webkit-search-clear-button {
 .check-button {
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .add-contact-bottom:hover {
