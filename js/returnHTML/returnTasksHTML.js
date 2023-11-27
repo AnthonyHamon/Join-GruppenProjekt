@@ -151,7 +151,7 @@ function returnSubtask(inputText, i) {
                     <img onclick="deleteButton(${i})" class="delete-image" src="../images/Property 1=delete.svg" alt="">
                 </div>
                 <div class="edit-box">
-                    <img onclick="checkEditedTaskList(${i}, ${inputText})" id="checkImage" class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask(); closeImages();">
+                    <img onclick="checkEditedTaskList(${i}, '${inputText}')" id="checkImage" class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask(); closeImages();">
                 </div>
             </div>
         </div>
