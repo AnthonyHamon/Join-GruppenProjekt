@@ -46,7 +46,7 @@ function generateAddTaskHTML() {
                                         alt=""></button>
                                     </div>
                                 </div>
-                                <div id="assigned-to-contact-list" class="contacts-topfield"></div>
+                                <div id="assigned-to-contact-list"></div>
                             </div>
                         </div>
                     </div>
@@ -161,9 +161,11 @@ function returnSubtask(inputText, i) {
 
 function returnAssignedToContactList(contact){
     return `
-    <div class="contacts-name">
-        <div style="background-color:${contact['BgColor']}" class="contact_circle">${contact['initial']}</div>
-        <span class="contact-name">${contact['name']}</span>
+    <div class="contacts-followfield">
+        <div class="contacts-name">
+            <div style="background-color:${contact['BgColor']}" class="contact_circle">${contact['initial']}</div>
+            <span class="contact-name">${contact['name']}</span>
+        </div>
         <div>
             <button class="check-button"><img src="../images/Rectangle 5.svg" alt=""></button>
         </div>
