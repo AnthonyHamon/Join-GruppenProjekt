@@ -13,11 +13,11 @@ function getCurrentUser() {
     }
 }
 
-function renderUserInitial(){
-    if (currentUser){
+function renderUserInitial() {
+    if (currentUser) {
         document.getElementById('log-out-menu').innerHTML = currentUser[0]['initial'];
         document.getElementById('mobile-log-out-menu').innerHTML = currentUser[0]['initial'];
-    }else{
+    } else {
         document.getElementById('log-out-menu').innerHTML = 'G';
         document.getElementById('mobile-log-out-menu').innerHTML = 'G';
     }

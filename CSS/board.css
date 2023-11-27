@@ -445,6 +445,89 @@
     transition: transform 2s;
 }
 
+.deleteDetailsContain:hover,
+.editDetailsContain:hover {
+    cursor: pointer;
+    filter: invert(70%) sepia(74%) saturate(3560%) hue-rotate(165deg) brightness(95%) contrast(85%);
+    font-weight: 700;
+}
+
+.editOptionsDetailsContain,
+.editDetailsContain,
+.deleteDetailsContain {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+}
+
+.seperator {
+    border-left: 1px solid #D1D1D1;
+    height: 24px;
+    margin-left: 5px;
+    margin-right: 6px;
+}
+
+.confirmationPopup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    width: max-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    padding: 20px 36px 20px 36px;
+    border-radius: 30px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.modalBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 9998;
+}
+
+.confirmationContent p {
+    margin: 0 0 30px 0;
+}
+
+.confirmationPopupBtnContain {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.confirmationContent button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px 8px 16px;
+    width: 120px;
+    height: max-content;
+    border-radius: 8px;
+    border-color: transparent;
+    background-color: #2A3647;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    text-wrap: nowrap;
+}
+
+.confirmationContent button:hover {
+    background-color: #29ABE2;
+    transition: 100ms ease-in-out;
+    cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
 @keyframes slideTextToLeftAndStop {
     from {
         transform: translateX(0);

@@ -118,3 +118,44 @@ function searchTaskFromInput() {
         }
     });
 }
+
+function confirmTaskDeletion(taskId, taskTitle) {
+    createConfirmPopup(taskId, taskTitle);
+    createConfirmBackground();
+}
+
+function createConfirmPopup(taskId, taskTitle) {
+    let confirmationMessage = `Are you sure you want to delete the task titled <br><b>"${taskTitle}"</b> ?`;
+    let confirmationPopup = document.createElement('div');
+    confirmationPopup.className = 'confirmationPopup';
+    confirmationPopup.innerHTML = `
+        ${returnConfirmationPopupHTML(taskId, confirmationMessage)}
+    `;
+    document.body.appendChild(confirmationPopup);
+}
+
+function createConfirmBackground() {
+    let modalBackground = document.createElement('div');
+    modalBackground.className = 'modalBackground';
+    document.body.appendChild(modalBackground);
+}
+
+async function deleteTask(taskId) {
+    let index = tasks.findIndex(task => task.id == taskId);
+    tasks.splice(index, 1);
+    await setItem('tasks', JSON.stringify(tasks));
+    closeTask();
+    closeConfirmationPopup();
+    renderAllTasks();
+}
+
+function closeConfirmationPopup() {
+    let popup = document.querySelector('.confirmationPopup');
+    let modalBackground = document.querySelector('.modalBackground');
+    if (popup) {
+        popup.remove();
+    }
+    if (modalBackground) {
+        modalBackground.remove();
+    }
+}
