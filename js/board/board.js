@@ -125,7 +125,7 @@ function confirmTaskDeletion(taskId, taskTitle) {
 }
 
 function createConfirmPopup(taskId, taskTitle) {
-    let confirmationMessage = `Are you sure you want to delete the task titled <br><b>"${taskTitle}"</b> ?`;
+    let confirmationMessage = `${returnConfirmationMessageHTML(taskTitle)}`;
     let confirmationPopup = document.createElement('div');
     confirmationPopup.className = 'confirmationPopup';
     confirmationPopup.innerHTML = `
