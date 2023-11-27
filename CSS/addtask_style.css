@@ -243,7 +243,7 @@ input[type="search"]::-webkit-search-clear-button {
     background-color: #D1D1D1;
 }
 
-.contakts-name {
+.contacts-name {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -260,26 +260,6 @@ input[type="search"]::-webkit-search-clear-button {
 .check-button {
     border: none;
     background-color: transparent;
-}
-
-.circle {
-    width: 40px;
-    height: 40px;
-    border: 3px solid weith;
-    border-radius: 50%;
-    background: #FF3D00;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.circle-name {
-    color: #FFFFFF;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-    font-size: 12px;
 }
 
 .add-contact-bottom:hover {
@@ -564,6 +544,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     border: 1px solid rgba(209, 209, 209, 1);
     border-radius: 10px;
     font-family: PT Sans, sans-serif;
+    cursor: pointer;
 }
 
 #buttonUrgent.selected {
@@ -843,7 +824,7 @@ li {
 /* Task Below */
 
 .task-below {
-    width: 60%;
+    width: 960px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -853,23 +834,8 @@ li {
 .clear-create-button {
     display: flex;
     padding-bottom: 8px;
+    min-height: 58px;
 
-}
-
-.create-button-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    border-radius: 10px;
-    border: 1px solid var(--version-2-main-color, #2A3647);
-    padding: 10px 16px 10px 16px;
-    margin-left: 10px;
-    background: #2A3647;
-}
-
-.create-button-div:hover {
-    background-color: #29ABE2;
 }
 
 .clear-button {
@@ -920,4 +886,6 @@ li {
 .create-button:hover {
     background-color: #29ABE2;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-color: #29ABE2;
+    cursor: pointer;
 }

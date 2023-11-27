@@ -37,29 +37,16 @@ function generateAddTaskHTML() {
                         <div class="contact-container" id="contactContainer">
                             <div class="contact-box">
                                 <div class="contacts-topfield">
-                                    <div class="contakts-name">
-                                        <div class="circle">
-                                            <span class="circle-name">WG</span>
-                                        </div>
-                                        <span class="contact-name">Anton Mayer (You)</span>
+                                    <div class="contacts-name">
+                                        <div id="current-user-initial" class="contact_circle"></div>
+                                        <span id="current-user-name" class="contact-name"> (You)</span>
                                     </div>
                                     <div>
                                         <button class="check-button"><img src="../images/Rectangle 5.svg"
                                         alt=""></button>
                                     </div>
                                 </div>
-                                <div class="contacts-topfield">
-                                    <div class="contakts-name">
-                                        <div class="circle">
-                                            <span class="circle-name"></span>
-                                        </div>
-                                        <samp class="contact-name">${contacts}</samp>
-                                    </div>
-                                    <div>
-                                        <button class="check-button"><img src="../images/Rectangle 5.svg"
-                                        alt=""></button>
-                                    </div>
-                                </div>
+                                <div id="assigned-to-contact-list" class="contacts-topfield"></div>
                             </div>
                         </div>
                     </div>
@@ -128,7 +115,7 @@ function generateAddTaskHTML() {
                 </div>
                 <div class="clear-create-button">
                     <button type="button" class="clear-button">Cancel<img src="../images/close.svg"></button>
-                    <button class="create-button">Craate Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
+                    <button class="create-button">Create Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
                 </div>
             </div>
         </div>
@@ -171,3 +158,15 @@ function returnSubtask(inputText, i) {
     </div>
     `
 };
+
+function returnAssignedToContactList(contact){
+    return `
+    <div class="contacts-name">
+        <div style="background-color:${contact['BgColor']}" class="contact_circle">${contact['initial']}</div>
+        <span class="contact-name">${contact['name']}</span>
+        <div>
+            <button class="check-button"><img src="../images/Rectangle 5.svg" alt=""></button>
+        </div>
+    </div>
+    `;
+}

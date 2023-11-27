@@ -3,7 +3,6 @@ let contactIsValid = false;
 
 
 async function renderContactsPage() {
-    await loadContacts();
     contactsBgrColor();
     addContentCSS();
     removeBgrColorWithoutContacts();
