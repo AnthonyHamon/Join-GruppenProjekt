@@ -173,8 +173,8 @@ function checkEditedTaskList(i, subtask) {
         subtask= document.getElementById(`editInput${i}`).value;
         
         contacts.splice(index, 1, { subtask });
-        addSubtask()
-        renderSubtask()
+        
+        renderSubtask();
 }
 
 
