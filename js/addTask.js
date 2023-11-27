@@ -23,7 +23,7 @@ function renderAssignedToCurrentUser(){
     let currentUserName = document.getElementById('current-user-name');
     let currentUserInitial = document.getElementById('current-user-initial');
     if(currentUser){
-        currentUserName.innerHTML = currentUser[0]['user'];
+        currentUserName.innerHTML = currentUser[0]['user'] + ' (You)';
         currentUserInitial.innerHTML = currentUser[0]['initial'];
         currentUserInitial.style.backgroundColor = currentUser[0]['BgColor'];
     }else{

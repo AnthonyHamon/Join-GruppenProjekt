@@ -252,6 +252,10 @@ input[type="search"]::-webkit-search-clear-button {
     background-color: #D1D1D1;
 }
 
+.contacts-followfield:hover {
+    background-color: #D1D1D1;
+}
+
 #assigned-to-contact-list{
     width: 100%;
     overflow: scroll;
