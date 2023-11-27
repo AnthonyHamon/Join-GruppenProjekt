@@ -144,14 +144,14 @@ function returnSubtask(inputText, i) {
     <div class="edit-list d-none" id="editTaskList${i}">
         <div class="liest-field">
             <div class="tasks-content">
-                <input id="editInput" class="subtask-input" value="${inputText}" type="text">
+                <input id="editInput${i}" class="subtask-input" value="${inputText}" type="text">
             </div>
             <div class="delete-check-container">
                 <div class="delete-box">
                     <img onclick="deleteButton(${i})" class="delete-image" src="../images/Property 1=delete.svg" alt="">
                 </div>
                 <div class="edit-box">
-                    <img id="checkImage" class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask(); closeImages();">
+                    <img onclick="checkEditedTaskList(${i})" id="checkImage" class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask(); closeImages();">
                 </div>
             </div>
         </div>
