@@ -144,7 +144,7 @@ function returnSubtask(inputText, i) {
     <div class="edit-list d-none" id="editTaskList${i}">
         <div class="liest-field">
             <div class="tasks-content">
-                <input id="editInput" class="subtask-input" value="${inputText}" type="text">
+                <input id="editInput${i}" class="subtask-input" value="${inputText}" type="text">
             </div>
             <div class="delete-check-container">
                 <div class="delete-box">
