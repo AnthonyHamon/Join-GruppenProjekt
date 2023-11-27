@@ -236,11 +236,26 @@ input[type="search"]::-webkit-search-clear-button {
     justify-content: space-between;
     align-items: center;
     border-radius: 10px;
+    padding: 12px 24px 12px 16px;
+}
+
+.contacts-followfield {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
     padding: 12px 16px 12px 16px;
 }
 
 .contacts-topfield:hover {
     background-color: #D1D1D1;
+}
+
+#assigned-to-contact-list{
+    width: 100%;
+    overflow: scroll;
+    height: 20vh;
 }
 
 .contacts-name {
@@ -260,6 +275,7 @@ input[type="search"]::-webkit-search-clear-button {
 .check-button {
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .add-contact-bottom:hover {
