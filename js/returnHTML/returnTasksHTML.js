@@ -34,12 +34,12 @@ function generateAddTaskHTML() {
                             <button class="assign-button" onclick="toggleContacts()"><img onclick="rotateIcon()"
                                 src="../images/arrow_drop_downaa.svg" alt="Arrow Icon" id="arrowIcon"></button>
                         </div>
-                        <div class="contact-container" id="contactContainer">
+                        <div class="contact-container d-none" id="contactContainer">
                             <div class="contact-box">
-                                <div class="contacts-topfield">
+                                <div id="assigned-to-current-user-ctn" class="contacts-topfield">
                                     <div class="contacts-name">
                                         <div id="current-user-initial" class="contact_circle"></div>
-                                        <span id="current-user-name" class="contact-name"> (You)</span>
+                                        <span id="current-user-name" class="contact-name"></span>
                                     </div>
                                     <div>
                                         <button class="check-button"><img src="../images/Rectangle 5.svg"

@@ -147,7 +147,7 @@ h1 {
     gap: 8px;
 }
 
-.contacts-field .custom-dropdown {
+.custom-dropdown {
     display: flex;
     width: 440px;
     padding: 12px 16px;
@@ -228,6 +228,7 @@ input[type="search"]::-webkit-search-clear-button {
     align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
+    max-height: 30vh;
 }
 
 .contacts-topfield {
@@ -259,7 +260,7 @@ input[type="search"]::-webkit-search-clear-button {
 #assigned-to-contact-list{
     width: 100%;
     overflow: scroll;
-    height: 20vh;
+    height: 30vh;
 }
 
 .contacts-name {
