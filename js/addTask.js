@@ -156,19 +156,6 @@ function clearInputField(inputsField) {
 }
 
 
-function createCheckImage() {
-    const checkImage = document.createElement("img");
-    checkImage.setAttribute("src", "../images/Property 1=check.svg");
-    checkImage.setAttribute("alt", "");
-    checkImage.addEventListener('click', function () {
-        addSubtask();
-        closeImages();
-        // Weitere Funktionen, die nach dem Klick ausgeführt werden sollen
-    });
-    return checkImage;
-}
-
-
 function addSubtask() {
     let subtaskInput = document.getElementById('subtaskInput').value;
     subtasks.push(subtaskInput);
