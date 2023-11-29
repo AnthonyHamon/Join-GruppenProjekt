@@ -68,7 +68,7 @@ function returnContacts(i, contactMatches) {
 
 function returnContactInformations(name, email, phone, initial, BgColor) {
     return `
-        <div class="align_item_center gap_54 gap_20">
+        <div class="align_item_center gap_54">
             <div class="selected_contact_circle" style="background-color:${BgColor}">
             ${initial}
             </div>

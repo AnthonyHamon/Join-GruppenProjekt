@@ -37,8 +37,17 @@ function renderAssignedToContactList(){
     contacts.sort((a, b) => { return compareStrings(a.name, b.name) });
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
-        assignedToContactList.innerHTML += returnAssignedToContactList(contact);
+        assignedToContactList.innerHTML += returnAssignedToContactList(i, contact);
     }
+}
+
+function assignTo(){
+    
+}
+
+function toggleCheckImage(i){
+    document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');
+    document.getElementById(`checked-contact${i}-img`).classList.toggle('d-none');
 }
 
 function toggleDropdown() {

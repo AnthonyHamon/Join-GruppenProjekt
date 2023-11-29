@@ -25,6 +25,10 @@ function login() {
     let userpassword = document.getElementById('password-input').value;
     let user = users.find(u => u.user == username || u.email == username);
     let password = users.find(u => u.password == userpassword);
+    loginValidation(user, password);
+}
+
+function loginValidation(user, password){
     if (user && password) {
         localStorage.setItem('hasBeenGreeted', false);
         setCurrentUser(user);

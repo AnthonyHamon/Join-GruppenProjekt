@@ -152,9 +152,10 @@
 .selected_contact_infos {
     position: relative;
     width: 100%;
-    padding-top: 64px;
+    padding-top: 110px;
     display: flex;
     flex-direction: column;
+    gap: 32px;
 }
 
 .contact_title_ctn {
