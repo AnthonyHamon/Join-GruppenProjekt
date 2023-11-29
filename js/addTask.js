@@ -20,21 +20,21 @@ function renderAddTask() {
 // assigned to
 
 function renderAssignedToCurrentUser(){
+    let currentUserCtn = document.getElementById('assigned-to-current-user-ctn')
     let currentUserName = document.getElementById('current-user-name');
     let currentUserInitial = document.getElementById('current-user-initial');
     if(currentUser){
-        currentUserName.innerHTML = currentUser[0]['user'];
+        currentUserName.innerHTML = currentUser[0]['user'] + ' (You)';
         currentUserInitial.innerHTML = currentUser[0]['initial'];
         currentUserInitial.style.backgroundColor = currentUser[0]['BgColor'];
     }else{
-        currentUserName.innerHTML = 'Guest (You)';
-        currentUserInitial.innerHTML = 'G';
-        currentUserInitial.style.backgroundColor = '#00BEE8';
+        currentUserCtn.classList.add('d-none');
     }
 }
 
 function renderAssignedToContactList(){
     let assignedToContactList = document.getElementById('assigned-to-contact-list');
+    contacts.sort((a, b) => { return compareStrings(a.name, b.name) });
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
         assignedToContactList.innerHTML += returnAssignedToContactList(contact);
@@ -76,10 +76,10 @@ function toggleContacts() {
     const contactContainer = document.getElementById('contactContainer');
     const arrowIcon = document.getElementById('arrowIcon');
 
-    contactContainer.classList.toggle('hidden');  // Ein- und Ausblenden des Kontaktcontainers
+    contactContainer.classList.toggle('d-none');  // Ein- und Ausblenden des Kontaktcontainers
 
     // Überprüfen, ob der Kontaktcontainer jetzt sichtbar ist
-    if (!contactContainer.classList.contains('hidden')) {
+    if (!contactContainer.classList.contains('d-none')) {
         arrowIcon.classList.add('rotate');  // Drehen des Icons um 180 Grad, wenn sichtbar
     } else {
         arrowIcon.classList.remove('rotate');  // Entfernen der Rotation, wenn unsichtbar

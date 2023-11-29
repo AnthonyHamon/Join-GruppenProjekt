@@ -68,8 +68,8 @@ function guestLogin() {
 
 function showPasswordError() {
     let errorMsg = document.getElementById('input-error');
-    !errorMsg.textContent ? errorMsg.innerHTML = returnPasswordError() :
-        errorMsg.innerHTML = '';
+    !errorMsg.textContent ? errorMsg.innerHTML = "Wrong Password, please try again!" :
+        errorMsg.textContent = '';
 }
 
 async function loadUsers() {
