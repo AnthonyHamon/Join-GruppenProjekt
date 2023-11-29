@@ -56,11 +56,6 @@ function generateAddTaskHTML() {
                         <div class="date-field">
                             <h4>Due Date<span class="letter-color">*</span></h4>
                             <input required class="calender_input" type="date" placeholder="dd/mm/yyyy">
-                            <div id="calendar" class="calendar-container">
-                                <div class="calendar">
-                                    <span class="month"></span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="prio-container">
