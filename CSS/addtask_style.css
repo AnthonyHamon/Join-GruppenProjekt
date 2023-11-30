@@ -782,6 +782,11 @@ li {
 
 @media (max-width: 1290px) {
 
+    .task-container {
+        overflow: scroll;
+        padding: ;
+    }
+
     .task-input {
         display: flex;
         flex-direction: column;
@@ -807,5 +812,26 @@ li {
 
     .contact-container {
         width: 440px;
+    }
+
+    .task-below {
+        justify-content: start;
+    }
+
+    .requered-field {
+        display: none;
+    }
+
+    .clear-create-button {
+        margin-top: 40px;
+        width: 440px;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .task-container  {
+        padding: 20px 20px 20px 20px;
     }
 }
