@@ -156,7 +156,7 @@ function returnSubtask(inputText, i) {
 
 function returnAssignedToContactList(i, contact) {
     return `
-    <div onclick="assignTo('${contact['name']}')" class="contacts-followfield">
+    <div onclick="assignTo('${i}', '${contact['name']}')" id="contact${i}" class="contact_div">
         <div class="contacts-name">
             <div style="background-color:${contact['BgColor']}" class="contact_circle">${contact['initial']}</div>
             <span class="contact-name">${contact['name']}</span>
@@ -164,7 +164,8 @@ function returnAssignedToContactList(i, contact) {
         <div>
             <div class="check-button">
                 <img onclick="toggleCheckImage(${i})" id="check-contact${i}-img" src="../images/Rectangle 5.svg" alt="">
-                <img onclick="toggleCheckImage(${i})" id="checked-contact${i}-img" class="d-none" src="../images/Group 19.svg" alt="">
+                <img onclick="toggleCheckImage(${i})" id="checked-contact${i}-black-img" class="d-none" src="../images/Group 19.svg" alt="">
+                <img id="checked-contact${i}-img" class="d-none" src="../images/check-white.svg" alt="">
             </div>
         </div>
     </div>
