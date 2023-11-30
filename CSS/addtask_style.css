@@ -3,7 +3,7 @@
     flex-direction: column;
     padding: 90px 0 0 96px;
     height: 100%;
-    width: 100%;
+    width: 1060px;
 }
 
 h1 {
@@ -166,9 +166,19 @@ h1 {
     outline: none;
 }
 
+.contact_selected{
+    background-color: #2A3647;
+    color: white;
+}
+
+.contact_selected:hover{
+    background-color: #091931 !important;
+}
+
 .assign-input {
     width: 246px;
     height: 25px;
+    font-size: 20px;
 }
 
 .assign-input::placeholder {
@@ -770,6 +780,58 @@ li {
 
 
 
-@media (max-width: 500px) {
+@media (max-width: 1290px) {
 
+    .task-container {
+        overflow: scroll;
+        padding: ;
+    }
+
+    .task-input {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .left-field {
+        padding: 0;
+    }
+
+    .right-field {
+        padding: 0;
+        border: none;
+    }
+
+    .titel-input {
+        width: 440px;
+    }
+
+    .custom-dropdown {
+        width: 440px;
+    }
+
+    .contact-container {
+        width: 440px;
+    }
+
+    .task-below {
+        justify-content: start;
+    }
+
+    .requered-field {
+        display: none;
+    }
+
+    .clear-create-button {
+        margin-top: 40px;
+        width: 440px;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .task-container  {
+        padding: 20px 20px 20px 20px;
+    }
 }
