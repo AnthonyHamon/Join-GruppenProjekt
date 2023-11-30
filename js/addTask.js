@@ -41,13 +41,13 @@ function renderAssignedToContactList() {
     }
 }
 
-function assignTo(i, contact) {
-    const index = selectedContacts.findIndex(c => c === contact);
-    styleSelectedContact(i)
+function assignTo(i, name, email, phone, initial, BgColor) {
+    const index = selectedContacts.findIndex(c => c.email === email);
+    styleSelectedContact(i);
     if (index > -1) {
         selectedContacts.splice(index, 1);
     } else {
-        selectedContacts.push(contact);
+        selectedContacts.push({ name, email, phone, initial, BgColor });
     }
 }
 
@@ -77,7 +77,7 @@ function displayAssignedContacts(task) {
     }
 }
 
-function styleSelectedContact(i){
+function styleSelectedContact(i) {
     document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`checked-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`contact${i}`).classList.toggle('contact_selected');
