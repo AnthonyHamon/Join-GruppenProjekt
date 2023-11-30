@@ -74,38 +74,22 @@ function renderTaskHTMLDetails(task) {
             <p class="taskDescriptionDetails">${formatTaskText(task.description)}</p>
             <div class="titleTxtDetailsContain">
                 <span class="titleDetails">Due date:</span>
-                <span class="dateTxtDetails">10/05/2023</span>
+                <span class="dateTxtDetails">${task.date}</span>
             </div>
             <div class="titleTxtDetailsContain">
                 <span class="titleDetails">Priority:</span>
                 <span class="priorityTxtDetails">${checkPriority(task.priority)}</span>
             </div>
             <span class="titleDetails">Assigned To:</span>
-            <div class="assignedContain">
-                <div class="assignedProfil">
-                    <div class="assignedBadge">ED</div>
-                    <div class="assignedName">
-                        <span class="assignedNameText">René Porzelt</span>
+            <div id="profilBadgeDetails${task.id}" class="assignedContain">
+                ${task.assignedContacts.map(contact => `
+                    <div class="assignedProfil">
+                        <div class="assignedBadge" style="background-color:${contact.BgColor}">${contact.initial}</div>
+                        <div class="assignedName">
+                            <span class="assignedNameText">${contact.name}</span>
+                        </div>
                     </div>
-                </div>
-                <div class="assignedProfil">
-                <div class="assignedBadge">ED</div>
-                    <div class="assignedName">
-                        <span class="assignedNameText">Elisa Papetti</span>
-                    </div>
-                </div>
-                <div class="assignedProfil">
-                <div class="assignedBadge">ED</div>
-                    <div class="assignedName">
-                        <span class="assignedNameText">DieElisabeth Großhausendurchhausen</span>
-                    </div>
-                </div>
-                <div class="assignedProfil">
-                <div class="assignedBadge">ED</div>
-                    <div class="assignedName">
-                        <span class="assignedNameText">Renéasf asfasgasfasfsafafssss</span>
-                    </div>
-                </div>
+                `).join('')}
             </div>
             <span class="titleDetails">Subtasks</span>
             <div>
@@ -191,15 +175,9 @@ function renderTaskHTML(task) {
         </div>
         <div class="profilePropertyContain">
             <div id="profile${task.id}" class="profileBadgeContain">
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
+                ${task.assignedContacts.map(contact => `
+                    <div class="profileBadge" style="background-color:${contact.BgColor}">${contact.initial}</div>
+                `).join('')}
             </div>
             <div id="task_priority_contain">
                 ${checkPriority(task.priority)}

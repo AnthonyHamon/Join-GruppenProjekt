@@ -110,7 +110,7 @@ function generateAddTaskHTML() {
                 </div>
                 <div class="clear-create-button">
                     <button type="button" class="clear-button">Cancel<img src="../images/close.svg"></button>
-                    <button class="create-button">Create Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
+                    <button onclick="addNewTaskTEST()" class="create-button">Create Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
                 </div>
             </div>
         </div>
@@ -154,9 +154,9 @@ function returnSubtask(inputText, i) {
     `
 };
 
-function returnAssignedToContactList(i, contact){
+function returnAssignedToContactList(i, contact) {
     return `
-    <div onclick="assignTo(${contact['name']})" class="contacts-followfield">
+    <div onclick="assignTo('${contact['name']}')" class="contacts-followfield">
         <div class="contacts-name">
             <div style="background-color:${contact['BgColor']}" class="contact_circle">${contact['initial']}</div>
             <span class="contact-name">${contact['name']}</span>

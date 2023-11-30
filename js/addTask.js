@@ -19,20 +19,20 @@ function renderAddTask() {
 
 // assigned to
 
-function renderAssignedToCurrentUser(){
+function renderAssignedToCurrentUser() {
     let currentUserCtn = document.getElementById('assigned-to-current-user-ctn')
     let currentUserName = document.getElementById('current-user-name');
     let currentUserInitial = document.getElementById('current-user-initial');
-    if(currentUser){
+    if (currentUser) {
         currentUserName.innerHTML = currentUser[0]['user'] + ' (You)';
         currentUserInitial.innerHTML = currentUser[0]['initial'];
         currentUserInitial.style.backgroundColor = currentUser[0]['BgColor'];
-    }else{
+    } else {
         currentUserCtn.classList.add('d-none');
     }
 }
 
-function renderAssignedToContactList(){
+function renderAssignedToContactList() {
     let assignedToContactList = document.getElementById('assigned-to-contact-list');
     contacts.sort((a, b) => { return compareStrings(a.name, b.name) });
     for (let i = 0; i < contacts.length; i++) {
@@ -41,11 +41,42 @@ function renderAssignedToContactList(){
     }
 }
 
-function assignTo(){
-    
+function assignTo(contact) {
+    const index = selectedContacts.findIndex(c => c.email === contact.email);
+    if (index > -1) {
+        selectedContacts.splice(index, 1);
+    } else {
+        selectedContacts.push(contact);
+    }
 }
 
-function toggleCheckImage(i){
+async function addNewTaskTEST() {
+    try {
+        let task = await setNewTask();
+        displayAssignedContacts(task);
+    } catch (error) {
+        console.error('Fehler bei der Erstellung des Tasks:', error);
+    }
+}
+
+function displayAssignedContacts(task) {
+    let profileContainer = document.getElementById(`profile${task.id}`);
+    let badgeDetailsContainer = document.getElementById(`profilBadgeDetails${task.id}`);
+
+    if (profileContainer && badgeDetailsContainer) {
+        task.assignedContacts.forEach(contact => {
+            let badgeElement = document.createElement('div');
+            badgeElement.className = 'profileBadge';
+            badgeElement.style.backgroundColor = contact.BgColor;
+            badgeElement.textContent = contact.initial;
+            profileContainer.appendChild(badgeElement);
+        });
+    } else {
+        console.error('Elemente nicht gefunden');
+    }
+}
+
+function toggleCheckImage(i) {
     document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`checked-contact${i}-img`).classList.toggle('d-none');
 }
@@ -99,7 +130,7 @@ function toggleContacts() {
 function changeButtonStyles(color) {
     let button = document.getElementById(`button${color}`);
     let icon = document.getElementById(`icon${color}`);
-    
+
     if (button.classList.contains('selected')) {
         resetSelectedPrioButton();
     } else {
@@ -165,12 +196,12 @@ function addSubtask() {
 
 
 function checkEditedTaskList(i, subtask) {
-        let index = subtasks.findIndex(s => s === subtask);
-        subtask= document.getElementById(`editInput${i}`).value;
-        
-        subtasks.splice(index, 1, (subtask));
+    let index = subtasks.findIndex(s => s === subtask);
+    subtask = document.getElementById(`editInput${i}`).value;
 
-        renderSubtask();
+    subtasks.splice(index, 1, (subtask));
+
+    renderSubtask();
 }
 
 
