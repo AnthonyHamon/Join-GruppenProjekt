@@ -796,4 +796,16 @@ li {
         padding: 0;
         border: none;
     }
+
+    .titel-input {
+        width: 440px;
+    }
+
+    .custom-dropdown {
+        width: 440px;
+    }
+
+    .contact-container {
+        width: 440px;
+    }
 }
