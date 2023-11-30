@@ -3,3 +3,10 @@ C:\Users\User\OneDrive\Developer Akademie\Projekte\Join-GruppenProjekt>git pull
 Already up to date.
 
 C:\Users\User\OneDrive\Developer Akademie\Projekte\Join-GruppenProjekt>git add . 
+
+C:\Users\User\OneDrive\Developer Akademie\Projekte\Join-GruppenProjekt>git commit -m "add task - for assigned contact checkbox" 
+[main 946bdfa] add task - for assigned contact checkbox
+ 6 files changed, 34 insertions(+), 7 deletions(-)
+ create mode 100644 images/check-white.svg
+
+C:\Users\User\OneDrive\Developer Akademie\Projekte\Join-GruppenProjekt>git push 

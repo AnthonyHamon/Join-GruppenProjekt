@@ -156,7 +156,7 @@ function returnSubtask(inputText, i) {
 
 function returnAssignedToContactList(i, contact) {
     return `
-    <div onclick="assignTo('${i}', '${contact['name']}')" id="contact${i}" class="contact_div">
+    <div onclick="assignTo('${i}', '${contact['email']}')" id="contact${i}" class="contacts-followfield">
         <div class="contacts-name">
             <div style="background-color:${contact['BgColor']}" class="contact_circle">${contact['initial']}</div>
             <span class="contact-name">${contact['name']}</span>

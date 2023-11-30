@@ -42,7 +42,7 @@ function renderAssignedToContactList() {
 }
 
 function assignTo(i, contact) {
-    const index = selectedContacts.findIndex(c => c.email === contact.email);
+    const index = selectedContacts.findIndex(c => c === contact);
     styleSelectedContact(i)
     if (index > -1) {
         selectedContacts.splice(index, 1);
