@@ -1,12 +1,3 @@
-let iconRotated = false;
-let datesContainer = document.querySelector('.dates');
-let selectedButton = null;
-
-
-let isImagesOpen = false;
-let subtasks = [];
-
-
 function renderAddTask() {
     addContentCSS()
     addTaskBgrColor();
@@ -262,49 +253,3 @@ function addJoinLogoClickable() {
     document.getElementById('join_logo').classList.remove('p-none');
     document.getElementById('join_logo_mobile').classList.remove('p-none');
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

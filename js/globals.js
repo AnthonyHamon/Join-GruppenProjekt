@@ -12,7 +12,3 @@ let resizeTimer;
 let lastAnimationTimestamp = 0;
 let mininamLoadingElementJoinTime = 1000;
 let textSlideAnimationTimer;
-
-// add task :
-
-let selectedContacts = [];
