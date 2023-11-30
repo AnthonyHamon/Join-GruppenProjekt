@@ -1,20 +1,25 @@
 async function loadTasks() {
     try {
-        tasks = JSON.parse(await getItem('tasks'));
-    } catch {
-        await setItem('tasks', JSON.stringify(tasks));
+        let savedTasks = await getItem('tasks');
+        if (savedTasks) {
+            tasks = JSON.parse(savedTasks);
+            highestTaskId = tasks.reduce((maxId, task) => Math.max(maxId, task.id), 0);
+        } else {
+            tasks = [];
+        }
+    } catch (error) {
+        console.error("Fehler beim Laden der Tasks:", error);
     }
 }
 
-function renderTaskElement(task) {
-    let section = document.createElement('section');
-    section.className = 'section';
-    section.id = `section${task.id}`;
-    section.onclick = function () {
-        openTask(task);
-    };
-    section.innerHTML = renderTaskHTML(task);
-    return section;
+async function assignTaskElementsToStatus(status) {
+    let container = document.getElementById(status);
+    let tasksByStatus = tasks.filter(task => task.status === status);
+    container.innerHTML = '';
+    tasksByStatus.forEach(task => {
+        container.appendChild(renderTaskElement(task));
+    });
+    ifContainerEmpty(container);
 }
 
 function formatTaskText(text) {

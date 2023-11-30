@@ -190,7 +190,7 @@ function renderTaskHTML(task) {
             <span id="subtaskTxt${task.id}" class="subtaskTxt">1/2 Subtasks</span>
         </div>
         <div class="profilePropertyContain">
-            <div id="profile${task.id}" class="profileContain">
+            <div id="profile${task.id}" class="profileBadgeContain">
                 <div class="profileBadge">RP</div>
                 <div class="profileBadge">RP</div>
                 <div class="profileBadge">RP</div>

@@ -3,7 +3,8 @@ async function init() {
     await loadContacts();
     getCurrentUser();
     renderUserInitial();
-    renderSummary();
+    // renderSummary();
+    renderBoard();
 }
 
 function getCurrentUser() {

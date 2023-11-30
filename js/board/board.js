@@ -19,10 +19,11 @@ function loadingProcess() {
 
 async function renderAllTasks() {
     await loadTasks();
-    assignTaskElementsToStatus('to_do');
-    assignTaskElementsToStatus('in_progress');
-    assignTaskElementsToStatus('feedback');
-    assignTaskElementsToStatus('done');
+    await assignTaskElementsToStatus('to_do');
+    await assignTaskElementsToStatus('in_progress');
+    await assignTaskElementsToStatus('feedback');
+    await assignTaskElementsToStatus('done');
+    checkProfileBadgeCount();
 }
 
 function changeBoardContent() {
@@ -158,4 +159,24 @@ function closeConfirmationPopup() {
     if (modalBackground) {
         modalBackground.remove();
     }
+}
+
+function checkProfileBadgeCount() {
+    let profileBadgeContainers = document.querySelectorAll('.profileBadgeContain');
+
+    profileBadgeContainers.forEach(container => {
+        let profileBadges = container.getElementsByClassName('profileBadge');
+        let numberOfBadges = profileBadges.length;
+
+        if (numberOfBadges > 5) {
+            let additionalBadge = document.createElement('div');
+            additionalBadge.className = 'profileBadgeToMuch';
+            additionalBadge.textContent = `+${numberOfBadges - 4}`;
+
+            while (container.children.length > 4) {
+                container.removeChild(container.lastChild);
+            }
+            container.appendChild(additionalBadge);
+        }
+    });
 }

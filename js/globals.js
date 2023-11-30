@@ -5,6 +5,7 @@ let content = document.getElementById('content');
 
 // board :
 
+let highestTaskId = 0;
 let tasks = [];
 let currentTaskStatus = 'small'
 let resizeTimer;
