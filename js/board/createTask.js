@@ -7,22 +7,9 @@ async function setNewTask() {
     let category = 'Web_Performance';
     let status = 'feedback';
 
-    let task = {
-        id,
-        title,
-        description,
-        date,
-        priority,
-        category,
-        status,
-        assignedContacts: selectedContacts
-    };
-
-    tasks.push(task);
+    tasks.push({ id, title, description, date, priority, category, status });
     await setItem('tasks', JSON.stringify(tasks));
     loadingProcess();
-
-    return task;
 }
 
 function renderTaskElement(task) {

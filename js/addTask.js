@@ -1,12 +1,3 @@
-let iconRotated = false;
-let datesContainer = document.querySelector('.dates');
-let selectedButton = null;
-
-
-let isImagesOpen = false;
-let subtasks = [];
-
-
 function renderAddTask() {
     addContentCSS()
     addTaskBgrColor();
@@ -41,39 +32,8 @@ function renderAssignedToContactList() {
     }
 }
 
-function assignTo(contact) {
-    const index = selectedContacts.findIndex(c => c.email === contact.email);
-    if (index > -1) {
-        selectedContacts.splice(index, 1);
-    } else {
-        selectedContacts.push(contact);
-    }
-}
+function assignTo() {
 
-async function addNewTaskTEST() {
-    try {
-        let task = await setNewTask();
-        displayAssignedContacts(task);
-    } catch (error) {
-        console.error('Fehler bei der Erstellung des Tasks:', error);
-    }
-}
-
-function displayAssignedContacts(task) {
-    let profileContainer = document.getElementById(`profile${task.id}`);
-    let badgeDetailsContainer = document.getElementById(`profilBadgeDetails${task.id}`);
-
-    if (profileContainer && badgeDetailsContainer) {
-        task.assignedContacts.forEach(contact => {
-            let badgeElement = document.createElement('div');
-            badgeElement.className = 'profileBadge';
-            badgeElement.style.backgroundColor = contact.BgColor;
-            badgeElement.textContent = contact.initial;
-            profileContainer.appendChild(badgeElement);
-        });
-    } else {
-        console.error('Elemente nicht gefunden');
-    }
 }
 
 function toggleCheckImage(i) {
@@ -253,49 +213,3 @@ function addJoinLogoClickable() {
     document.getElementById('join_logo').classList.remove('p-none');
     document.getElementById('join_logo_mobile').classList.remove('p-none');
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
