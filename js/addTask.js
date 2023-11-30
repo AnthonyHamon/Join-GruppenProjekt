@@ -32,33 +32,13 @@ function renderAssignedToContactList() {
     }
 }
 
-<<<<<<< HEAD
 function assignTo() {
-=======
-function assignTo(i, contact) {
-    const index = selectedContacts.findIndex(c => c === contact);
-    styleSelectedContact(i)
-    if (index > -1) {
-        selectedContacts.splice(index, 1);
-    } else {
-        selectedContacts.push(contact);
-    }
-}
->>>>>>> 6578aad532103a3095dbe070de86b78a3429b1c9
-
-}
-
-function styleSelectedContact(i){
-    document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');
-    document.getElementById(`checked-contact${i}-img`).classList.toggle('d-none');
-    document.getElementById(`contact${i}`).classList.toggle('contact_selected');
 
 }
 
 function toggleCheckImage(i) {
-    stop(event);
     document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');
-    document.getElementById(`checked-contact${i}-black-img`).classList.toggle('d-none');
+    document.getElementById(`checked-contact${i}-img`).classList.toggle('d-none');
 }
 
 function toggleDropdown() {
