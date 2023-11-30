@@ -3,7 +3,7 @@
     flex-direction: column;
     padding: 90px 0 0 96px;
     height: 100%;
-    width: 100%;
+    width: 1060px;
 }
 
 h1 {
@@ -169,6 +169,7 @@ h1 {
 .assign-input {
     width: 246px;
     height: 25px;
+    font-size: 20px;
 }
 
 .assign-input::placeholder {
@@ -770,6 +771,20 @@ li {
 
 
 
-@media (max-width: 500px) {
+@media (max-width: 1290px) {
 
+    .task-input {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .left-field {
+        padding: 0;
+    }
+
+    .right-field {
+        padding: 0;
+        border: none;
+    }
 }
