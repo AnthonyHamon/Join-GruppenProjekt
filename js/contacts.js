@@ -193,7 +193,7 @@ function setSelectedContactOnClick(email) {
 
 function resetContactSelection() {
     let contactSelection = document.querySelectorAll('.contact_div');
-    contactSelection.forEach((contactSelection) => {
+        contactSelection.forEach((contactSelection) => {
         contactSelection.classList.remove('contact_selected');
         contactSelection.classList.remove('p-none');
     })

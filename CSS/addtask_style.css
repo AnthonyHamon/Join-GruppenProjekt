@@ -166,6 +166,15 @@ h1 {
     outline: none;
 }
 
+.contact_selected{
+    background-color: #2A3647;
+    color: white;
+}
+
+.contact_selected:hover{
+    background-color: #091931 !important;
+}
+
 .assign-input {
     width: 246px;
     height: 25px;
