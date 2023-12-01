@@ -40,8 +40,19 @@ function assignTo(i, name, email, phone, initial, BgColor) {
     styleSelectedContact(i);
     if (index > -1) {
         selectedContacts.splice(index, 1);
+        renderSelectedContactBadges(selectedContacts)
     } else {
         selectedContacts.push({ name, email, phone, initial, BgColor });
+        renderSelectedContactBadges(selectedContacts)
+    }
+}
+
+function renderSelectedContactBadges(selectedContacts){
+    let selectedContactCtn = document.getElementById('selected-contact-ctn');
+    selectedContactCtn.innerHTML = '';
+    for (let i = 0; i < selectedContacts.length; i++) {
+        const selectedContact = selectedContacts[i];
+       selectedContactCtn.innerHTML += returnSelectedContactBadges(selectedContact); 
     }
 }
 

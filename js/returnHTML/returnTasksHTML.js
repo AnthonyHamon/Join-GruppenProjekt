@@ -50,6 +50,7 @@ function generateAddTaskHTML() {
                             </div>
                         </div>
                     </div>
+                    <div id="selected-contact-ctn" class="selected_contact_ctn"></div>
                 </div>
                 <div class="right-field">
                     <div>
@@ -170,4 +171,10 @@ function returnAssignedToContactList(i, contact) {
         </div>
     </div>
     `;
+}
+
+function returnSelectedContactBadges(selectedContact){
+    return `
+        <div class="contact_circle" style="background-color:${selectedContact['BgColor']}">${selectedContact['initial']}</div>
+    `
 }

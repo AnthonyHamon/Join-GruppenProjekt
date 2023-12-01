@@ -276,6 +276,10 @@ input[type="search"]::-webkit-search-clear-button {
     height: 30vh;
 }
 
+.selected_contact_ctn{
+    display: flex;
+}
+
 .contacts-name {
     display: flex;
     justify-content: center;
