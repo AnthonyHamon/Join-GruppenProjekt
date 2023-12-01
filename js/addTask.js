@@ -1,3 +1,6 @@
+let selectedContacts = [];
+let subtasks = [];
+
 function renderAddTask() {
     addContentCSS()
     addTaskBgrColor();
