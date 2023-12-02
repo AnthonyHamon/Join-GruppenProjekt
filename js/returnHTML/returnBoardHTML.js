@@ -30,10 +30,10 @@ function generateBoardWidthPlus1300HTML() {
             </div>
             <div class="scrollbar">
                 <div class="taskContain">
-                    <div id="to_do" class="taskLine"></div>
-                    <div id="in_progress" class="taskLine"></div>
-                    <div id="feedback" class="taskLine"></div>
-                    <div id="done" class="taskLine"></div>
+                    <div id="to_do" ondrop="dropTo('to_do')" ondragover="allowDrop(event)" class="taskLine"></div>
+                    <div id="in_progress" ondrop="dropTo('in_progress')" ondragover="allowDrop(event)" class="taskLine"></div>
+                    <div id="feedback" ondrop="dropTo('feedback')" ondragover="allowDrop(event)" class="taskLine"></div>
+                    <div id="done" ondrop="dropTo('done')" ondragover="allowDrop(event)" class="taskLine"></div>
                 </div>
             </div>
         </div>
@@ -46,17 +46,17 @@ function generateBoardWidthMinus1300HTML() {
             <div class="progressNamesContain">
                 <div class="progressNameWithLine">
                     <p class="progressName">To do ${returnAddBtnSVG('to_do')}</p>
-                    <div id="to_do" class="taskLine scrollbarTaskLine"></div>
+                    <div id="to_do" ondrop="dropTo('to_do')" ondragover="allowDrop(event)" class="taskLine scrollbarTaskLine"></div>
                 <div class="progressNameWithLine">
                     <p class="progressName">In progress ${returnAddBtnSVG('in_progress')}</p>
-                    <div id="in_progress" class="taskLine scrollbarTaskLine"></div>
+                    <div id="in_progress" ondrop="dropTo('in_progress')" ondragover="allowDrop(event)" class="taskLine scrollbarTaskLine"></div>
                 </div>
                 <div class="progressNameWithLine">
                     <p class="progressName">Await feedback ${returnAddBtnSVG('feedback')}</p>
-                    <div id="feedback" class="taskLine scrollbarTaskLine"></div>
+                    <div id="feedback" ondrop="dropTo('feedback')" ondragover="allowDrop(event)" class="taskLine scrollbarTaskLine"></div>
                 <div class="progressNameWithLine">
                     <p class="progressName">Done</p>
-                    <div id="done" class="taskLine scrollbarTaskLine"></div>
+                    <div id="done" ondrop="dropTo('done')" ondragover="allowDrop(event)" class="taskLine scrollbarTaskLine"></div>
                 </div> 
             </div>
         </div>

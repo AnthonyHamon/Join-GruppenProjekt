@@ -22,6 +22,24 @@ async function assignTaskElementsToStatus(status) {
     ifContainerEmpty(container);
 }
 
+function renderTaskElement(task) {
+    let section = document.createElement('section');
+    section.className = 'section';
+    section.id = `section${task.id}`;
+    section.draggable = true;
+    section.ondragstart = function () {
+        startDragging(task.id);
+    };
+    section.ondragend = function () {
+        endDragging();
+    };
+    section.onclick = function () {
+        openTask(task.id);
+    };
+    section.innerHTML = renderTaskHTML(task);
+    return section;
+}
+
 function formatTaskText(text) {
     let trimmedText = text.trim();
     if (currentTaskStatus === 'small' && trimmedText.length > 57) {

@@ -78,7 +78,11 @@ function showWidthHTML() {
     }
 }
 
-function openTask(task) {
+function openTask(id) {
+    if (isDragging) {
+        return;
+    }
+    let task = tasks.find(t => t.id === id);
     let contain = document.getElementById('taskDetailsContain');
     currentTaskStatus = 'big';
     contain.innerHTML = `
@@ -179,4 +183,26 @@ function checkProfileBadgeCount() {
             container.appendChild(additionalBadge);
         }
     });
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function startDragging(id) {
+    isDragging = true;
+    currentDraggedTaskId = id;
+}
+
+async function dropTo(status) {
+    let taskById = tasks.find(task => task.id === currentDraggedTaskId);
+    taskById.status = status;
+    await setItem('tasks', JSON.stringify(tasks));
+    renderAllTasks();
+}
+
+function endDragging() {
+    setTimeout(() => {
+        isDragging = false;
+    }, 100);
 }
