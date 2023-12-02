@@ -47,12 +47,12 @@ function assignTo(i, name, email, phone, initial, BgColor) {
     }
 }
 
-function renderSelectedContactBadges(selectedContacts){
+function renderSelectedContactBadges(selectedContacts) {
     let selectedContactCtn = document.getElementById('selected-contact-ctn');
     selectedContactCtn.innerHTML = '';
     for (let i = 0; i < selectedContacts.length; i++) {
         const selectedContact = selectedContacts[i];
-       selectedContactCtn.innerHTML += returnSelectedContactBadges(selectedContact); 
+        selectedContactCtn.innerHTML += returnSelectedContactBadges(selectedContact);
     }
 }
 
