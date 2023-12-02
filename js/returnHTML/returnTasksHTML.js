@@ -6,14 +6,14 @@ function generateAddTaskHTML() {
             <div class="task-headline">
                 <h1 class="task-name">Add Task</h1>
             </div>
-        <div class="task_input_ctn">
+        <form class="task_input_ctn">
             <div class="task-input">
                 <div class="left-field">
                     <div>
-                        <form class="titel-field">
+                        <div class="titel-field">
                             <h4>Title<span class="letter-color">*</span></h4>
-                            <input class="titel-input" required type="text" name="myInput" placeholder="Enter a title">
-                        </form>
+                            <input id="titel-input" class="titel-input" required type="text" name="myInput" placeholder="Enter a title">
+                        </div>
                     </div>
                     <div class="description-field">
                         <h4>Description</h4>
@@ -31,8 +31,9 @@ function generateAddTaskHTML() {
                         <h4>Assigned to</h4>
                         <div class="custom-dropdown">
                             <input class="assign-input" type="search" placeholder="Select contacts to assign">
-                            <button class="assign-button" onclick="toggleContacts()"><img onclick="rotateIcon()"
-                                src="../images/arrow_drop_downaa.svg" alt="Arrow Icon" id="arrowIcon"></button>
+                            <div class="assign-button" onclick="toggleContacts()">
+                                <img onclick="rotateIcon()" src="../images/arrow_drop_downaa.svg" alt="Arrow Icon" id="arrowIcon">
+                            </div>
                         </div>
                         <div class="contact-container d-none" id="contactContainer">
                             <div class="contact-box">
@@ -42,8 +43,9 @@ function generateAddTaskHTML() {
                                         <span id="current-user-name" class="contact-name"></span>
                                     </div>
                                     <div>
-                                        <button class="check-button"><img src="../images/Rectangle 5.svg"
-                                        alt=""></button>
+                                        <div class="check-button">
+                                            <img src="../images/Rectangle 5.svg" alt="">
+                                        </div>
                                     </div>
                                 </div>
                                 <div id="assigned-to-contact-list"></div>
@@ -62,18 +64,18 @@ function generateAddTaskHTML() {
                     <div class="prio-container">
                         <h4>Prio</h4>
                         <div class="button-selection">
-                            <button class="prio-button" id="buttonUrgent" onclick="changeButtonStyles('Urgent')">Urgent
-                                <img class="prio-image" id="iconUrgent" src="../images/capa 2.svg" alt=""></button>
-                            <button class="prio-button" id="buttonMedium" onclick="changeButtonStyles('Medium')">Medium
-                                <img class="prio-image" id="iconMedium" src="../images/prio media.svg" alt=""></button>
-                            <button class="prio-button" id="buttonLow" onclick="changeButtonStyles('Low')">Low <img
-                                class="prio-image" id="iconLow" src="../images/prio baja.svg" alt=""></button>
+                            <div class="prio-button" id="buttonUrgent" onclick="changeButtonStyles('Urgent')">Urgent
+                                <img class="prio-image" id="iconUrgent" src="../images/capa 2.svg" alt=""></div>
+                            <div class="prio-button" id="buttonMedium" onclick="changeButtonStyles('Medium')">Medium
+                                <img class="prio-image" id="iconMedium" src="../images/prio media.svg" alt=""></div>
+                            <div class="prio-button" id="buttonLow" onclick="changeButtonStyles('Low')">Low <img
+                                class="prio-image" id="iconLow" src="../images/prio baja.svg" alt=""></div>
                         </div>
                     </div>
                     <div class="category-fields">
                         <h4>Category<span class="letter-color">*</span></h4>
                         <div onclick="toggleDropdown()">
-                            <form class="custom-list">
+                            <div class="custom-list">
                                 <span class="span-category" id="selectedCategory">Select task category</span>
                                 <div class="category-icon-field">
                                     <img class="drop-option" id="selectIcon" src="../images/arrow_drop_downaa.svg"
@@ -83,7 +85,7 @@ function generateAddTaskHTML() {
                                     <li onclick="toggleDropdown()" data-category="Technical Task">Technical Task</li>
                                     <li onclick="toggleDropdown()" data-category="User Story">User Story</li>
                                 </ul>
-                            </form>
+                            </div>
                         </div>
                     </div>
                     <div class="subtask-container">
@@ -107,14 +109,14 @@ function generateAddTaskHTML() {
         
             <div class="task-below">
                 <div>
-                    <div class="requered-field"><span class="letter-color">*</span>This field is requered</div>
+                    <div class="requered-field"><span class="letter-color">*</span>This field is required</div>
                 </div>
                 <div class="clear-create-button">
-                    <button type="button" class="clear-button">Cancel<img src="../images/close.svg"></button>
+                    <button type="reset" class="clear-button">Cancel<img src="../images/close.svg"></button>
                     <button onclick="setNewTask()" class="create-button">Create Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
     `;
 }

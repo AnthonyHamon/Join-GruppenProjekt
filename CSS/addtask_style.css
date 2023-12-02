@@ -12,7 +12,7 @@ h1 {
     margin: 0;
 }
 
-.task_input_ctn{
+.task_input_ctn {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -39,6 +39,10 @@ h1 {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
+}
+
+#titel-input:invalid {
+    border-color: #FF8190;
 }
 
 .titel-input {
@@ -166,12 +170,12 @@ h1 {
     outline: none;
 }
 
-.contact_selected{
+.contact_selected {
     background-color: #2A3647;
     color: white;
 }
 
-.contact_selected:hover{
+.contact_selected:hover {
     background-color: #091931 !important;
 }
 
@@ -267,7 +271,7 @@ input[type="search"]::-webkit-search-clear-button {
     background-color: #D1D1D1;
 }
 
-#assigned-to-contact-list{
+#assigned-to-contact-list {
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -276,7 +280,7 @@ input[type="search"]::-webkit-search-clear-button {
     height: 30vh;
 }
 
-.selected_contact_ctn{
+.selected_contact_ctn {
     display: flex;
 }
 
@@ -390,7 +394,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     color: #D1D1D1;
 }
 
-.date-field .date-container { 
+.date-field .date-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -839,7 +843,7 @@ li {
 
 @media (max-width: 600px) {
 
-    .task-container  {
+    .task-container {
         padding: 20px 20px 20px 20px;
     }
 }

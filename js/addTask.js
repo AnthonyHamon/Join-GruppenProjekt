@@ -1,5 +1,6 @@
 let selectedContacts = [];
 let subtasks = [];
+let iconRotated = false;
 
 function renderAddTask() {
     addContentCSS()
