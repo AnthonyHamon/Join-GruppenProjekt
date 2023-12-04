@@ -78,19 +78,25 @@ function generateAddTaskHTML() {
                     </div>
                     <div class="category-fields">
                         <h4>Category<span class="letter-color">*</span></h4>
-                        <div onclick="toggleDropdown()">
+                        <div onclick="toggleDropdown()" class="category-box">
                             <div class="custom-list">
-                            <input class="span-category" id="selectedCategory" type="text" name="myInput" placeholder="Select task category">
+                                <div>
+                                    <input class="span-category" id="selectedCategory" type="text" name="myInput" placeholder="Select task category">
+                                </div>
                                 <div class="category-icon-field">
                                     <img class="drop-option" id="selectIcon" src="../images/arrow_drop_downaa.svg"
                                         alt="Arrow">
                                 </div>
-                                <ul id="dropdownOptions" class="dropdown-options" onclick="selectCategory(event)">
-                                    <li onclick="toggleDropdown()" data-category="Technical Task">Technical Task</li>
-                                    <li onclick="toggleDropdown()" data-category="User Story">User Story</li>
-                                </ul>
                             </div>
                         </div>
+                        <div id="dropdownOptions" class="dropdown-options" onclick="selectCategory(event)">
+                                    <div class="category-list">
+                                        <span onclick="toggleDropdown()" >Technical Task</span>
+                                    </div>
+                                    <div class="category-list">
+                                        <span onclick="toggleDropdown()" >User Story</span>
+                                    </div>
+                                </div>
                     </div>
                     <div class="subtask-container">
                         <h4>Subtasks</h4>
