@@ -1,11 +1,6 @@
-let iconRotated = false;
-let datesContainer = document.querySelector('.dates');
-let selectedButton = null;
-
-
-let isImagesOpen = false;
+let selectedContacts = [];
 let subtasks = [];
-
+let iconRotated = false;
 
 function renderAddTask() {
     addContentCSS()
@@ -41,13 +36,24 @@ function renderAssignedToContactList() {
     }
 }
 
-function assignTo(i, contact) {
-    const index = selectedContacts.findIndex(c => c === contact);
-    styleSelectedContact(i)
+function assignTo(i, name, email, phone, initial, BgColor) {
+    const index = selectedContacts.findIndex(c => c.email === email);
+    styleSelectedContact(i);
     if (index > -1) {
         selectedContacts.splice(index, 1);
+        renderSelectedContactBadges(selectedContacts)
     } else {
-        selectedContacts.push(contact);
+        selectedContacts.push({ name, email, phone, initial, BgColor });
+        renderSelectedContactBadges(selectedContacts)
+    }
+}
+
+function renderSelectedContactBadges(selectedContacts) {
+    let selectedContactCtn = document.getElementById('selected-contact-ctn');
+    selectedContactCtn.innerHTML = '';
+    for (let i = 0; i < selectedContacts.length; i++) {
+        const selectedContact = selectedContacts[i];
+        selectedContactCtn.innerHTML += returnSelectedContactBadges(selectedContact);
     }
 }
 
@@ -77,7 +83,7 @@ function displayAssignedContacts(task) {
     }
 }
 
-function styleSelectedContact(i){
+function styleSelectedContact(i) {
     document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`checked-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`contact${i}`).classList.toggle('contact_selected');
@@ -245,9 +251,6 @@ function addTaskBgrColor() {
 }
 
 
-
-
-
 function removeBgrColorWithoutAddTask() {
     document.getElementById('summary').classList.remove('currentTemplate', 'p-none');
     document.getElementById('board').classList.remove('currentTemplate', 'p-none');
@@ -262,49 +265,3 @@ function addJoinLogoClickable() {
     document.getElementById('join_logo').classList.remove('p-none');
     document.getElementById('join_logo_mobile').classList.remove('p-none');
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

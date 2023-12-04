@@ -12,7 +12,7 @@ h1 {
     margin: 0;
 }
 
-.task_input_ctn{
+.task_input_ctn {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -41,7 +41,26 @@ h1 {
     gap: 8px;
 }
 
-.titel-input {
+#titel-input:invalid:hover {
+    border-color: #FF8190;
+}
+
+.error_warning{
+    height: 19px;
+    margin-bottom: -20px;
+}
+
+#title-warning-text{
+    color: #FF8190;
+    font-size: 12px;
+    display: none;
+}
+
+#titel-input:invalid:hover + .error_warning #title-warning-text{
+    display: block;
+}
+
+#titel-input {
     display: flex;
     padding: 18px 16px;
     align-items: center;
@@ -56,16 +75,17 @@ h1 {
     font-size: 20px;
     line-height: 24px;
     font-family: 'PT Sans', sans-serif;
+    margin-bottom: -8px;
 }
 
-.titel-input::placeholder {
+#titel-input::placeholder {
     color: rgba(209, 209, 209, 1);
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
 }
 
-.titel-input:focus {
+#titel-input:focus {
     outline: none;
 }
 
@@ -166,12 +186,12 @@ h1 {
     outline: none;
 }
 
-.contact_selected{
+.contact_selected {
     background-color: #2A3647;
     color: white;
 }
 
-.contact_selected:hover{
+.contact_selected:hover {
     background-color: #091931 !important;
 }
 
@@ -256,6 +276,7 @@ input[type="search"]::-webkit-search-clear-button {
     align-items: center;
     border-radius: 10px;
     padding: 12px 16px 12px 16px;
+    cursor: pointer;
 }
 
 .contacts-topfield:hover {
@@ -266,10 +287,17 @@ input[type="search"]::-webkit-search-clear-button {
     background-color: #D1D1D1;
 }
 
-#assigned-to-contact-list{
+#assigned-to-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
     width: 100%;
     overflow: scroll;
     height: 30vh;
+}
+
+.selected_contact_ctn {
+    display: flex;
 }
 
 .contacts-name {
@@ -368,6 +396,21 @@ h4 {
     cursor: pointer;
     font-size: 20px;
     font-weight: 100;
+    margin-bottom: -8px;
+}
+
+#calender-input:invalid:hover {
+    border-color: #FF8190;
+}
+
+#calender-input:invalid:hover + .error_warning #calender-warning-text{
+    display: block;
+}
+
+#calender-warning-text{
+    color: #FF8190;
+    font-size: 12px;
+    display: none;
 }
 
 .date-field input[type="date"]::-webkit-calendar-picker-indicator {
@@ -382,7 +425,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     color: #D1D1D1;
 }
 
-.date-field .date-container { 
+.date-field .date-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -503,6 +546,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     gap: 10px;
     border: 1px solid rgba(209, 209, 209, 1);
     cursor: pointer;
+    background-color: white;
 }
 
 .span-category {
@@ -831,7 +875,7 @@ li {
 
 @media (max-width: 600px) {
 
-    .task-container  {
+    .task-container {
         padding: 20px 20px 20px 20px;
     }
 }

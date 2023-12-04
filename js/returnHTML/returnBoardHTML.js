@@ -30,10 +30,10 @@ function generateBoardWidthPlus1300HTML() {
             </div>
             <div class="scrollbar">
                 <div class="taskContain">
-                    <div id="to_do" class="taskLine"></div>
-                    <div id="in_progress" class="taskLine"></div>
-                    <div id="feedback" class="taskLine"></div>
-                    <div id="done" class="taskLine"></div>
+                    <div id="to_do" ondrop="dropTo('to_do')" ondragover="allowDrop(event)" class="taskLine"></div>
+                    <div id="in_progress" ondrop="dropTo('in_progress')" ondragover="allowDrop(event)" class="taskLine"></div>
+                    <div id="feedback" ondrop="dropTo('feedback')" ondragover="allowDrop(event)" class="taskLine"></div>
+                    <div id="done" ondrop="dropTo('done')" ondragover="allowDrop(event)" class="taskLine"></div>
                 </div>
             </div>
         </div>
@@ -46,17 +46,17 @@ function generateBoardWidthMinus1300HTML() {
             <div class="progressNamesContain">
                 <div class="progressNameWithLine">
                     <p class="progressName">To do ${returnAddBtnSVG('to_do')}</p>
-                    <div id="to_do" class="taskLine scrollbarTaskLine"></div>
+                    <div id="to_do" ondrop="dropTo('to_do')" ondragover="allowDrop(event)" class="taskLine scrollbarTaskLine"></div>
                 <div class="progressNameWithLine">
                     <p class="progressName">In progress ${returnAddBtnSVG('in_progress')}</p>
-                    <div id="in_progress" class="taskLine scrollbarTaskLine"></div>
+                    <div id="in_progress" ondrop="dropTo('in_progress')" ondragover="allowDrop(event)" class="taskLine scrollbarTaskLine"></div>
                 </div>
                 <div class="progressNameWithLine">
                     <p class="progressName">Await feedback ${returnAddBtnSVG('feedback')}</p>
-                    <div id="feedback" class="taskLine scrollbarTaskLine"></div>
+                    <div id="feedback" ondrop="dropTo('feedback')" ondragover="allowDrop(event)" class="taskLine scrollbarTaskLine"></div>
                 <div class="progressNameWithLine">
                     <p class="progressName">Done</p>
-                    <div id="done" class="taskLine scrollbarTaskLine"></div>
+                    <div id="done" ondrop="dropTo('done')" ondragover="allowDrop(event)" class="taskLine scrollbarTaskLine"></div>
                 </div> 
             </div>
         </div>
@@ -74,7 +74,7 @@ function renderTaskHTMLDetails(task) {
             <p class="taskDescriptionDetails">${formatTaskText(task.description)}</p>
             <div class="titleTxtDetailsContain">
                 <span class="titleDetails">Due date:</span>
-                <span class="dateTxtDetails">${task.date}</span>
+                <span class="dateTxtDetails">10/05/2023</span>
             </div>
             <div class="titleTxtDetailsContain">
                 <span class="titleDetails">Priority:</span>
@@ -82,14 +82,30 @@ function renderTaskHTMLDetails(task) {
             </div>
             <span class="titleDetails">Assigned To:</span>
             <div id="profilBadgeDetails${task.id}" class="assignedContain">
-                ${task.assignedContacts.map(contact => `
-                    <div class="assignedProfil">
-                        <div class="assignedBadge" style="background-color:${contact.BgColor}">${contact.initial}</div>
-                        <div class="assignedName">
-                            <span class="assignedNameText">${contact.name}</span>
-                        </div>
+                <div class="assignedProfil">
+                    <div class="assignedBadge">ED</div>
+                    <div class="assignedName">
+                        <span class="assignedNameText">René Porzelt</span>
                     </div>
-                `).join('')}
+                </div>
+                <div class="assignedProfil">
+                <div class="assignedBadge">ED</div>
+                    <div class="assignedName">
+                        <span class="assignedNameText">Elisa Papetti</span>
+                    </div>
+                </div>
+                <div class="assignedProfil">
+                <div class="assignedBadge">ED</div>
+                    <div class="assignedName">
+                        <span class="assignedNameText">DieElisabeth Großhausendurchhausen</span>
+                    </div>
+                </div>
+                <div class="assignedProfil">
+                <div class="assignedBadge">ED</div>
+                    <div class="assignedName">
+                        <span class="assignedNameText">Renéasf asfasgasfasfsafafssss</span>
+                    </div>
+                </div>
             </div>
             <span class="titleDetails">Subtasks</span>
             <div>
@@ -175,9 +191,15 @@ function renderTaskHTML(task) {
         </div>
         <div class="profilePropertyContain">
             <div id="profile${task.id}" class="profileBadgeContain">
-                ${task.assignedContacts.map(contact => `
-                    <div class="profileBadge" style="background-color:${contact.BgColor}">${contact.initial}</div>
-                `).join('')}
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
+                <div class="profileBadge">RP</div>
             </div>
             <div id="task_priority_contain">
                 ${checkPriority(task.priority)}
