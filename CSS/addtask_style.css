@@ -41,11 +41,26 @@ h1 {
     gap: 8px;
 }
 
-#titel-input:invalid {
+#titel-input:invalid:hover {
     border-color: #FF8190;
 }
 
-.titel-input {
+.error_warning{
+    height: 19px;
+    margin-bottom: -20px;
+}
+
+#title-warning-text{
+    color: #FF8190;
+    font-size: 12px;
+    display: none;
+}
+
+#titel-input:invalid:hover + .error_warning #title-warning-text{
+    display: block;
+}
+
+#titel-input {
     display: flex;
     padding: 18px 16px;
     align-items: center;
@@ -60,16 +75,17 @@ h1 {
     font-size: 20px;
     line-height: 24px;
     font-family: 'PT Sans', sans-serif;
+    margin-bottom: -8px;
 }
 
-.titel-input::placeholder {
+#titel-input::placeholder {
     color: rgba(209, 209, 209, 1);
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
 }
 
-.titel-input:focus {
+#titel-input:focus {
     outline: none;
 }
 
@@ -380,6 +396,21 @@ h4 {
     cursor: pointer;
     font-size: 20px;
     font-weight: 100;
+    margin-bottom: -8px;
+}
+
+#calender-input:invalid:hover {
+    border-color: #FF8190;
+}
+
+#calender-input:invalid:hover + .error_warning #calender-warning-text{
+    display: block;
+}
+
+#calender-warning-text{
+    color: #FF8190;
+    font-size: 12px;
+    display: none;
 }
 
 .date-field input[type="date"]::-webkit-calendar-picker-indicator {
@@ -515,6 +546,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     gap: 10px;
     border: 1px solid rgba(209, 209, 209, 1);
     cursor: pointer;
+    background-color: white;
 }
 
 .span-category {

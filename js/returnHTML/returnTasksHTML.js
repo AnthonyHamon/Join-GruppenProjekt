@@ -9,12 +9,13 @@ function generateAddTaskHTML() {
         <form class="task_input_ctn">
             <div class="task-input">
                 <div class="left-field">
-                    <div>
                         <div class="titel-field">
                             <h4>Title<span class="letter-color">*</span></h4>
-                            <input id="titel-input" class="titel-input" required type="text" name="myInput" placeholder="Enter a title">
-                        </div>
-                    </div>
+                            <input id="titel-input" required type="text" name="myInput" placeholder="Enter a title">
+                            <div  class="error_warning">
+                                <span id="title-warning-text">This field is required</span>
+                            </div>
+                        </div>    
                     <div class="description-field">
                         <h4>Description</h4>
                         <div class="textarea-container">
@@ -58,7 +59,10 @@ function generateAddTaskHTML() {
                     <div>
                         <div class="date-field">
                             <h4>Due Date<span class="letter-color">*</span></h4>
-                            <input required class="calender_input" type="date" placeholder="dd/mm/yyyy">
+                            <input id="calender-input" required class="calender_input" type="date" placeholder="dd/mm/yyyy">
+                            <div class="error_warning">
+                                <span id="calender-warning-text">This field is required</span>
+                            </div>
                         </div>
                     </div>
                     <div class="prio-container">

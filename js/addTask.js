@@ -251,9 +251,6 @@ function addTaskBgrColor() {
 }
 
 
-
-
-
 function removeBgrColorWithoutAddTask() {
     document.getElementById('summary').classList.remove('currentTemplate', 'p-none');
     document.getElementById('board').classList.remove('currentTemplate', 'p-none');
