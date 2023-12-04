@@ -784,7 +784,7 @@ li {
 
     .task-container {
         overflow: scroll;
-        padding: ;
+        padding: 20px;
     }
 
     .task-input {
