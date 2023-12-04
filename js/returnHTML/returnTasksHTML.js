@@ -6,7 +6,7 @@ function generateAddTaskHTML() {
             <div class="task-headline">
                 <h1 class="task-name">Add Task</h1>
             </div>
-        <form class="task_input_ctn">
+        <form onsubmit="setNewTask(); return false" class="task_input_ctn">
             <div class="task-input">
                 <div class="left-field">
                         <div class="titel-field">
@@ -117,7 +117,7 @@ function generateAddTaskHTML() {
                 </div>
                 <div class="clear-create-button">
                     <button type="reset" class="clear-button">Cancel<img src="../images/close.svg"></button>
-                    <button onclick="setNewTask()" class="create-button">Create Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
+                    <button class="create-button">Create Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
                 </div>
             </div>
         </form>
