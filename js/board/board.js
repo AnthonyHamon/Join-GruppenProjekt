@@ -184,25 +184,3 @@ function checkProfileBadgeCount() {
         }
     });
 }
-
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function startDragging(id) {
-    isDragging = true;
-    currentDraggedTaskId = id;
-}
-
-async function dropTo(status) {
-    let taskById = tasks.find(task => task.id === currentDraggedTaskId);
-    taskById.status = status;
-    await setItem('tasks', JSON.stringify(tasks));
-    renderAllTasks();
-}
-
-function endDragging() {
-    setTimeout(() => {
-        isDragging = false;
-    }, 100);
-}

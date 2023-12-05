@@ -1,6 +1,6 @@
 async function setNewTask() {
     let id = ++highestTaskId;
-    let title = 'D';
+    let title = 'ABCD';
     let description = 'Lorem, ipsum kakadudu dolor sit amet consectetur adipisicing elit...';
     let date = '33.33.2023';
     let priority = 'Urgent';

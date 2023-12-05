@@ -14,3 +14,7 @@ let mininamLoadingElementJoinTime = 1000;
 let textSlideAnimationTimer;
 let currentDraggedTaskId;
 let isDragging = false;
+let scrollIntervalInDragAndDrop = null;
+let longPressTimer;
+let isScrolling = false;
+let currentTouchedTaskLineId = null;

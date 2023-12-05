@@ -27,15 +27,31 @@ function renderTaskElement(task) {
     section.className = 'section';
     section.id = `section${task.id}`;
     section.draggable = true;
+
     section.ondragstart = function () {
         startDragging(task.id);
     };
+
     section.ondragend = function () {
         endDragging();
     };
+
     section.onclick = function () {
         openTask(task.id);
     };
+
+    section.addEventListener('touchmove', function (event) {
+        clearTimeout(longPressTimer);
+    }, { passive: false });
+
+    section.addEventListener('touchstart', function (event) {
+        handleTouchStart(event, task.id);
+    }, { passive: false });
+
+    section.addEventListener('touchend', function (event) {
+        handleTouchEnd(event, task.id);
+    }, { passive: false });
+
     section.innerHTML = renderTaskHTML(task);
     return section;
 }
