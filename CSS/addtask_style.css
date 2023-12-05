@@ -609,7 +609,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     height: 100px;
     margin-top: -16px;
     height: 100px;
-    border-radius: 10px;
+    border-radius: 0px 0px 10px 10px;
     gap: px;
     border: 1px solid rgba(209, 209, 209, 1);
     cursor: pointer;
