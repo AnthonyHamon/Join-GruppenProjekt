@@ -87,13 +87,6 @@ function styleSelectedContact(i) {
     document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`checked-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`contact${i}`).classList.toggle('contact_selected');
-
-}
-
-function toggleCheckImage(i) {
-    stop(event);
-    document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');
-    document.getElementById(`checked-contact${i}-black-img`).classList.toggle('d-none');
 }
 
 function toggleDropdown() {

@@ -176,8 +176,8 @@ function returnAssignedToContactList(i, contact) {
         </div>
         <div>
             <div class="check-button">
-                <img onclick="toggleCheckImage(${i})" id="check-contact${i}-img" src="../images/Rectangle 5.svg" alt="">
-                <img onclick="toggleCheckImage(${i})" id="checked-contact${i}-black-img" class="d-none" src="../images/Group 19.svg" alt="">
+                <img id="check-contact${i}-img" src="../images/Rectangle 5.svg" alt="">
+                <img id="checked-contact${i}-black-img" class="d-none" src="../images/Group 19.svg" alt="">
                 <img id="checked-contact${i}-img" class="d-none" src="../images/check-white.svg" alt="">
             </div>
         </div>
