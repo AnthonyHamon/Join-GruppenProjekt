@@ -31,7 +31,7 @@ function generateAddTaskHTML() {
                     <div class="contacts-field">
                         <h4>Assigned to</h4>
                         <div class="custom-dropdown">
-                            <input class="assign-input" type="search" placeholder="Select contacts to assign">
+                            <input onkeyup="searchContactToAssign()" id="assignTo-input" class="assign-input" type="search" placeholder="Select contacts to assign">
                             <div class="assign-button" onclick="toggleContacts()">
                                 <img onclick="rotateIcon()" src="../images/arrow_drop_downaa.svg" alt="Arrow Icon" id="arrowIcon">
                             </div>
