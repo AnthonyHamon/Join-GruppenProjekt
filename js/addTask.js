@@ -57,32 +57,6 @@ function renderSelectedContactBadges(selectedContacts) {
     }
 }
 
-async function addNewTaskTEST() {
-    try {
-        let task = await setNewTask();
-        displayAssignedContacts(task);
-    } catch (error) {
-        console.error('Fehler bei der Erstellung des Tasks:', error);
-    }
-}
-
-function displayAssignedContacts(task) {
-    let profileContainer = document.getElementById(`profile${task.id}`);
-    let badgeDetailsContainer = document.getElementById(`profilBadgeDetails${task.id}`);
-
-    if (profileContainer && badgeDetailsContainer) {
-        task.assignedContacts.forEach(contact => {
-            let badgeElement = document.createElement('div');
-            badgeElement.className = 'profileBadge';
-            badgeElement.style.backgroundColor = contact.BgColor;
-            badgeElement.textContent = contact.initial;
-            profileContainer.appendChild(badgeElement);
-        });
-    } else {
-        console.error('Elemente nicht gefunden');
-    }
-}
-
 function styleSelectedContact(i) {
     document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`checked-contact${i}-img`).classList.toggle('d-none');
@@ -135,9 +109,10 @@ function toggleContacts() {
 }
 
 
-function changeButtonStyles(color) {
-    let button = document.getElementById(`button${color}`);
-    let icon = document.getElementById(`icon${color}`);
+function changeButtonStyles(priority) {
+    let button = document.getElementById(`button${priority}`);
+    let icon = document.getElementById(`icon${priority}`);
+    currentPrioriyToCreateTask = priority;
 
     if (button.classList.contains('selected')) {
         resetSelectedPrioButton();

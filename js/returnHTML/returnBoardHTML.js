@@ -83,31 +83,73 @@ function renderTaskHTMLDetails(task) {
             <span class="titleDetails">Assigned To:</span>
             <div id="profilBadgeDetails${task.id}" class="assignedContain">
                 <div class="assignedProfil">
-                    <div class="assignedBadge">ED</div>
+                    <span class="assignedBadge">ED</span>
                     <div class="assignedName">
                         <span class="assignedNameText">René Porzelt</span>
                     </div>
                 </div>
                 <div class="assignedProfil">
-                <div class="assignedBadge">ED</div>
+                    <span class="assignedBadge">ED</span>
                     <div class="assignedName">
                         <span class="assignedNameText">Elisa Papetti</span>
                     </div>
                 </div>
                 <div class="assignedProfil">
-                <div class="assignedBadge">ED</div>
+                    <span class="assignedBadge">ED</span>
                     <div class="assignedName">
                         <span class="assignedNameText">DieElisabeth Großhausendurchhausen</span>
                     </div>
                 </div>
                 <div class="assignedProfil">
-                <div class="assignedBadge">ED</div>
+                    <span class="assignedBadge">ED</span>
                     <div class="assignedName">
                         <span class="assignedNameText">Renéasf asfasgasfasfsafafssss</span>
                     </div>
                 </div>
+                <div class="assignedProfil">
+                    <span class="assignedBadge">TT</span>
+                    <div class="assignedName">
+                        <span class="assignedNameText">Testotest testtestoootest</span>
+                    </div>
+                </div>
+                <div class="assignedProfil">
+                    <span class="assignedBadge">TT</span>
+                    <div class="assignedName">
+                        <span class="assignedNameText">Testotest testtestoootest</span>
+                    </div>
+                </div>
+                <div class="assignedProfil">
+                    <span class="assignedBadge">TT</span>
+                    <div class="assignedName">
+                        <span class="assignedNameText">Testotest testtestoootest</span>
+                    </div>
+                </div>
+                <div class="assignedProfil">
+                    <span class="assignedBadge">TT</span>
+                    <div class="assignedName">
+                        <span class="assignedNameText">Testotest testtestoootest</span>
+                    </div>
+                </div>
+                <div class="assignedProfil">
+                    <span class="assignedBadge">TT</span>
+                    <div class="assignedName">
+                        <span class="assignedNameText">Testotest testtestoootest</span>
+                    </div>
+                </div>
+                <div class="assignedProfil">
+                    <span class="assignedBadge">TT</span>
+                    <div class="assignedName">
+                        <span class="assignedNameText">Testotest testtestoootest</span>
+                    </div>
+                </div>
+                <div class="assignedProfil">
+                    <span class="assignedBadge">TT</span>
+                    <div class="assignedName">
+                        <span class="assignedNameText">Testotest testtestoootest</span>
+                    </div>
+                </div>
             </div>
-            <span class="titleDetails">Subtasks</span>
+            <span class="titleDetails" style="margin-top: -10px">Subtasks</span>
             <div>
                 <p></p>
                 <p></p>
