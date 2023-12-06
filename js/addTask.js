@@ -1,6 +1,8 @@
 let selectedContacts = [];
 let subtasks = [];
 let iconRotated = false;
+let categorys = ['Frontend', 'Backend', 'Web Security']
+
 
 function renderAddTask() {
     addContentCSS()
@@ -10,7 +12,9 @@ function renderAddTask() {
     generateAddTaskHTML();
     renderAssignedToCurrentUser();
     renderAssignedToContactList();
+    showCategory();
 }
+
 
 // assigned to
 
@@ -27,6 +31,7 @@ function renderAssignedToCurrentUser() {
     }
 }
 
+
 function renderAssignedToContactList() {
     let assignedToContactList = document.getElementById('assigned-to-contact-list');
     contacts.sort((a, b) => { return compareStrings(a.name, b.name) });
@@ -35,6 +40,7 @@ function renderAssignedToContactList() {
         assignedToContactList.innerHTML += returnAssignedToContactList(i, contact);
     }
 }
+
 
 function assignTo(i, name, email, phone, initial, BgColor) {
     const index = selectedContacts.findIndex(c => c.email === email);
@@ -48,6 +54,7 @@ function assignTo(i, name, email, phone, initial, BgColor) {
     }
 }
 
+
 function renderSelectedContactBadges(selectedContacts) {
     let selectedContactCtn = document.getElementById('selected-contact-ctn');
     selectedContactCtn.innerHTML = '';
@@ -57,54 +64,12 @@ function renderSelectedContactBadges(selectedContacts) {
     }
 }
 
-async function addNewTaskTEST() {
-    try {
-        let task = await setNewTask();
-        displayAssignedContacts(task);
-    } catch (error) {
-        console.error('Fehler bei der Erstellung des Tasks:', error);
-    }
-}
-
-function displayAssignedContacts(task) {
-    let profileContainer = document.getElementById(`profile${task.id}`);
-    let badgeDetailsContainer = document.getElementById(`profilBadgeDetails${task.id}`);
-
-    if (profileContainer && badgeDetailsContainer) {
-        task.assignedContacts.forEach(contact => {
-            let badgeElement = document.createElement('div');
-            badgeElement.className = 'profileBadge';
-            badgeElement.style.backgroundColor = contact.BgColor;
-            badgeElement.textContent = contact.initial;
-            profileContainer.appendChild(badgeElement);
-        });
-    } else {
-        console.error('Elemente nicht gefunden');
-    }
-}
 
 function styleSelectedContact(i) {
     document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`checked-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`contact${i}`).classList.toggle('contact_selected');
 }
-
-
-function toggleDropdown() {
-    const dropdownOptions = document.getElementById('dropdownOptions');
-    const icon = document.getElementById('selectIcon');
-
-    iconRotated = !iconRotated;
-
-    if (iconRotated) {
-        dropdownOptions.style.display = 'block'; // Dropdown anzeigen
-        icon.style.transform = 'rotate(180deg)';
-    } else {
-        dropdownOptions.style.display = 'none'; // Dropdown ausblenden
-        icon.style.transform = 'rotate(0deg)';
-    }
-}
-
 
 
 function rotateIcon() {
@@ -139,8 +104,8 @@ function changeButtonStyles(color) {
         button.classList.add('selected');
         icon.classList.add('selected_icon');
     }
-
 }
+
 
 function resetSelectedPrioButton() {
     let allPrioSelectedButton = document.querySelectorAll('.selected');
@@ -154,7 +119,6 @@ function resetSelectedPrioButton() {
 }
 
 
-// Subtask Element
 function toggleImages() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
@@ -188,6 +152,8 @@ function clearInputField(inputsField) {
 }
 
 
+// Subtask........
+
 function addSubtask() {
     let subtaskInput = document.getElementById('subtaskInput').value;
     subtasks.push(subtaskInput);
@@ -213,7 +179,6 @@ function renderSubtask() {
         const subtask = subtasks[index];
 
         subtaskContent.innerHTML += returnSubtask(subtask, index);
-
     }
 }
 
@@ -250,4 +215,42 @@ function removeBgrColorWithoutAddTask() {
 function addJoinLogoClickable() {
     document.getElementById('join_logo').classList.remove('p-none');
     document.getElementById('join_logo_mobile').classList.remove('p-none');
+}
+
+
+// Category........
+
+function showCategory() {
+    let categoryList = document.getElementById('dropdownOptions');
+    categoryList.innerHTML = '';
+
+    for (let c = 0; c < categorys.length; c++) {
+        const category = categorys[c];
+        
+        categoryList.innerHTML += renderCategory(category, c)
+    }
+}
+
+
+function acceptCategory(category) {
+    let selectInput = document.getElementById('selectedCategory');
+    selectInput.value = category;
+
+    toggleDropdown() 
+}
+
+
+function toggleDropdown() {
+    const dropdownOptions = document.getElementById('dropdownOptions');
+    const icon = document.getElementById('selectIcon');
+
+    iconRotated = !iconRotated;
+
+    if (iconRotated) {
+        dropdownOptions.style.display = 'block'; // Dropdown anzeigen
+        icon.style.transform = 'rotate(180deg)';
+    } else {
+        dropdownOptions.style.display = 'none'; // Dropdown ausblenden
+        icon.style.transform = 'rotate(0deg)';
+    }
 }
