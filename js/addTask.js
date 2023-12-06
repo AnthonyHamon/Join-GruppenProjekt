@@ -63,6 +63,7 @@ function styleSelectedContact(i) {
     document.getElementById(`contact${i}`).classList.toggle('contact_selected');
 }
 
+
 function toggleDropdown() {
     const dropdownOptions = document.getElementById('dropdownOptions');
     const icon = document.getElementById('selectIcon');
@@ -78,14 +79,6 @@ function toggleDropdown() {
     }
 }
 
-
-function selectCategory(event) {
-    if (event.target.tagName === 'LI') {
-        const category = event.target.getAttribute('data-category');
-        document.getElementById('selectedCategory').innerHTML = category;
-        toggleDropdown();
-    }
-}
 
 
 function rotateIcon() {
