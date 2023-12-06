@@ -89,14 +89,9 @@ function generateAddTaskHTML() {
                                 </div>
                             </div>
                         </div>
-                        <div id="dropdownOptions" class="dropdown-options" onclick="selectCategory(event)">
-                                    <div class="category-list">
-                                        <span onclick="toggleDropdown()" >Technical Task</span>
-                                    </div>
-                                    <div class="category-list">
-                                        <span onclick="toggleDropdown()" >User Story</span>
-                                    </div>
-                                </div>
+                        <div id="dropdownOptions" class="dropdown-options">
+                            
+                        </div>
                     </div>
                     <div class="subtask-container">
                         <h4>Subtasks</h4>
@@ -189,4 +184,13 @@ function returnSelectedContactBadges(selectedContact){
     return `
         <div class="contact_circle" style="background-color:${selectedContact['BgColor']}">${selectedContact['initial']}</div>
     `
+}
+
+
+function renderCategory(category, c) {
+    return `
+    <div class="category-list" id="category${c}" onclick="acceptCategory('${category}')">
+        <span >${category}</span>
+    </div>
+    `;
 }
