@@ -20,7 +20,7 @@ function generateAddTaskHTML() {
                         <h4>Description</h4>
                         <div class="textarea-container">
                             <div class="textarea-field">
-                                <textarea class="textarea attrebute" type="text" name="myTextarea"
+                                <textarea id="read-description" class="textarea attrebute" type="text" name="myTextarea"
                                     placeholder="Enter a Description" spellcheck required></textarea>
                             </div>
                             <div>
@@ -180,7 +180,7 @@ function returnAssignedToContactList(i, contact) {
     `;
 }
 
-function returnSelectedContactBadges(selectedContact){
+function returnSelectedContactBadges(selectedContact) {
     return `
         <div class="contact_circle" style="background-color:${selectedContact['BgColor']}">${selectedContact['initial']}</div>
     `

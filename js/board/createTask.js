@@ -1,15 +1,16 @@
 async function setNewTask() {
     let id = ++highestTaskId;
-    let title = 'ABCD';
-    let description = 'Lorem, ipsum kakadudu dolor sit amet consectetur adipisicing elit...';
-    let date = '33.33.2023';
-    let priority = 'Urgent';
-    let category = 'Web_Performance';
-    let status = 'feedback';
+    let title = document.getElementById('titel-input').value;
+    let description = document.getElementById('read-description').value;
+    let date = document.getElementById('calender-input').value;
+    let priority = currentPrioriyToCreateTask;
+    let category = document.getElementById('selectedCategory').value.replace(/\s/g, '_');
+    let status = 'to_do';
+    let contacts = [...selectedContacts];
 
-    tasks.push({ id, title, description, date, priority, category, status });
+    tasks.push({ id, title, description, date, priority, category, status, contacts });
     await setItem('tasks', JSON.stringify(tasks));
-    loadingProcess();
+    renderBoard();
 }
 
 function ifContainerEmpty(container) {

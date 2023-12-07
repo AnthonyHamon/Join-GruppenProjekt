@@ -118,7 +118,6 @@ function renderSelectedContactBadges(selectedContacts) {
     }
 }
 
-
 function styleSelectedContact(i) {
     document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`checked-contact${i}-img`).classList.toggle('d-none');
@@ -147,9 +146,10 @@ function toggleContacts() {
 }
 
 
-function changeButtonStyles(color) {
-    let button = document.getElementById(`button${color}`);
-    let icon = document.getElementById(`icon${color}`);
+function changeButtonStyles(priority) {
+    let button = document.getElementById(`button${priority}`);
+    let icon = document.getElementById(`icon${priority}`);
+    currentPrioriyToCreateTask = priority;
 
     if (button.classList.contains('selected')) {
         resetSelectedPrioButton();

@@ -184,3 +184,12 @@ function checkProfileBadgeCount() {
         }
     });
 }
+
+function checkContactsInTask(contacts) {
+    let html = '';
+    for (let i = 0; i < contacts.length; i++) {
+        let contact = contacts[i];
+        html += `<div class="profileBadge" style="background-color: ${contact.BgColor}">${contact.initial}</div>`;
+    }
+    return html;
+}

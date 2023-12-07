@@ -3,7 +3,7 @@
 
 let content = document.getElementById('content');
 
-// board :
+// board site:
 
 let highestTaskId = 0;
 let tasks = [];
@@ -18,3 +18,7 @@ let scrollIntervalInDragAndDrop = null;
 let longPressTimer;
 let isScrolling = false;
 let currentTouchedTaskLineId = null;
+
+// add task site:
+
+let currentPrioriyToCreateTask = 'Low';
