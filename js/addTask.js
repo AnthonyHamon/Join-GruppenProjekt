@@ -1,6 +1,8 @@
 let selectedContacts = [];
 let subtasks = [];
 let iconRotated = false;
+let categorys = ['Frontend', 'Backend', 'Web Security']
+
 
 function renderAddTask() {
     addContentCSS()
@@ -10,7 +12,9 @@ function renderAddTask() {
     generateAddTaskHTML();
     renderAssignedToCurrentUser();
     renderAssignedToContactList();
+    showCategory();
 }
+
 
 // assigned to
 
@@ -27,12 +31,26 @@ function renderAssignedToCurrentUser() {
     }
 }
 
+
 function renderAssignedToContactList() {
     let assignedToContactList = document.getElementById('assigned-to-contact-list');
     contacts.sort((a, b) => { return compareStrings(a.name, b.name) });
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
         assignedToContactList.innerHTML += returnAssignedToContactList(i, contact);
+    }
+}
+
+function searchContactToAssign() {
+    let searchedContact = document.getElementById('assignTo-input').value.toLowerCase();
+    let assignedToContactList = document.getElementById('assigned-to-contact-list');
+    contactContainer.classList.remove('d-none');
+    assignedToContactList.innerHTML = '';
+    for (let index = 0; index < contacts.length; index++) {
+        const contact = contacts[index];
+        if (contact['name'].toLowerCase().startsWith(searchedContact)) {
+            assignedToContactList.innerHTML += returnAssignedToContactList(index, contact);
+        }
     }
 }
 
@@ -44,9 +62,10 @@ function assignTo(i, name, email, phone, initial, BgColor) {
         renderSelectedContactBadges(selectedContacts)
     } else {
         selectedContacts.push({ name, email, phone, initial, BgColor });
-        renderSelectedContactBadges(selectedContacts)
+        renderSelectedContactBadges(selectedContacts);
     }
 }
+
 
 function renderSelectedContactBadges(selectedContacts) {
     let selectedContactCtn = document.getElementById('selected-contact-ctn');
@@ -62,23 +81,6 @@ function styleSelectedContact(i) {
     document.getElementById(`checked-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`contact${i}`).classList.toggle('contact_selected');
 }
-
-
-function toggleDropdown() {
-    const dropdownOptions = document.getElementById('dropdownOptions');
-    const icon = document.getElementById('selectIcon');
-
-    iconRotated = !iconRotated;
-
-    if (iconRotated) {
-        dropdownOptions.style.display = 'block'; // Dropdown anzeigen
-        icon.style.transform = 'rotate(180deg)';
-    } else {
-        dropdownOptions.style.display = 'none'; // Dropdown ausblenden
-        icon.style.transform = 'rotate(0deg)';
-    }
-}
-
 
 
 function rotateIcon() {
@@ -114,8 +116,8 @@ function changeButtonStyles(priority) {
         button.classList.add('selected');
         icon.classList.add('selected_icon');
     }
-
 }
+
 
 function resetSelectedPrioButton() {
     let allPrioSelectedButton = document.querySelectorAll('.selected');
@@ -129,7 +131,6 @@ function resetSelectedPrioButton() {
 }
 
 
-// Subtask Element
 function toggleImages() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
@@ -163,6 +164,8 @@ function clearInputField(inputsField) {
 }
 
 
+// Subtask........
+
 function addSubtask() {
     let subtaskInput = document.getElementById('subtaskInput').value;
     subtasks.push(subtaskInput);
@@ -188,7 +191,6 @@ function renderSubtask() {
         const subtask = subtasks[index];
 
         subtaskContent.innerHTML += returnSubtask(subtask, index);
-
     }
 }
 
@@ -225,4 +227,42 @@ function removeBgrColorWithoutAddTask() {
 function addJoinLogoClickable() {
     document.getElementById('join_logo').classList.remove('p-none');
     document.getElementById('join_logo_mobile').classList.remove('p-none');
+}
+
+
+// Category........
+
+function showCategory() {
+    let categoryList = document.getElementById('dropdownOptions');
+    categoryList.innerHTML = '';
+
+    for (let c = 0; c < categorys.length; c++) {
+        const category = categorys[c];
+
+        categoryList.innerHTML += renderCategory(category, c)
+    }
+}
+
+
+function acceptCategory(category) {
+    let selectInput = document.getElementById('selectedCategory');
+    selectInput.value = category;
+
+    toggleDropdown()
+}
+
+
+function toggleDropdown() {
+    const dropdownOptions = document.getElementById('dropdownOptions');
+    const icon = document.getElementById('selectIcon');
+
+    iconRotated = !iconRotated;
+
+    if (iconRotated) {
+        dropdownOptions.style.display = 'block'; // Dropdown anzeigen
+        icon.style.transform = 'rotate(180deg)';
+    } else {
+        dropdownOptions.style.display = 'none'; // Dropdown ausblenden
+        icon.style.transform = 'rotate(0deg)';
+    }
 }

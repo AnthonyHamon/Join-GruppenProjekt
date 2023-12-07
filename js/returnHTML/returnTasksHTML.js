@@ -31,7 +31,7 @@ function generateAddTaskHTML() {
                     <div class="contacts-field">
                         <h4>Assigned to</h4>
                         <div class="custom-dropdown">
-                            <input class="assign-input" type="search" placeholder="Select contacts to assign">
+                            <input onkeyup="searchContactToAssign()" id="assignTo-input" class="assign-input" type="search" placeholder="Select contacts to assign">
                             <div class="assign-button" onclick="toggleContacts()">
                                 <img onclick="rotateIcon()" src="../images/arrow_drop_downaa.svg" alt="Arrow Icon" id="arrowIcon">
                             </div>
@@ -89,14 +89,9 @@ function generateAddTaskHTML() {
                                 </div>
                             </div>
                         </div>
-                        <div id="dropdownOptions" class="dropdown-options" onclick="selectCategory(event)">
-                                    <div class="category-list">
-                                        <span onclick="toggleDropdown()" >Technical Task</span>
-                                    </div>
-                                    <div class="category-list">
-                                        <span onclick="toggleDropdown()" >User Story</span>
-                                    </div>
-                                </div>
+                        <div id="dropdownOptions" class="dropdown-options">
+                            
+                        </div>
                     </div>
                     <div class="subtask-container">
                         <h4>Subtasks</h4>
@@ -189,4 +184,13 @@ function returnSelectedContactBadges(selectedContact) {
     return `
         <div class="contact_circle" style="background-color:${selectedContact['BgColor']}">${selectedContact['initial']}</div>
     `
+}
+
+
+function renderCategory(category, c) {
+    return `
+    <div class="category-list" id="category${c}" onclick="acceptCategory('${category}')">
+        <span >${category}</span>
+    </div>
+    `;
 }
