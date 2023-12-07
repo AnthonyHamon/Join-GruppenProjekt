@@ -192,7 +192,21 @@ function checkContactsInTask(contacts) {
     let html = '';
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
-        html += `<div class="profileBadge" style="background-color: ${contact.BgColor}">${contact.initial}</div>`;
+
+        if (currentTaskStatus === 'small') {
+            html += /*html*/`
+                <div class="profileBadge" style="background-color: ${contact.BgColor}">${contact.initial}</div>
+            `;
+        } else if (currentTaskStatus === 'big') {
+            html += /*html*/`
+                <div class="assignedProfil">
+                    <span class="assignedBadge" style="background-color: ${contact.BgColor}">${contact.initial}</span>
+                    <div class="assignedName">
+                        <span class="assignedNameText">${contact.name}</span>
+                    </div>
+                </div>
+            `;
+        }
     }
     return html;
 }

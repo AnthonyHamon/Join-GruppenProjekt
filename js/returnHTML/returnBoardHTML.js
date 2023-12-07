@@ -85,48 +85,7 @@ function renderTaskHTMLDetails(task) {
                 <span id="numbersOfContacts" class="titleDetails">( ${task.contacts.length} )</span>
             </div>    
             <div id="profilBadgeDetails${task.id}" class="assignedContain">
-                <div class="assignedProfil">
-                    <span class="assignedBadge">ED</span>
-                    <div class="assignedName">
-                        <span class="assignedNameText">René Porzelt</span>
-                    </div>
-                </div>
-                <div class="assignedProfil">
-                    <span class="assignedBadge">ED</span>
-                    <div class="assignedName">
-                        <span class="assignedNameText">Elisa Papetti</span>
-                    </div>
-                </div>
-                <div class="assignedProfil">
-                    <span class="assignedBadge">ED</span>
-                    <div class="assignedName">
-                        <span class="assignedNameText">DieElisabeth Großhausendurchhausen</span>
-                    </div>
-                </div>
-                <div class="assignedProfil">
-                    <span class="assignedBadge">ED</span>
-                    <div class="assignedName">
-                        <span class="assignedNameText">Renéasf asfasgasfasfsafafssss</span>
-                    </div>
-                </div>
-                <div class="assignedProfil">
-                    <span class="assignedBadge">TT</span>
-                    <div class="assignedName">
-                        <span class="assignedNameText">Testotest testtestoootest</span>
-                    </div>
-                </div>
-                <div class="assignedProfil">
-                    <span class="assignedBadge">TT</span>
-                    <div class="assignedName">
-                        <span class="assignedNameText">Testotest testtestoootest</span>
-                    </div>
-                </div>
-                <div class="assignedProfil">
-                    <span class="assignedBadge">TT</span>
-                    <div class="assignedName">
-                        <span class="assignedNameText">Testotest testtestoootest</span>
-                    </div>
-                </div>
+                ${checkContactsInTask(task.contacts)}
             </div>
             <span class="titleDetails" style="margin-top: -10px">Subtasks</span>
             <div>
