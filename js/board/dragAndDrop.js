@@ -35,6 +35,7 @@ function endDragging() {
                 currentTouchedTaskLineId = null;
             }
             stopScrollInterval();
+            showAllElements();
         }, 100);
     }
 }
