@@ -11,10 +11,16 @@ async function setNewTask() {
     tasks.push({ id, title, description, date, priority, category, status, contacts });
     await setItem('tasks', JSON.stringify(tasks));
     renderBoard();
+    resetArray();
 }
 
 function ifContainerEmpty(container) {
     if (container.innerHTML === '') {
         container.innerHTML = `<div class="emptyTaskLine"><span>No tasks to do</span></div>`;
     }
+}
+
+function resetArray(){
+    selectedContacts = [];
+    subtasks = [];
 }

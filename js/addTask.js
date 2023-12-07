@@ -67,26 +67,6 @@ function searchContactToAssign() {
     }
 }
 
-
-
-
-// function searchContactToAssign() {
-//     let searchedContact = document.getElementById('assignTo-input').value.toLowerCase();
-//     let assignedToContactList = document.getElementById('assigned-to-contact-list');
-//     contactContainer.classList.remove('d-none');
-//     assignedToContactList.innerHTML = '';
-//     for (let index = 0; index < contacts.length; index++) {
-//         const contact = contacts[index];
-//         if (contact['name'].toLowerCase().startsWith(searchedContact) && !searchedContact == '') {
-//             assignedToContactList.innerHTML += returnAssignedToContactList(index, contact);
-//             styleAlreadySelectedContact(index, searchedContact);
-//         }
-//     }
-//     if (searchedContact === '') {
-//         renderAssignedToContactList();
-//     }
-// }
-
 function styleAlreadySelectedContact(index, searchedContact) {
     selectedContacts.forEach((selectedContact) => {
         if (selectedContact['name'].toLowerCase().startsWith(searchedContact)) {
