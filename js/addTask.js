@@ -41,18 +41,60 @@ function renderAssignedToContactList() {
     }
 }
 
-function searchContactToAssign(){
+function searchContactToAssign() {
     let searchedContact = document.getElementById('assignTo-input').value.toLowerCase();
     let assignedToContactList = document.getElementById('assigned-to-contact-list');
     contactContainer.classList.remove('d-none');
     assignedToContactList.innerHTML = '';
     for (let index = 0; index < contacts.length; index++) {
         const contact = contacts[index];
-        if (contact['name'].toLowerCase().startsWith(searchedContact)){
+        if (contact['name'].toLowerCase().startsWith(searchedContact) && !searchedContact == '') {
             assignedToContactList.innerHTML += returnAssignedToContactList(index, contact);
+            styleAlreadySelectedContact(index, searchedContact);
+        }
+    }
+
+    if (searchedContact === '') {
+        renderAssignedToContactList();
+        for (let j = 0; j < contacts.length; j++) {
+            const contact = contacts[j];
+            selectedContacts.forEach((selectedContacts) => {
+                if (selectedContacts['name'] === contact['name']) {
+                    styleSelectedContact(j)
+                }
+            })
         }
     }
 }
+
+
+
+
+// function searchContactToAssign() {
+//     let searchedContact = document.getElementById('assignTo-input').value.toLowerCase();
+//     let assignedToContactList = document.getElementById('assigned-to-contact-list');
+//     contactContainer.classList.remove('d-none');
+//     assignedToContactList.innerHTML = '';
+//     for (let index = 0; index < contacts.length; index++) {
+//         const contact = contacts[index];
+//         if (contact['name'].toLowerCase().startsWith(searchedContact) && !searchedContact == '') {
+//             assignedToContactList.innerHTML += returnAssignedToContactList(index, contact);
+//             styleAlreadySelectedContact(index, searchedContact);
+//         }
+//     }
+//     if (searchedContact === '') {
+//         renderAssignedToContactList();
+//     }
+// }
+
+function styleAlreadySelectedContact(index, searchedContact) {
+    selectedContacts.forEach((selectedContact) => {
+        if (selectedContact['name'].toLowerCase().startsWith(searchedContact)) {
+            styleSelectedContact(index);
+        }
+    })
+}
+
 
 function assignTo(i, name, email, phone, initial, BgColor) {
     const index = selectedContacts.findIndex(c => c.email === email);
@@ -238,7 +280,7 @@ function showCategory() {
 
     for (let c = 0; c < categorys.length; c++) {
         const category = categorys[c];
-        
+
         categoryList.innerHTML += renderCategory(category, c)
     }
 }
@@ -248,7 +290,7 @@ function acceptCategory(category) {
     let selectInput = document.getElementById('selectedCategory');
     selectInput.value = category;
 
-    toggleDropdown() 
+    toggleDropdown()
 }
 
 
