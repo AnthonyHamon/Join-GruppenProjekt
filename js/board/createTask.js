@@ -4,7 +4,7 @@ async function setNewTask() {
     let description = document.getElementById('read-description').value;
     let date = document.getElementById('calender-input').value;
     let priority = currentPrioriyToCreateTask;
-    let category = 'Web_Performance';
+    let category = document.getElementById('selectedCategory').value.replace(/\s/g, '_');
     let status = 'to_do';
     let contacts = [...selectedContacts];
 
