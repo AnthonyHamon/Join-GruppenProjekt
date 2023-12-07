@@ -74,13 +74,16 @@ function renderTaskHTMLDetails(task) {
             <p class="taskDescriptionDetails">${formatTaskText(task.description)}</p>
             <div class="titleTxtDetailsContain">
                 <span class="titleDetails">Due date:</span>
-                <span class="dateTxtDetails">10/05/2023</span>
+                <span class="dateTxtDetails">${task.date.replace(/-/g, '/')}</span>
             </div>
             <div class="titleTxtDetailsContain">
                 <span class="titleDetails">Priority:</span>
                 <span class="priorityTxtDetails">${checkPriority(task.priority)}</span>
             </div>
-            <span class="titleDetails">Assigned To:</span>
+            <div class="titleAndAssignedContactsNumber">
+                <span class="titleDetails">Assigned To:</span>
+                <span id="numbersOfContacts" class="titleDetails">( ${task.contacts.length} )</span>
+            </div>    
             <div id="profilBadgeDetails${task.id}" class="assignedContain">
                 <div class="assignedProfil">
                     <span class="assignedBadge">ED</span>
@@ -104,30 +107,6 @@ function renderTaskHTMLDetails(task) {
                     <span class="assignedBadge">ED</span>
                     <div class="assignedName">
                         <span class="assignedNameText">Renéasf asfasgasfasfsafafssss</span>
-                    </div>
-                </div>
-                <div class="assignedProfil">
-                    <span class="assignedBadge">TT</span>
-                    <div class="assignedName">
-                        <span class="assignedNameText">Testotest testtestoootest</span>
-                    </div>
-                </div>
-                <div class="assignedProfil">
-                    <span class="assignedBadge">TT</span>
-                    <div class="assignedName">
-                        <span class="assignedNameText">Testotest testtestoootest</span>
-                    </div>
-                </div>
-                <div class="assignedProfil">
-                    <span class="assignedBadge">TT</span>
-                    <div class="assignedName">
-                        <span class="assignedNameText">Testotest testtestoootest</span>
-                    </div>
-                </div>
-                <div class="assignedProfil">
-                    <span class="assignedBadge">TT</span>
-                    <div class="assignedName">
-                        <span class="assignedNameText">Testotest testtestoootest</span>
                     </div>
                 </div>
                 <div class="assignedProfil">
@@ -233,15 +212,7 @@ function renderTaskHTML(task) {
         </div>
         <div class="profilePropertyContain">
             <div id="profile${task.id}" class="profileBadgeContain">
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
-                <div class="profileBadge">RP</div>
+                ${checkContactsInTask(task.contacts)}
             </div>
             <div id="task_priority_contain">
                 ${checkPriority(task.priority)}
