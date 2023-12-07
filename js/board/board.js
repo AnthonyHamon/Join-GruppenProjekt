@@ -61,7 +61,10 @@ function showLoadingElementJoin() {
 }
 
 function hideLoadingElementJoin() {
-    document.getElementById('loading_spinner').classList.add('d-none');
+    let loadingSpinner = document.getElementById('loading_spinner');
+    if (loadingSpinner) {
+        loadingSpinner.classList.add('d-none');
+    }
 }
 
 function hideWidthHTML() {
