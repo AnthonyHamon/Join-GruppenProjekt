@@ -1,7 +1,7 @@
 let selectedContacts = [];
-let subtasks = [];
+let createdSubtaskList = [];
 let iconRotated = false;
-let categorys = ['Frontend', 'Backend', 'Web Security']
+let categorys = ['Frontend', 'Backend', 'Web Security'];
 
 
 function renderAddTask() {
@@ -190,17 +190,17 @@ function clearInputField(inputsField) {
 
 function addSubtask() {
     let subtaskInput = document.getElementById('subtaskInput').value;
-    subtasks.push(subtaskInput);
+    createdSubtaskList.push(subtaskInput);
 
     renderSubtask();
 }
 
 
 function checkEditedTaskList(i, subtask) {
-    let index = subtasks.findIndex(s => s === subtask);
+    let index = createdSubtaskList.findIndex(s => s === subtask);
     subtask = document.getElementById(`editInput${i}`).value;
 
-    subtasks.splice(index, 1, (subtask));
+    createdSubtaskList.splice(index, 1, (subtask));
 
     renderSubtask();
 }
@@ -209,8 +209,8 @@ function checkEditedTaskList(i, subtask) {
 function renderSubtask() {
     let subtaskContent = document.getElementById('subtaskContent');
     subtaskContent.innerHTML = '';
-    for (let index = 0; index < subtasks.length; index++) {
-        const subtask = subtasks[index];
+    for (let index = 0; index < createdSubtaskList.length; index++) {
+        const subtask = createdSubtaskList[index];
 
         subtaskContent.innerHTML += returnSubtask(subtask, index);
     }
@@ -224,7 +224,7 @@ function toggleSubtask(i) {
 
 
 function deleteButton(i) {
-    subtasks.splice(i, 1);
+    createdSubtaskList.splice(i, 1);
 
     renderSubtask();
 }

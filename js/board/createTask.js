@@ -7,11 +7,13 @@ async function setNewTask() {
     let category = document.getElementById('selectedCategory').value.replace(/\s/g, '_');
     let status = 'to_do';
     let contacts = [...selectedContacts];
+    let subtasks = [...createdSubtaskList];
 
-    tasks.push({ id, title, description, date, priority, category, status, contacts });
+    tasks.push({ id, title, description, date, priority, category, status, contacts, subtasks });
     await setItem('tasks', JSON.stringify(tasks));
+
     renderBoard();
-    resetArray();
+    clearArraysInAddTaskSiteAgain();
 }
 
 function ifContainerEmpty(container) {
@@ -20,7 +22,7 @@ function ifContainerEmpty(container) {
     }
 }
 
-function resetArray(){
+function clearArraysInAddTaskSiteAgain() {
     selectedContacts = [];
     subtasks = [];
 }
