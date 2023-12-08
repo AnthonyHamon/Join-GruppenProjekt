@@ -24,5 +24,5 @@ function ifContainerEmpty(container) {
 
 function resetArraysForNewTasks() {
     selectedContacts = [];
-    subtasks = [];
+    createdSubtaskList = [];
 }

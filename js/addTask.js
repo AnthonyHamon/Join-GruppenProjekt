@@ -292,7 +292,7 @@ function toggleDropdown() {
     iconRotated = !iconRotated;
 
     if (iconRotated) {
-        dropdownOptions.style.display = 'block'; // Dropdown anzeigen
+        dropdownOptionaddSs.style.display = 'block'; // Dropdown anzeigen
         icon.style.transform = 'rotate(180deg)';
     } else {
         dropdownOptions.style.display = 'none'; // Dropdown ausblenden
@@ -303,9 +303,12 @@ function toggleDropdown() {
 function clearBegonnenNewTask() {
     resetArraysForNewTasks();
     resetContactStyle();
+    contactContainer.classList.add('d-none');
+    rotateIcon();
+    renderSubtask();
 }
 
-function resetContactStyle(){
+function resetContactStyle() {
     document.getElementById('assigned-to-contact-list').innerHTML = '';
     renderAssignedToContactList();
     document.getElementById('selected-contact-ctn').innerHTML = '';
