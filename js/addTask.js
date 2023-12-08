@@ -292,7 +292,7 @@ function toggleDropdown() {
     iconRotated = !iconRotated;
 
     if (iconRotated) {
-        dropdownOptionaddSs.style.display = 'block'; // Dropdown anzeigen
+        dropdownOptions.style.display = 'block'; // Dropdown anzeigen
         icon.style.transform = 'rotate(180deg)';
     } else {
         dropdownOptions.style.display = 'none'; // Dropdown ausblenden
