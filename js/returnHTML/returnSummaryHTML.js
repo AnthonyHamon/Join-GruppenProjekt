@@ -47,8 +47,8 @@ function generateSummaryHTML() {
                         <img src="../images/summary_second_row_vector.svg" alt="">
                     </div>
                     <div class="second_row_right_section">
-                        <span id="current-date-summary">${renderCurrentdate()}</span>
-                        <span>Upcoming Deadline</span>
+                        <span id="current-date-summary">${renderNextDeadlineDate()}</span>
+                        <span id="deadline-text">Upcoming Deadline</span>
                     </div>
                 </div>
                 <div class="summary_ending_row">

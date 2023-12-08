@@ -22,6 +22,51 @@ function renderCurrentdate() {
     return formattedDate;
 }
 
+function renderNextDeadlineDate() {
+    let allDeadlines = tasks.map(tasks => new Date(tasks.date));
+    if(allDeadlines.length > 0){
+        let futureDates =  allDeadlines.filter(date => date >= new Date());
+        futureDates.sort((a, b) => a - b);
+        let nextDeadline = futureDates[0]
+        nextDeadline = formatDeadlinedate(nextDeadline);
+        return nextDeadline;
+    }else{
+        return 'No Current Deadline';
+    }  
+}
+
+//  render Deadline function with passed deadline
+
+// function renderNextDeadlineDate() {
+//     let allDeadlines = tasks.map(tasks => new Date(tasks.date));
+//     if(allDeadlines.length > 0){
+//         let futureDates =  allDeadlines.filter(date => date >= new Date());
+//         let passedDates =  allDeadlines.filter(date => date < new Date());
+//         futureDates.sort((a, b) => a - b);
+//         passedDates.sort((a, b) => a - b);
+//         let nextDeadline = futureDates[0]
+//         let passedDeadline = passedDates[0];
+//         if(passedDeadline){
+//             passedDeadline = formatDeadlinedate(passedDeadline)
+//             return passedDeadline;
+//         }else{
+//             nextDeadline = formatDeadlinedate(nextDeadline);
+//             return nextDeadline;
+//         }
+//     }else{
+//         return 'No Current Deadline';
+//     }  
+// }
+
+function formatDeadlinedate(nextDeadline){
+    const monthOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const day = nextDeadline.getDate();
+    const month = monthOfYear[nextDeadline.getMonth()];
+    const year = nextDeadline.getFullYear();
+    const formattedDate = `${month} ${day}, ${year}`;
+    return formattedDate;
+}
+
 function renderGreetingMessage() {
     let x = new Date();
     let hour = x.getHours();

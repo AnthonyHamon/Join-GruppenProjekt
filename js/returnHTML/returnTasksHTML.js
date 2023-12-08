@@ -59,7 +59,7 @@ function generateAddTaskHTML() {
                     <div>
                         <div class="date-field">
                             <h4>Due Date<span class="letter-color">*</span></h4>
-                            <input id="calender-input" required class="calender_input" type="date" placeholder="dd/mm/yyyy">
+                            <input id="calender-input" required class="calender_input" type="date" placeholder="dd/mm/yyyy" min="${getTodaysDateForCalender()}">
                             <div class="error_warning">
                                 <span id="calender-warning-text">This field is required</span>
                             </div>
