@@ -13,7 +13,7 @@ async function setNewTask() {
     await setItem('tasks', JSON.stringify(tasks));
 
     renderBoard();
-    clearArraysInAddTaskSiteAgain();
+    resetArraysForNewTasks();
 }
 
 function ifContainerEmpty(container) {
@@ -22,7 +22,7 @@ function ifContainerEmpty(container) {
     }
 }
 
-function clearArraysInAddTaskSiteAgain() {
+function resetArraysForNewTasks() {
     selectedContacts = [];
     subtasks = [];
 }

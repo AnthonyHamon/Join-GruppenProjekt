@@ -299,3 +299,14 @@ function toggleDropdown() {
         icon.style.transform = 'rotate(0deg)';
     }
 }
+
+function clearBegonnenNewTask() {
+    resetArraysForNewTasks();
+    resetContactStyle();
+}
+
+function resetContactStyle(){
+    document.getElementById('assigned-to-contact-list').innerHTML = '';
+    renderAssignedToContactList();
+    document.getElementById('selected-contact-ctn').innerHTML = '';
+}

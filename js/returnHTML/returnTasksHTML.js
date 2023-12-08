@@ -117,7 +117,7 @@ function generateAddTaskHTML() {
                     <div class="requered-field"><span class="letter-color">*</span>This field is required</div>
                 </div>
                 <div class="clear-create-button">
-                    <button type="reset" class="clear-button">Clear<img src="../images/close.svg"></button>
+                    <button onclick="clearBegonnenNewTask()" type="reset" class="clear-button">Clear<img src="../images/close.svg"></button>
                     <button class="create-button">Create Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
                 </div>
             </div>
@@ -172,7 +172,6 @@ function returnAssignedToContactList(i, contact) {
         <div>
             <div class="check-button">
                 <img id="check-contact${i}-img" src="../images/Rectangle 5.svg" alt="">
-                <img id="checked-contact${i}-black-img" class="d-none" src="../images/Group 19.svg" alt="">
                 <img id="checked-contact${i}-img" class="d-none" src="../images/check-white.svg" alt="">
             </div>
         </div>
