@@ -15,14 +15,3 @@ async function setNewTask() {
     renderBoard();
     clearArraysInAddTaskSiteAgain();
 }
-
-function ifContainerEmpty(container) {
-    if (container.innerHTML === '') {
-        container.innerHTML = `<div class="emptyTaskLine"><span>No tasks to do</span></div>`;
-    }
-}
-
-function clearArraysInAddTaskSiteAgain() {
-    selectedContacts = [];
-    subtasks = [];
-}

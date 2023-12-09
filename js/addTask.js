@@ -67,6 +67,11 @@ function searchContactToAssign() {
     }
 }
 
+function clearArraysInAddTaskSiteAgain() {
+    selectedContacts = [];
+    subtasks = [];
+}
+
 function styleAlreadySelectedContact(index, searchedContact) {
     selectedContacts.forEach((selectedContact) => {
         if (selectedContact['name'].toLowerCase().startsWith(searchedContact)) {

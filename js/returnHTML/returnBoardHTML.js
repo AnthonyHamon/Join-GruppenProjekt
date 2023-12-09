@@ -197,3 +197,9 @@ function returnConfirmationMessageHTML(taskTitle) {
         Are you sure you want to delete the task titled <br><b>"${taskTitle}"</b> ?
     `;
 }
+
+function returnEmptyDivInTaskLine() {
+    return `
+        <div class="emptyTaskLine"><span>No tasks to do</span></div>
+    `;
+}

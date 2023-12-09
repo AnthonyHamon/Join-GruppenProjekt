@@ -22,6 +22,12 @@ async function assignTaskElementsToStatus(status) {
     ifContainerEmpty(container);
 }
 
+function ifContainerEmpty(container) {
+    if (container.innerHTML === '') {
+        container.innerHTML = returnEmptyDivInTaskLine();
+    }
+}
+
 function renderTaskElement(task) {
     let section = document.createElement('section');
     section.className = 'section';
