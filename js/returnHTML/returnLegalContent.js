@@ -3,7 +3,7 @@ function returnPrivacyPolicyHTML() {
     <main class="legal_content_ctn">
         <div class="legal_content_title">
             <h1>Privacy Policy</h1>
-            <img onclick="hideLegalContent()" src="../images/arrow-left-line.svg" alt="">
+            <img onclick="hideLegalContent()" src="./images/arrow-left-line.svg" alt="">
         </div>
         <div>
             <h2>Preamble</h2>
@@ -65,7 +65,7 @@ function returnLegalNoticeHTML(){
     <main class="legal_content_ctn">
             <div class="legal_content_title">
                 <h1>Legal Notice</h1>
-                <img onclick="hideLegalContent()" src="../images/arrow-left-line.svg" alt="">
+                <img onclick="hideLegalContent()" src="./images/arrow-left-line.svg" alt="">
             </div>
             <div>
                 <h2>Imprint</h2>

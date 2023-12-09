@@ -130,6 +130,17 @@ function toggleContacts() {
     }
 }
 
+function getTodaysDateForCalender() {
+    let currentDate = new Date();
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth() + 1;
+    const year = currentDate.getFullYear();
+    const formattedDay = day < 10 ? '0' + day : day;
+    const formattedMonth = month < 10 ? '0' + month : month;
+    const formattedDate = `${year}-${formattedMonth}-${formattedDay}`;
+    return formattedDate;
+}
+
 
 function changeButtonStyles(priority) {
     let button = document.getElementById(`button${priority}`);
@@ -292,4 +303,18 @@ function toggleDropdown() {
         dropdownOptions.style.display = 'none'; // Dropdown ausblenden
         icon.style.transform = 'rotate(0deg)';
     }
+}
+
+function clearBegonnenNewTask() {
+    resetArraysForNewTasks();
+    resetContactStyle();
+    contactContainer.classList.add('d-none');
+    rotateIcon();
+    renderSubtask();
+}
+
+function resetContactStyle() {
+    document.getElementById('assigned-to-contact-list').innerHTML = '';
+    renderAssignedToContactList();
+    document.getElementById('selected-contact-ctn').innerHTML = '';
 }

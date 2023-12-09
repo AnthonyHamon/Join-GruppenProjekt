@@ -6,9 +6,9 @@ function generateBoardHTML() {
             <div class="flex inputPlusBtn">
                 <div class="boardInputBox">
                     <input id="find_task" onkeyup="searchTaskFromInput()" class="inputFindTask" type="text" placeholder="Find Task">
-                    <img src="/images/search.svg">
+                    <img src="./images/search.svg">
                 </div>
-                <button onclick="setNewTask()" class="addTaskBtn"><span class="addBtnText">Add task</span><img src="/images/add.svg"></button>
+                <button onclick="setNewTask()" class="addTaskBtn"><span class="addBtnText">Add task</span><img src="./images/add.svg"></button>
             </div>
         </div>
         <div id="width_HTML"></div>
@@ -94,11 +94,11 @@ function renderTaskHTMLDetails(task) {
             </div>
             <div class="editOptionsDetailsContain">
                 <div onclick="confirmTaskDeletion(${task.id}, '${task.title}')" class="deleteDetailsContain">
-                    <img src="/images/delete.svg"><span>Delete</span>
+                    <img src="./images/delete.svg"><span>Delete</span>
                 </div>
                 <div class="seperator"></div>
                 <div class="editDetailsContain">
-                    <img src="/images/edit.svg"><span>Edit</span>
+                    <img src="./images/edit.svg"><span>Edit</span>
                 </div>
             </div>
         </div>
@@ -133,15 +133,15 @@ function returnTaskCategorySmallHTML(category, formattedCategory) {
 }
 
 function returnTaskCategoryBigHTML(category, formattedCategory) {
-    return `<h2 class="taskCategoryBig ${category}">${formattedCategory}</h2><img class="closeWindowImage" src="/images/close.svg" onclick="closeTask()"></img>`;
+    return `<h2 class="taskCategoryBig ${category}">${formattedCategory}</h2><img class="closeWindowImage" src="./images/close.svg" onclick="closeTask()"></img>`;
 }
 
 function returnTaskPrioritySmallHTML(priority) {
-    return `<img src="/images/${priority}.svg">`
+    return `<img src="./images/${priority}.svg">`
 }
 
 function returnTaskPriorityBigHTML(priority) {
-    return `<span>${priority}</span> <img src="/images/${priority}.svg">`
+    return `<span>${priority}</span> <img src="./images/${priority}.svg">`
 }
 
 function returnAddBtnSVG(status) {

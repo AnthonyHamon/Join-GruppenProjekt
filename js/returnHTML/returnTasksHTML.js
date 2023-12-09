@@ -24,7 +24,7 @@ function generateAddTaskHTML() {
                                     placeholder="Enter a Description" spellcheck required></textarea>
                             </div>
                             <div>
-                                <img class="description-icon" src="../images/Recurso 1 1.svg" alt="">
+                                <img class="description-icon" src="./images/Recurso 1 1.svg" alt="">
                             </div>
                         </div>
                     </div>
@@ -33,7 +33,7 @@ function generateAddTaskHTML() {
                         <div class="custom-dropdown">
                             <input onkeyup="searchContactToAssign()" id="assignTo-input" class="assign-input" type="search" placeholder="Select contacts to assign">
                             <div class="assign-button" onclick="toggleContacts()">
-                                <img onclick="rotateIcon()" src="../images/arrow_drop_downaa.svg" alt="Arrow Icon" id="arrowIcon">
+                                <img onclick="rotateIcon()" src="./images/arrow_drop_downaa.svg" alt="Arrow Icon" id="arrowIcon">
                             </div>
                         </div>
                         <div class="contact-container d-none" id="contactContainer">
@@ -45,7 +45,7 @@ function generateAddTaskHTML() {
                                     </div>
                                     <div>
                                         <div class="check-button">
-                                            <img src="../images/Rectangle 5.svg" alt="">
+                                            <img src="./images/Rectangle 5.svg" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@ function generateAddTaskHTML() {
                     <div>
                         <div class="date-field">
                             <h4>Due Date<span class="letter-color">*</span></h4>
-                            <input id="calender-input" required class="calender_input" type="date" placeholder="dd/mm/yyyy">
+                            <input id="calender-input" required class="calender_input" type="date" placeholder="dd/mm/yyyy" min="${getTodaysDateForCalender()}">
                             <div class="error_warning">
                                 <span id="calender-warning-text">This field is required</span>
                             </div>
@@ -69,11 +69,11 @@ function generateAddTaskHTML() {
                         <h4>Prio</h4>
                         <div class="button-selection">
                             <div class="prio-button" id="buttonUrgent" onclick="changeButtonStyles('Urgent')">Urgent
-                                <img class="prio-image" id="iconUrgent" src="../images/capa 2.svg" alt=""></div>
+                                <img class="prio-image" id="iconUrgent" src="./images/capa 2.svg" alt=""></div>
                             <div class="prio-button" id="buttonMedium" onclick="changeButtonStyles('Medium')">Medium
-                                <img class="prio-image" id="iconMedium" src="../images/prio media.svg" alt=""></div>
+                                <img class="prio-image" id="iconMedium" src="./images/prio media.svg" alt=""></div>
                             <div class="prio-button" id="buttonLow" onclick="changeButtonStyles('Low')">Low <img
-                                class="prio-image" id="iconLow" src="../images/prio baja.svg" alt=""></div>
+                                class="prio-image" id="iconLow" src="./images/prio baja.svg" alt=""></div>
                         </div>
                     </div>
                     <div class="category-fields">
@@ -84,7 +84,7 @@ function generateAddTaskHTML() {
                                     <input disabled class="span-category" id="selectedCategory" type="text" name="myInput" placeholder="Select task category">
                                 </div>
                                 <div class="category-icon-field">
-                                    <img class="drop-option" id="selectIcon" src="../images/arrow_drop_downaa.svg"
+                                    <img class="drop-option" id="selectIcon" src="./images/arrow_drop_downaa.svg"
                                         alt="Arrow">
                                 </div>
                             </div>
@@ -100,11 +100,11 @@ function generateAddTaskHTML() {
                                 <input disabled id="subtaskInput" class="subtask-input" type="text" name="myInput" placeholder="Add new subtask">
                             </div>
                             <div class="subtask-image-field-first" id="imageContainer">
-                                <img src="../images/Property 1=add.svg" alt="" onclick="toggleImages()">
+                                <img src="./images/Property 1=add.svg" alt="" onclick="toggleImages()">
                             </div>
                             <div class="subtask-image-field-second" id="newImages" style="display: none;">
-                                <img id="closeImag" onclick="closeImages()" class="subtask-button-close" src="../images/Property 1=close.svg" alt="">
-                                <img id="checkImage" class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask(); closeImages();">
+                                <img id="closeImag" onclick="closeImages()" class="subtask-button-close" src="./images/Property 1=close.svg" alt="">
+                                <img id="checkImage" class="subtask-button-check" src="./images/Property 1=check.svg" alt="" onclick="addSubtask(); closeImages();">
                             </div>
                         </div>
                         <div class="subtask-content" id="subtaskContent"></div>
@@ -117,8 +117,8 @@ function generateAddTaskHTML() {
                     <div class="requered-field"><span class="letter-color">*</span>This field is required</div>
                 </div>
                 <div class="clear-create-button">
-                    <button type="reset" class="clear-button">Clear<img src="../images/close.svg"></button>
-                    <button class="create-button">Create Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
+                    <button onclick="clearBegonnenNewTask()" type="reset" class="clear-button">Clear<img src="./images/close.svg"></button>
+                    <button class="create-button">Create Task <img class="clear-create-img" src="./images/check.svg" alt=""></button>
                 </div>
             </div>
         </form>
@@ -136,10 +136,10 @@ function returnSubtask(inputText, i) {
             </div>
             <div class="edit-delete-container">
                 <div class="edit-box">
-                    <img onclick="toggleSubtask(${i})" class="edit-image" id="editImage${i}" src="../images/Property 1=edit.svg" alt="">
+                    <img onclick="toggleSubtask(${i})" class="edit-image" id="editImage${i}" src="./images/Property 1=edit.svg" alt="">
                 </div>
                 <div class="delete-box" id="deleteBox">
-                    <img onclick="deleteButton(${i})" class="delete-image" id="deleteImage${i}" src="../images/Property 1=delete.svg" alt="" >
+                    <img onclick="deleteButton(${i})" class="delete-image" id="deleteImage${i}" src="./images/Property 1=delete.svg" alt="" >
                 </div>
             </div>
         </div>
@@ -151,10 +151,10 @@ function returnSubtask(inputText, i) {
             </div>
             <div class="delete-check-container">
                 <div class="delete-box">
-                    <img onclick="deleteButton(${i})" class="delete-image" src="../images/Property 1=delete.svg" alt="">
+                    <img onclick="deleteButton(${i})" class="delete-image" src="./images/Property 1=delete.svg" alt="">
                 </div>
                 <div class="edit-box">
-                    <img onclick="checkEditedTaskList(${i}, '${inputText}')" id="checkImage" class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask(); closeImages();">
+                    <img onclick="checkEditedTaskList(${i}, '${inputText}')" id="checkImage" class="subtask-button-check" src="./images/Property 1=check.svg" alt="" onclick="addSubtask(); closeImages();">
                 </div>
             </div>
         </div>
@@ -171,9 +171,8 @@ function returnAssignedToContactList(i, contact) {
         </div>
         <div>
             <div class="check-button">
-                <img id="check-contact${i}-img" src="../images/Rectangle 5.svg" alt="">
-                <img id="checked-contact${i}-black-img" class="d-none" src="../images/Group 19.svg" alt="">
-                <img id="checked-contact${i}-img" class="d-none" src="../images/check-white.svg" alt="">
+                <img id="check-contact${i}-img" src="./images/Rectangle 5.svg" alt="">
+                <img id="checked-contact${i}-img" class="d-none" src="./images/check-white.svg" alt="">
             </div>
         </div>
     </div>
