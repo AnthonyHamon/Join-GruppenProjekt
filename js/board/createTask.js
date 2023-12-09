@@ -11,12 +11,9 @@ async function setNewTask() {
 
     tasks.push({ id, title, description, date, priority, category, status, contacts, subtasks });
     await setItem('tasks', JSON.stringify(tasks));
-
-    renderBoard();
-<<<<<<< HEAD
-    clearArraysInAddTaskSiteAgain();
-=======
     resetArraysForNewTasks();
+    renderBoard();
+    
 }
 
 function ifContainerEmpty(container) {
@@ -28,5 +25,4 @@ function ifContainerEmpty(container) {
 function resetArraysForNewTasks() {
     selectedContacts = [];
     createdSubtaskList = [];
->>>>>>> c26d806478ee318a768f97dc608d1af8b7ee0a5a
 }
