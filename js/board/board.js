@@ -190,18 +190,22 @@ function checkProfileBadgeCount() {
 
 function checkContactsInTask(contacts) {
     let html = '';
+    let isLastOdd = contacts.length % 2 !== 0;
     for (let i = 0; i < contacts.length; i++) {
         let contact = contacts[i];
+        let isLast = i === contacts.length - 1;
 
         if (currentTaskStatus === 'small') {
             html += /*html*/`
                 <div class="profileBadge" style="background-color: ${contact.BgColor}">${contact.initial}</div>
             `;
         } else if (currentTaskStatus === 'big') {
+            let assignedNameStyle = isLast && isLastOdd ? 'style="width: 100%;"' : '';
+
             html += /*html*/`
                 <div class="assignedProfil">
                     <span class="assignedBadge" style="background-color: ${contact.BgColor}">${contact.initial}</span>
-                    <div class="assignedName">
+                    <div class="assignedName" ${assignedNameStyle}>
                         <span class="assignedNameText">${contact.name}</span>
                     </div>
                 </div>
@@ -209,6 +213,31 @@ function checkContactsInTask(contacts) {
         }
     }
     return html;
+}
+
+function checkSubtasksInTask(subtasks, taskId) {
+    let html = '';
+    for (let i = 0; i < subtasks.length; i++) {
+        let subtask = subtasks[i];
+        html += /*html*/`
+            <div onclick="selectSubtaskInDetails(${i},${taskId})" class="subtaskContainDetails">
+                <img id="checkBox${i}${taskId}" src="/images/check_button.svg">
+                <img id="checkedBox${i}${taskId}" class="d-none" src="/images/checked_button.svg">
+                <span id="subtask${i}${taskId}">${subtask}</span>
+            </div>
+        `;
+    }
+    return html;
+}
+
+function selectSubtaskInDetails(subtaskId, taskId) {
+    let checkBox = document.getElementById(`checkBox${subtaskId}${taskId}`);
+    let checkedBox = document.getElementById(`checkedBox${subtaskId}${taskId}`);
+    let subtask = document.getElementById(`subtask${subtaskId}${taskId}`);
+
+    checkBox.classList.toggle('d-none');
+    checkedBox.classList.toggle('d-none');
+    subtask.classList.toggle('lineThrough');
 }
 
 function editTaskInBordSite(taskId) {

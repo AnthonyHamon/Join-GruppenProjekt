@@ -69,7 +69,7 @@ function searchContactToAssign() {
 
 function clearArraysInAddTaskSiteAgain() {
     selectedContacts = [];
-    subtasks = [];
+    createdSubtaskList = [];
 }
 
 function styleAlreadySelectedContact(index, searchedContact) {

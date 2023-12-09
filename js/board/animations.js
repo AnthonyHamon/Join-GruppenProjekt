@@ -14,19 +14,19 @@ function checkNameTextLengthToSlideAnimation() {
 function textSlideAnimation(text) {
     text.style.animation = 'none';
     void text.offsetWidth;
-    text.style.animation = 'slideTextToLeftAndStop 3s linear forwards 2s';
+    text.style.animation = 'slideTextToLeftAndStop 1s linear forwards 2s';
     setTimeout(() => {
         text.style.animation = 'none';
         void text.offsetWidth;
         text.style.animation = 'slideTextToRightAndStop 0.2s linear forwards';
-    }, 7000);
+    }, 5000);
 }
 
 function resetTimerForTextAnimation() {
     if (textSlideAnimationTimer) {
         clearTimeout(textSlideAnimationTimer);
     }
-    textSlideAnimationTimer = setTimeout(checkNameTextLengthToSlideAnimation, 8000);
+    textSlideAnimationTimer = setTimeout(checkNameTextLengthToSlideAnimation, 7000);
 }
 
 function restartLoadingElementJoinAnimation() {

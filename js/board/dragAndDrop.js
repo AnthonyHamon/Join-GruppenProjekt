@@ -342,3 +342,9 @@ function handleDropOnTouchEnd(touch) {
         dropTo(taskLineId);
     }
 }
+
+document.addEventListener('dragstart', function (event) {
+    if (event.target.tagName === 'IMG') {
+        event.preventDefault();
+    }
+});

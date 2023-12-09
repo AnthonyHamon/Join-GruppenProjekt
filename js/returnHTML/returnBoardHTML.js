@@ -89,8 +89,7 @@ function renderTaskHTMLDetails(task) {
             </div>
             <span class="titleDetails" style="margin-top: -10px">Subtasks</span>
             <div>
-                <p></p>
-                <p></p>
+                ${checkSubtasksInTask(task.subtasks, task.id)}
             </div>
             <div class="editOptionsDetailsContain">
                 <div onclick="confirmTaskDeletion(${task.id}, '${task.title}')" class="deleteDetailsContain">

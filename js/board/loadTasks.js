@@ -34,8 +34,8 @@ function renderTaskElement(task) {
     section.id = `section${task.id}`;
     section.draggable = true;
 
-    section.ondragstart = function () {
-        startDragging(task.id);
+    section.ondragstart = function (event) {
+        startDragging(task.id, event);
     };
 
     section.ondragend = function () {
