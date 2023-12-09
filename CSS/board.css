@@ -474,6 +474,7 @@
     cursor: pointer;
     filter: invert(70%) sepia(74%) saturate(3560%) hue-rotate(165deg) brightness(95%) contrast(85%);
     font-weight: 700;
+    margin-right: -3px;
 }
 
 .editOptionsDetailsContain,
