@@ -120,9 +120,17 @@ async function editContact(name, email, phone, initial, BgColor) {
     initial = returnContactInitialLetter(name);
     contacts.splice(index, 1, { name, email, phone, initial, BgColor });
     await setItem('contacts', JSON.stringify(contacts));
+    // editSelectedContacts(name, email, phone, initial, BgColor);
     closeContactPopup();
     renderContacts();
     showContactInformation(name, email, phone, initial, BgColor);
+}
+
+async function editSelectedContacts(name, email, phone, initial, BgColor){
+    let taskContacts = tasks.map(tasks => tasks.contacts)
+    let index = taskContacts.findIndex(e => e.email === email);
+    tasks.splice(index, 1, { name, email, phone, initial, BgColor });
+    await setItem('tasks', JSON.stringify(taskContacts));
 }
 
 async function deleteContact(email) {
