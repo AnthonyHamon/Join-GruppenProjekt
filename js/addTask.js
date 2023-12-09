@@ -67,7 +67,7 @@ function searchContactToAssign() {
     }
 }
 
-function clearArraysInAddTaskSiteAgain() {
+function resetArraysForNewTasks() {
     selectedContacts = [];
     createdSubtaskList = [];
 }
