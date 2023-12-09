@@ -13,20 +13,5 @@ async function setNewTask() {
     await setItem('tasks', JSON.stringify(tasks));
 
     renderBoard();
-<<<<<<< HEAD
     clearArraysInAddTaskSiteAgain();
-=======
-    resetArraysForNewTasks();
-}
-
-function ifContainerEmpty(container) {
-    if (container.innerHTML === '') {
-        container.innerHTML = `<div class="emptyTaskLine"><span>No tasks to do</span></div>`;
-    }
-}
-
-function resetArraysForNewTasks() {
-    selectedContacts = [];
-    createdSubtaskList = [];
->>>>>>> c26d806478ee318a768f97dc608d1af8b7ee0a5a
 }

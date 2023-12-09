@@ -97,7 +97,7 @@ function renderTaskHTMLDetails(task) {
                     <img src="./images/delete.svg"><span>Delete</span>
                 </div>
                 <div class="seperator"></div>
-                <div class="editDetailsContain">
+                <div onclick="editTaskInBordSite(${task.id})" class="editDetailsContain">
                     <img src="./images/edit.svg"><span>Edit</span>
                 </div>
             </div>

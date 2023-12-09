@@ -210,3 +210,13 @@ function checkContactsInTask(contacts) {
     }
     return html;
 }
+
+function editTaskInBordSite(taskId) {
+    let contain = document.getElementById('taskDetails');
+    contain.style.display = 'flex';
+    contain.style.justifyContent = 'center';
+    contain.style.alignItems = 'center';
+    contain.innerHTML = /*html*/`
+        <b>HIER DIE EDIT OPTION HTML EINFÜGEN ${taskId}<b>
+    `;
+}
