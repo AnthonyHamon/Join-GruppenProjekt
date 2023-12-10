@@ -6,7 +6,7 @@
     width: 1060px;
 }
 
-h1 {
+.task-headline h1 {
     font-size: 61px;
     font-weight: 700;
     margin: 0;
@@ -845,7 +845,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
     .task-container {
         overflow: scroll;
-        padding: 90px 0px 0px 96px;
+        padding: 90px 0px 0px 155px;
     }
 
     .task-input {
@@ -879,15 +879,30 @@ input[type=date]:invalid::-webkit-datetime-edit {
         justify-content: start;
     }
 
+    .clear-button {
+        display: none;
+    }
 
     .clear-create-button {
         margin-top: 40px;
         width: 440px;
+        justify-content: end;
+    }
+
+    .task-below {
+        display: flex;
         justify-content: space-between;
+        align-items: center;
+        width: 440px;
     }
 }
 
 @media (max-width: 997px) {
+
+    .task-headline h1 {
+        font-size: 57px !important;
+        margin: 0;
+    }
 
     .task-container {
         max-width: 900px;
@@ -953,5 +968,99 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
     .subtask-container {
         width: 100%;
+    }
+
+    .task-below {
+        max-width: 890px;
+        width: 100%;
+    }
+
+    .requered-field {
+        font-size: 12px;
+        max-width: 200px;
+        width: 150px;
+    }
+}
+
+@media (max-width: 600px) {
+    .task-headline h1 {
+        font-size: 47px !important;
+        margin: 0;
+    }
+
+    .task-container {
+        padding: 40px 20px 40px 20px;
+    }
+
+    h4 {
+        font-size: 16px;
+    }
+
+    #titel-input {
+        font-size: 16px;
+    }
+
+    #titel-input::placeholder {
+        font-size: 16px;
+    }
+
+    .textarea {
+        font-size: 16px;
+    }
+
+    .textarea::placeholder {
+        font-size: 16px;
+    }
+
+    .assign-input {
+        font-size: 16px;
+    }
+
+    .assign-input::placeholder {
+        font-size: 16px;
+    }
+
+    .contact-name {
+        font-size: 16px;
+    }
+
+    .calender_input {
+        font-size: 16px;
+    }
+
+    .prio-button {
+        font-size: 16px;
+    }
+
+
+    .span-category {
+        font-size: 16px;
+    }
+
+    .category-list span {
+        font-size: 16px;
+    }
+
+    .subtask-input {
+        font-size: 16px;
+    }
+
+    .subtask-input::placeholder {
+        font-size: 16px;
+    }
+
+    .finished-content {
+        font-size: 16px;
+    }
+
+    .requered-field {
+        font-size: 10px;
+        max-width: 100px;
+        width: 100px;
+    }
+
+    .create-button {
+        font-size: 16px;
+        padding: 10px;
     }
 }

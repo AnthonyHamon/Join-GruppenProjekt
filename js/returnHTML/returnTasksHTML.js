@@ -114,7 +114,10 @@ function generateAddTaskHTML() {
         
             <div class="task-below">
                 <div>
-                    <div class="requered-field"><span class="letter-color">*</span>This field is required</div>
+                    <div class="requered-field">
+                        <span class="letter-color">*</span>
+                        This field is required
+                    </div>
                 </div>
                 <div class="clear-create-button">
                     <button onclick="clearBegonnenNewTask()" type="reset" class="clear-button">Clear<img src="./images/close.svg"></button>
