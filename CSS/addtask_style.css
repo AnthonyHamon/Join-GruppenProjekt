@@ -607,13 +607,13 @@ input[type=date]:invalid::-webkit-datetime-edit {
     width: 440px;
     height: auto;
     padding-left: 0px;
-    margin-top: 76px;
+    margin-top: -14px;
     border-radius: 0px 0px 10px 10px;
     border: 1px solid rgba(209, 209, 209, 1);
     cursor: pointer;
     padding-top: 8px;
     z-index: 1;
-    position: absolute;
+    position: relative;
 }
 
 
@@ -879,9 +879,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
         justify-content: start;
     }
 
-    .requered-field {
-        display: none;
-    }
 
     .clear-create-button {
         margin-top: 40px;
@@ -907,7 +904,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
     .left-field {
         max-width: 890px;
         width: 100%;
-        flex-wrap: 	wrap;
     }
 
     #titel-input {
@@ -920,6 +916,42 @@ input[type=date]:invalid::-webkit-datetime-edit {
     }
 
     .contacts-field {
+        width: 100%;
+    }
+
+    .contact-container {
+        width: 100%;
+    }
+
+    .right-field {
+        max-width: 890px;
+        width: 100%;
+    }
+
+    .date-field {
+        max-width: 890px;
+        width: 100%;
+    }
+
+    .prio-container {
+        width: 100%;
+    }
+
+    .category-fields {
+        width: 100%;
+        max-width: 890px;
+    }
+
+    .category-box { 
+        max-width: 890px;
+
+    }
+
+    .dropdown-options {
+        width: 100%;
+    }
+
+    .subtask-container {
         width: 100%;
     }
 }
