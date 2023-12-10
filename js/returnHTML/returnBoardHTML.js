@@ -88,7 +88,7 @@ function renderTaskHTMLDetails(task) {
                 ${checkContactsInTask(task.contacts)}
             </div>
             <span class="titleDetails" style="margin-top: -10px">Subtasks</span>
-            <div>
+            <div class="allSubtasksContainDetails">
                 ${checkSubtasksInTask(task.subtasks, task.id)}
             </div>
             <div class="editOptionsDetailsContain">
@@ -162,11 +162,7 @@ function renderTaskHTML(task) {
             <span class="taskTitle">${formatTaskText(task.title)}</span>
             <p class="taskDescription">${formatTaskText(task.description)}</p>
         </article>
-        <div id="subtask_contain${task.id}" class="subtaskContain">
-            <div class="progressbar-container">
-                <div class="progressbar"></div>
-            </div>
-            <span id="subtaskTxt${task.id}" class="subtaskTxt">1/2 Subtasks</span>
+            ${checkSubtasksInTask(task.subtasks, task.id)}
         </div>
         <div class="profilePropertyContain">
             <div id="profile${task.id}" class="profileBadgeContain">
@@ -182,7 +178,7 @@ function renderTaskHTML(task) {
 function returnConfirmationPopupHTML(id, msg) {
     return /*html*/`
         <div class="confirmationContent">
-        <p>${msg}</p>
+            <p class="deleteTitleMessage">${msg}</p>
         <div class="confirmationPopupBtnContain">
             <button onclick="deleteTask(${id})" style="color:rgba(255,0,0,90%);">Delete</button>
             <button onclick="closeConfirmationPopup()">Cancel</button>

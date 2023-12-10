@@ -217,15 +217,26 @@ function checkContactsInTask(contacts) {
 
 function checkSubtasksInTask(subtasks, taskId) {
     let html = '';
-    for (let i = 0; i < subtasks.length; i++) {
-        let subtask = subtasks[i];
-        html += /*html*/`
+    if (currentTaskStatus === 'small') {
+        return /*html*/`
+            <div id="subtask_contain${taskId}" class="subtaskContain">
+                <div class="progressbar-container">
+                    <div class="progressbar"></div>
+                </div>
+                <span id="subtaskTxt${taskId}" class="subtaskTxt">0/${subtasks.length}</span>
+            </div>
+        `;
+    } else if (currentTaskStatus === 'big') {
+        for (let i = 0; i < subtasks.length; i++) {
+            let subtask = subtasks[i];
+            html += /*html*/`
             <div onclick="selectSubtaskInDetails(${i},${taskId})" class="subtaskContainDetails">
                 <img id="checkBox${i}${taskId}" src="/images/check_button.svg">
                 <img id="checkedBox${i}${taskId}" class="d-none" src="/images/checked_button.svg">
                 <span id="subtask${i}${taskId}">${subtask}</span>
             </div>
         `;
+        }
     }
     return html;
 }
