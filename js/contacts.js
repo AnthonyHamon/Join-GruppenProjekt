@@ -52,7 +52,7 @@ function addNewContact() {
         closeContactPopup() &
         showContactCreatedPopup() &
         removeAnimationClass() &
-        renderContacts() & 
+        renderContacts() &
         jumpToCreatedContact() : '';
 }
 
@@ -120,17 +120,19 @@ async function editContact(name, email, phone, initial, BgColor) {
     initial = returnContactInitialLetter(name);
     contacts.splice(index, 1, { name, email, phone, initial, BgColor });
     await setItem('contacts', JSON.stringify(contacts));
-    // editSelectedContacts(name, email, phone, initial, BgColor);
+    editSelectedContacts(name, email, phone, initial, BgColor);
     closeContactPopup();
     renderContacts();
     showContactInformation(name, email, phone, initial, BgColor);
 }
 
-async function editSelectedContacts(name, email, phone, initial, BgColor){
-    let taskContacts = tasks.map(tasks => tasks.contacts)
-    let index = taskContacts.findIndex(e => e.email === email);
-    tasks.splice(index, 1, { name, email, phone, initial, BgColor });
-    await setItem('tasks', JSON.stringify(taskContacts));
+async function editSelectedContacts(name, email, phone, initial, BgColor) {
+    for (let i = 0; i < tasks.length; i++) {
+        const taskContacts = tasks[i]['contacts'];
+        let index = taskContacts.findIndex(e => e.email === email);
+        taskContacts.splice(index, 1, { name, email, phone, initial, BgColor });
+    }
+    await setItem('tasks', JSON.stringify(tasks));
 }
 
 async function deleteContact(email) {
@@ -201,7 +203,7 @@ function setSelectedContactOnClick(email) {
 
 function resetContactSelection() {
     let contactSelection = document.querySelectorAll('.contact_div');
-        contactSelection.forEach((contactSelection) => {
+    contactSelection.forEach((contactSelection) => {
         contactSelection.classList.remove('contact_selected');
         contactSelection.classList.remove('p-none');
     })
