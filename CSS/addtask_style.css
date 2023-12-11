@@ -843,11 +843,23 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 @media (max-width: 1290px) {
 
-    .task-container {
-        overflow: scroll;
-        padding: 90px 0px 0px 155px;
+    .task-headline h1 {
+        margin-bottom: 30px;
     }
 
+    .task-container {
+        padding: 90px 0px 0px 155px;
+    }
+    
+    .mobile-scroll {
+        overflow: scroll;
+        height: 100vh;
+    }
+
+    .task_input_ctn {
+        margin-top: 10px;
+        height: 95%;
+    }
     .task-input {
         display: flex;
         flex-direction: column;
@@ -856,11 +868,13 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
     .left-field {
         padding: 0;
+        height: auto;
     }
 
     .right-field {
         padding: 0;
         border: none;
+        height: auto;
     }
 
     .titel-input {
@@ -901,7 +915,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
     .task-headline h1 {
         font-size: 57px !important;
-        margin: 0;
     }
 
     .task-container {
@@ -985,7 +998,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 @media (max-width: 600px) {
     .task-headline h1 {
         font-size: 47px !important;
-        margin: 0;
+        margin-bottom: 20px;
     }
 
     .task-container {
