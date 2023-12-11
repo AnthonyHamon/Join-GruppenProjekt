@@ -1011,18 +1011,35 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
     #titel-input {
         font-size: 16px;
+        padding: 10px 21px;
+        align-items: center;
+        gap: 10px;
+        align-self: stretch;
     }
 
     #titel-input::placeholder {
         font-size: 16px;
     }
 
+    .textarea-container {
+        height: 88px;
+    }
+
     .textarea {
         font-size: 16px;
+        height: 88px;
+        padding: 18px 21px;
+        align-items: flex-start;
+        gap: 10px;
+        align-self: stretch;
     }
 
     .textarea::placeholder {
         font-size: 16px;
+    }
+
+    .custom-dropdown {
+        padding: 12px 16px;
     }
 
     .assign-input {
@@ -1033,16 +1050,24 @@ input[type=date]:invalid::-webkit-datetime-edit {
         font-size: 16px;
     }
 
+    .contacts-followfield {
+        padding: 7px 16px 7px 16px;
+    }
+
     .contact-name {
         font-size: 16px;
     }
 
     .calender_input {
         font-size: 16px;
+        padding: 14px 21px;
     }
 
     .prio-button {
         font-size: 16px;
+        padding: 18px 10px;
+        display: flex;
+        flex-direction: column;
     }
 
 
@@ -1054,8 +1079,13 @@ input[type=date]:invalid::-webkit-datetime-edit {
         font-size: 16px;
     }
 
+    .subtask-field {
+        height: 48px;
+    }
+
     .subtask-input {
         font-size: 16px;
+        height: 19px;
     }
 
     .subtask-input::placeholder {
