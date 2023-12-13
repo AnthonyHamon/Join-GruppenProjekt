@@ -987,7 +987,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     .task-below {
         max-width: 890px;
         width: 100%;
-        margin-bottom: 95px;
+        margin-bottom: 120px;
     }
 
     .requered-field {
@@ -1106,5 +1106,9 @@ input[type=date]:invalid::-webkit-datetime-edit {
     .create-button {
         font-size: 16px;
         padding: 10px;
+    }
+
+    .task-below {
+        margin-bottom: 95px;
     }
 }
