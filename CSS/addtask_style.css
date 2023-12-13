@@ -908,6 +908,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
         justify-content: space-between;
         align-items: center;
         width: 440px;
+        margin-bottom: 85px;
     }
 }
 
@@ -986,6 +987,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     .task-below {
         max-width: 890px;
         width: 100%;
+        margin-bottom: 95px;
     }
 
     .requered-field {
@@ -1027,8 +1029,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
     .textarea {
         font-size: 16px;
-        height: 88px;
-        padding: 18px 21px;
+        padding-left: 10px;
         align-items: flex-start;
         gap: 10px;
         align-self: stretch;
