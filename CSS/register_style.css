@@ -519,6 +519,73 @@ footer a:hover {
 }
 
 
+/* for passsword forgotten page */
+
+.password_reset_form_ctn {
+    height: calc(100vh - 230px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.password_reset_form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    border-radius: 30px;
+    background-color: white;
+    padding: 88px;
+    box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.04);
+    position: relative;
+}
+
+.password_reset_form h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.password_reset_form_input_ctn {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.password_reset_form input {
+    border: 1px solid rgba(209, 209, 209, 1);
+    border-radius: 10px;
+    min-height: 48px;
+    font-size: 20px;
+    line-height: 24px;
+    padding: 12px 21px;
+}
+
+.reset_password_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 24px;
+    min-width: 110px;
+    height: 48px;
+    border-radius: 8px;
+    border-color: transparent;
+    background-color: #2A3647;
+    color: white;
+    font-weight: 700;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.reset_password_button:hover {
+    background-color: #29ABE2;
+    transition: 100ms ease-in-out;
+    cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.password_reset_form p{
+    font-size: 14px;
+}
 
 @media (max-width: 1440px) {
     /* responsive for sign up page */
@@ -767,19 +834,19 @@ footer a:hover {
         min-width: 360px;
     }
 
-        /* responsive for sign up page */
+    /* responsive for sign up page */
 
-        .sign_up_input_div input {
-            width: 200px;
-        }
+    .sign_up_input_div input {
+        width: 200px;
+    }
 
-        #back-to-login-page{
-            left: 21px;
-        }
+    #back-to-login-page {
+        left: 21px;
+    }
 
-        .registration_title img {
-            width: 100px;
-        }
+    .registration_title img {
+        width: 100px;
+    }
 }
 
 @media (max-width: 360px) {
@@ -831,7 +898,7 @@ footer a:hover {
     }
 
 
-        /* responsive for sign up page */
+    /* responsive for sign up page */
 
     .form_ctn {
         min-width: 200px;
@@ -853,11 +920,11 @@ footer a:hover {
         width: 160px;
     }
 
-    #back-to-login-page{
+    #back-to-login-page {
         left: 10px;
     }
 
-    .registration_title{
+    .registration_title {
         font-size: 41px;
     }
 }
