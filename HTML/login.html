@@ -54,13 +54,13 @@
                                 <span>Remember me</span>
                             </div>
                             <div>
-                                <a href="#">Password Forgotten?</a>
+                                <a href="./forgot_password.html">Password Forgotten?</a>
                             </div>
                         </div>
                     </div>
                     <div class="login_buttons">
                         <button type="submit" id="login-button">Log in</button>
-                        <button onclick="guestLogin()" type="submit" id="guest-login-button">Guest Log in</button>
+                        <button onclick="guestLogin(event)" type="submit" id="guest-login-button">Guest Log in</button>
                     </div>
                 </form>
             </div>
@@ -89,7 +89,9 @@
     </div>
 
     <script src="../js/storage.js"></script>
-    <script src="../js/register.js"></script>
+    <script src="../js/Authentication/register.js"></script>
+    <script src="../js/Authentication/login.js"></script>
+    <script src="../js/Authentication/sign_up.js"></script>
 
 </body>
 

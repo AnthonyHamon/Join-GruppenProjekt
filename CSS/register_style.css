@@ -531,10 +531,10 @@ footer a:hover {
 .password_reset_form {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 24px;
     border-radius: 30px;
     background-color: white;
-    padding: 88px;
+    padding: 48px 88px;
     box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.04);
     position: relative;
 }
