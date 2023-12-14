@@ -11,7 +11,7 @@ async function initLogin() {
 
 function logOut(){
     localStorage.removeItem('currentUser');
-    window.location.href = '../HTML/login.html';
+    window.location.href = './HTML/login.html';
 }
 
 function login() {
