@@ -37,9 +37,10 @@ function loginValidation(user, password){
 }
 
 function setCurrentUser(user){
-    let initial = returnContactInitialLetter(user['user']);
+    let userName = formatName(user['user']);
+    let initial = returnContactInitialLetter(userName);
     let BgColor = setRandomColor();
-    currentUser.push({user: user['user'], email: user['email'], initial: initial, BgColor: BgColor});
+    currentUser.push({user: userName, email: user['email'], initial: initial, BgColor: BgColor});
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
 }
 
@@ -85,4 +86,9 @@ function toggleRememberMeButton() {
     document.getElementById('check-button').classList.toggle('d-none');
     document.getElementById('checked-button').classList.toggle('d-none');
 }
+
+function formatName(name) {
+    return name.replace(/\b\w/g, l => l.toUpperCase());
+}
+
 
