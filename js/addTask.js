@@ -169,22 +169,7 @@ function resetSelectedPrioButton() {
     });
 }
 
-
-function toggleImages() {
-    const imageContainer = document.getElementById("imageContainer");
-    const newImages = document.getElementById("newImages");
-    document.getElementById("subtaskInput").disabled = false;
-
-    if (imageContainer.style.display !== "none") {
-        imageContainer.style.display = "none";
-        newImages.style.display = "block";
-    } else {
-        newImages.style.display = "none";
-        imageContainer.style.display = "block";
-    }
-}
-
-
+/*
 function closeImages() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
@@ -193,6 +178,7 @@ function closeImages() {
     newImages.style.display = "none";
     clearInputField("subtaskInput");
 }
+*/
 
 
 function clearInputField(inputsField) {
@@ -206,13 +192,17 @@ function clearInputField(inputsField) {
 // Subtask........
 
 function addSubtask() {
-    let subtaskInput = document.getElementById('subtaskInput').value;
+    let subtaskInput = document.getElementById('subtaskInput');
 
-    if ( !subtaskInput === "" ) {
-        createdSubtaskList.push(subtaskInput);
+    if ( !subtaskInput == "" ) {
+        createdSubtaskList.push(subtaskInput.value);
+        
+        toggleImages();
 
         renderSubtask();
     } 
+
+    subtaskInput.value = "";
 }
 
 
@@ -223,6 +213,14 @@ function checkEditedTaskList(i, subtask) {
     createdSubtaskList.splice(index, 1, (subtask));
 
     renderSubtask();
+}
+
+function toggleImages() {
+    const imageContainer = document.getElementById("imageContainer");
+    const newImages = document.getElementById("newImages");
+
+    imageContainer.classList.toggle('d-none');
+    newImages.classList.toggle('d-none');
 }
 
 
