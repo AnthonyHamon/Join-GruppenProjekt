@@ -207,9 +207,12 @@ function clearInputField(inputsField) {
 
 function addSubtask() {
     let subtaskInput = document.getElementById('subtaskInput').value;
-    createdSubtaskList.push(subtaskInput);
 
-    renderSubtask();
+    if ( !subtaskInput === "" ) {
+        createdSubtaskList.push(subtaskInput);
+
+        renderSubtask();
+    } 
 }
 
 
