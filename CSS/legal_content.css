@@ -38,6 +38,10 @@
     font-size: 61px;
 }
 
+.legal_content_title a{
+    display: flex;
+}
+
 .legal_content_title img {
     cursor: pointer;
 }
