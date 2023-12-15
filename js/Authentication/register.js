@@ -6,18 +6,6 @@ async function loadUsers() {
     }
 }
 
-
-function checkExistingUser() {
-    resetSignUpCustomValidity();
-    let userError = document.getElementById('user-input');
-    let emailError = document.getElementById('email-input');
-    let username = document.getElementById('user-input').value;
-    let userEmail = document.getElementById('email-input').value;
-    let user = users.find(u => u.user == username);
-    let email = users.find(u => u.email == userEmail);
-    returnLoginCustomValidityMessage(user, email, userError, emailError);
-}
-
 function togglePasswordImg() {
     let passwordVisibility = document.getElementById('password-visibility-on');
     let passwordVisibilityOff = document.getElementById('password-visibility-off');
@@ -48,19 +36,3 @@ function toggleShowPassword() {
         passwordInput.type = 'password';
     }
 }
-
-
-
-// trying to return to login without logo animation
-
-function loginRedirection() {
-    localStorage.setItem('isComingFromSignUP', true);
-    window.location.href = "login.html";
-}
-
-function deactivateLoginAnimation() {
-    document.getElementById('animation-ctn').classList.add('d-none');
-    document.getElementById('logo-animation-img').classList.remove('logo_animation_img');
-    document.getElementById('logo-animation-img').classList.add('no_animation');
-}
-

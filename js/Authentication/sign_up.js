@@ -15,6 +15,17 @@ async function signUp() {
     }
 }
 
+function checkExistingUser() {
+    resetSignUpCustomValidity();
+    let userError = document.getElementById('user-input');
+    let emailError = document.getElementById('email-input');
+    let username = document.getElementById('user-input').value;
+    let userEmail = document.getElementById('email-input').value;
+    let user = users.find(u => u.user == username);
+    let email = users.find(u => u.email == userEmail);
+    returnLoginCustomValidityMessage(user, email, userError, emailError);
+}
+
 function resetForm() {
     let signUpButton = document.getElementById('signUpButton');
     let user = document.getElementById('user-input');
