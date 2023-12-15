@@ -121,7 +121,7 @@ function generateAddTaskHTML() {
                     </div>
                 </div>
                 <div class="clear-create-button">
-                    <button onclick="clearBegonnenNewTask()" type="reset" class="clear-button">Clear<img src="./images/close.svg"></button>
+                    <button onclick="clearBegonnenNewTask()" type="reset" class="clear-button">Clear<img src="../images/close.svg"></button>
                     <button class="create-button">Create Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
                 </div>
             </div>
