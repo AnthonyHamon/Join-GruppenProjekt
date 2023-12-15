@@ -97,14 +97,14 @@ function generateAddTaskHTML() {
                         <div class="subtask-container">
                             <h4>Subtasks</h4>
                             <div class="subtask-field">
-                                <div class="subtask-input-container" onclick="toggleImages()">
+                                <div class="subtask-input-container" onclick="toggleSubtaskImages()">
                                     <input id="subtaskInput" class="subtask-input" type="text" name="myInput" placeholder="Add new subtask">
                                 </div>
                                 <div class="subtask-image-field-first" id="imageContainer">
-                                    <img src="../images/Property 1=add.svg" alt="" onclick="toggleImages()">
+                                    <img src="../images/Property 1=add.svg" alt="" onclick="toggleSubtaskImages()">
                                 </div>
                                 <div class="subtask-image-field-second d-none" id="newImages">
-                                    <img id="closeImag" onclick="closeImages()" class="subtask-button-close" src="../images/Property 1=close.svg" alt="">
+                                    <img id="closeImag" onclick="toggleSubtaskImages()" class="subtask-button-close" src="../images/Property 1=close.svg" alt="">
                                     <img id="checkImage" class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask()">
                                 </div>
                             </div>

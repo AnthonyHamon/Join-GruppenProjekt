@@ -194,7 +194,7 @@ function clearInputField(inputsField) {
 function addSubtask() {
     let subtaskInput = document.getElementById('subtaskInput');
 
-    if ( !subtaskInput == "" ) {
+    if ( !subtaskInput.value == "" ) {
         createdSubtaskList.push(subtaskInput.value);
         
         toggleImages();
@@ -215,7 +215,7 @@ function checkEditedTaskList(i, subtask) {
     renderSubtask();
 }
 
-function toggleImages() {
+function toggleSubtaskImages() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
 
