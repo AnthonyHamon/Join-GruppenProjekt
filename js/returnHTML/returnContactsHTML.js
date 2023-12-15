@@ -8,7 +8,7 @@ function returnContactPage() {
                 <div class="add_contact_btn_div">
                     <div onclick="openAddContact()" id="add-contact-button">
                         <span>Add new contact</span>
-                        <img src="./images/person_add.svg" alt="">
+                        <img src="../images/person_add.svg" alt="">
                     </div>
                 </div>
                 <div id="contact-list" class="contacts_list_div"></div>
@@ -17,11 +17,11 @@ function returnContactPage() {
                 <div class="contact_title_ctn">
                     <div class="contact_title">
                         <h1>Contacts</h1>
-                        <img onclick="closeSelectedContactInformation()" src="./images/arrow-left-line.svg">
+                        <img onclick="closeSelectedContactInformation()" src="../images/arrow-left-line.svg">
                     </div>
                     <div class="contacts_subtitle">
                         <div class="contacts_title_vector">
-                            <img src="./images/Vector 5.svg" alt="">
+                            <img src="../images/Vector 5.svg" alt="">
                         </div>
                         <span>Better with a Team</span>
                     </div>
@@ -34,7 +34,7 @@ function returnContactPage() {
 
             <div class="mobile_add_contact_button_ctn">
                 <div onclick="openAddContact()" id="mobile-add-contact-button" class="mobile_add_contact_button">
-                    <img src=".//images/person_add.svg">
+                    <img src="..//images/person_add.svg">
                 </div>
             </div>
         </main>
@@ -78,11 +78,11 @@ function returnContactInformations(name, email, phone, initial, BgColor) {
                 </div>
                 <div class="align_item_center gap_16">
                     <div onclick="openEditContact(event, '${name}', '${email}', '${phone}', '${initial}', '${BgColor}')" id="edit-selected-contact-${name}" class="edit_selected_contact align_item_center gap_8">
-                        <img src="./images/edit.svg" alt="">
+                        <img src="../images/edit.svg" alt="">
                         <span>Edit</span>
                     </div>
                     <div onclick="deleteContact('${email}')" id="delete-selected-contact-${name}" class="delete_selected_contact align_item_center gap_8">
-                        <img src="./images/delete.svg" alt="">
+                        <img src="../images/delete.svg" alt="">
                         <span>Delete</span>
                     </div>
                 </div>
@@ -102,7 +102,7 @@ function returnContactInformations(name, email, phone, initial, BgColor) {
         
         <div id="mobile-contact-editor" class="mobile_add_contact_button_ctn">
             <div onclick="openMobileEditMenu('${name}', '${email}', '${phone}', '${initial}', '${BgColor}')" id="mobile-contact-edit-menu" class="mobile_add_contact_button d-none">
-                <img src=".//images/more_menu.svg">
+                <img src="..//images/more_menu.svg">
             </div>
         </div>
         <div onclick="closeMobileEditMenu()" id="mobile-edit-contact-menu-ctn" class="mobile_edit_contact_ctn d-none"></div>
@@ -115,17 +115,17 @@ function returnAddContactPopup() {
             <section class="section_left">
                 <div class="close_mobile_contact_popup_div">
                     <div onclick="closeMobileContactPopup()" id="close-contact-popup">
-                        <img src="./images/close.svg">
+                        <img src="../images/close.svg">
                     </div>
                 </div>
                 <div class="call_to_action_ctn">
-                    <img class="call_to_action_logo" src="./images/join_logo.svg">
+                    <img class="call_to_action_logo" src="../images/join_logo.svg">
                     <div class="call_to_action_text">
                         <h2>Add contact</h2>
                         <span>Tasks are better with a team!</span>
                     </div>
                     <div class="call_to_action_vector">
-                        <img src="./images/vector.svg" alt="">
+                        <img src="../images/vector.svg" alt="">
                     </div>
                 </div>
             </section>
@@ -133,28 +133,28 @@ function returnAddContactPopup() {
             <section class="section_right">
                 <div class="contact_profil_ctn">
                     <div class="contact_profil">
-                        <img src="./images/person_white.svg">
+                        <img src="../images/person_white.svg">
                     </div>
                 </div>
                 <div class="flex_column width_100">
                     <div class="close_desktop_contact_popup_div">
                         <div onclick="closeContactPopup()" id="close-contact-popup">
-                            <img src="./images/close.svg">
+                            <img src="../images/close.svg">
                         </div>
                     </div>
                     <form onsubmit="addNewContact(); return false" class="contact_form">
                         <div class="contact_inputs_ctn">
                             <div class="contact_input">
                                 <input onblur="checkExistingContact()" id="new-contact-name" required type="text" placeholder="Name">
-                                <img src="./images/person.svg" alt="">
+                                <img src="../images/person.svg" alt="">
                             </div>
                             <div class="contact_input">
                                 <input onblur="checkExistingContact()" id="new-contact-email" required type="Email" placeholder="Email">
-                                <img src="./images/mail.svg" alt="">
+                                <img src="../images/mail.svg" alt="">
                             </div>
                             <div class="contact_input">
                                 <input onblur="checkExistingContact()" id="new-contact-phone" required type="tel" placeholder="Phone">
-                                <img src="./images/call.svg" alt="">
+                                <img src="../images/call.svg" alt="">
                             </div>
                         </div>
                         <div class="contact_buttons_ctn">
@@ -174,16 +174,16 @@ function returnEditContactPopup(name, email, phone, initial, BgColor) {
             <section class="section_left">
                 <div class="close_mobile_contact_popup_div">
                     <div onclick="closeMobileContactPopup()" id="close-contact-popup">
-                        <img src="./images/close.svg">
+                        <img src="../images/close.svg">
                     </div>
                 </div>
                 <div class="call_to_action_ctn">
-                    <img class="call_to_action_logo" src="./images/join_logo.svg">
+                    <img class="call_to_action_logo" src="../images/join_logo.svg">
                     <div class="call_to_action_text">
                         <h2>Edit contact</h2>
                     </div>
                     <div class="call_to_action_vector">
-                        <img src="./images/vector.svg" alt="">
+                        <img src="../images/vector.svg" alt="">
                     </div>
                 </div>
             </section>
@@ -197,27 +197,27 @@ function returnEditContactPopup(name, email, phone, initial, BgColor) {
                 <div class="flex_column width_100">
                     <div class="close_desktop_contact_popup_div">
                         <div onclick="closeContactPopup()" id="close-contact-popup">
-                            <img src="./images/close.svg">
+                            <img src="../images/close.svg">
                         </div>
                     </div>
                     <form onsubmit="editContact('${name}','${email}','${phone}','${initial}','${BgColor}'); return false" class="contact_form">
                         <div class="contact_inputs_ctn">
                             <div class="contact_input">
                                 <input id="edited-${name}" value="${name}" type="text">
-                                <img src="./images/person.svg" alt="">
+                                <img src="../images/person.svg" alt="">
                             </div>
                             <div class="contact_input">
                                 <input id="edited-${email}" value="${email}" type="Email">
-                                <img src="./images/mail.svg" alt="">
+                                <img src="../images/mail.svg" alt="">
                             </div>
                             <div class="contact_input">
                                 <input id="edited-${phone}" value="${phone}" type="tel">
-                                <img src="./images/call.svg" alt="">
+                                <img src="../images/call.svg" alt="">
                             </div>
                         </div>
                         <div class="contact_buttons_ctn">
                             <button type="button" onclick="deleteContact('${email}')" class="contact_popup_left_button">Delete<img src="../images/close.svg"></button>
-                            <button class="contact_popup_right_button">Save<img src="./images/check.svg" alt=""></button>
+                            <button class="contact_popup_right_button">Save<img src="../images/check.svg" alt=""></button>
                         </div>
                     </form>
                 </div>
@@ -230,11 +230,11 @@ function returnMobileEditContactMenu(name, email, phone, initial, BgColor) {
     return `
     <div id="mobile-edit-contact-menu" class="mobile_edit_contact_menu">
         <div onclick="openEditContact(event, '${name}', '${email}', '${phone}', '${initial}', '${BgColor}')" id="edit-contact" class="mobile_edit_contact">
-            <img src=".//images/edit.svg">
+            <img src="..//images/edit.svg">
             <span>Edit</span>
         </div>
         <div onclick="deleteContact('${email}')" id="delete-contact" class="mobile_edit_contact">
-            <img src=".//images/delete.svg">
+            <img src="..//images/delete.svg">
             <span>Delete</span>
         </div>
     </div>

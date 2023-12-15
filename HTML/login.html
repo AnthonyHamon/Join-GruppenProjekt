@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="/CSS/register_style.css">
+    <link rel="stylesheet" href="../CSS/register_style.css">
 </head>
 
 <body onload="initLogin()">
@@ -53,24 +53,21 @@
                                 </div>
                                 <span>Remember me</span>
                             </div>
-                            <div>
-                                <a href="#">Password Forgotten?</a>
-                            </div>
                         </div>
                     </div>
                     <div class="login_buttons">
                         <button type="submit" id="login-button">Log in</button>
-                        <button onclick="guestLogin()" type="submit" id="guest-login-button">Guest Log in</button>
+                        <button onclick="guestLogin(event)" type="submit" id="guest-login-button">Guest Log in</button>
                     </div>
                 </form>
             </div>
 
             <footer>
                 <div>
-                    <a href="#" target="_blank">Privacy Policy</a>
+                    <a href="./privacy_policy.html">Privacy Policy</a>
                 </div>
                 <div>
-                    <a href="#" target="_blank">Legal Notice</a>
+                    <a href="./legal_notice.html">Legal Notice</a>
                 </div>
             </footer>
     </main>
@@ -89,7 +86,9 @@
     </div>
 
     <script src="../js/storage.js"></script>
-    <script src="../js/register.js"></script>
+    <script src="../js/Authentication/register.js"></script>
+    <script src="../js/Authentication/login.js"></script>
+    <script src="../js/Authentication/sign_up.js"></script>
 
 </body>
 

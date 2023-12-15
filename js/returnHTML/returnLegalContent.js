@@ -3,7 +3,7 @@ function returnPrivacyPolicyHTML() {
     <main class="legal_content_ctn">
         <div class="legal_content_title">
             <h1>Privacy Policy</h1>
-            <img onclick="hideLegalContent()" src="./images/arrow-left-line.svg" alt="">
+            <img onclick="hideLegalContent()" src="../images/arrow-left-line.svg" alt="">
         </div>
         <div>
             <h2>Preamble</h2>
@@ -13,7 +13,7 @@ function returnPrivacyPolicyHTML() {
             <br>
             The terms used are not gender-specific.<br>
             <br>
-            As of: August 24, 2023</p>
+            As of: November 17, 2023</p>
         </div>
         <section>
             <h2>Table of Contents</h2>
@@ -65,7 +65,7 @@ function returnLegalNoticeHTML(){
     <main class="legal_content_ctn">
             <div class="legal_content_title">
                 <h1>Legal Notice</h1>
-                <img onclick="hideLegalContent()" src="./images/arrow-left-line.svg" alt="">
+                <img onclick="hideLegalContent()" src="../images/arrow-left-line.svg" alt="">
             </div>
             <div>
                 <h2>Imprint</h2>
