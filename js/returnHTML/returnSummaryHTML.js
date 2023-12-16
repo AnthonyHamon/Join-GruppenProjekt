@@ -1,7 +1,7 @@
 function generateSummaryHTML() {
-    let content = document.getElementById('content');
-    content.innerHTML = '';
-    content.innerHTML = `
+  let content = document.getElementById("content");
+  content.innerHTML = "";
+  content.innerHTML = `
     <main>
         <div class="summary_title_ctn">
             <div class="summary_title">
@@ -72,12 +72,12 @@ function generateSummaryHTML() {
             </section>
         </div>
     </main>
-    `
+    `;
 }
 
 function returnMobileGreeting() {
-    return `
+  return `
         <span id="mobile-greeting">${renderGreetingMessage()}</span>
         <span id="mobile-greeted-name">${renderGreetsUserName()}</span>
-    `
+    `;
 }

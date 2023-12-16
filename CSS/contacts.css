@@ -278,7 +278,71 @@
 
 .font_weight_700 {
     font-weight: 700;
+} 
+
+.contact_deletion_ctn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.contact_deletion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    background-color: #2A3647;
+    border-radius: 30px;
+    color: white;
+    gap: 24px;
+    font-size: 18px;
+    height: 230px;
+    width: 500px;
+}
+
+.contact_deletion span{
+    color: #29ABE2;
+    font-size: 18px;
+}
+
+.contact_deletion_btn_ctn{
+    display: flex;
+}
+
+.contact_deletion button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    min-width: 113px;
+    font-size: 18px;
+}
+
+#cancel-deletion:hover{
+    color: white;
+    background-color: #29ABE2;
+}
+
+#confirm-deletion:hover{
+    color: white;
+    background-color: firebrick;
+}
+
+#cancel-deletion:hover img, #confirm-deletion:hover img{
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
+
+
 
 /* CSS for contact popup */
 
@@ -529,9 +593,7 @@
     display: none;
 }
 
-.d-none {
-    display: none;
-}
+
 
 /* CSS for contact created popup */
 
@@ -773,7 +835,6 @@
         position: absolute;
         right: 0;
         bottom: 80px;
-        left: 0;
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -984,7 +1045,7 @@
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 520px) {
 
     .contacts_list_div {
         padding: 24px;
@@ -995,6 +1056,24 @@
         font-size: 36px;
         font-weight: 700;
     }
+
+    .contact_deletion{
+        height: 200px;
+        width: 400px;
+        padding: 24px;
+    }
+
+    .contact_deletion button{
+        padding: 8px;
+    }
+}
+
+@media(max-width: 400px) {
+    .contact_deletion{
+        height: 280px;
+        width: 250px;
+    }
+
 }
 
 @media(max-width: 375px) {
@@ -1016,6 +1095,10 @@
 
     #selected-contact-content .gap_54{
         gap: 30px;
+    }
+
+    .contact_deletion_btn_ctn{
+        flex-direction: column;
     }
 }
 
@@ -1083,4 +1166,8 @@
     .call_to_action_text h2 {
         font-size: 41px;
     }
+}
+
+.d-none {
+    display: none;
 }

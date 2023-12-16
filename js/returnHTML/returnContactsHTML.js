@@ -38,7 +38,7 @@ function returnContactPage() {
                 </div>
             </div>
         </main>
-    `
+    `;
 }
 
 function returnContactsOrganizer(i, organizerLetter) {
@@ -49,7 +49,7 @@ function returnContactsOrganizer(i, organizerLetter) {
         </div>
         <hr class="divider">
     </div>
-`
+`;
 }
 
 function returnContacts(i, contactMatches) {
@@ -63,7 +63,7 @@ function returnContacts(i, contactMatches) {
                     <span id="contact-email-${i}" class="contact_email">${contactMatches['email']}</span>
                 </div>
             </div>
-    `
+    `;
 }
 
 function returnContactInformations(name, email, phone, initial, BgColor) {
@@ -81,7 +81,7 @@ function returnContactInformations(name, email, phone, initial, BgColor) {
                         <img src="../images/edit.svg" alt="">
                         <span>Edit</span>
                     </div>
-                    <div onclick="deleteContact('${email}')" id="delete-selected-contact-${name}" class="delete_selected_contact align_item_center gap_8">
+                    <div onclick="toggleDeleteContactConfirmationPopup()" id="delete-selected-contact-${name}" class="delete_selected_contact align_item_center gap_8">
                         <img src="../images/delete.svg" alt="">
                         <span>Delete</span>
                     </div>
@@ -105,8 +105,22 @@ function returnContactInformations(name, email, phone, initial, BgColor) {
                 <img src="..//images/more_menu.svg">
             </div>
         </div>
+        
         <div onclick="closeMobileEditMenu()" id="mobile-edit-contact-menu-ctn" class="mobile_edit_contact_ctn d-none"></div>
-    `
+        
+        <div id="contact-deletion-ctn" class="contact_deletion_ctn d-none">
+            <div class="contact_deletion">
+                <div>
+                    <p>Are you sure you want to delete this Contact: </p>
+                    <span>${name}?</span>
+                </div>
+                <div class="contact_deletion_btn_ctn gap_16">
+                    <button onclick="toggleDeleteContactConfirmationPopup()" id="cancel-deletion"><img src="../images/close.svg" alt="">Cancel</button>
+                    <button onclick="deleteContact('${email}')" id="confirm-deletion"><img src="../images/delete.svg" alt="">Delete</button>
+                </div>
+            </div>    
+        </div>
+    `;
 }
 
 function returnAddContactPopup() {
@@ -158,14 +172,14 @@ function returnAddContactPopup() {
                             </div>
                         </div>
                         <div class="contact_buttons_ctn">
-                            <button type="button" id="contact-popup-left-button" onclick="closeContactPopup() "class="contact_popup_left_button">Cancel<img src="./images/close.svg"></button>
-                            <button class="contact_popup_right_button">Create contact <img src="./images/check.svg"></button>
+                            <button type="button" id="contact-popup-left-button" onclick="closeContactPopup() "class="contact_popup_left_button">Cancel<img src="../images/close.svg"></button>
+                            <button class="contact_popup_right_button">Create contact <img src="../images/check.svg"></button>
                         </div>
                     </form>
                 </div>
             </section>
         </div>
-    `
+    `;
 }
 
 function returnEditContactPopup(name, email, phone, initial, BgColor) {
@@ -223,7 +237,7 @@ function returnEditContactPopup(name, email, phone, initial, BgColor) {
                 </div>
             </section>
         </div>
-    `
+    `;
 }
 
 function returnMobileEditContactMenu(name, email, phone, initial, BgColor) {
@@ -233,10 +247,10 @@ function returnMobileEditContactMenu(name, email, phone, initial, BgColor) {
             <img src="..//images/edit.svg">
             <span>Edit</span>
         </div>
-        <div onclick="deleteContact('${email}')" id="delete-contact" class="mobile_edit_contact">
+        <div onclick="toggleDeleteContactConfirmationPopup()" id="delete-contact" class="mobile_edit_contact">
             <img src="..//images/delete.svg">
             <span>Delete</span>
         </div>
     </div>
-    `
+    `;
 }

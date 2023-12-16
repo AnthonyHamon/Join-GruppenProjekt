@@ -135,11 +135,24 @@ async function editSelectedContacts(name, email, phone, initial, BgColor) {
     await setItem('tasks', JSON.stringify(tasks));
 }
 
+
+function toggleDeleteContactConfirmationPopup(){
+    let selectedContactInfo = document.getElementById('contact-deletion-ctn');
+    selectedContactInfo.classList.toggle('d-none');
+    selectedContactInfo.classList.toggle('open_animation_contact_popup');
+}
+
+function closeDeleteContactConfirmationPopup(){
+    let selectedContactInfo = document.getElementById('contact-deletion-ctn');
+    selectedContactInfo.classList.add('d-none');
+}
+
 async function deleteContact(email) {
     let index = contacts.findIndex(e => e.email === email);
     contacts.splice(index, 1);
     await setItem('contacts', JSON.stringify(contacts));
     renderContacts();
+    toggleDeleteContactConfirmationPopup();
     closeContactPopup();
     let contactInformations = document.getElementById('selected-contact-content');
     contactInformations.innerHTML = '';
