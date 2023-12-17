@@ -194,17 +194,17 @@ function clearInputField(inputsField) {
 function addSubtask() {
     let subtaskInput = document.getElementById('subtaskInput');
 
-    if ( !subtaskInput.value == "" ) {
-        createdSubtaskList.push(subtaskInput.value);
-        
+    if (!subtaskInput.value == "") {
+        createdSubtaskList.push({
+            description: subtaskInput.value,
+            subtaskStatus: "unfinished"
+        });
+
         toggleSubtaskImages();
-
         renderSubtask();
-    } 
-
+    }
     subtaskInput.value = "";
 }
-
 
 function checkEditedTaskList(i, subtask) {
     let index = createdSubtaskList.findIndex(s => s === subtask);
@@ -230,10 +230,9 @@ function renderSubtask() {
     for (let index = 0; index < createdSubtaskList.length; index++) {
         const subtask = createdSubtaskList[index];
 
-        subtaskContent.innerHTML += returnSubtask(subtask, index);
+        subtaskContent.innerHTML += returnSubtask(subtask.description, index);
     }
 }
-
 
 function toggleSubtask(i) {
     document.getElementById(`taskList${i}`).classList.toggle('d-none');

@@ -24,6 +24,13 @@ async function renderAllTasks() {
     await assignTaskElementsToStatus('feedback');
     await assignTaskElementsToStatus('done');
     checkProfileBadgeCount();
+    updateAllProgressBars();
+}
+
+function updateAllProgressBars() {
+    tasks.forEach(task => {
+        updateSubtasksCount(task.id);
+    });
 }
 
 function changeBoardContent() {
@@ -221,34 +228,106 @@ function checkSubtasksInTask(subtasks, taskId) {
         return /*html*/`
             <div id="subtask_contain${taskId}" class="subtaskContain">
                 <div class="progressbar-container">
-                    <div class="progressbar"></div>
+                    <div id="progressbar${taskId}"></div>
                 </div>
-                <span id="subtaskTxt${taskId}" class="subtaskTxt">0/${subtasks.length}</span>
+                <span id="subtaskTxt${taskId}" class="subtaskTxt">${subtasksCompleted(subtasks, taskId)}/${subtasks.length}</span>
             </div>
         `;
     } else if (currentTaskStatus === 'big') {
         for (let i = 0; i < subtasks.length; i++) {
             let subtask = subtasks[i];
             html += /*html*/`
-            <div onclick="selectSubtaskInDetails(${i},${taskId})" class="subtaskContainDetails">
-                <img id="checkBox${i}${taskId}" src="/images/check_button.svg">
-                <img id="checkedBox${i}${taskId}" class="d-none" src="/images/checked_button.svg">
-                <span id="subtask${i}${taskId}">${subtask}</span>
-            </div>
-        `;
+                ${returnSubtasksDetailsHTML(i, subtask, taskId)}
+            `;
         }
     }
     return html;
 }
 
-function selectSubtaskInDetails(subtaskId, taskId) {
+function updateSubtasksCount(taskId) {
+    let task = tasks.find(t => t.id === taskId);
+    if (task) {
+        let completedCount = subtasksCompleted(task.subtasks);
+        let totalSubtasks = task.subtasks.length;
+        let subtaskTxtElement = document.getElementById(`subtaskTxt${taskId}`);
+        let progressbarElement = document.getElementById(`progressbar${taskId}`);
+
+        if (subtaskTxtElement) {
+            subtaskTxtElement.textContent = `${completedCount}/${totalSubtasks}`;
+        }
+
+        if (progressbarElement) {
+            let progressPercentage = totalSubtasks > 0 ? (completedCount / totalSubtasks) * 100 : 0;
+            progressbarElement.style.width = `${progressPercentage}%`;
+            progressbarElement.style.height = '100%';
+            progressbarElement.style.backgroundColor = '#4589FF';
+            progressbarElement.style.borderRadius = '16px';
+        }
+    }
+}
+
+function returnSubtasksDetailsHTML(subtaskId, subtask, taskId) {
+    let imageHTML;
+
+    if (subtask.subtaskStatus === 'finished') {
+        imageHTML = `<img id="checkedBox${subtaskId}${taskId}" src="/images/checked_button.svg">`;
+    } else {
+        imageHTML = `<img id="checkBox${subtaskId}${taskId}" src="/images/check_button.svg">`;
+    }
+
+    return /*html*/`
+        <div onclick="selectSubtaskInDetails(${subtaskId},${taskId})" class="subtaskContainDetails">
+            ${imageHTML}
+            <span id="subtask${subtaskId}${taskId}">${subtask.description}</span>
+        </div>
+    `;
+}
+
+function subtasksCompleted(subtasks) {
+    let completedCount = 0;
+    for (let i = 0; i < subtasks.length; i++) {
+        if (subtasks[i].subtaskStatus === 'finished') {
+            completedCount++;
+        }
+    }
+    return completedCount;
+}
+
+async function selectSubtaskInDetails(subtaskId, taskId) {
+    let task = tasks.find(t => t.id === taskId);
+    if (task) {
+        let subtask = task.subtasks[subtaskId];
+        subtask.subtaskStatus = subtask.subtaskStatus === 'finished' ? 'unfinished' : 'finished';
+
+        await setItem('tasks', JSON.stringify(tasks));
+
+        updateSubtasksInDetails(task);
+        updateSubtasksCount(taskId);
+    }
+}
+
+function updateSubtasksInDetails(task) {
+    let subtasksContainer = document.getElementById(`allSubtasksContainDetails${task.id}`);
+    if (subtasksContainer) {
+        subtasksContainer.innerHTML = checkSubtasksInTask(task.subtasks, task.id);
+        updateSubtasksCount(task.id);
+    }
+}
+
+function updateSubtaskUI(subtaskId, taskId, subtaskStatus) {
     let checkBox = document.getElementById(`checkBox${subtaskId}${taskId}`);
     let checkedBox = document.getElementById(`checkedBox${subtaskId}${taskId}`);
-    let subtask = document.getElementById(`subtask${subtaskId}${taskId}`);
+    let subtaskElement = document.getElementById(`subtask${subtaskId}${taskId}`);
 
-    checkBox.classList.toggle('d-none');
-    checkedBox.classList.toggle('d-none');
-    subtask.classList.toggle('lineThrough');
+    if (subtaskStatus === 'finished') {
+        checkBox.classList.add('d-none');
+        checkedBox.classList.remove('d-none');
+        subtaskElement.classList.add('lineThrough');
+    } else {
+        checkBox.classList.remove('d-none');
+        checkedBox.classList.add('d-none');
+        subtaskElement.classList.remove('lineThrough');
+    }
 }
 
 function editTaskInBordSite(taskId) {

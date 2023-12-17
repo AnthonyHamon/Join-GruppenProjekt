@@ -88,7 +88,7 @@ function renderTaskHTMLDetails(task) {
                 ${checkContactsInTask(task.contacts)}
             </div>
             <span class="titleDetails" style="margin-top: -10px">Subtasks</span>
-            <div class="allSubtasksContainDetails">
+            <div id="allSubtasksContainDetails${task.id}" class="allSubtasksContainDetails">
                 ${checkSubtasksInTask(task.subtasks, task.id)}
             </div>
             <div class="editOptionsDetailsContain">
