@@ -197,7 +197,7 @@ function addSubtask() {
     if ( !subtaskInput.value == "" ) {
         createdSubtaskList.push(subtaskInput.value);
         
-        toggleImages();
+        toggleSubtaskImages();
 
         renderSubtask();
     } 
