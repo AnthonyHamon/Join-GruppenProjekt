@@ -195,8 +195,6 @@ function addSubtask() {
 
         renderSubtask();
     } 
-
-    subtaskInput.value = "";
 }
 
 
@@ -209,7 +207,6 @@ function checkEditedTaskList(i, subtask) {
     renderSubtask();
 }
 
-
 function toggleSubtaskImages() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
@@ -218,6 +215,8 @@ function toggleSubtaskImages() {
     
     subtaskInput.focus();
     subtaskInput.select();
+
+    subtaskInput.value = "";
 
     imageContainer.classList.toggle('d-none');
     newImages.classList.toggle('d-none');
@@ -253,6 +252,9 @@ function renderSubtask() {
 function toggleSubtask(i) {
     document.getElementById(`taskList${i}`).classList.toggle('d-none');
     document.getElementById(`editTaskList${i}`).classList.toggle('d-none');
+
+    document.getElementById(`editInput${i}`).focus();
+    document.getElementById(`editInput${i}`).select();
 }
 
 
@@ -322,7 +324,6 @@ function toggleDropdown() {
     }
 }
 
-
 function clearBegonnenNewTask() {
     resetArraysForNewTasks();
     resetContactStyle();
@@ -330,7 +331,6 @@ function clearBegonnenNewTask() {
     rotateIcon();
     renderSubtask();
 }
-
 
 function resetContactStyle() {
     document.getElementById('assigned-to-contact-list').innerHTML = '';
