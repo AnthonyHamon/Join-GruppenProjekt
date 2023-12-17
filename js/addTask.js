@@ -196,12 +196,8 @@ function addSubtask() {
 
         toggleSubtaskImages();
         renderSubtask();
-<<<<<<< HEAD
     }
     subtaskInput.value = "";
-=======
-    } 
->>>>>>> 5dbd8d689835b794eefed46dd132a1e3b4946630
 }
 
 function checkEditedTaskList(i, subtask) {

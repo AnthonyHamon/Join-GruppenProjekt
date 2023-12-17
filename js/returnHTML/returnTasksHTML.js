@@ -98,7 +98,7 @@ function generateAddTaskHTML() {
                             <h4>Subtasks</h4>
                             <div class="subtask-field">
                                 <div class="subtask-input-container">
-                                    <input c oninput="showSubtaskImagesByInput()" id="subtaskInput" class="subtask-input" type="text" name="myInput" placeholder="Add new subtask">
+                                    <input oninput="showSubtaskImagesByInput()" id="subtaskInput" class="subtask-input" type="text" name="myInput" placeholder="Add new subtask">
                                 </div>
                                 <div class="subtask-image-field-first" id="imageContainer">
                                     <img src="../images/Property 1=add.svg" alt="" onclick="toggleSubtaskImages()">
