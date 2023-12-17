@@ -41,6 +41,7 @@ function renderAssignedToContactList() {
     }
 }
 
+
 function searchContactToAssign() {
     let searchedContact = document.getElementById('assignTo-input').value.toLowerCase();
     let assignedToContactList = document.getElementById('assigned-to-contact-list');
@@ -67,10 +68,12 @@ function searchContactToAssign() {
     }
 }
 
+
 function resetArraysForNewTasks() {
     selectedContacts = [];
     createdSubtaskList = [];
 }
+
 
 function styleAlreadySelectedContact(index, searchedContact) {
     selectedContacts.forEach((selectedContact) => {
@@ -103,6 +106,7 @@ function renderSelectedContactBadges(selectedContacts) {
     }
 }
 
+
 function styleSelectedContact(i) {
     document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`checked-contact${i}-img`).classList.toggle('d-none');
@@ -129,6 +133,7 @@ function toggleContacts() {
         arrowIcon.classList.remove('rotate');  // Entfernen der Rotation, wenn unsichtbar
     }
 }
+
 
 function getTodaysDateForCalender() {
     let currentDate = new Date();
@@ -169,17 +174,6 @@ function resetSelectedPrioButton() {
     });
 }
 
-/*
-function closeImages() {
-    const imageContainer = document.getElementById("imageContainer");
-    const newImages = document.getElementById("newImages");
-
-    imageContainer.style.display = "block";
-    newImages.style.display = "none";
-    clearInputField("subtaskInput");
-}
-*/
-
 
 function clearInputField(inputsField) {
     const inputField = document.getElementById(inputsField);
@@ -202,8 +196,12 @@ function addSubtask() {
 
         toggleSubtaskImages();
         renderSubtask();
+<<<<<<< HEAD
     }
     subtaskInput.value = "";
+=======
+    } 
+>>>>>>> 5dbd8d689835b794eefed46dd132a1e3b4946630
 }
 
 function checkEditedTaskList(i, subtask) {
@@ -219,8 +217,30 @@ function toggleSubtaskImages() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
 
+    let subtaskInput = document.getElementById('subtaskInput');
+    
+    subtaskInput.focus();
+    subtaskInput.select();
+
+    subtaskInput.value = "";
+
     imageContainer.classList.toggle('d-none');
     newImages.classList.toggle('d-none');
+}
+
+
+function showSubtaskImagesByInput () {
+    const imageContainer = document.getElementById("imageContainer");
+    const newImages = document.getElementById("newImages");
+    let subtaskInput = document.getElementById('subtaskInput');
+
+    if (!subtaskInput.value == "") {
+        imageContainer.classList.add('d-none');
+        newImages.classList.remove('d-none');
+    } else {
+        imageContainer.classList.remove('d-none');
+        newImages.classList.add('d-none');
+    }
 }
 
 
@@ -237,6 +257,9 @@ function renderSubtask() {
 function toggleSubtask(i) {
     document.getElementById(`taskList${i}`).classList.toggle('d-none');
     document.getElementById(`editTaskList${i}`).classList.toggle('d-none');
+
+    document.getElementById(`editInput${i}`).focus();
+    document.getElementById(`editInput${i}`).select();
 }
 
 
