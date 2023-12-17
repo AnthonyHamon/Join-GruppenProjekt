@@ -219,8 +219,28 @@ function toggleSubtaskImages() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
 
+    let subtaskInput = document.getElementById('subtaskInput');
+    
+    subtaskInput.focus();
+    subtaskInput.select();
+
     imageContainer.classList.toggle('d-none');
     newImages.classList.toggle('d-none');
+}
+
+
+function showSubtaskImagesByInput () {
+    const imageContainer = document.getElementById("imageContainer");
+    const newImages = document.getElementById("newImages");
+    let subtaskInput = document.getElementById('subtaskInput');
+
+    if (!subtaskInput.value == "") {
+        imageContainer.classList.add('d-none');
+        newImages.classList.remove('d-none');
+    } else {
+        imageContainer.classList.remove('d-none');
+        newImages.classList.add('d-none');
+    }
 }
 
 
