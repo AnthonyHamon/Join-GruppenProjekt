@@ -12,7 +12,7 @@ function generateAddTaskHTML() {
                     <div class="left-field">
                             <div class="titel-field">
                                 <h4>Title<span class="letter-color">*</span></h4>
-                                <input id="titel-input" required type="text" name="myInput" placeholder="Enter a title">
+                                <input autocomplete="off" id="titel-input" required type="text" name="myInput" placeholder="Enter a title">
                                 <div  class="error_warning">
                                     <span id="title-warning-text">This field is required</span>
                                 </div>
@@ -98,7 +98,7 @@ function generateAddTaskHTML() {
                             <h4>Subtasks</h4>
                             <div class="subtask-field">
                                 <div class="subtask-input-container">
-                                    <input oninput="showSubtaskImagesByInput()" id="subtaskInput" class="subtask-input" type="text" name="myInput" placeholder="Add new subtask">
+                                    <input c oninput="showSubtaskImagesByInput()" id="subtaskInput" class="subtask-input" type="text" name="myInput" placeholder="Add new subtask">
                                 </div>
                                 <div class="subtask-image-field-first" id="imageContainer">
                                     <img src="../images/Property 1=add.svg" alt="" onclick="toggleSubtaskImages()">

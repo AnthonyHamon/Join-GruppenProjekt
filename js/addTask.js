@@ -41,6 +41,7 @@ function renderAssignedToContactList() {
     }
 }
 
+
 function searchContactToAssign() {
     let searchedContact = document.getElementById('assignTo-input').value.toLowerCase();
     let assignedToContactList = document.getElementById('assigned-to-contact-list');
@@ -67,10 +68,12 @@ function searchContactToAssign() {
     }
 }
 
+
 function resetArraysForNewTasks() {
     selectedContacts = [];
     createdSubtaskList = [];
 }
+
 
 function styleAlreadySelectedContact(index, searchedContact) {
     selectedContacts.forEach((selectedContact) => {
@@ -103,6 +106,7 @@ function renderSelectedContactBadges(selectedContacts) {
     }
 }
 
+
 function styleSelectedContact(i) {
     document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`checked-contact${i}-img`).classList.toggle('d-none');
@@ -129,6 +133,7 @@ function toggleContacts() {
         arrowIcon.classList.remove('rotate');  // Entfernen der Rotation, wenn unsichtbar
     }
 }
+
 
 function getTodaysDateForCalender() {
     let currentDate = new Date();
@@ -169,17 +174,6 @@ function resetSelectedPrioButton() {
     });
 }
 
-/*
-function closeImages() {
-    const imageContainer = document.getElementById("imageContainer");
-    const newImages = document.getElementById("newImages");
-
-    imageContainer.style.display = "block";
-    newImages.style.display = "none";
-    clearInputField("subtaskInput");
-}
-*/
-
 
 function clearInputField(inputsField) {
     const inputField = document.getElementById(inputsField);
@@ -214,6 +208,7 @@ function checkEditedTaskList(i, subtask) {
 
     renderSubtask();
 }
+
 
 function toggleSubtaskImages() {
     const imageContainer = document.getElementById("imageContainer");
@@ -327,6 +322,7 @@ function toggleDropdown() {
     }
 }
 
+
 function clearBegonnenNewTask() {
     resetArraysForNewTasks();
     resetContactStyle();
@@ -334,6 +330,7 @@ function clearBegonnenNewTask() {
     rotateIcon();
     renderSubtask();
 }
+
 
 function resetContactStyle() {
     document.getElementById('assigned-to-contact-list').innerHTML = '';
