@@ -11,7 +11,7 @@ function togglePasswordImg() {
     let passwordVisibilityOff = document.getElementById('password-visibility-off');
     let passwordLock = document.getElementById('password-lock');
     let passwordInput = document.getElementById('password-input');
-    if (!passwordInput.value == 0 && passwordInput.type === 'password') {
+    if (!passwordInput.value == '' && passwordInput.type === 'password') {
         passwordLock.classList.add('d-none');
         passwordVisibilityOff.classList.remove('d-none');
     } else if (!passwordInput.value == 0 && passwordInput.type === 'text') {

@@ -45,6 +45,12 @@ function showSignUpConfirmation() {
 }
 
 
+/**
+ * 
+ * @param {string} name 
+ * @returns {string} first capitalize letter of @param
+ */
+
 function returnContactInitialLetter(name) {
     return name.replace(/[^A-Z]+/g, '');
 }

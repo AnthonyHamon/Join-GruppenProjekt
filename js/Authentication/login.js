@@ -22,6 +22,14 @@ function login() {
     loginValidation(user, password);
 }
 
+/**
+ * 
+ * @param {object} user 
+ * @param {string} password 
+ * 
+ * login validation before redirection to user page, password failure message or redirection to sign-up page.
+ */
+
 function loginValidation(user, password){
     if (user && password) {
         localStorage.setItem('hasBeenGreeted', false);
@@ -35,6 +43,13 @@ function loginValidation(user, password){
         setTimeout(() => window.location.href = '../HTML/sign_up.html', 3000);
     }
 }
+
+/**
+ * 
+ * @param {object} user 
+ * 
+ * set current user and save it in local storage for use after redirection.
+ */
 
 function setCurrentUser(user){
     let userName = formatName(user['user']);

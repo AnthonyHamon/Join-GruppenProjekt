@@ -12,21 +12,27 @@ async function renderContactsPage() {
     hideLegalContent();
 }
 
-function sortOrganizer() {
-    let organizerArray = [];
+/**
+ * function to set and sort organizer for contact list
+ * @returns {array} array of all contacts first character of name sorted alphabetically
+ */
+
+function setOrganizer() {
+    let organizer = [];
     for (let index = 0; index < contacts.length; index++) {
         const contact = contacts[index];
         let firstCharFromName = contact['name'].charAt(0).toUpperCase();
-        organizerArray.push(firstCharFromName);
-        organizer = organizerArray.filter((item, index) =>
-            organizerArray.indexOf(item) === index);
+        organizer.push(firstCharFromName);
+        organizer = organizer.filter((item, index) =>
+            organizer.indexOf(item) === index);
     }
+    organizer.sort((a, b) => { return compareStrings(a, b) });
     return organizer;
 }
 
+
 function renderContacts() {
-    sortOrganizer();
-    organizer.sort((a, b) => { return compareStrings(a, b) });
+    let organizer = setOrganizer();
     let contactList = document.getElementById('contact-list');
     contactList.innerHTML = '';
     for (let i = 0; i < organizer.length; i++) {
@@ -35,6 +41,12 @@ function renderContacts() {
         renderMatchedContact(i, organizerLetter);
     }
 }
+
+/**
+ * render contact which begin with character of organiser
+ * @param {number} i index of organizer
+ * @param {string} organizerLetter character of organiser
+ */
 
 function renderMatchedContact(i, organizerLetter) {
     let contactList = document.getElementById('contact-list');
@@ -74,6 +86,12 @@ async function setNewContact() {
     await setItem('contacts', JSON.stringify(contacts));
 }
 
+/**
+ * 
+ * @param {string} name name of contact to be created
+ * @returns name of contact to be created with uppercased first character
+ */
+
 function formatName(name) {
     return name.replace(/\b\w/g, l => l.toUpperCase());
 }
@@ -112,6 +130,15 @@ function resetAddContactCustomValidity() {
     document.getElementById('new-contact-phone').setCustomValidity('');
 }
 
+/**
+ * function to edit contact informations
+ * @param {string} name name of the contact
+ * @param {string} email email of the contact
+ * @param {string} phone phone number of the contact
+ * @param {string} initial initial opf the contact
+ * @param {string} BgColor color of contact badge
+ */
+
 async function editContact(name, email, phone, initial, BgColor) {
     let index = contacts.findIndex(e => e.email === email);
     name = document.getElementById(`edited-${name}`).value;
@@ -136,19 +163,24 @@ async function editSelectedContacts(name, email, phone, initial, BgColor) {
 }
 
 
-function toggleDeleteContactConfirmationPopup(){
+function toggleDeleteContactConfirmationPopup() {
     let selectedContactInfo = document.getElementById('contact-deletion-ctn');
     selectedContactInfo.classList.toggle('d-none');
     selectedContactInfo.classList.toggle('open_animation_contact_popup');
 }
 
-function closeDeleteContactConfirmationPopup(){
+function closeDeleteContactConfirmationPopup() {
     let selectedContactInfo = document.getElementById('contact-deletion-ctn');
     selectedContactInfo.classList.add('d-none');
 }
 
+
+/**
+ * function to delete a contact from the list
+ * @param {string} email email of the contact
+ */
 async function deleteContact(email) {
-    let index = contacts.findIndex(e => e.email === email);
+    let index = contacts.findIndex(e => e.email === email); // search index of selected contact
     contacts.splice(index, 1);
     await setItem('contacts', JSON.stringify(contacts));
     renderContacts();
@@ -175,6 +207,15 @@ function setRandomColor() {
     }
     return BgColor;
 }
+
+/**
+ * function to render information of selected contact
+ * @param {string} name name of the contact
+ * @param {string} email email of the contact
+ * @param {string} phone phone number of the contact
+ * @param {string} initial initial opf the contact
+ * @param {string} BgColor color of contact badge
+ */
 
 function showContactInformation(name, email, phone, initial, BgColor) {
     let width = window.innerWidth;
