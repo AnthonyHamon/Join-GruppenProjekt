@@ -248,6 +248,7 @@ function showSelectedContactAnimation() {
         , 400);
 }
 
+
 function setSelectedContactOnClick(email) {
     resetContactSelection();
     let contact = document.getElementById(email);

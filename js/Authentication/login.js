@@ -1,4 +1,4 @@
-let users = []; 
+let users = [];
 let currentUser = [];
 let isChecked = false;
 let loginIsValid = false;
@@ -9,7 +9,7 @@ async function initLogin() {
     checkSavedLogin();
 }
 
-function logOut(){
+function logOut() {
     localStorage.removeItem('currentUser');
     window.location.href = './login.html';
 }
@@ -30,7 +30,7 @@ function login() {
  * login validation before redirection to user page, password failure message or redirection to sign-up page.
  */
 
-function loginValidation(user, password){
+function loginValidation(user, password) {
     if (user && password) {
         localStorage.setItem('hasBeenGreeted', false);
         setCurrentUser(user);
@@ -45,17 +45,16 @@ function loginValidation(user, password){
 }
 
 /**
- * 
+ * set current user and save it in local storage for use after redirection.
  * @param {object} user 
  * 
- * set current user and save it in local storage for use after redirection.
  */
 
-function setCurrentUser(user){
+function setCurrentUser(user) {
     let userName = formatName(user['user']);
     let initial = returnContactInitialLetter(userName);
     let BgColor = setRandomColor();
-    currentUser.push({user: userName, email: user['email'], initial: initial, BgColor: BgColor});
+    currentUser.push({ user: userName, email: user['email'], initial: initial, BgColor: BgColor });
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
 }
 
