@@ -128,7 +128,6 @@ function toggleContacts(event) {
 
     // Überprüfen, ob der Kontaktcontainer jetzt sichtbar ist
     if (!contactContainer.classList.contains('d-none')) {
-        stop(event);
         arrowIcon.classList.add('rotate');  // Drehen des Icons um 180 Grad, wenn sichtbar
     } else {
         arrowIcon.classList.remove('rotate');  // Entfernen der Rotation, wenn unsichtbar
