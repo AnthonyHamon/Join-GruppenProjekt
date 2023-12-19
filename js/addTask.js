@@ -119,22 +119,8 @@ function rotateIcon() {
     icon.classList.toggle('rotate');
 }
 
-function closeAssignedToList(){
-    const contactContainer = document.getElementById('contactContainer');
-    const arrowIcon = document.getElementById('arrowIcon');
 
-
-    // Überprüfen, ob der Kontaktcontainer jetzt sichtbar ist
-    if (!contactContainer.classList.contains('d-none')) {
-        arrowIcon.classList.add('rotate');  // Drehen des Icons um 180 Grad, wenn sichtbar
-    } else {
-        arrowIcon.classList.remove('rotate');  // Entfernen der Rotation, wenn unsichtbar
-        contactContainer.classList.add('d-none'); 
-    }
-}
-
-
-function toggleContacts() {
+function toggleContacts(event) {
     const contactContainer = document.getElementById('contactContainer');
     const arrowIcon = document.getElementById('arrowIcon');
 
@@ -142,6 +128,7 @@ function toggleContacts() {
 
     // Überprüfen, ob der Kontaktcontainer jetzt sichtbar ist
     if (!contactContainer.classList.contains('d-none')) {
+        stop(event);
         arrowIcon.classList.add('rotate');  // Drehen des Icons um 180 Grad, wenn sichtbar
     } else {
         arrowIcon.classList.remove('rotate');  // Entfernen der Rotation, wenn unsichtbar
