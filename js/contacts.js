@@ -278,7 +278,7 @@ function toggleCSSContactInformation() {
 
 function openAddContact() {
     let width = window.innerWidth;
-    let addContactCtn = document.getElementById('contact-popup-ctn');
+    let addContactCtn = document.getElementById('popup-ctn');
     addContactCtn.innerHTML = returnAddContactPopup();
     openContactPopup();
     if (width < 1000) {
@@ -288,7 +288,7 @@ function openAddContact() {
 
 function openContactPopup() {
     let width = window.innerWidth;
-    let addContactCtn = document.getElementById('contact-popup-ctn');
+    let addContactCtn = document.getElementById('popup-ctn');
     let addContact = document.getElementById('contact-popup');
     if (width <= 1000) {
         addContact.classList.add('open_mobile_animation_contact_popup')
@@ -299,7 +299,7 @@ function openContactPopup() {
 }
 function closeContactPopup() {
     let addContact = document.getElementById('contact-popup');
-    let addContactCtn = document.getElementById('contact-popup-ctn');
+    let addContactCtn = document.getElementById('popup-ctn');
     if (window.matchMedia("(min-width: 1000px)").matches &&
         !addContactCtn.classList.contains('d-none')) {
         addContact.classList.remove('open_animation_contact_popup');
@@ -313,7 +313,7 @@ function closeContactPopup() {
 
 function closeMobileContactPopup() {
     let addContact = document.getElementById('contact-popup');
-    let addContactCtn = document.getElementById('contact-popup-ctn');
+    let addContactCtn = document.getElementById('popup-ctn');
     addContact.classList.remove('open_mobile_animation_contact_popup');
     addContact.classList.add('close_mobile_animation_contact_popup');
     setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
@@ -327,7 +327,7 @@ function toggleAddcontactMobileMenu() {
 
 function openEditContact(event, name, email, phone, initial, BgColor) {
     setMobileEditContact(event);
-    let editContactCtn = document.getElementById('contact-popup-ctn');
+    let editContactCtn = document.getElementById('popup-ctn');
     editContactCtn.innerHTML = returnEditContactPopup(name, email, phone, initial, BgColor);
     openContactPopup();
 }
