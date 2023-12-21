@@ -642,7 +642,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     padding: 12px 16px;
 }
 
-.subtask-image-field {
+.subtask-image-field-second {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -680,7 +680,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 .subtask-input {
-    width: 170px;
+    width: 100%;
     height: 24px;
     font-size: 20px;
     font-weight: 400;
@@ -738,12 +738,11 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 .tasks-content {
-    width: 300px;
-    height: 24px;
+    width: 100%;
 }
 
 .finished-content {
-    width: 200px;
+    width: 100%;
     font-weight: 400;
     font-size: 20px;
     line-height: 24px;
@@ -1099,6 +1098,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     .subtask-input {
         font-size: 16px;
         height: 19px;
+        width: 100%;
     }
 
     .subtask-input::placeholder {
