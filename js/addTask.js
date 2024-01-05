@@ -338,3 +338,13 @@ function resetContactStyle() {
     renderAssignedToContactList();
     document.getElementById('selected-contact-ctn').innerHTML = '';
 }
+
+
+// AddTask in Board site
+
+function renderAddTaskPopUp() {
+    let popupCtn = document.getElementById('popup-ctn');
+
+    popupCtn.classList.toggle('d-none');
+    popupCtn.innerHTML = returnAddTaskPopUp();
+}

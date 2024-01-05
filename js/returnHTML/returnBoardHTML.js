@@ -8,7 +8,7 @@ function generateBoardHTML() {
                     <input id="find_task" onkeyup="searchTaskFromInput()" class="inputFindTask" type="text" placeholder="Find Task">
                     <img src="../images/search.svg">
                 </div>
-                <button onclick="setNewTask()" class="addTaskBtn"><span class="addBtnText">Add task</span><img src="../images/add.svg"></button>
+                <button onclick="renderAddTaskPopUp()" class="addTaskBtn"><span class="addBtnText">Add task</span><img src="../images/add.svg"></button>
             </div>
         </div>
         <div id="width_HTML"></div>

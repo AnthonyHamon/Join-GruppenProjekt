@@ -844,6 +844,27 @@ input[type=date]:invalid::-webkit-datetime-edit {
     cursor: pointer;
 }
 
+/* Popup Board Add Task */
+
+.popup-addtask-container {
+    background-color: #FFFFFF;
+    padding: 64px 65px 0 74px;
+    border-radius: 30px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.10);
+    height: 80%;
+    max-width: 80%;
+}
+
+.task-input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 46px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
 
 
 @media (max-width: 1290px) {
