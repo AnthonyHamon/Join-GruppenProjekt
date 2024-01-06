@@ -46,18 +46,18 @@
     border-color: #FF8190;
 }
 
-.error_warning{
+.error_warning {
     height: 19px;
     margin-bottom: -20px;
 }
 
-#title-warning-text{
+#title-warning-text {
     color: #FF8190;
     font-size: 12px;
     display: none;
 }
 
-#titel-input:invalid:hover + .error_warning #title-warning-text{
+#titel-input:invalid:hover+.error_warning #title-warning-text {
     display: block;
 }
 
@@ -407,11 +407,11 @@ h4 {
     border-color: #FF8190;
 }
 
-#calender-input:invalid:hover + .error_warning #calender-warning-text{
+#calender-input:invalid:hover+.error_warning #calender-warning-text {
     display: block;
 }
 
-#calender-warning-text{
+#calender-warning-text {
     color: #FF8190;
     font-size: 12px;
     display: none;
@@ -877,7 +877,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
         padding: 90px 0px 0px 155px;
         overflow: unset;
     }
-    
+
     .mobile-scroll {
         overflow: scroll;
         height: 100vh;
@@ -887,6 +887,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
         margin-top: 10px;
         height: 95%;
     }
+
     .task-input {
         display: flex;
         flex-direction: column;
@@ -971,7 +972,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
         width: 100%;
     }
 
-    .description-field { 
+    .description-field {
         max-width: 890px;
         width: 100%;
     }
@@ -1003,7 +1004,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
         max-width: 890px;
     }
 
-    .category-box { 
+    .category-box {
         max-width: 890px;
 
     }

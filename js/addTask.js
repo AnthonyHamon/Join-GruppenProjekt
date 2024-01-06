@@ -327,18 +327,8 @@ function toggleDropdown() {
 
 function clearBegonnenNewTask() {
     resetArraysForNewTasks();
-    resetContactStyle();
-    contactContainer.classList.add('d-none');
-    rotateIcon();
-    renderSubtask();
+    renderAddTask();
 }
-
-function resetContactStyle() {
-    document.getElementById('assigned-to-contact-list').innerHTML = '';
-    renderAssignedToContactList();
-    document.getElementById('selected-contact-ctn').innerHTML = '';
-}
-
 
 // AddTask in Board site
 
