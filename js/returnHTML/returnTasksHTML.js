@@ -206,6 +206,7 @@ function returnAddTaskPopUp() {
     <div class="popup-addtask-container">
     <div class="task-headline">
         <h1 class="task-name">Add Task</h1>
+        <img id="closeImag" onclick="toggleSubtaskImages()" class="popup-add-task-close" src="../images/Property 1=close.svg" alt="">
     </div>
 <form onsubmit="setNewTask(); return false" class="task-input-container">
     <div class="mobile-scroll">
