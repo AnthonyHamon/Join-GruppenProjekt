@@ -211,7 +211,7 @@ function returnAddTaskPopUp() {
 <form onsubmit="setNewTask(); return false" class="task-input-container">
     <div class="mobile-scroll">
         <div class="task-input">
-            <div class="left-field">
+            <div class="left-field popup-field">
                     <div class="titel-field">
                         <h4>Title<span class="letter-color">*</span></h4>
                         <input autocomplete="off" id="titel-input" required type="text" name="myInput" placeholder="Enter a title">
@@ -258,7 +258,7 @@ function returnAddTaskPopUp() {
                 </div>
                 <div id="selected-contact-ctn" class="selected_contact_ctn"></div>
             </div>
-            <div class="right-field">
+            <div class="right-field popup-field">
                 <div>
                     <div class="date-field">
                         <h4>Due Date<span class="letter-color">*</span></h4>

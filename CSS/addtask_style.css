@@ -254,6 +254,7 @@ input[type="search"]::-webkit-search-clear-button {
     background: #FFF;
     box-shadow: 0px 1px 2px 0px #D1D1D1;
     border-radius: 3px 3px 10px 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
     top: -15px;
     position: relative;
     z-index: 1;
@@ -899,7 +900,11 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
     .popup-addtask-container {
         padding: 30px 20px 0 20px;
-        max-width: 80%;
+        width: 100%;
+    }
+
+    .popup-field {
+        width: 100% !important;
     }
 
     .task-container {
@@ -921,21 +926,32 @@ input[type=date]:invalid::-webkit-datetime-edit {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
+        width: 100%;
     }
 
     .left-field {
         padding: 0;
         height: auto;
+        width: 80%;
     }
 
     .right-field {
         padding: 0;
         border: none;
         height: auto;
+        width: 80%;
     }
 
-    .titel-input {
-        width: 440px;
+    #titel-input {
+        width: 100%;
+    }
+
+    .description-field {
+        width: 100%;
+    }
+
+    .contacts-field {
+        width: 100%;
     }
 
     .custom-dropdown {
@@ -943,7 +959,27 @@ input[type=date]:invalid::-webkit-datetime-edit {
     }
 
     .contact-container {
-        width: 440px;
+        width: 100%;
+    }
+
+    .date-field {
+        width: 100%;
+    }
+
+    .prio-container {
+        width: 100%;
+    }
+
+    .category-fields {
+        width: 100%;
+    }
+
+    .dropdown-options {
+        width: 100%;
+    }
+
+    .subtask-container {
+        width: 100%;
     }
 
     .task-below {
@@ -964,7 +1000,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 440px;
+        width: 80%;
         margin-bottom: 85px;
     }
 
@@ -986,8 +1022,9 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
     .popup-addtask-container {
         margin-top: 0;
-        width: 90%;
+        width: 100%;
         max-width: 100%;
+        height: 89%;
     }
 
     .popup-task-below {
@@ -1084,8 +1121,8 @@ input[type=date]:invalid::-webkit-datetime-edit {
     }
 
     .popup-addtask-container {
-        height: 77%;
-        max-width: 90%;
+        height: 89%;
+        max-width: 100%;
     }
 
     h4 {
