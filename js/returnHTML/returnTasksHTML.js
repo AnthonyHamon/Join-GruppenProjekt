@@ -315,7 +315,7 @@ function returnAddTaskPopUp() {
             </div>
         </div>
     </div>
-    <div class="task-below">
+    <div class="task-below popup-task-below">
         <div>
             <div class="requered-field">
                 <span class="letter-color">*</span>

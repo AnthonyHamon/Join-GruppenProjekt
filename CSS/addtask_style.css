@@ -859,6 +859,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.10);
     height: 80%;
     max-width: 80%;
+    margin-top: 50px;
 }
 
 .task-input-container {
@@ -872,9 +873,16 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 .popup-add-task-close {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    cursor: pointer;
+}
+
+.popup-add-task-close:hover {
+    border-radius: 50%;
+    background-color: #D1D1D1;
+}
+
+.popup-task-below {
+    margin-bottom: 0;
 }
 
 
@@ -883,6 +891,15 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
     .task-headline h1 {
         margin-bottom: 30px;
+    }
+
+    .popup-task-below {
+        margin-bottom: 40px !important;
+    }
+
+    .popup-addtask-container {
+        padding: 30px 20px 0 20px;
+        max-width: 80%;
     }
 
     .task-container {
@@ -951,6 +968,10 @@ input[type=date]:invalid::-webkit-datetime-edit {
         margin-bottom: 85px;
     }
 
+    .popup-task-below {
+        margin-bottom: 20px;
+    }
+
     .requered-field {
         width: 150px;
         font-size: 14px;
@@ -961,6 +982,16 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
     .task-headline h1 {
         font-size: 57px !important;
+    }
+
+    .popup-addtask-container {
+        margin-top: 0;
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .popup-task-below {
+        margin-bottom: 15px !important;
     }
 
     .task-container {
@@ -1050,6 +1081,11 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
     .task-container {
         padding: 40px 20px 40px 20px;
+    }
+
+    .popup-addtask-container {
+        height: 77%;
+        max-width: 90%;
     }
 
     h4 {
