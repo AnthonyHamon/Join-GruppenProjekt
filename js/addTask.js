@@ -338,3 +338,11 @@ function renderAddTaskPopUp() {
     popupCtn.classList.toggle('d-none');
     popupCtn.innerHTML = returnAddTaskPopUp();
 }
+
+
+function closeAddTaskPopUp() {
+    let popupCtn = document.getElementById('popup-ctn');
+
+    popupCtn.classList.add('d-none');
+}
+
