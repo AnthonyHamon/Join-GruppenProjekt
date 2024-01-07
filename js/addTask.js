@@ -334,7 +334,9 @@ function clearBegonnenNewTask() {
 
 function renderAddTaskPopUp() {
     let popupCtn = document.getElementById('popup-ctn');
-
     popupCtn.classList.toggle('d-none');
     popupCtn.innerHTML = returnAddTaskPopUp();
+    renderAssignedToCurrentUser();
+    renderAssignedToContactList();
+    showCategory();
 }
