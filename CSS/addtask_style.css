@@ -12,6 +12,12 @@
     margin: 0;
 }
 
+.task-headline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 
 .task_input_ctn {
     display: flex;
@@ -863,6 +869,12 @@ input[type=date]:invalid::-webkit-datetime-edit {
     height: 80%;
     display: flex;
     flex-direction: column;
+}
+
+.popup-add-task-close {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
 
 

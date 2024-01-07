@@ -340,3 +340,11 @@ function renderAddTaskPopUp() {
     renderAssignedToContactList();
     showCategory();
 }
+
+
+function closeAddTaskPopUp() {
+    let popupCtn = document.getElementById('popup-ctn');
+
+    popupCtn.classList.add('d-none');
+}
+
