@@ -372,16 +372,17 @@
     z-index: 1000;
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 525px;
+    height: 90%;
     background-color: #FFFFFF;
-    padding: 40px 30px;
+    padding: 48px 40px;
     border-radius: 30px;
     gap: 24px;
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
 }
 
 .taskTitleDetails {
-    font-size: 44px;
+    font-size: 61px;
     font-weight: 700;
     line-height: 50px;
     word-wrap: break-word;
@@ -444,8 +445,8 @@
 
 .assignedContain {
     display: flex;
-    flex-wrap: wrap;
-    max-height: 100px;
+    flex-direction: column;
+    max-height: 200px;
     margin-left: 10px;
     overflow-y: scroll;
 }
@@ -463,25 +464,11 @@
     margin-left: 10px;
 }
 
-.assignedName {
-    white-space: nowrap;
-    overflow: hidden;
-    width: 146px;
-    position: relative;
-}
-
-.assignedNameText {
-    display: inline-block;
-    position: relative;
-    transition: transform 2s;
-}
-
 .deleteDetailsContain:hover,
 .editDetailsContain:hover {
     cursor: pointer;
     filter: invert(70%) sepia(74%) saturate(3560%) hue-rotate(165deg) brightness(95%) contrast(85%);
     font-weight: 700;
-    margin-right: -3px;
 }
 
 .editOptionsDetailsContain,
@@ -491,6 +478,26 @@
     justify-content: flex-end;
     align-items: center;
     gap: 5px;
+}
+
+.edit-task-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 90%;
+    overflow: scroll;
+    width: 100%;
+}
+
+.edit-task-container::-webkit-scrollbar{
+    display: none;
+}
+
+.edit-task-right-field,
+.edit-task-left-field {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .seperator {

@@ -330,12 +330,10 @@ function updateSubtaskUI(subtaskId, taskId, subtaskStatus) {
     }
 }
 
-function editTaskInBordSite(taskId) {
+function renderEditTaskInBordSite(taskId) {
     let contain = document.getElementById('taskDetails');
-    contain.style.display = 'flex';
-    contain.style.justifyContent = 'center';
-    contain.style.alignItems = 'center';
-    contain.innerHTML = /*html*/`
-        <b>HIER DIE EDIT OPTION HTML EINFÜGEN ${taskId}<b>
-    `;
+    contain.innerHTML = returnEditTaskHTML(taskId);
+    renderAssignedToCurrentUser();
+    renderAssignedToContactList();
+    showCategory();
 }
