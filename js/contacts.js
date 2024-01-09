@@ -305,7 +305,7 @@ function closeContactPopup() {
         !addContactCtn.classList.contains('d-none')) {
         addContact.classList.remove('open_animation_contact_popup');
         addContact.classList.add('close_animation_contact_popup');
-        setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
+        setTimeout(() => addContactCtn.classList.toggle('d-none'), 450);
     } else if (window.matchMedia("(max-width: 1000px)").matches) {
         closeMobileEditMenu();
         closeSelectedContactInformation();
@@ -317,7 +317,7 @@ function closeMobileContactPopup() {
     let addContactCtn = document.getElementById('popup-ctn');
     addContact.classList.remove('open_mobile_animation_contact_popup');
     addContact.classList.add('close_mobile_animation_contact_popup');
-    setTimeout(() => addContactCtn.classList.toggle('d-none'), 650);
+    setTimeout(() => addContactCtn.classList.toggle('d-none'), 450);
 }
 
 

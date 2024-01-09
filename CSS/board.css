@@ -3,6 +3,7 @@
     height: 8px;
 }
 
+
 *::-webkit-scrollbar-track {
     background: transparent;
 }
@@ -384,10 +385,9 @@
 .taskTitleDetails {
     font-size: 61px;
     font-weight: 700;
-    line-height: 50px;
+    line-height: 120%;
     word-wrap: break-word;
-    overflow-y: scroll;
-    max-height: 140px;
+    max-height: 250px;
 }
 
 .taskTitleDetails::-webkit-scrollbar {
@@ -671,6 +671,10 @@
 }
 
 @media(max-width:1299px) {
+
+    *::-webkit-scrollbar:vertical {
+        display: none;
+    }
 
     .progressNamesContain {
         display: flex;

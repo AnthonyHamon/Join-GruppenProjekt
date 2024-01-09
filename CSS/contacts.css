@@ -356,11 +356,11 @@
 }
 
 .open_animation_contact_popup {
-    animation: slide_to_left 0.750s ease-in-out;
+    animation: slide_to_left 0.500s ease-in;
 }
 
 .close_animation_contact_popup {
-    animation: slide_to_right 0.750s ease-in-out;
+    animation: slide_to_right 0.500s ease-in;
 }
 
 .section_left {

@@ -96,7 +96,7 @@ function renderTaskHTMLDetails(task) {
                     <img src="../images/delete.svg"><span>Delete</span>
                 </div>
                 <div class="seperator"></div>
-                <div onclick="renderEditTaskInBordSite(${task.id})" class="editDetailsContain">
+                <div onclick="renderEditTaskInBordSite('${task.category}', '${task.title}', '${task.description}', '${task.date}', '${task.priority}', '${task.contacts}', '${task.subtasks}')" class="editDetailsContain">
                     <img src="../images/edit.svg"><span>Edit</span>
                 </div>
             </div>
@@ -104,7 +104,7 @@ function renderTaskHTMLDetails(task) {
     `;
 }
 
-function returnEditTaskHTML(task){
+function returnEditTaskHTML(category, title, description, date, priority, contacts, subtasks) {
     return `
     <form onsubmit="setNewTask(); return false" class="edit-task-container">
     <div class="mobile-scroll">
@@ -112,7 +112,7 @@ function returnEditTaskHTML(task){
             <div class="edit-task-left-field">
                     <div class="titel-field">
                         <h4>Title<span class="letter-color">*</span></h4>
-                        <input autocomplete="off" id="titel-input" required type="text" name="myInput" placeholder="Enter a title">
+                        <input value= "${title}" autocomplete="off" id="titel-input" required type="text" name="myInput" placeholder="Enter a title">
                         <div  class="error_warning">
                             <span id="title-warning-text">This field is required</span>
                         </div>
@@ -121,7 +121,7 @@ function returnEditTaskHTML(task){
                     <h4>Description</h4>
                     <div class="textarea-container">
                         <div class="textarea-field">
-                            <textarea id="read-description" class="textarea attrebute" type="text" name="myTextarea"
+                            <textarea value= "${description}" id="read-description" class="textarea attrebute" type="text" name="myTextarea"
                                 placeholder="Enter a Description" spellcheck required></textarea>
                         </div>
                         <div>
