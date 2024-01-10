@@ -330,10 +330,11 @@ function updateSubtaskUI(subtaskId, taskId, subtaskStatus) {
     }
 }
 
-function renderEditTaskInBordSite(category, title, description, date, priority, contacts, subtasks) {
+function renderEditTaskInBordSite(id) {
+    let task = tasks.find(t => t.id === id);
     let contain = document.getElementById('taskDetails');
-    contain.innerHTML = returnEditTaskHTML(category, title, description, date, priority, contacts, subtasks);
+    contain.innerHTML = returnEditTaskHTML(task);
     renderAssignedToCurrentUser();
     renderAssignedToContactList();
-    showCategory();
+    renderSubtaskForEditOption(task.subtasks);
 }

@@ -250,6 +250,16 @@ function renderSubtask() {
     }
 }
 
+function renderSubtaskForEditOption(subtasks) {
+    let subtaskContent = document.getElementById('subtaskContent');
+    subtaskContent.innerHTML = '';
+    for (let index = 0; index < subtasks.length; index++) {
+        const subtask = subtasks[index].description;
+
+        subtaskContent.innerHTML += returnSubtask(subtask, index);
+    }
+}
+
 function toggleSubtask(i) {
     document.getElementById(`taskList${i}`).classList.toggle('d-none');
     document.getElementById(`editTaskList${i}`).classList.toggle('d-none');

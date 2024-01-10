@@ -96,7 +96,7 @@ function renderTaskHTMLDetails(task) {
                     <img src="../images/delete.svg"><span>Delete</span>
                 </div>
                 <div class="seperator"></div>
-                <div onclick="renderEditTaskInBordSite('${task.category}', '${task.title}', '${task.description}', '${task.date}', '${task.priority}', '${task.contacts}', '${task.subtasks}')" class="editDetailsContain">
+                <div onclick="renderEditTaskInBordSite(${task.id})" class="editDetailsContain">
                     <img src="../images/edit.svg"><span>Edit</span>
                 </div>
             </div>
@@ -104,15 +104,18 @@ function renderTaskHTMLDetails(task) {
     `;
 }
 
-function returnEditTaskHTML(category, title, description, date, priority, contacts, subtasks) {
+function returnEditTaskHTML(task) {
     return `
+    <div class="flex_end">
+        <img onclick= "closeTask()" class="closeWindowImage" src="../images/close.svg">
+    </div>
     <form onsubmit="setNewTask(); return false" class="edit-task-container">
     <div class="mobile-scroll">
         <div class="edit-task-input">
             <div class="edit-task-left-field">
                     <div class="titel-field">
                         <h4>Title<span class="letter-color">*</span></h4>
-                        <input value= "${title}" autocomplete="off" id="titel-input" required type="text" name="myInput" placeholder="Enter a title">
+                        <input value= "${task.title}" autocomplete="off" id="titel-input" required type="text" name="myInput" placeholder="Enter a title">
                         <div  class="error_warning">
                             <span id="title-warning-text">This field is required</span>
                         </div>
@@ -121,8 +124,8 @@ function returnEditTaskHTML(category, title, description, date, priority, contac
                     <h4>Description</h4>
                     <div class="textarea-container">
                         <div class="textarea-field">
-                            <textarea value= "${description}" id="read-description" class="textarea attrebute" type="text" name="myTextarea"
-                                placeholder="Enter a Description" spellcheck required></textarea>
+                            <textarea id="read-description" class="textarea attrebute" type="text" name="myTextarea"
+                                placeholder="Enter a Description" spellcheck required>${task.description}</textarea>
                         </div>
                         <div>
                             <img class="description-icon" src="../images/Recurso 1 1.svg" alt="">
@@ -154,13 +157,15 @@ function returnEditTaskHTML(category, title, description, date, priority, contac
                         </div>
                     </div>
                 </div>
-                <div id="selected-contact-ctn" class="selected_contact_ctn"></div>
+                <div id="selected-contact-ctn" class="selected_contact_ctn">
+                    
+                </div>
             </div>
             <div class="edit-task-right-field">
                 <div>
                     <div class="date-field">
                         <h4>Due Date<span class="letter-color">*</span></h4>
-                        <input id="calender-input" required class="calender_input" type="date" placeholder="dd/mm/yyyy" min="${getTodaysDateForCalender()}">
+                        <input value= "${task.date}" id="calender-input" required class="calender_input" type="date" placeholder="dd/mm/yyyy" min="${getTodaysDateForCalender()}">
                         <div class="error_warning">
                             <span id="calender-warning-text">This field is required</span>
                         </div>
@@ -176,21 +181,6 @@ function returnEditTaskHTML(category, title, description, date, priority, contac
                         <div class="prio-button" id="buttonLow" onclick="changeButtonStyles('Low')">Low <img
                             class="prio-image" id="iconLow" src="../images/prio baja.svg" alt=""></div>
                     </div>
-                </div>
-                <div class="category-fields">
-                    <h4>Category<span class="letter-color">*</span></h4>
-                    <div onclick="toggleDropdown()" class="category-box">
-                        <div class="custom-list">
-                            <div>
-                                <input disabled class="span-category" id="selectedCategory" type="text" name="myInput" placeholder="Select task category">
-                            </div>
-                            <div class="category-icon-field">
-                                <img class="drop-option" id="selectIcon" src="../images/arrow_drop_downaa.svg"
-                                    alt="Arrow">
-                            </div>
-                        </div>
-                    </div>
-                    <div id="dropdownOptions" class="dropdown-options"></div>
                 </div>
                 <div class="subtask-container">
                     <h4>Subtasks</h4>
