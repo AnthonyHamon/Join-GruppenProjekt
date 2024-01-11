@@ -109,7 +109,7 @@ function returnEditTaskHTML(task) {
     <div class="flex_end">
         <img onclick= "closeTask()" class="closeWindowImage" src="../images/close.svg">
     </div>
-    <form onsubmit="setNewTask(); return false" class="edit-task-container">
+    <form onsubmit= editTask(${task.id}); return false" class="edit-task-container">
     <div class="mobile-scroll">
         <div class="edit-task-input">
             <div class="edit-task-left-field">
@@ -156,8 +156,9 @@ function returnEditTaskHTML(task) {
                             <div id="assigned-to-contact-list"></div>
                         </div>
                     </div>
+                    <div id="selected-contact-ctn" class="selected_contact_ctn">
+
                 </div>
-                <div id="selected-contact-ctn" class="selected_contact_ctn">
                     
                 </div>
             </div>

@@ -106,6 +106,15 @@ function renderSelectedContactBadges(selectedContacts) {
     }
 }
 
+function renderSelectedContactBadgesForEditOption(assignedContacts) {
+    let selectedContactCtn = document.getElementById('selected-contact-ctn');
+    selectedContactCtn.innerHTML = '';
+    for (let i = 0; i < assignedContacts.length; i++) {
+        const assignedContact = assignedContacts[i];
+        selectedContactCtn.innerHTML += returnSelectedContactBadges(assignedContact);
+    }
+}
+
 
 function styleSelectedContact(i) {
     document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');

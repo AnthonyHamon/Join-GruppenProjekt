@@ -337,4 +337,5 @@ function renderEditTaskInBordSite(id) {
     renderAssignedToCurrentUser();
     renderAssignedToContactList();
     renderSubtaskForEditOption(task.subtasks);
+    renderSelectedContactBadgesForEditOption(task.contacts);
 }

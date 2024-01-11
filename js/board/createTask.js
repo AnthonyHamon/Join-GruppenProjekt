@@ -15,3 +15,8 @@ async function setNewTask() {
     closeAddTaskPopUp();
     renderBoard();
 }
+
+async function editTask(id){
+    let task = tasks.find(t => t.id === id);
+    
+}

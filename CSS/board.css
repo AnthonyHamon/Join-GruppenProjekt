@@ -499,6 +499,12 @@
     gap: 20px;
 }
 
+.edit-task-input{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .seperator {
     border-left: 1px solid #D1D1D1;
     height: 24px;
