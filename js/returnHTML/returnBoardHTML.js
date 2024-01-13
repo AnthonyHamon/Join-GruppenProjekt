@@ -22,7 +22,7 @@ function generateBoardHTML() {
 
 function generateBoardWidthPlus1300HTML() {
     document.getElementById('width_HTML').innerHTML = /*html*/`
-                    <div class="progressNamesContain">
+                <div class="progressNamesContain">
                 <p class="progressName">To do ${returnAddBtnSVG('to_do')}</p>
                 <p class="progressName">In progress ${returnAddBtnSVG('in_progress')}</p>
                 <p class="progressName">Await feedback ${returnAddBtnSVG('feedback')}</p>
