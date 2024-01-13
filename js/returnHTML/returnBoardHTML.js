@@ -109,7 +109,7 @@ function returnEditTaskHTML(task) {
     <div class="flex_end">
         <img onclick= "closeTask()" class="closeWindowImage" src="../images/close.svg">
     </div>
-    <form onsubmit= editTask(${task.id}); return false" class="edit-task-container">
+    <form onsubmit= "editTask('${task.contacts}', '${task.date}', '${task.description}', '${task.priority}', '${task.subtasks}', '${task.title}', '${task.id}'); return false" class="edit-task-container">
     <div class="mobile-scroll">
         <div class="edit-task-input">
             <div class="edit-task-left-field">
@@ -202,10 +202,10 @@ function returnEditTaskHTML(task) {
             </div>
         </div>
     </div>
+    <div class="flex_end">
+        <button type="submit" class="create-button">Ok<img class="clear-create-img" src="../images/check.svg" alt=""></button>   
+    </div>
 </form>
-<div class="flex_end">
-    <button type ="submit" class="create-button">Ok<img class="clear-create-img" src="../images/check.svg" alt=""></button>   
-</div>
     `
 }
 
