@@ -1,11 +1,15 @@
-async function setNewTask() {
+async function setNewTask(status) {
     let id = ++highestTaskId;
     let title = document.getElementById('titel-input').value;
     let description = document.getElementById('read-description').value;
     let date = document.getElementById('calender-input').value;
     let priority = currentPrioriyToCreateTask;
     let category = document.getElementById('selectedCategory').value.replace(/\s/g, '_');
-    let status = 'to_do';
+    if (status == undefined){
+        status = 'to_do'
+    }else{
+        status = status;
+    }
     let contacts = [...selectedContacts];
     let subtasks = [...createdSubtaskList];
 

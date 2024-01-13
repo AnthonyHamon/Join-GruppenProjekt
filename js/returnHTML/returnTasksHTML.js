@@ -201,14 +201,14 @@ function renderCategory(category, c) {
 }
 
 
-function returnAddTaskPopUp() {
+function returnAddTaskPopUp(status) {
     return `
     <div class="popup-addtask-container" id="close-popup-task">
     <div class="task-headline">
         <h1 class="task-name">Add Task</h1>
         <img onclick="closeAddTaskPopUp()" class="popup-add-task-close" src="../images/Property 1=close.svg" alt="">
     </div>
-<form onsubmit="setNewTask(); return false" class="task-input-container">
+<form onsubmit="setNewTask('${status}'); return false" class="task-input-container">
     <div class="mobile-scroll">
         <div class="task-input">
             <div class="left-field popup-field">

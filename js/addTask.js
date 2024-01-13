@@ -351,10 +351,10 @@ function clearBegonnenNewTask() {
 
 // AddTask in Board site
 
-function renderAddTaskPopUp() {
+function renderAddTaskPopUp(status) {
     let popupCtn = document.getElementById('popup-ctn');
     popupCtn.classList.toggle('d-none');
-    popupCtn.innerHTML = returnAddTaskPopUp();
+    popupCtn.innerHTML = returnAddTaskPopUp(status);
     renderAssignedToCurrentUser();
     renderAssignedToContactList();
     showCategory();
