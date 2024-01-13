@@ -16,7 +16,13 @@ async function setNewTask() {
     renderBoard();
 }
 
-async function editTask(id){
-    let task = tasks.find(t => t.id === id);
-    
+async function editTask(contacts, date, description, priority, subtasks, title, id){
+    let index = tasks.findIndex(t => t.id === id);
+     contacts = [...selectedContacts];
+     date = document.getElementById('calender-input').value;
+     description = document.getElementById('read-description').value;
+     priority = currentPrioriyToCreateTask;
+     subtasks = [...createdSubtaskList];
+     title = document.getElementById('titel-input').value;
+     tasks.splice(index, 1, {contacts, date, description, priority, subtasks, title});
 }
