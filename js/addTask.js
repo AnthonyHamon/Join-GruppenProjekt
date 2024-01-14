@@ -361,11 +361,16 @@ function clearBegonnenNewTask() {
 
 function renderAddTaskPopUp(status) {
     let popupCtn = document.getElementById('popup-ctn');
+
+    if (window.matchMedia("(min-width: 1000px)").matches) { 
     popupCtn.classList.toggle('d-none');
     popupCtn.innerHTML = returnAddTaskPopUp(status);
     renderAssignedToCurrentUser();
     renderAssignedToContactList();
     showCategory();
+    }else {
+        renderAddTask();
+    }
 }
 
 
