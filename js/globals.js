@@ -5,6 +5,7 @@ let content = document.getElementById('content');
 
 // board site:
 
+let status;
 let highestTaskId = 0;
 let tasks = [];
 let currentTaskStatus = 'small'
@@ -21,4 +22,4 @@ let currentTouchedTaskLineId = null;
 
 // add task site:
 
-let currentPrioriyToCreateTask = 'Low';
+let currentPrioriyToCreateTask = 'Medium';
