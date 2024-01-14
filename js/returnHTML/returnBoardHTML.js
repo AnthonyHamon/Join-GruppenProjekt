@@ -109,7 +109,7 @@ function returnEditTaskHTML(task) {
     <div class="flex_end">
         <img onclick= "closeTask()" class="closeWindowImage" src="../images/close.svg">
     </div>
-    <form onsubmit= "editTask('${task.contacts}', '${task.date}', '${task.description}', '${task.priority}', '${task.subtasks}', '${task.title}', '${task.id}'); return false" class="edit-task-container">
+    <form onsubmit= "editTask(${task.id},'${task.title}', '${task.description}', '${task.date}', '${task.priority}', '${task.category}', '${task.status}'); return false" class="edit-task-container">
     <div class="mobile-scroll">
         <div class="edit-task-input">
             <div class="edit-task-left-field">
