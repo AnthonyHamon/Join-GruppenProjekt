@@ -210,12 +210,20 @@ function addSubtask() {
 }
 
 function checkEditedTaskList(i, subtask) {
-    let index = createdSubtaskList.findIndex(s => s === subtask);
-    subtask = document.getElementById(`editInput${i}`).value;
+    let index = createdSubtaskList.findIndex(s => s.description === subtask);
 
-    createdSubtaskList.splice(index, 1, (subtask));
+    if (index !== -1) {
+        subtask = document.getElementById(`editInput${i}`).value;
 
-    renderSubtask();
+        createdSubtaskList.splice(index, 1, {
+            description: subtask,
+            subtaskStatus: createdSubtaskList[index].subtaskStatus
+        });
+
+        renderSubtask();
+    } else {
+        console.error("Element nicht gefunden!");
+    }
 }
 
 function toggleSubtaskImages() {
