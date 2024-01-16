@@ -23,18 +23,32 @@ async function editTask(id, title, description, date, priority, category, status
     date = document.getElementById('calender-input').value;
     priority = currentPrioriyToCreateTask;
     let contacts = checkAndASssignContacts(id);
-    let subtasks = checkSubtasksInTask(task[index][subtasks], task.id);
+    let subtasks = checkAndAssignSubtasks(id);
     tasks.splice(index, 1, { id, title, description, date, priority, category, status, contacts, subtasks });
+    await setItem('tasks', JSON.stringify(tasks));
+    resetArraysForNewTasks();
+    closeTask();
+    renderBoard();
 }
 
-function checkAndASssignContacts(id){
+function checkAndASssignContacts(id) {
     let index = tasks.findIndex(t => t.id === id);
-    let contacts = tasks[index]['contacts'];
-    return contacts
+    if (selectedContacts) {
+        let contacts = [...selectedContacts];
+        return contacts;
+    } else {
+        let contacts = tasks[index]['contacts'];
+        return contacts;
+    }
 }
 
-function checkAndASssignContacts(id){
+function checkAndAssignSubtasks(id) {
     let index = tasks.findIndex(t => t.id === id);
-    let subtasks = tasks[index]['subtasks'];
-    return subtasks;
+    if (createdSubtaskList) {
+        let subtasks = [...createdSubtaskList];
+        return subtasks;
+    }else{
+        let subtasks = tasks[index]['subtasks'];
+        return subtasks;
+    }
 }

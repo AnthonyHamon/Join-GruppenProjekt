@@ -298,6 +298,7 @@ function openContactPopup() {
     }
     addContactCtn.classList.toggle('d-none');
 }
+
 function closeContactPopup() {
     let addContact = document.getElementById('contact-popup');
     let addContactCtn = document.getElementById('popup-ctn');
