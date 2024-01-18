@@ -18,6 +18,14 @@ function renderAddTask() {
 
 // assigned to
 
+/**
+ * The renderAssignedToCurrentUser function updates user display on an HTML page.
+ *  It retrieves HTML elements for username, initial value, and a container.
+ *  If a current user (currentUser) exists, it updates the username with the label "(You),"
+ *  displays the initial value, and sets the background color accordingly.
+ *  If no user is present, it hides the container.
+ * 
+ */
 function renderAssignedToCurrentUser() {
     let currentUserCtn = document.getElementById('assigned-to-current-user-ctn')
     let currentUserName = document.getElementById('current-user-name');
@@ -32,6 +40,13 @@ function renderAssignedToCurrentUser() {
 }
 
 
+/**
+ * The renderAssignedToContactList function creates a sorted contact list on an HTML page.
+ * It retrieves an HTML element with the ID 'assigned-to-contact-list,' 
+ * sorts the contacts by name, and then renders each contact using the returnAssignedToContactList function,
+ * appending the generated HTML code to the element.
+ * 
+ */
 function renderAssignedToContactList() {
     let assignedToContactList = document.getElementById('assigned-to-contact-list');
     contacts.sort((a, b) => { return compareStrings(a.name, b.name) });
@@ -42,7 +57,14 @@ function renderAssignedToContactList() {
 }
 
 
-function searchContactToAssign() {
+/**
+ * The searchContactToAssign function searches through a contact list based on the entered search term.
+ * It retrieves the search term element and the contact list container, removes the 'd-none' class, and clears the displayed list.
+ * Then, it iterates through the contact list, adds matching contacts to the displayed list, and applies specific styles.
+ * If the search query is empty, all contacts are displayed again, and previously selected contacts receive special styles.
+ * 
+ */
+function serchContactToAssign() {
     let searchedContact = document.getElementById('assignTo-input').value.toLowerCase();
     let assignedToContactList = document.getElementById('assigned-to-contact-list');
     contactContainer.classList.remove('d-none');
@@ -75,6 +97,14 @@ function resetArraysForNewTasks() {
 }
 
 
+
+/**
+ *The styleAlreadySelectedContact function checks if an already selected contact starts with the entered
+ *search term and applies specific styles to the contact identified by the index in the contact list.
+ * 
+ * @param {*} index 
+ * @param {*} searchedContact 
+ */
 function styleAlreadySelectedContact(index, searchedContact) {
     selectedContacts.forEach((selectedContact) => {
         if (selectedContact['name'].toLowerCase().startsWith(searchedContact)) {
@@ -84,6 +114,19 @@ function styleAlreadySelectedContact(index, searchedContact) {
 }
 
 
+/**
+ * The assignTo function selects or deselects a contact. It finds the contact in the list of selected contacts based on the email address.
+ * Depending on whether the contact is already selected or not, it is either added to or removed from the list.
+ * The visual representation is updated to reflect the selection.
+ * 
+ * 
+ * @param {*} i 
+ * @param {*} name 
+ * @param {*} email 
+ * @param {*} phone 
+ * @param {*} initial 
+ * @param {*} BgColor 
+ */
 function assignTo(i, name, email, phone, initial, BgColor) {
     const index = selectedContacts.findIndex(c => c.email === email);
     styleSelectedContact(i);
@@ -97,6 +140,14 @@ function assignTo(i, name, email, phone, initial, BgColor) {
 }
 
 
+/**
+ * 
+ * The renderSelectedContactBadges function updates the display of selected contacts by clearing
+ * the content of the HTML element with the ID 'selected-contact-ctn' and then adding badges for each selected 
+ * contact based on the information in the list of selected contacts.
+ * 
+ * @param {*} selectedContacts 
+ */
 function renderSelectedContactBadges(selectedContacts) {
     let selectedContactCtn = document.getElementById('selected-contact-ctn');
     selectedContactCtn.innerHTML = '';
@@ -106,6 +157,15 @@ function renderSelectedContactBadges(selectedContacts) {
     }
 }
 
+
+/**
+ * 
+ * The renderSelectedContactBadgesForEditOption function updates the display of selected contacts for the editing option
+ *  by clearing the content of the HTML element with the ID 'selected-contact-ctn' and then adding badges
+ *  for each assigned contact based on the information in the list of assigned contacts.
+ * 
+ * @param {*} assignedContacts 
+ */
 function renderSelectedContactBadgesForEditOption(assignedContacts) {
     let selectedContactCtn = document.getElementById('selected-contact-ctn');
     selectedContactCtn.innerHTML = '';
@@ -132,14 +192,12 @@ function rotateIcon() {
 function toggleContacts(event) {
     const contactContainer = document.getElementById('contactContainer');
     const arrowIcon = document.getElementById('arrowIcon');
+    contactContainer.classList.toggle('d-none');
 
-    contactContainer.classList.toggle('d-none');  // Ein- und Ausblenden des Kontaktcontainers
-
-    // Überprüfen, ob der Kontaktcontainer jetzt sichtbar ist
     if (!contactContainer.classList.contains('d-none')) {
-        arrowIcon.classList.add('rotate');  // Drehen des Icons um 180 Grad, wenn sichtbar
+        arrowIcon.classList.add('rotate');
     } else {
-        arrowIcon.classList.remove('rotate');  // Entfernen der Rotation, wenn unsichtbar
+        arrowIcon.classList.remove('rotate');
     }
 }
 
@@ -156,7 +214,10 @@ function getTodaysDateForCalender() {
     return formattedDate;
 }
 
-
+/**
+ * 
+ * @param {*} priority 
+ */
 function changeButtonStyles(priority) {
     let button = document.getElementById(`button${priority}`);
     let icon = document.getElementById(`icon${priority}`);
