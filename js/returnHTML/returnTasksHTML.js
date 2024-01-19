@@ -131,7 +131,7 @@ function generateAddTaskHTML() {
 }
 
 
-function returnSubtask(inputText, i) {
+function returnSubtask(inputText, i, id) {
     return `
     <div class="task-list" id="taskList${i}">
         <div class="liest-field">
@@ -143,7 +143,7 @@ function returnSubtask(inputText, i) {
                     <img onclick="toggleSubtask(${i})" class="edit-image" id="editImage${i}" src="../images/Property 1=edit.svg" alt="">
                 </div>
                 <div class="delete-box" id="deleteBox">
-                    <img onclick="deleteButton(${i})" class="delete-image" id="deleteImage${i}" src="../images/Property 1=delete.svg" alt="" >
+                    <img onclick="deleteButton(${i}, '${inputText}', ${id})" class="delete-image" id="deleteImage${i}" src="../images/Property 1=delete.svg" alt="" >
                 </div>
             </div>
         </div>
@@ -155,10 +155,10 @@ function returnSubtask(inputText, i) {
             </div>
             <div class="delete-check-container">
                 <div class="delete-box">
-                    <img onclick="deleteButton(${i})" class="delete-image" src="../images/Property 1=delete.svg" alt="">
+                    <img onclick="deleteButton(${i}, '${inputText}', ${id})" class="delete-image" src="../images/Property 1=delete.svg" alt="">
                 </div>
                 <div class="edit-box">
-                    <img onclick="checkEditedTaskList(${i}, '${inputText}')" id="checkImage" class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask(); closeImages();">
+                    <img onclick="checkEditedTaskList(${i}, '${inputText}', ${id})" id="checkImage" class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask(); closeImages();">
                 </div>
             </div>
         </div>

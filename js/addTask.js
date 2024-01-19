@@ -13,6 +13,7 @@ function renderAddTask() {
     renderAssignedToCurrentUser();
     renderAssignedToContactList();
     showCategory();
+    hideLegalContent();
 }
 
 
@@ -209,9 +210,34 @@ function addSubtask() {
     subtaskInput.value = "";
 }
 
-function checkEditedTaskList(i, subtask) {
+function checkEditedTaskList(i, subtask, id) {
     let index = createdSubtaskList.findIndex(s => s.description === subtask);
+    editSubtasksWhilecreatingTask(i, subtask, index);
+    if (id !== undefined) {
+        editSubtaskOnAlreadyCreatedTask(i, subtask, id);
+    }
 
+}
+
+function editSubtaskOnAlreadyCreatedTask(i, subtask, id) {
+    let index = tasks.findIndex(t => t.id === id);
+    const subtasks = tasks[index]['subtasks'];
+    for (let j = 0; j < subtasks.length; j++) {
+        const subtaskDescription = subtasks[j].description;
+        if (subtaskDescription === subtask) {
+            subtask = document.getElementById(`editInput${i}`).value;
+            subtasks.splice(j, 1, {
+                description: subtask,
+                subtaskStatus: subtasks[j]['subtaskStatus']
+            });
+            renderSubtaskForEditOption(subtasks, id);
+        }
+
+    }
+
+}
+
+function editSubtasksWhilecreatingTask(i, subtask, index) {
     if (index !== -1) {
         subtask = document.getElementById(`editInput${i}`).value;
 
@@ -221,8 +247,6 @@ function checkEditedTaskList(i, subtask) {
         });
 
         renderSubtask();
-    } else {
-        console.error("Element nicht gefunden!");
     }
 }
 
@@ -231,7 +255,7 @@ function toggleSubtaskImages() {
     const newImages = document.getElementById("newImages");
 
     let subtaskInput = document.getElementById('subtaskInput');
-    
+
     subtaskInput.focus();
     subtaskInput.select();
 
@@ -242,7 +266,7 @@ function toggleSubtaskImages() {
 }
 
 
-function showSubtaskImagesByInput () {
+function showSubtaskImagesByInput() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
     let subtaskInput = document.getElementById('subtaskInput');
@@ -267,13 +291,13 @@ function renderSubtask() {
     }
 }
 
-function renderSubtaskForEditOption(subtasks) {
+function renderSubtaskForEditOption(subtasks, id) {
     let subtaskContent = document.getElementById('subtaskContent');
     subtaskContent.innerHTML = '';
     for (let index = 0; index < subtasks.length; index++) {
         const subtask = subtasks[index].description;
 
-        subtaskContent.innerHTML += returnSubtask(subtask, index);
+        subtaskContent.innerHTML += returnSubtask(subtask, index, id);
     }
 }
 
@@ -286,10 +310,29 @@ function toggleSubtask(i) {
 }
 
 
-function deleteButton(i) {
-    createdSubtaskList.splice(i, 1);
+function deleteButton(i, subtask, id) {
+    deleteSubtaskWhileCreatingTask(i);
+    if (id !== undefined) {
+        deleteSubtaskOnAlreadyCreatedTaks(subtask, id)
+    }
 
+}
+
+function deleteSubtaskWhileCreatingTask(i) {
+    createdSubtaskList.splice(i, 1);
     renderSubtask();
+}
+
+function deleteSubtaskOnAlreadyCreatedTaks(subtask, id) {
+    let index = tasks.findIndex(t => t.id === id);
+    const subtasks = tasks[index]['subtasks'];
+    for (let j = 0; j < subtasks.length; j++) {
+        const subtaskDescription = subtasks[j].description;
+        if (subtaskDescription === subtask) {
+            subtasks.splice(j, 1)
+        }
+        renderSubtaskForEditOption(subtasks, id);
+    }
 }
 
 
@@ -362,13 +405,13 @@ function clearBegonnenNewTask() {
 function renderAddTaskPopUp(status) {
     let popupCtn = document.getElementById('popup-ctn');
 
-    if (window.matchMedia("(min-width: 1000px)").matches) { 
-    popupCtn.classList.toggle('d-none');
-    popupCtn.innerHTML = returnAddTaskPopUp(status);
-    renderAssignedToCurrentUser();
-    renderAssignedToContactList();
-    showCategory();
-    }else {
+    if (window.matchMedia("(min-width: 1000px)").matches) {
+        popupCtn.classList.toggle('d-none');
+        popupCtn.innerHTML = returnAddTaskPopUp(status);
+        renderAssignedToCurrentUser();
+        renderAssignedToContactList();
+        showCategory();
+    } else {
         renderAddTask();
     }
 }

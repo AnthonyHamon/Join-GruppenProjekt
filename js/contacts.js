@@ -10,6 +10,7 @@ async function renderContactsPage() {
     returnContactPage();
     renderContacts();
     hideLegalContent();
+    resetArraysForNewTasks();
 }
 
 /**

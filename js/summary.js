@@ -10,6 +10,7 @@ async function renderSummary() {
     renderGreetsUserName();
     let hasBeenGreeted = localStorage.getItem('hasBeenGreeted');
     showMobileGreeting(hasBeenGreeted);
+    resetArraysForNewTasks();
 }
 
 

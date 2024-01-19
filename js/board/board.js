@@ -5,6 +5,8 @@ function renderBoard() {
     boardBgrColor();
     removeBgrColorWithoutBoard();
     addJoinLogoClickable();
+    resetArraysForNewTasks();
+    hideLegalContent();
 }
 
 function loadingProcess() {
@@ -336,6 +338,6 @@ function renderEditTaskInBordSite(id) {
     contain.innerHTML = returnEditTaskHTML(task);
     renderAssignedToCurrentUser();
     renderAssignedToContactList();
-    renderSubtaskForEditOption(task.subtasks);
+    renderSubtaskForEditOption(task.subtasks, id);
     renderSelectedContactBadgesForEditOption(task.contacts);
 }
