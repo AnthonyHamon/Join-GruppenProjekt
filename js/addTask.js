@@ -189,6 +189,14 @@ function rotateIcon() {
 }
 
 
+/**
+ * 
+ * The toggleContacts function toggles the visibility of the contact list on an HTML page. 
+ * It uses the CSS class 'd-none' to show or hide the contact container and adds or removes a class ('rotate') to rotate an arrow icon, 
+ * indicating the state of the contact list.
+ * 
+ * @param {*} event 
+ */
 function toggleContacts(event) {
     const contactContainer = document.getElementById('contactContainer');
     const arrowIcon = document.getElementById('arrowIcon');
@@ -215,6 +223,10 @@ function getTodaysDateForCalender() {
 }
 
 /**
+ * 
+ * The changeButtonStyles function updates the style of a priority button on an HTML page. 
+ * It first resets all buttons, then removes the selection from all buttons and adds it to the clicked button, 
+ * including a special style class for the icon. The selected priority value is updated.
  * 
  * @param {*} priority 
  */
@@ -270,6 +282,15 @@ function addSubtask() {
     subtaskInput.value = "";
 }
 
+
+/**
+ * 
+ * The checkEditedTaskList function checks if an edited subtask is present in the created subtask list. 
+ * If found, it updates the subtask description and re-renders the subtask list. Otherwise, it outputs an error message.
+ * 
+ * @param {*} i 
+ * @param {*} subtask 
+ */
 function checkEditedTaskList(i, subtask) {
     let index = createdSubtaskList.findIndex(s => s.description === subtask);
 
@@ -328,6 +349,15 @@ function renderSubtask() {
     }
 }
 
+
+/**
+ * 
+ * The renderSubtaskForEditOption function updates the display of subtasks for the editing option. 
+ * It clears the content of the HTML element with the ID 'subtaskContent' 
+ * and then adds subtasks based on the provided information using the returnSubtask function.
+ * 
+ * @param {*} subtasks 
+ */
 function renderSubtaskForEditOption(subtasks) {
     let subtaskContent = document.getElementById('subtaskContent');
     subtaskContent.innerHTML = '';
@@ -405,10 +435,10 @@ function toggleDropdown() {
     iconRotated = !iconRotated;
 
     if (iconRotated) {
-        dropdownOptions.style.display = 'block'; // Dropdown anzeigen
+        dropdownOptions.style.display = 'block';
         icon.style.transform = 'rotate(180deg)';
     } else {
-        dropdownOptions.style.display = 'none'; // Dropdown ausblenden
+        dropdownOptions.style.display = 'none'; 
         icon.style.transform = 'rotate(0deg)';
     }
 }
@@ -420,6 +450,16 @@ function clearBegonnenNewTask() {
 
 // AddTask in Board site
 
+
+/**
+ * 
+ * The renderAddTaskPopUp function displays or hides a popup window for adding tasks on an HTML page based on the window width. 
+ * For larger screens, it toggles the visibility of the popup window, 
+ * fills it with the necessary content, including user and contact information, 
+ * and shows categories. For smaller screens, it renders the task addition without using a popup.
+ * 
+ * @param {*} status 
+ */
 function renderAddTaskPopUp(status) {
     let popupCtn = document.getElementById('popup-ctn');
 
