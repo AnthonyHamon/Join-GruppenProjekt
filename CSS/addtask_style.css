@@ -861,6 +861,17 @@ input[type=date]:invalid::-webkit-datetime-edit {
     height: 80%;
     max-width: 80%;
     margin-top: 50px;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.popup-addtask-container .closing {
+    animation-name: slideOut;
+}
+
+.popup-addtask-container .opening {
+    animation-name: slideIn;
 }
 
 .task-input-container {
@@ -875,6 +886,24 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 .popup-add-task-close {
     cursor: pointer;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .popup-add-task-close:hover {
