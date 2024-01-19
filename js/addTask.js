@@ -469,6 +469,8 @@ function renderAddTaskPopUp(status) {
     renderAssignedToCurrentUser();
     renderAssignedToContactList();
     showCategory();
+    popupCtn.classList.remove('closing');
+    popupCtn.classList.add('opening');
     }else {
         renderAddTask();
     }
@@ -477,7 +479,12 @@ function renderAddTaskPopUp(status) {
 
 function closeAddTaskPopUp() {
     let popupCtn = document.getElementById('popup-ctn');
+    
+    popupCtn.classList.remove('opening');
+    popupCtn.classList.add('closing');
 
-    popupCtn.classList.add('d-none');
+    setTimeout(() => {
+        popupCtn.classList.add('d-none');
+    }, 500);
 }
 
