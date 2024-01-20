@@ -43,6 +43,15 @@ function stop(event) {
     event.stopPropagation();
 }
 
+function closePopup(){
+    let popup = document.getElementById('popup');
+    if (popup.classList.contains('open_animation_contact_popup')){
+        closeContactPopup();
+    }else if(popup.classList.contains('open_animation_addTask_popup')) {
+        closeAddTaskPopUp();
+    }
+}
+
 // Javascript for Legal section (Legal notice and Privacy Policy)
 
 function renderLegalNoticePage() {

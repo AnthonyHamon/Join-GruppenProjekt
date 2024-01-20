@@ -291,7 +291,7 @@ function openAddContact() {
 function openContactPopup() {
     let width = window.innerWidth;
     let addContactCtn = document.getElementById('popup-ctn');
-    let addContact = document.getElementById('contact-popup');
+    let addContact = document.getElementById('popup');
     if (width <= 1000) {
         addContact.classList.add('open_mobile_animation_contact_popup')
     } else {
@@ -301,7 +301,7 @@ function openContactPopup() {
 }
 
 function closeContactPopup() {
-    let addContact = document.getElementById('contact-popup');
+    let addContact = document.getElementById('popup');
     let addContactCtn = document.getElementById('popup-ctn');
     if (window.matchMedia("(min-width: 1000px)").matches &&
         !addContactCtn.classList.contains('d-none')) {
@@ -315,7 +315,7 @@ function closeContactPopup() {
 }
 
 function closeMobileContactPopup() {
-    let addContact = document.getElementById('contact-popup');
+    let addContact = document.getElementById('popup');
     let addContactCtn = document.getElementById('popup-ctn');
     addContact.classList.remove('open_mobile_animation_contact_popup');
     addContact.classList.add('close_mobile_animation_contact_popup');
