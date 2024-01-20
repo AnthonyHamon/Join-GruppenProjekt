@@ -2,7 +2,7 @@ function generateAddTaskHTML() {
     let content = document.getElementById('content');
     content.innerHTML = '';
     content.innerHTML = `
-        <div class="task-container">
+        <div onclick="closeOpenedMenu()" class="task-container">
                 <div class="task-headline">
                     <h1 class="task-name">Add Task</h1>
                 </div>
@@ -31,14 +31,14 @@ function generateAddTaskHTML() {
                             </div>
                             <div class="contacts-field box2">
                                 <h4>Assigned to</h4>
-                                <div class="custom-dropdown">
+                                <div onclick="toggleContacts(event)" class="custom-dropdown">
                                     <input onkeyup="searchContactToAssign()" id="assignTo-input" class="assign-input" type="search" placeholder="Select contacts to assign">
-                                    <div class="assign-button" onclick="toggleContacts()">
+                                    <div class="assign-button">
                                         <img onclick="rotateIcon()" src="../images/arrow_drop_downaa.svg" alt="Arrow Icon" id="arrowIcon">
                                     </div>
                                 </div>
                                 <div class="contact-container d-none" id="contactContainer">
-                                    <div class="contact-box">
+                                    <div onclick="stop(event)" class="contact-box">
                                         <div id="assigned-to-current-user-ctn" class="contacts-topfield">
                                             <div class="contacts-name">
                                                 <div id="current-user-initial" class="contact_circle"></div>

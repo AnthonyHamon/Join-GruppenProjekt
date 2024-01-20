@@ -202,7 +202,7 @@ function toggleContacts(event) {
     const contactContainer = document.getElementById('contactContainer');
     const arrowIcon = document.getElementById('arrowIcon');
     contactContainer.classList.toggle('d-none');
-
+    stop(event);
     if (!contactContainer.classList.contains('d-none')) {
         arrowIcon.classList.add('rotate');
     } else {
@@ -481,9 +481,14 @@ function toggleDropdown() {
         dropdownOptions.style.display = 'block';
         icon.style.transform = 'rotate(180deg)';
     } else {
-        dropdownOptions.style.display = 'none'; 
+        dropdownOptions.style.display = 'none';
         icon.style.transform = 'rotate(0deg)';
     }
+}
+
+function closeCategoryMenu(){
+    const dropdownOptions = document.getElementById('dropdownOptions');
+    const icon = document.getElementById('selectIcon');
 }
 
 function clearBegonnenNewTask() {
@@ -506,15 +511,15 @@ function clearBegonnenNewTask() {
 function renderAddTaskPopUp(status) {
     let popupCtn = document.getElementById('popup-ctn');
 
-    if (window.matchMedia("(min-width: 1000px)").matches) { 
-    popupCtn.classList.toggle('d-none');
-    popupCtn.innerHTML = returnAddTaskPopUp(status);
-    renderAssignedToCurrentUser();
-    renderAssignedToContactList();
-    showCategory();
-    popupCtn.classList.remove('closing');
-    popupCtn.classList.add('opening');
-    }else {
+    if (window.matchMedia("(min-width: 1000px)").matches) {
+        popupCtn.classList.toggle('d-none');
+        popupCtn.innerHTML = returnAddTaskPopUp(status);
+        renderAssignedToCurrentUser();
+        renderAssignedToContactList();
+        showCategory();
+        popupCtn.classList.remove('closing');
+        popupCtn.classList.add('opening');
+    } else {
         renderAddTask();
     }
 }
@@ -522,12 +527,23 @@ function renderAddTaskPopUp(status) {
 
 function closeAddTaskPopUp() {
     let popupCtn = document.getElementById('popup-ctn');
-    
+
     popupCtn.classList.remove('opening');
     popupCtn.classList.add('closing');
 
     setTimeout(() => {
         popupCtn.classList.add('d-none');
     }, 500);
+}
+
+function closeOpenedMenu() {
+    let contactCtn = document.getElementById('contactContainer');
+    let categoryCtn = document.getElementById('dropdownOptions');
+    if (!contactCtn.classList.contains('d-none') || !categoryCtn.classList.contains('d-none')) {
+        contactCtn.classList.add('d-none');
+        categoryCtn.classList.add('d-none');
+        rotateIcon();
+        // toggleDropdown();
+    };
 }
 
