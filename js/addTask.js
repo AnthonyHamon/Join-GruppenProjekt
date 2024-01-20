@@ -543,7 +543,7 @@ function closeOpenedMenu() {
         contactCtn.classList.add('d-none');
         categoryCtn.classList.add('d-none');
         rotateIcon();
-        // toggleDropdown();
+        
     };
 }
 
