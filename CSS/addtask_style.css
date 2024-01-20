@@ -862,16 +862,21 @@ input[type=date]:invalid::-webkit-datetime-edit {
     height: 80%;
     max-width: 80%;
     margin-top: 50px;
+    animation-name: slide-out-left;
+    animation-name: slide-out-right;
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
     animation-duration: 0.5s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
 }
 
-.popup-addtask-container .closing {
+.closing {
     animation-name: slideOut;
 }
 
-.popup-addtask-container .opening {
+.opening {
     animation-name: slideIn;
 }
 
@@ -891,19 +896,23 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 @keyframes slideIn {
     0% {
-        transform: translateX(100%);
+        transform: translateX(1000px);
+        opacity: 0;
     }
     100% {
         transform: translateX(0);
+        opacity: 1;
     }
 }
 
 @keyframes slideOut {
     0% {
         transform: translateX(0);
+        opacity: 1;
     }
     100% {
-        transform: translateX(100%);
+        transform: translateX(-1000px);
+        opacity: 0;
     }
 }
 
