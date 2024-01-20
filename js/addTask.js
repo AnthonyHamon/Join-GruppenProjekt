@@ -528,6 +528,6 @@ function closeAddTaskPopUp() {
 
     setTimeout(() => {
         popupCtn.classList.add('d-none');
-    }, 500);
+    }, 350);
 }
 
