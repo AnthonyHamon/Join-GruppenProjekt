@@ -517,19 +517,24 @@ function renderAddTaskPopUp(status) {
         renderAssignedToCurrentUser();
         renderAssignedToContactList();
         showCategory();
-        popupCtn.classList.remove('closing');
-        popupCtn.classList.add('opening');
+        showPopupAnimation();
     } else {
         renderAddTask();
     }
+}
+
+function showPopupAnimation(){
+    let popup = document.getElementById('popup');
+    popup.classList.add('opening');
 }
 
 
 function closeAddTaskPopUp() {
     let popupCtn = document.getElementById('popup-ctn');
 
-    popupCtn.classList.remove('opening');
-    popupCtn.classList.add('closing');
+    popup.classList.remove('opening');
+    popup.classList.add('closing');
+
 
     setTimeout(() => {
         popupCtn.classList.add('d-none');

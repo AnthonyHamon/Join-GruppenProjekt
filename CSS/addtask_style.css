@@ -867,11 +867,11 @@ input[type=date]:invalid::-webkit-datetime-edit {
     animation-fill-mode: forwards;
 }
 
-.popup-addtask-container .closing {
-    animation-name: slideOut;
+.closing {
+    animation: slideOut 0.450s ease-in-out;
 }
 
-.popup-addtask-container .opening {
+.opening {
     animation-name: slideIn;
 }
 
@@ -908,7 +908,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     }
 
     100% {
-        transform: translateX(-1000px);
+        transform: translateX(1000px);
         opacity: 0;
     }
 }
