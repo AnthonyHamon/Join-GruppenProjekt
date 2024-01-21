@@ -463,26 +463,25 @@ function showCategory() {
 }
 
 
-function acceptCategory(category) {
+function acceptCategory(category, event) {
     let selectInput = document.getElementById('selectedCategory');
     selectInput.value = category;
 
-    toggleDropdown()
+    toggleDropdown(event);
 }
 
 
-function toggleDropdown() {
+function toggleDropdown(event) {
     const dropdownOptions = document.getElementById('dropdownOptions');
     const icon = document.getElementById('selectIcon');
 
-    iconRotated = !iconRotated;
+    dropdownOptions.classList.toggle('d-none');
+    stop(event);
 
-    if (iconRotated) {
-        dropdownOptions.style.display = 'block';
-        icon.style.transform = 'rotate(180deg)';
+    if (!dropdownOptions.classList.contains('d-none')) {
+        icon.classList.add('rotate');
     } else {
-        dropdownOptions.style.display = 'none';
-        icon.style.transform = 'rotate(0deg)';
+        icon.classList.remove('rotate');
     }
 }
 
