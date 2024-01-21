@@ -531,24 +531,28 @@ function showPopupAnimation(){
 
 function closeAddTaskPopUp() {
     let popupCtn = document.getElementById('popup-ctn');
+    if(!popupCtn.classList.contains('d-none')){
+        let popup = document.getElementById('popup');
 
-    popup.classList.remove('opening');
-    popup.classList.add('closing');
-
-
-    setTimeout(() => {
-        popupCtn.classList.add('d-none');
-    }, 350);
+        popup.classList.remove('opening');
+        popup.classList.add('closing');
+    
+    
+        setTimeout(() => {
+            popupCtn.classList.add('d-none');
+        }, 350);
+    }
+    
 }
 
-function closeOpenedMenu() {
+function closeOpenedMenu(event) {
     let contactCtn = document.getElementById('contactContainer');
     let categoryCtn = document.getElementById('dropdownOptions');
+    stop(event);
     if (!contactCtn.classList.contains('d-none') || !categoryCtn.classList.contains('d-none')) {
         contactCtn.classList.add('d-none');
         categoryCtn.classList.add('d-none');
         rotateIcon();
-        
     };
 }
 

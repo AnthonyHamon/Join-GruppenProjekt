@@ -2,11 +2,11 @@ function generateAddTaskHTML() {
     let content = document.getElementById('content');
     content.innerHTML = '';
     content.innerHTML = `
-        <div onclick="closeOpenedMenu()" class="task-container">
+        <div onclick="closeOpenedMenu(event)" class="task-container">
                 <div class="task-headline">
                     <h1 class="task-name">Add Task</h1>
                 </div>
-            <form onsubmit="setNewTask(); return false" class="task_input_ctn">
+            <form onsubmit="setNewTask(event); return false" id="add-task-form" class="task_input_ctn">
                 <div class="mobile-scroll">
                     <div class="task-input">
                         <div class="left-field">
@@ -22,7 +22,7 @@ function generateAddTaskHTML() {
                                 <div class="textarea-container">
                                     <div class="textarea-field">
                                         <textarea id="read-description" class="textarea attrebute" type="text" name="myTextarea"
-                                            placeholder="Enter a Description" spellcheck required></textarea>
+                                            placeholder="Enter a Description" spellcheck></textarea>
                                     </div>
                                     <div>
                                         <img class="description-icon" src="../images/Recurso 1 1.svg" alt="">
@@ -82,7 +82,7 @@ function generateAddTaskHTML() {
                                 <div onclick="toggleDropdown()" class="category-box">
                                     <div class="custom-list">
                                         <div>
-                                            <input disabled class="span-category" id="selectedCategory" type="text" name="myInput" placeholder="Select task category">
+                                            <input disabled class="span-category" id="selectedCategory" type="text" name="myInput" placeholder="Select task category" required>
                                         </div>
                                         <div class="category-icon-field">
                                             <img class="drop-option" id="selectIcon" src="../images/arrow_drop_downaa.svg"
@@ -122,7 +122,7 @@ function generateAddTaskHTML() {
                     </div>
                     <div class="clear-create-button">
                         <button onclick="clearBegonnenNewTask()" type="reset" class="clear-button">Clear<img src="../images/close.svg"></button>
-                        <button class="create-button">Create Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
+                        <button id="add-task-form-button" type="submit" class="create-button">Create Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
                     </div>
                 </div>
             </form>
@@ -208,7 +208,7 @@ function returnAddTaskPopUp(status) {
         <h1 class="task-name">Add Task</h1>
         <img onclick="closeAddTaskPopUp()" class="popup-add-task-close" src="../images/Property 1=close.svg" alt="">
     </div>
-<form onsubmit="setNewTask('${status}'); return false" class="task-input-container">
+<form onsubmit="setNewTask('${status}', event); return false" class="task-input-container">
     <div class="mobile-scroll">
         <div class="task-input">
             <div class="left-field popup-field">
@@ -284,7 +284,7 @@ function returnAddTaskPopUp(status) {
                     <div onclick="toggleDropdown()" class="category-box">
                         <div class="custom-list">
                             <div>
-                                <input disabled class="span-category" id="selectedCategory" type="text" name="myInput" placeholder="Select task category">
+                                <input disabled required class="span-category" id="selectedCategory" type="text" name="myInput" placeholder="Select task category">
                             </div>
                             <div class="category-icon-field">
                                 <img class="drop-option" id="selectIcon" src="../images/arrow_drop_downaa.svg"
@@ -324,7 +324,7 @@ function returnAddTaskPopUp(status) {
         </div>
         <div class="clear-create-button">
             <button onclick="clearBegonnenNewTask()" type="reset" class="clear-button">Clear<img src="../images/close.svg"></button>
-            <button class="create-button">Create Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
+            <button id="add-task-form-button" type="submit" class="create-button">Create Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
         </div>
     </div>
 </form>
