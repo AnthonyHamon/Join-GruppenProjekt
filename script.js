@@ -47,7 +47,7 @@ function closePopup(){
     let popup = document.getElementById('popup');
     if (popup.classList.contains('open_animation_contact_popup')){
         closeContactPopup();
-    }else if(popup.classList.contains('open_animation_addTask_popup')) {
+    }else if(popup.classList.contains('opening')) {
         closeAddTaskPopUp();
     }
 }
@@ -63,7 +63,7 @@ function renderLegalNoticePage() {
 function renderPrivacyPolicyPage() {
     let legalContent = document.getElementById('legal-content-section');
     legalContent.innerHTML = returnPrivacyPolicyHTML();
-    legalContent.classList.remove('d-none');
+    legalContent.classList.remove('d-none'); 
 }
 
 function hideLegalContent() {

@@ -203,7 +203,7 @@ function renderCategory(category, c) {
 
 function returnAddTaskPopUp(status) {
     return `
-    <div onclick="stop(event)" class="popup-addtask-container" id="popup">
+    <div onclick="stop(event)" class="popup-addtask-container opening" id="popup">
     <div class="task-headline">
         <h1 class="task-name">Add Task</h1>
         <img onclick="closeAddTaskPopUp()" class="popup-add-task-close" src="../images/Property 1=close.svg" alt="">
