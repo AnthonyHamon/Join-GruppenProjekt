@@ -867,11 +867,11 @@ input[type=date]:invalid::-webkit-datetime-edit {
     animation-fill-mode: forwards;
 }
 
-.popup-addtask-container .closing {
+.closing {
     animation-name: slideOut;
 }
 
-.popup-addtask-container .opening {
+.opening {
     animation-name: slideIn;
 }
 
