@@ -79,18 +79,18 @@ function generateAddTaskHTML() {
                             </div>
                             <div class="category-fields">
                                 <h4>Category<span class="letter-color">*</span></h4>
-                                <div onclick="toggleDropdown()" class="category-box">
+                                <div class="category-box">
                                     <div class="custom-list">
                                         <div>
                                             <input disabled class="span-category" id="selectedCategory" type="text" name="myInput" placeholder="Select task category" required>
                                         </div>
-                                        <div class="category-icon-field">
+                                        <div class="category-icon-field" onclick="toggleDropdown(event)">
                                             <img class="drop-option" id="selectIcon" src="../images/arrow_drop_downaa.svg"
                                                 alt="Arrow">
                                         </div>
                                     </div>
                                 </div>
-                                <div id="dropdownOptions" class="dropdown-options">
+                                <div id="dropdownOptions" class="dropdown-options d-none">
                                     
                                 </div>
                             </div>
@@ -194,7 +194,7 @@ function returnSelectedContactBadges(selectedContact) {
 
 function renderCategory(category, c) {
     return `
-    <div class="category-list" id="category${c}" onclick="acceptCategory('${category}')">
+    <div class="category-list" id="category${c}" onclick="acceptCategory('${category}', event)">
         <span >${category}</span>
     </div>
     `;
