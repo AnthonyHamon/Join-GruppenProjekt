@@ -31,9 +31,11 @@ async function editTask(id, title, description, date, priority, category, status
     renderBoard();
 }
 
-function toggleNoCategoryError(){
+function toggleNoCategoryError(categoryInput){
     let categoryWarningText = document.getElementById('category-warning-text');
-    categoryWarningText.classList.toggle('d-none')
+    if(!categoryWarningText.classList.contains('d-none') || categoryInput.value == ''){
+        categoryWarningText.classList.toggle('d-none')
+    }
 }
 
 function checkCategoryValidity(event) {
@@ -42,7 +44,7 @@ function checkCategoryValidity(event) {
     categoryInput.disabled = false;
     if (!categoryInput.checkValidity()) {
         event.preventDefault();
-        toggleNoCategoryError();
+        toggleNoCategoryError(categoryInput);
         setTimeout(()=>{
             categoryInput.disabled = true;
         },2000)
