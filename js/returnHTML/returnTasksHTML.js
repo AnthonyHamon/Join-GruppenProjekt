@@ -80,11 +80,11 @@ function generateAddTaskHTML() {
                             <div class="category-fields">
                                 <h4>Category<span class="letter-color">*</span></h4>
                                 <div class="category-box">
-                                    <div class="custom-list">
+                                    <div class="custom-list" onclick="toggleDropdown(event)">
                                         <div>
                                             <input disabled class="span-category" id="selectedCategory" type="text" name="myInput" placeholder="Select task category" required>
                                         </div>
-                                        <div class="category-icon-field" onclick="toggleDropdown(event)">
+                                        <div class="category-icon-field">
                                             <img class="drop-option" id="selectIcon" src="../images/arrow_drop_downaa.svg"
                                                 alt="Arrow">
                                         </div>

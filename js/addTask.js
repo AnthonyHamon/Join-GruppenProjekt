@@ -485,11 +485,6 @@ function toggleDropdown(event) {
     }
 }
 
-function closeCategoryMenu(){
-    const dropdownOptions = document.getElementById('dropdownOptions');
-    const icon = document.getElementById('selectIcon');
-}
-
 function clearBegonnenNewTask() {
     resetArraysForNewTasks();
     renderAddTask();
@@ -530,6 +525,7 @@ function showPopupAnimation(){
 
 function closeAddTaskPopUp() {
     let popupCtn = document.getElementById('popup-ctn');
+    
     if(!popupCtn.classList.contains('d-none')){
         let popup = document.getElementById('popup');
 
@@ -545,13 +541,27 @@ function closeAddTaskPopUp() {
 }
 
 function closeOpenedMenu(event) {
-    let contactCtn = document.getElementById('contactContainer');
-    let categoryCtn = document.getElementById('dropdownOptions');
     stop(event);
-    if (!contactCtn.classList.contains('d-none') || !categoryCtn.classList.contains('d-none')) {
+    closeAssignContactMenu();
+    closeCategoryMenu();
+}
+
+function closeAssignContactMenu(){
+    let contactCtn = document.getElementById('contactContainer');
+    if (!contactCtn.classList.contains('d-none')) {
         contactCtn.classList.add('d-none');
-        categoryCtn.classList.add('d-none');
         rotateIcon();
+    };
+}
+
+function closeCategoryMenu(){
+    let CategorymenuArrow = document.getElementById('selectIcon');
+    let categoryCtn = document.getElementById('dropdownOptions');
+    if (!categoryCtn.classList.contains('d-none')) {
+        categoryCtn.classList.add('d-none');
+    };
+    if (CategorymenuArrow.classList.contains('rotate')) {
+        CategorymenuArrow.classList.toggle('rotate');
     };
 }
 
