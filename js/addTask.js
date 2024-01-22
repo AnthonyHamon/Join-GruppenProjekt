@@ -468,6 +468,7 @@ function acceptCategory(category, event) {
     selectInput.value = category;
 
     toggleDropdown(event);
+    toggleNoCategoryError();
 }
 
 

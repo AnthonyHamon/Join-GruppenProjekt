@@ -1,4 +1,4 @@
-async function setNewTask(status, event) {
+async function setNewTask(status) {
     let id = ++highestTaskId;
     let title = document.getElementById('titel-input').value;
     let description = document.getElementById('read-description').value;
@@ -8,7 +8,7 @@ async function setNewTask(status, event) {
     status == undefined ? status = 'to_do' : status = status;
     let contacts = [...selectedContacts];
     let subtasks = [...createdSubtaskList];
-    let category = checkCategoryValidity(status, event);
+    let category = checkCategoryValidity(status);
     tasks.push({ id, title, description, date, priority, category, status, contacts, subtasks });
     await setItem('tasks', JSON.stringify(tasks));
     resetArraysForNewTasks();
@@ -31,18 +31,25 @@ async function editTask(id, title, description, date, priority, category, status
     renderBoard();
 }
 
+function toggleNoCategoryError(){
+    let categoryWarningText = document.getElementById('category-warning-text');
+    categoryWarningText.classList.toggle('d-none')
+}
+
 function checkCategoryValidity(event) {
     let categoryInput = document.getElementById('selectedCategory');
+    categoryInput.setCustomValidity('');
     categoryInput.disabled = false;
     if (!categoryInput.checkValidity()) {
-        categoryInput.disabled = true;
         event.preventDefault();
-        return false;
+        toggleNoCategoryError();
+        setTimeout(()=>{
+            categoryInput.disabled = true;
+        },2000)
     } else {
         let category = document.getElementById('selectedCategory').value.replace(/\s/g, '_');
         return category;
-    }
-
+    };
 }
 
 

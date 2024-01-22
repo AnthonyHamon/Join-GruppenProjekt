@@ -6,7 +6,7 @@ function generateAddTaskHTML() {
                 <div class="task-headline">
                     <h1 class="task-name">Add Task</h1>
                 </div>
-            <form onsubmit="setNewTask(event); return false" id="add-task-form" class="task_input_ctn">
+            <form onsubmit="checkCategoryValidity(event) && setNewTask(); return false" id="add-task-form" class="task_input_ctn">
                 <div class="mobile-scroll">
                     <div class="task-input">
                         <div class="left-field">
@@ -79,17 +79,22 @@ function generateAddTaskHTML() {
                             </div>
                             <div class="category-fields">
                                 <h4>Category<span class="letter-color">*</span></h4>
-                                <div class="category-box">
-                                    <div class="custom-list" onclick="toggleDropdown(event)">
-                                        <div>
-                                            <input disabled class="span-category" id="selectedCategory" type="text" name="myInput" placeholder="Select task category" required>
-                                        </div>
-                                        <div class="category-icon-field">
-                                            <img class="drop-option" id="selectIcon" src="../images/arrow_drop_downaa.svg"
-                                                alt="Arrow">
+                                <div style="width:100%">
+                                    <div class="category-box">
+                                        <div class="custom-list" onclick="toggleDropdown(event)">
+                                            <div>
+                                                <input disabled class="span-category" id="selectedCategory" type="text" name="myInput" placeholder="Select task category" required>
+                                            </div>
+                                            <div class="category-icon-field">
+                                                <img class="drop-option" id="selectIcon" src="../images/arrow_drop_downaa.svg"
+                                                    alt="Arrow">
+                                            </div>
                                         </div>
                                     </div>
+                                <div class="category_error_warning">
+                                    <span id="category-warning-text" class="d-none">This field is required</span>
                                 </div>
+                            </div>  
                                 <div id="dropdownOptions" class="dropdown-options d-none">
                                     
                                 </div>

@@ -125,7 +125,7 @@ function returnEditTaskHTML(task) {
                     <div class="textarea-container">
                         <div class="textarea-field">
                             <textarea id="read-description" class="textarea attrebute" type="text" name="myTextarea"
-                                placeholder="Enter a Description" spellcheck required>${task.description}</textarea>
+                                placeholder="Enter a Description" spellcheck>${task.description}</textarea>
                         </div>
                         <div>
                             <img class="description-icon" src="../images/Recurso 1 1.svg" alt="">
