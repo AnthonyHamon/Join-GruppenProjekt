@@ -1,20 +1,20 @@
 @keyframes slide_to_left {
     from {
-        margin-left: 200%;
+        transform: translateX(150%);
     }
 
     to {
-        margin-left: 0;
+        transform: translateX(0%);
     }
 }
 
 @keyframes slide_to_right {
     from {
-        margin-left: 0%;
+        transform: translateX(0%);
     }
 
     to {
-        margin-left: 200%;
+        transform: translateX(150%);
     }
 }
 

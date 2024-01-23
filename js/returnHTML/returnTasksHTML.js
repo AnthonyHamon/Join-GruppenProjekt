@@ -91,14 +91,13 @@ function generateAddTaskHTML() {
                                             </div>
                                         </div>
                                     </div>
-                                <div class="category_error_warning">
-                                    <span id="category-warning-text" class="d-none">This field is required</span>
-                                </div>
-                            </div>  
-                                <div id="dropdownOptions" class="dropdown-options d-none">
-                                    
-                                </div>
+                                    <div class="category_error_warning">
+                                        <span id="category-warning-text" class="d-none">This field is required</span>
+                                    </div>
+                                </div>  
+                                <div id="dropdownOptions" class="dropdown-options d-none"></div>
                             </div>
+
                             <div class="subtask-container">
                                 <h4>Subtasks</h4>
                                 <div class="subtask-field">
@@ -208,12 +207,12 @@ function renderCategory(category, c) {
 
 function returnAddTaskPopUp(status) {
     return `
-    <div onclick="stop(event)" class="popup-addtask-container opening" id="popup">
+    <div onclick="closeOpenedMenu(event)" class="popup-addtask-container opening" id="popup">
     <div class="task-headline">
         <h1 class="task-name">Add Task</h1>
         <img onclick="closeAddTaskPopUp()" class="popup-add-task-close" src="../images/Property 1=close.svg" alt="">
     </div>
-<form onsubmit="setNewTask('${status}', event); return false" class="task-input-container">
+<form onsubmit="checkCategoryValidity(event) && setNewTask(${status}); return false" class="task-input-container">
     <div class="mobile-scroll">
         <div class="task-input">
             <div class="left-field popup-field">
@@ -229,7 +228,7 @@ function returnAddTaskPopUp(status) {
                     <div class="textarea-container">
                         <div class="textarea-field">
                             <textarea id="read-description" class="textarea attrebute" type="text" name="myTextarea"
-                                placeholder="Enter a Description" spellcheck required></textarea>
+                                placeholder="Enter a Description" spellcheck></textarea>
                         </div>
                         <div>
                             <img class="description-icon" src="../images/Recurso 1 1.svg" alt="">
@@ -238,14 +237,14 @@ function returnAddTaskPopUp(status) {
                 </div>
                 <div class="contacts-field box2">
                     <h4>Assigned to</h4>
-                    <div class="custom-dropdown">
+                    <div onclick="toggleContacts(event)" class="custom-dropdown">
                         <input onkeyup="searchContactToAssign()" id="assignTo-input" class="assign-input" type="search" placeholder="Select contacts to assign">
                         <div class="assign-button" onclick="toggleContacts()">
                             <img onclick="rotateIcon()" src="../images/arrow_drop_downaa.svg" alt="Arrow Icon" id="arrowIcon">
                         </div>
                     </div>
                     <div class="contact-container d-none" id="contactContainer">
-                        <div class="contact-box">
+                        <div onclick="stop(event)" class="contact-box">
                             <div id="assigned-to-current-user-ctn" class="contacts-topfield">
                                 <div class="contacts-name">
                                     <div id="current-user-initial" class="contact_circle"></div>
@@ -286,21 +285,25 @@ function returnAddTaskPopUp(status) {
                 </div>
                 <div class="category-fields">
                     <h4>Category<span class="letter-color">*</span></h4>
-                    <div onclick="toggleDropdown()" class="category-box">
-                        <div class="custom-list">
-                            <div>
-                                <input disabled required class="span-category" id="selectedCategory" type="text" name="myInput" placeholder="Select task category">
-                            </div>
-                            <div class="category-icon-field">
-                                <img class="drop-option" id="selectIcon" src="../images/arrow_drop_downaa.svg"
-                                    alt="Arrow">
+                    <div style="width:100%">
+                        <div onclick="toggleDropdown(event)" class="category-box">
+                            <div class="custom-list">
+                                <div>
+                                    <input disabled required class="span-category" id="selectedCategory" type="text" name="myInput" placeholder="Select task category">
+                                </div>
+                                <div class="category-icon-field">
+                                    <img class="drop-option" id="selectIcon" src="../images/arrow_drop_downaa.svg"
+                                        alt="Arrow">
+                                </div>
                             </div>
                         </div>
+                        <div class="category_error_warning">
+                            <span id="category-warning-text" class="d-none">This field is required</span>
+                        </div>
                     </div>
-                    <div id="dropdownOptions" class="dropdown-options">
-                        
-                    </div>
+                    <div id="dropdownOptions" class="dropdown-options d-none"></div>
                 </div>
+
                 <div class="subtask-container">
                     <h4>Subtasks</h4>
                     <div class="subtask-field">
