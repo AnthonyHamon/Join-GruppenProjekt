@@ -94,8 +94,8 @@ function generateAddTaskHTML() {
                                     <div class="category_error_warning">
                                         <span id="category-warning-text" class="d-none">This field is required</span>
                                     </div>
+                                    <div id="dropdownOptions" class="dropdown-options d-none"></div>
                                 </div>  
-                                <div id="dropdownOptions" class="dropdown-options d-none"></div>
                             </div>
 
                             <div class="subtask-container">
@@ -239,7 +239,7 @@ function returnAddTaskPopUp(status) {
                     <h4>Assigned to</h4>
                     <div onclick="toggleContacts(event)" class="custom-dropdown">
                         <input onkeyup="searchContactToAssign()" id="assignTo-input" class="assign-input" type="search" placeholder="Select contacts to assign">
-                        <div class="assign-button" onclick="toggleContacts()">
+                        <div class="assign-button">
                             <img onclick="rotateIcon()" src="../images/arrow_drop_downaa.svg" alt="Arrow Icon" id="arrowIcon">
                         </div>
                     </div>
@@ -300,8 +300,9 @@ function returnAddTaskPopUp(status) {
                         <div class="category_error_warning">
                             <span id="category-warning-text" class="d-none">This field is required</span>
                         </div>
+                    
+                        <div id="dropdownOptions" class="dropdown-options d-none"></div>
                     </div>
-                    <div id="dropdownOptions" class="dropdown-options d-none"></div>
                 </div>
 
                 <div class="subtask-container">
