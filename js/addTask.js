@@ -50,6 +50,7 @@ function renderAssignedToCurrentUser() {
  */
 function renderAssignedToContactList() {
     let assignedToContactList = document.getElementById('assigned-to-contact-list');
+    assignedToContactList.innerHTML = '';
     contacts.sort((a, b) => { return compareStrings(a.name, b.name) });
     for (let i = 0; i < contacts.length; i++) {
         const contact = contacts[i];
@@ -486,9 +487,19 @@ function toggleDropdown(event) {
     }
 }
 
-function clearBegonnenNewTask() {
+function clearBegonnenNewTask(event) {
     resetArraysForNewTasks();
-    renderAddTask();
+    document.getElementById('titel-input').value = '';
+    document.getElementById('calender-input').value = '';
+    document.getElementById('read-description').value = '';
+    document.getElementById('assignTo-input').value = '';
+    document.getElementById('selected-contact-ctn').innerHTML = '';
+    document.getElementById('selectedCategory').value = '';
+    document.getElementById('subtaskInput').value = '';
+    renderAssignedToContactList();
+    renderSubtask();
+    changeButtonStyles('Medium');
+    closeOpenedMenu(event);
 }
 
 // AddTask in Board site

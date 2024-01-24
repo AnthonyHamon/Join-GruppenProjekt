@@ -125,7 +125,7 @@ function generateAddTaskHTML() {
                         </div>
                     </div>
                     <div class="clear-create-button">
-                        <button onclick="clearBegonnenNewTask()" type="reset" class="clear-button">Clear<img src="../images/close.svg"></button>
+                        <button onclick="clearBegonnenNewTask(event)" type="reset" class="clear-button">Clear<img src="../images/close.svg"></button>
                         <button id="add-task-form-button" type="submit" class="create-button">Create Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
                     </div>
                 </div>
@@ -332,7 +332,7 @@ function returnAddTaskPopUp(status) {
             </div>
         </div>
         <div class="clear-create-button">
-            <button onclick="clearBegonnenNewTask()" type="reset" class="clear-button">Clear<img src="../images/close.svg"></button>
+            <button onclick="clearBegonnenNewTask(event)" type="reset" class="clear-button">Clear<img src="../images/close.svg"></button>
             <button id="add-task-form-button" type="submit" class="create-button">Create Task <img class="clear-create-img" src="../images/check.svg" alt=""></button>
         </div>
     </div>
