@@ -79,7 +79,7 @@ function generateAddTaskHTML() {
                             </div>
                             <div class="category-fields">
                                 <h4>Category<span class="letter-color">*</span></h4>
-                                <div style="width:100%">
+                                <div class="category_ctn">
                                     <div class="category-box">
                                         <div class="custom-list" onclick="toggleDropdown(event)">
                                             <div>
@@ -285,7 +285,7 @@ function returnAddTaskPopUp(status) {
                 </div>
                 <div class="category-fields">
                     <h4>Category<span class="letter-color">*</span></h4>
-                    <div style="width:100%">
+                    <div class="category_ctn">
                         <div onclick="toggleDropdown(event)" class="category-box">
                             <div class="custom-list">
                                 <div>

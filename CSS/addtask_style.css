@@ -539,6 +539,11 @@ input[type=date]:invalid::-webkit-datetime-edit {
 
 /* Category */
 
+.category_ctn{
+    width: 100%;
+    position: relative;
+}
+
 .category-fields {
     display: flex;
     width: 440px;
@@ -1058,7 +1063,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     }
 }
 
-@media (max-width: 997px) {
+@media (max-width: 999px) {
 
     .task-headline h1 {
         font-size: 57px !important;
@@ -1134,6 +1139,7 @@ input[type=date]:invalid::-webkit-datetime-edit {
     }
 
     .dropdown-options {
+        top: 68px;
         width: 100%;
     }
 
