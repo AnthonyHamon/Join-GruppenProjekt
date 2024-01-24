@@ -547,6 +547,7 @@ function closeAddTaskPopUp() {
     
         setTimeout(() => {
             popupCtn.classList.add('d-none');
+            popupCtn.innerHTML = '';
         }, 350);
     }
     
