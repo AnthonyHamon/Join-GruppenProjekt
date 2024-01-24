@@ -66,7 +66,7 @@ function generateBoardWidthMinus1300HTML() {
 function renderTaskHTMLDetails(task) {
     return /*html*/`
         <div id="backgroundFromTaskPopup" class="background fadeInBackground"></div>
-        <div onclick="stop(event)" id ="taskDetails" class="taskDetails slideInFromRight">
+        <div onclick="closeOpenedMenu(event)" id ="taskDetails" class="taskDetails slideInFromRight">
             <div class="flex spaceBetween">
                 ${checkTaskCategory(task.category)}
             </div>
@@ -134,14 +134,14 @@ function returnEditTaskHTML(task) {
                 </div>
                 <div class="contacts-field box2">
                     <h4>Assigned to</h4>
-                    <div class="custom-dropdown">
+                    <div onclick="toggleContacts(event)" class="custom-dropdown">
                         <input onkeyup="searchContactToAssign()" id="assignTo-input" class="assign-input" type="search" placeholder="Select contacts to assign">
-                        <div class="assign-button" onclick="toggleContacts()">
+                        <div class="assign-button">
                             <img onclick="rotateIcon()" src="../images/arrow_drop_downaa.svg" alt="Arrow Icon" id="arrowIcon">
                         </div>
                     </div>
                     <div class="contact-container d-none" id="contactContainer">
-                        <div class="contact-box">
+                        <div onclick="stop(event)" class="contact-box">
                             <div id="assigned-to-current-user-ctn" class="contacts-topfield">
                                 <div class="contacts-name">
                                     <div id="current-user-initial" class="contact_circle"></div>

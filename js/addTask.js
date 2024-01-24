@@ -560,7 +560,7 @@ function closeOpenedMenu(event) {
 
 function closeAssignContactMenu(){
     let contactCtn = document.getElementById('contactContainer');
-    if (!contactCtn.classList.contains('d-none')) {
+    if (contactCtn && !contactCtn.classList.contains('d-none')) {
         contactCtn.classList.add('d-none');
         rotateIcon();
     };
@@ -569,10 +569,10 @@ function closeAssignContactMenu(){
 function closeCategoryMenu(){
     let CategorymenuArrow = document.getElementById('selectIcon');
     let categoryCtn = document.getElementById('dropdownOptions');
-    if (!categoryCtn.classList.contains('d-none')) {
+    if (categoryCtn && !categoryCtn.classList.contains('d-none')) {
         categoryCtn.classList.add('d-none');
     };
-    if (CategorymenuArrow.classList.contains('rotate')) {
+    if (CategorymenuArrow && CategorymenuArrow.classList.contains('rotate')) {
         CategorymenuArrow.classList.toggle('rotate');
     };
 }
