@@ -12,6 +12,7 @@ async function setNewTask(status) {
     tasks.push({ id, title, description, date, priority, category, status, contacts, subtasks });
     await setItem('tasks', JSON.stringify(tasks));
     resetArraysForNewTasks();
+    showAddedToBoard();
     closeAddTaskPopUp();
     renderBoard();
 }

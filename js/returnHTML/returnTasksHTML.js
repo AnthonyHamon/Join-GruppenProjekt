@@ -340,3 +340,15 @@ function returnAddTaskPopUp(status) {
 </div>
     `;
 }
+
+
+function taskAddedToBoard() {
+    return `
+        <div id="tat-board" style="height: 100%">
+            <div class="task-added-to-board showaddedtoBoard">
+                <span class="board-span">Task added to board</span>
+                <img class="board-img" src="../images/board.svg" alt="">
+            </div>
+        </div>
+    `;
+}

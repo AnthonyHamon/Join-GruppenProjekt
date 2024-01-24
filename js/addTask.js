@@ -577,3 +577,18 @@ function closeCategoryMenu(){
     };
 }
 
+
+function showAddedToBoard() {
+    let popupContainer = document.getElementById('popup-ctn');
+    popupContainer.classList.toggle('d-none');
+    popupContainer.innerHTML = taskAddedToBoard();
+
+    /*
+    let addedtoBoardDiv = document.getElementById('tat-board');
+    addedtoBoardDiv.classList.add('showaddedtoBoard');
+    */
+}
+
+
+
+
