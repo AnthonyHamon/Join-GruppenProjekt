@@ -184,7 +184,7 @@ function returnAddContactPopup() {
 
 function returnEditContactPopup(name, email, phone, initial, BgColor) {
     return `
-        <div id="contact-popup" class="contact_popup">
+        <div id="popup" class="contact_popup">
             <section class="section_left">
                 <div class="close_mobile_contact_popup_div">
                     <div onclick="closeMobileContactPopup()" id="close-contact-popup">
