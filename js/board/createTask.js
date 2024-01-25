@@ -13,8 +13,9 @@ async function setNewTask(status) {
     await setItem('tasks', JSON.stringify(tasks));
     resetArraysForNewTasks();
     showAddedToBoard();
-    closeAddTaskPopUp();
-    renderBoard();
+    setTimeout(() => {
+        renderBoard();
+    }, 2000);
 }
 
 async function editTask(id, title, description, date, priority, category, status) {

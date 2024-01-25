@@ -338,17 +338,16 @@ function returnAddTaskPopUp(status) {
     </div>
 </form>
 </div>
+<div id="added-task-to-board-popup-div" class="added_task_to_board_div d-none"></div>
     `;
 }
 
 
 function taskAddedToBoard() {
     return `
-        <div id="tat-board" style="height: 100%">
-            <div class="task-added-to-board showaddedtoBoard">
+            <div id="task-added-to-board" class="task-added-to-board showaddedtoBoard">
                 <span class="board-span">Task added to board</span>
                 <img class="board-img" src="../images/board.svg" alt="">
             </div>
-        </div>
     `;
 }

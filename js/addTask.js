@@ -581,13 +581,25 @@ function closeCategoryMenu(){
 
 function showAddedToBoard() {
     let popupContainer = document.getElementById('popup-ctn');
-    popupContainer.classList.toggle('d-none');
-    popupContainer.innerHTML = taskAddedToBoard();
+    if(popupContainer.classList.contains('d-none')){
+        popupContainer.classList.toggle('d-none');
+        popupContainer.innerHTML = taskAddedToBoard();
+        setTimeout(() => {
+            popupContainer.classList.toggle('d-none');
+        }, 2000);
+    }else{
+        let addTaksPopup = document.getElementById('added-task-to-board-popup-div');
+        addTaksPopup.innerHTML += taskAddedToBoard();
+        let taskAddedToBoardPopup = document.getElementById('task-added-to-board');
+        taskAddedToBoardPopup.classList.remove('showaddedtoBoard');
+        addTaksPopup.classList.remove('d-none');
+        setTimeout(() => {
+            popupContainer.classList.toggle('d-none');
+        }, 2000);
 
-    /*
-    let addedtoBoardDiv = document.getElementById('tat-board');
-    addedtoBoardDiv.classList.add('showaddedtoBoard');
-    */
+
+    }
+
 }
 
 

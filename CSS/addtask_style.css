@@ -948,20 +948,33 @@ input[type=date]:invalid::-webkit-datetime-edit {
     bottom: 0;
     transform-origin: bottom center;
     animation-duration: 4s;
-    transform: translateY(100%);
+    /* transform: translateY(100vh); */
+    z-index: 9999;
+}
+
+.added_task_to_board_div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .showaddedtoBoard {
-    animation: slideIn 4s ease-in-out;
+    transform: translateY(100vh);
+    animation: showcreatedTaksPopup 4s ease-in-out;
 }
 
-@keyframes slideIn {
+@keyframes showcreatedTaksPopup {
     0%,
     100% {
-        transform: translateY(100%);
+        transform: translateY(100vh);
     }
 
-    50%,
+    30%,
     70% {
         transform: translateY(0%);
     }
