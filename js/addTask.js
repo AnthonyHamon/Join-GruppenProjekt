@@ -200,6 +200,7 @@ function rotateIcon() {
  * @param {*} event 
  */
 function toggleContacts(event) {
+    // debugger;
     const contactContainer = document.getElementById('contactContainer');
     const arrowIcon = document.getElementById('arrowIcon');
     contactContainer.classList.toggle('d-none');

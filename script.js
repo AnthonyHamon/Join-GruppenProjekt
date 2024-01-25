@@ -58,12 +58,15 @@ function renderLegalNoticePage() {
     let legalContent = document.getElementById('legal-content-section');
     legalContent.innerHTML = returnLegalNoticeHTML();
     legalContent.classList.remove('d-none');
+    document.getElementById('profile_menu_contain').classList.add('d-none');
+
 }
 
 function renderPrivacyPolicyPage() {
     let legalContent = document.getElementById('legal-content-section');
     legalContent.innerHTML = returnPrivacyPolicyHTML();
     legalContent.classList.remove('d-none'); 
+    document.getElementById('profile_menu_contain').classList.add('d-none');
 }
 
 function hideLegalContent() {
