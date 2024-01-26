@@ -1,3 +1,7 @@
+.join_color{
+    color: #29ABE2;
+}
+
 .legal_content_section {
     position: absolute;
     top: 0;
@@ -45,6 +49,21 @@
 .legal_content_title img {
     cursor: pointer;
 }
+
+.help_how_to_use_liste li{
+    padding-left: 16px;
+}
+
+.help_how_to_use_liste li::marker{
+    font-weight: bold;
+    font-size: 27px;
+}
+
+.help_how_to_use_liste h3{
+    font-size: 27px;
+    margin:  0;
+}
+
 
 @media(max-width:999px) {
     .legal_content_section {

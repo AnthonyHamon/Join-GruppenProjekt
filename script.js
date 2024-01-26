@@ -73,3 +73,10 @@ function hideLegalContent() {
     let legalContent = document.getElementById('legal-content-section');
     legalContent.classList.add('d-none');
 }
+
+function renderHelpContent(){
+    let legalContent = document.getElementById('legal-content-section');
+    legalContent.innerHTML = returnHelpHTML();
+    legalContent.classList.remove('d-none'); 
+    document.getElementById('profile_menu_contain').classList.add('d-none');
+}
