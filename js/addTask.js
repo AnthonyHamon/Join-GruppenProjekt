@@ -28,7 +28,7 @@ function renderAddTask() {
  * 
  */
 function renderAssignedToCurrentUser() {
-    let currentUserCtn = document.getElementById('assigned-to-current-user-ctn')
+    let currentUserCtn = document.getElementById('current-user');
     let currentUserName = document.getElementById('current-user-name');
     let currentUserInitial = document.getElementById('current-user-initial');
     if (currentUser) {
