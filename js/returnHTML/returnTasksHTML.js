@@ -246,7 +246,7 @@ function returnAddTaskPopUp(status) {
                     </div>
                     <div class="contact-container d-none" id="contactContainer">
                         <div onclick="stop(event)" class="contact-box">
-                            <div id="assigned-to-current-user-ctn" class="contacts-topfield">
+                            <div id="current-user" class="contacts-topfield">
                                 <div class="contacts-name">
                                     <div id="current-user-initial" class="contact_circle"></div>
                                     <span id="current-user-name" class="contact-name"></span>
