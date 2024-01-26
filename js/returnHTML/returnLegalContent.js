@@ -138,3 +138,9 @@ function returnLegalNoticeHTML(){
         </main>
     `;
 }
+
+function returnHelpHTML(){
+    return `
+        
+    `
+}
