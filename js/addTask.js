@@ -141,6 +141,7 @@ function assignTo(i, name, email, phone, initial, BgColor) {
     }
 }
 
+
 function assignedToCurrentUser(currentUser){
     let name = currentUser[0]['user'] + ' (You)';
     let initial = currentUser[0]['initial'];
@@ -222,7 +223,6 @@ function rotateIcon() {
  * @param {*} event 
  */
 function toggleContacts(event) {
-    // debugger;
     const contactContainer = document.getElementById('contactContainer');
     const arrowIcon = document.getElementById('arrowIcon');
     contactContainer.classList.toggle('d-none');
@@ -272,11 +272,11 @@ function changeButtonStyles(priority) {
 
 function resetSelectedPrioButton() {
     let allPrioSelectedButton = document.querySelectorAll('.selected');
-    allPrioSelectedButton.forEach((allPrioSelectedButton) => {
+        allPrioSelectedButton.forEach((allPrioSelectedButton) => {
         allPrioSelectedButton.classList.remove('selected');
     });
     let allPrioSelectedIcon = document.querySelectorAll('.selected_icon');
-    allPrioSelectedIcon.forEach((allPrioSelectedIcon) => {
+        allPrioSelectedIcon.forEach((allPrioSelectedIcon) => {
         allPrioSelectedIcon.classList.remove('selected_icon');
     });
 }
@@ -338,7 +338,6 @@ function editSubtaskOnAlreadyCreatedTask(i, subtask, id) {
             });
             renderSubtaskForEditOption(subtasks, id);
         }
-
     }
 
 }
