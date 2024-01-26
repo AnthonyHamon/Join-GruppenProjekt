@@ -66,7 +66,7 @@ function renderAssignedToContactList() {
  * If the search query is empty, all contacts are displayed again, and previously selected contacts receive special styles.
  * 
  */
-function serchContactToAssign() {
+function searchContactToAssign() {
     let searchedContact = document.getElementById('assignTo-input').value.toLowerCase();
     let assignedToContactList = document.getElementById('assigned-to-contact-list');
     contactContainer.classList.remove('d-none');
@@ -134,9 +134,25 @@ function assignTo(i, name, email, phone, initial, BgColor) {
     styleSelectedContact(i);
     if (index > -1) {
         selectedContacts.splice(index, 1);
-        renderSelectedContactBadges(selectedContacts)
+        renderSelectedContactBadges(selectedContacts);
     } else {
         selectedContacts.push({ name, email, phone, initial, BgColor });
+        renderSelectedContactBadges(selectedContacts);
+    }
+}
+
+function assignedToCurrentUser(currentUser){
+    let name = currentUser[0]['user'] + ' (You)';
+    let initial = currentUser[0]['initial'];
+    let BgColor = currentUser[0]['BgColor'];
+    let email = currentUser[0]['email'];
+    const index = selectedContacts.findIndex(c => c.email === email);
+    styleSelectedCurrentUser();
+    if (index > -1) {
+        selectedContacts.splice(index, 1);
+        renderSelectedContactBadges(selectedContacts);
+    } else {
+        selectedContacts.push({ name, email, initial, BgColor });
         renderSelectedContactBadges(selectedContacts);
     }
 }
@@ -182,6 +198,12 @@ function styleSelectedContact(i) {
     document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`checked-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`contact${i}`).classList.toggle('contact_selected');
+}
+
+function styleSelectedCurrentUser() {
+    document.getElementById(`check-contact-img`).classList.toggle('d-none');
+    document.getElementById(`checked-contact-img`).classList.toggle('d-none');
+    document.getElementById('current-user').classList.toggle('contact_selected');
 }
 
 

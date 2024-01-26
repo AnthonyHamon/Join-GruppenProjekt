@@ -39,14 +39,15 @@ function generateAddTaskHTML() {
                                 </div>
                                 <div class="contact-container d-none" id="contactContainer">
                                     <div onclick="stop(event)" class="contact-box">
-                                        <div id="assigned-to-current-user-ctn" class="contacts-topfield">
+                                        <div onclick="assignedToCurrentUser(currentUser)" id="current-user" class="contacts-topfield">
                                             <div class="contacts-name">
                                                 <div id="current-user-initial" class="contact_circle"></div>
                                                 <span id="current-user-name" class="contact-name"></span>
                                             </div>
                                             <div>
                                                 <div class="check-button">
-                                                    <img src="../images/Rectangle 5.svg" alt="">
+                                                    <img id="check-contact-img" src="../images/Rectangle 5.svg" alt="">
+                                                    <img id="checked-contact-img" class="d-none" src="../images/check-white.svg" alt="">
                                                 </div>
                                             </div>
                                         </div>
