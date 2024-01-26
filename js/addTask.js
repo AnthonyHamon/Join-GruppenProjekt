@@ -66,6 +66,7 @@ function renderAssignedToContactList() {
  * If the search query is empty, all contacts are displayed again, and previously selected contacts receive special styles.
  * 
  */
+/*
 function searchContactToAssign() {
     let searchedContact = document.getElementById('assignTo-input').value.toLowerCase();
     let assignedToContactList = document.getElementById('assigned-to-contact-list');
@@ -89,6 +90,52 @@ function searchContactToAssign() {
                 }
             })
         }
+    }
+}*/
+
+
+function searchContacts(searchedContact) {
+    let filteredContacts = [];
+
+    for (let index = 0; index < contacts.length; index++) {
+        const contact = contacts[index];
+        if (contact['name'].toLowerCase().startsWith(searchedContact) && searchedContact !== '') {
+            filteredContacts.push(contact);
+        }
+    }
+
+    return filteredContacts;
+}
+
+
+function renderSearchResults(searchedContact) {
+    let assignedToContactList = document.getElementById('assigned-to-contact-list');
+    assignedToContactList.innerHTML = '';
+
+    let filteredContacts = searchContacts(searchedContact);
+
+    filteredContacts.forEach((contact, index) => {
+        assignedToContactList.innerHTML += returnAssignedToContactList(index, contact);
+        styleAlreadySelectedContact(index, searchedContact);
+    });
+}
+
+
+function searchContactToAssign() {
+    let searchedContact = document.getElementById('assignTo-input').value.toLowerCase();
+    contactContainer.classList.remove('d-none');
+
+    renderSearchResults(searchedContact);
+
+    if (searchedContact === '') {
+        renderAssignedToContactList();
+        selectedContacts.forEach((selectedContact, j) => {
+            contacts.forEach((contact, index) => {
+                if (selectedContact['name'] === contact['name']) {
+                    styleSelectedContact(index);
+                }
+            });
+        });
     }
 }
 
@@ -201,6 +248,7 @@ function styleSelectedContact(i) {
     document.getElementById(`contact${i}`).classList.toggle('contact_selected');
 }
 
+
 function styleSelectedCurrentUser() {
     document.getElementById(`check-contact-img`).classList.toggle('d-none');
     document.getElementById(`checked-contact-img`).classList.toggle('d-none');
@@ -246,6 +294,7 @@ function getTodaysDateForCalender() {
     const formattedDate = `${year}-${formattedMonth}-${formattedDay}`;
     return formattedDate;
 }
+
 
 /**
  * 
@@ -339,7 +388,6 @@ function editSubtaskOnAlreadyCreatedTask(i, subtask, id) {
             renderSubtaskForEditOption(subtasks, id);
         }
     }
-
 }
 
 function editSubtasksWhilecreatingTask(i, subtask, index) {
@@ -358,7 +406,6 @@ function editSubtasksWhilecreatingTask(i, subtask, index) {
 function toggleSubtaskImages() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
-
     let subtaskInput = document.getElementById('subtaskInput');
 
     subtaskInput.focus();
@@ -415,6 +462,7 @@ function renderSubtaskForEditOption(subtasks, id) {
     }
 }
 
+
 function toggleSubtask(i) {
     document.getElementById(`taskList${i}`).classList.toggle('d-none');
     document.getElementById(`editTaskList${i}`).classList.toggle('d-none');
@@ -429,13 +477,14 @@ function deleteButton(i, subtask, id) {
     if (id !== undefined) {
         deleteSubtaskOnAlreadyCreatedTaks(subtask, id)
     }
-
 }
+
 
 function deleteSubtaskWhileCreatingTask(i) {
     createdSubtaskList.splice(i, 1);
     renderSubtask();
 }
+
 
 function deleteSubtaskOnAlreadyCreatedTaks(subtask, id) {
     let index = tasks.findIndex(t => t.id === id);
@@ -509,6 +558,7 @@ function toggleDropdown(event) {
     }
 }
 
+
 function clearBegonnenNewTask(event) {
     resetArraysForNewTasks();
     document.getElementById('titel-input').value = '';
@@ -551,6 +601,7 @@ function renderAddTaskPopUp(status) {
     }
 }
 
+
 function showPopupAnimation(){
     let popup = document.getElementById('popup');
     popup.classList.add('opening');
@@ -562,10 +613,8 @@ function closeAddTaskPopUp() {
     
     if(!popupCtn.classList.contains('d-none')){
         let popup = document.getElementById('popup');
-
         popup.classList.remove('opening');
         popup.classList.add('closing');
-    
     
         setTimeout(() => {
             popupCtn.classList.add('d-none');
@@ -575,11 +624,13 @@ function closeAddTaskPopUp() {
     
 }
 
+
 function closeOpenedMenu(event) {
     stop(event);
     closeAssignContactMenu();
     closeCategoryMenu();
 }
+
 
 function closeAssignContactMenu(){
     let contactCtn = document.getElementById('contactContainer');
@@ -588,6 +639,7 @@ function closeAssignContactMenu(){
         rotateIcon();
     };
 }
+
 
 function closeCategoryMenu(){
     let CategorymenuArrow = document.getElementById('selectIcon');
@@ -600,7 +652,7 @@ function closeCategoryMenu(){
     };
 }
 
-
+/*
 function showAddedToBoard() {
     let popupContainer = document.getElementById('popup-ctn');
     if(popupContainer.classList.contains('d-none')){
@@ -618,11 +670,56 @@ function showAddedToBoard() {
         setTimeout(() => {
             popupContainer.classList.toggle('d-none');
         }, 2000);
-
-
     }
-
 }
+*/
+
+
+function togglePopup() {
+    let popupContainer = document.getElementById('popup-ctn');
+    popupContainer.classList.toggle('d-none');
+}
+
+
+function showTaskAddedToBoardPopup() {
+    let popupContainer = document.getElementById('popup-ctn');
+    
+    if (popupContainer.classList.contains('d-none')) {
+        togglePopup();
+        popupContainer.innerHTML = taskAddedToBoard();
+        setTimeout(() => {
+            togglePopup();
+        }, 2000);
+    } else {
+        appendTaskToPopup();
+        hideTaskAddedToBoardPopup();
+    }
+}
+
+
+function appendTaskToPopup() {
+    let addTasksPopup = document.getElementById('added-task-to-board-popup-div');
+    addTasksPopup.innerHTML += taskAddedToBoard();
+}
+
+
+function hideTaskAddedToBoardPopup() {
+    let popupContainer = document.getElementById('popup-ctn');
+    let addTasksPopup = document.getElementById('added-task-to-board-popup-div');
+    let taskAddedToBoardPopup = document.getElementById('task-added-to-board');
+
+    taskAddedToBoardPopup.classList.remove('showaddedtoBoard');
+    addTasksPopup.classList.remove('d-none');
+    setTimeout(() => {
+        togglePopup();
+    }, 2000);
+}
+
+
+function showAddedToBoard() {
+    showTaskAddedToBoardPopup();
+}
+
 
 
 
