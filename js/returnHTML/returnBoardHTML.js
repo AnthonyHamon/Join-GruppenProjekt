@@ -194,7 +194,7 @@ function returnEditTaskHTML(task) {
                         </div>
                         <div class="subtask-image-field-second d-none" id="newImages">
                             <img id="closeImag" onclick="toggleSubtaskImages()" class="subtask-button-close" src="../images/Property 1=close.svg" alt="">
-                            <img id="checkImage" class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtask()">
+                            <img id="checkImage" class="subtask-button-check" src="../images/Property 1=check.svg" alt="" onclick="addSubtasksOnAlreadyCreatedTaks(${task.id})">
                         </div>
                     </div>
                     <div class="subtask-content" id="subtaskContent"></div>

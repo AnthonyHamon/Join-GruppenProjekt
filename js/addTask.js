@@ -356,6 +356,21 @@ function addSubtask() {
     subtaskInput.value = "";
 }
 
+function addSubtasksOnAlreadyCreatedTaks(id){
+    let subtaskInput = document.getElementById('subtaskInput');
+    let index = tasks.findIndex(t => t.id === id);
+    const subtasks = tasks[index]['subtasks'];
+
+    if (!subtaskInput.value == "") {
+        subtasks.push({
+            description: subtaskInput.value,
+            subtaskStatus: "unfinished"
+        });
+        renderSubtaskForEditOption(subtasks, id);
+    }
+    subtaskInput.value = "";
+}
+
 
 /**
  * 
