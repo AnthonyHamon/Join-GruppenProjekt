@@ -2,6 +2,7 @@ let selectedContacts = [];
 let createdSubtaskList = [];
 let iconRotated = false;
 let categorys = ['Frontend', 'Backend', 'Web Security'];
+let currentPrioriyToCreateTask = 'Medium';
 
 
 function renderAddTask() {

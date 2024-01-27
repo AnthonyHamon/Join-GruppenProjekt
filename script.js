@@ -1,3 +1,5 @@
+let content = document.getElementById('content');
+
 async function init() {
     await includeHTML();
     await loadContacts();

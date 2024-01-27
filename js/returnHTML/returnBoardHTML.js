@@ -156,7 +156,7 @@ function returnEditTaskHTML(task) {
                             <div id="assigned-to-contact-list"></div>
                         </div>
                     </div>
-                    <div id="selected-contact-ctn" class="selected_contact_ctn">
+                    <div id="selected-contact-ctn" class="selected_contact_ctn_inPopup">
 
                 </div>
                     
