@@ -292,9 +292,9 @@ function returnSubtasksDetailsHTML(subtaskId, subtask, taskId) {
     let imageHTML;
 
     if (subtask.subtaskStatus === 'finished') {
-        imageHTML = `<img id="checkedBox${subtaskId}${taskId}" src="/images/checked_button.svg">`;
+        imageHTML = `<img id="checkedBox${subtaskId}${taskId}" src="../images/checked_button.svg">`;
     } else {
-        imageHTML = `<img id="checkBox${subtaskId}${taskId}" src="/images/check_button.svg">`;
+        imageHTML = `<img id="checkBox${subtaskId}${taskId}" src="../images/check_button.svg">`;
     }
 
     return /*html*/`
