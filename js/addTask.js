@@ -129,7 +129,7 @@ function searchContactToAssign() {
 
     if (searchedContact === '') {
         renderAssignedToContactList();
-        selectedContacts.forEach((selectedContact, j) => {
+        selectedContacts.forEach((selectedContact) => {
             contacts.forEach((contact, index) => {
                 if (selectedContact['name'] === contact['name']) {
                     styleSelectedContact(index);
@@ -704,7 +704,6 @@ function appendTaskToPopup() {
 
 
 function hideTaskAddedToBoardPopup() {
-    let popupContainer = document.getElementById('popup-ctn');
     let addTasksPopup = document.getElementById('added-task-to-board-popup-div');
     let taskAddedToBoardPopup = document.getElementById('task-added-to-board');
 

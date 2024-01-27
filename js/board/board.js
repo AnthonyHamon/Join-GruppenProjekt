@@ -254,18 +254,23 @@ function updateSubtasksCount(taskId) {
         let subtaskTxtElement = document.getElementById(`subtaskTxt${taskId}`);
         let progressbarElement = document.getElementById(`progressbar${taskId}`);
 
+
         if (subtaskTxtElement) {
             subtaskTxtElement.textContent = `${completedCount}/${totalSubtasks}`;
         }
 
         if (progressbarElement) {
-            let progressPercentage = totalSubtasks > 0 ? (completedCount / totalSubtasks) * 100 : 0;
-            progressbarElement.style.width = `${progressPercentage}%`;
-            progressbarElement.style.height = '100%';
-            progressbarElement.style.backgroundColor = '#4589FF';
-            progressbarElement.style.borderRadius = '16px';
+            styleProgressBar(progressbarElement,completedCount, totalSubtasks);
         }
     }
+}
+
+function styleProgressBar(progressbarElement,completedCount, totalSubtasks){
+    let progressPercentage = totalSubtasks > 0 ? (completedCount / totalSubtasks) * 100 : 0;
+    progressbarElement.style.width = `${progressPercentage}%`;
+    progressbarElement.style.height = '100%';
+    progressbarElement.style.backgroundColor = '#4589FF';
+    progressbarElement.style.borderRadius = '16px';
 }
 
 function returnSubtasksDetailsHTML(subtaskId, subtask, taskId) {

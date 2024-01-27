@@ -981,11 +981,10 @@ input[type=date]:invalid::-webkit-datetime-edit {
 }
 
 .board-span {
-    font-size: 20px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%; 
-    font-family: Inter;
     color: #FFFFFF;
 }
 
