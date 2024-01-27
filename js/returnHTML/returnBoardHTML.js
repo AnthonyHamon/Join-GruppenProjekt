@@ -202,7 +202,7 @@ function returnEditTaskHTML(task) {
             </div>
         </div>
     </div>
-    <div class="flex_end">
+    <div class="edit_task_button">
         <button type="submit" class="create-button">Ok<img class="clear-create-img" src="../images/check.svg" alt=""></button>   
     </div>
 </form>

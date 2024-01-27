@@ -366,6 +366,7 @@ function addSubtasksOnAlreadyCreatedTaks(id){
             description: subtaskInput.value,
             subtaskStatus: "unfinished"
         });
+        toggleSubtaskImages();
         renderSubtaskForEditOption(subtasks, id);
     }
     subtaskInput.value = "";
