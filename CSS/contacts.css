@@ -1050,6 +1050,7 @@
 
     #selected-contact-content{
         padding-bottom: 18px;
+        overflow: scroll;
     }
 
     #selected-contact-content .gap_54{
