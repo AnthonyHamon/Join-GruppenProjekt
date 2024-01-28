@@ -692,7 +692,7 @@
     .mobile_selected_contact_infos {
         display: flex;
         flex-direction: column;
-        gap: 48px;
+        gap: 24px;
         width: 100%;
     }
 
