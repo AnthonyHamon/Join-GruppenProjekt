@@ -732,6 +732,7 @@ footer a:hover {
 @media (max-width: 410px) {
     .login_form {
         min-width: 388px;
+        padding: 32px 24px;
     }
 
     .login_parameters {
@@ -761,9 +762,6 @@ footer a:hover {
         width: 360px;
     }
 
-    .login_form {
-        min-width: 360px;
-    }
 
     /* responsive for sign up page */
 
@@ -779,6 +777,7 @@ footer a:hover {
         width: 100px;
     }
 }
+
 
 @media (max-width: 360px) {
 
@@ -885,5 +884,53 @@ footer a:hover {
     .logo_animation_img {
         height: 64px;
         width: 50px;
+    }
+}
+
+@media (max-height: 667px) {
+
+    .login_form_ctn{
+        height: calc(100vh - 200px);
+    }
+
+    .login_form {
+        min-width: 360px;
+        min-height: 200px;
+        padding: 18px 6px;
+        gap: 0;
+    }
+
+    .login_form form{
+        gap: 12px;
+    }
+
+    .login_title{
+        min-height: 70px;
+    }
+
+    .login_input_div{
+        width: 340px;
+    }
+    .login_inputs{
+        gap: 12px;
+    }
+
+    .login_buttons{
+        gap: 12px;
+    }
+
+    #login-button{
+        min-width: 144px;
+        height: 44px;
+    }
+
+    #guest-login-button{
+        min-width: 144px;
+        height: 44px;
+        padding: 0;
+    }
+
+    main{
+        gap: 12px;
     }
 }
