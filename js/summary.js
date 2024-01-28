@@ -93,24 +93,8 @@ function removeJoinLogoClickable() {
     document.getElementById('join_logo_mobile').classList.add('p-none');
 }
 
-
-function filterAndReturnToDoTasks() {
-    let task = tasks.filter(task => task.status === "to_do").length;
-    return task;
-}
-
-function filterAndReturnInProgressTasks() {
-    let task = tasks.filter(task => task.status === "in_progress").length;
-    return task;
-}
-
-function filterAndReturnAwaitFeedbackTasks() {
-    let task = tasks.filter(task => task.status === "feedback").length;
-    return task;
-}
-
-function filterAndReturnDoneTasks() {
-    let task = tasks.filter(task => task.status === "done").length;
+function filterAndReturnTaskCount(taskProgress){
+    let task = tasks.filter(task => task.status === taskProgress).length;
     return task;
 }
 

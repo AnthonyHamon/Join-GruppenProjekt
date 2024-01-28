@@ -21,14 +21,14 @@ function generateSummaryHTML() {
                     <div onclick="renderBoard()" id="to-do-thumbnail" class="summary_start_row_thumbnails">
                         <img src="../images/to_do_thumbnail.svg" alt="">
                         <div class="flex_colum_align_center">
-                            <span id="to-do-task-number" class="summary_digits">${filterAndReturnToDoTasks()}</span>
+                            <span id="to-do-task-number" class="summary_digits">${filterAndReturnTaskCount('to_do')}</span>
                             <span class="font_20px">To-Do</span>
                         </div>
                     </div>
                     <div onclick="renderBoard()" id="done-thumbnail" class="summary_start_row_thumbnails">
                         <img src="../images/done_thumbnail.svg" alt="">
                         <div class="flex_colum_align_center">
-                            <span id="done-tasks-number" class="summary_digits">${filterAndReturnDoneTasks()}</span>
+                            <span id="done-tasks-number" class="summary_digits">${filterAndReturnTaskCount('done')}</span>
                             <span class="font_20px">Done</span>
                         </div>
                     </div>
@@ -57,11 +57,11 @@ function generateSummaryHTML() {
                         <span class="nowrap_justify_center font_20px">Tasks in Board</span>
                     </div>
                     <div onclick="renderBoard()" class="summary_ending_row_thumbnails">
-                        <span class="summary_digits">${filterAndReturnInProgressTasks()}</span>
+                        <span class="summary_digits">${filterAndReturnTaskCount('in_progress')}</span>
                         <span class="nowrap_justify_center font_20px">Tasks in Progress</span>
                     </div>
                     <div onclick="renderBoard()" class="summary_ending_row_thumbnails">
-                        <span class="summary_digits">${filterAndReturnAwaitFeedbackTasks()}</span>
+                        <span class="summary_digits">${filterAndReturnTaskCount('feedback')}</span>
                         <span class="nowrap_justify_center font_20px">Awaiting feedback</span>
                     </div>
                 </div>

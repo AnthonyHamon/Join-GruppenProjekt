@@ -220,20 +220,10 @@ function checkContactsInTask(contacts) {
         let isLast = i === contacts.length - 1;
 
         if (currentTaskStatus === 'small') {
-            html += /*html*/`
-                <div class="profileBadge" style="background-color: ${contact.BgColor}">${contact.initial}</div>
-            `;
+            html += returnProfilBadgeInTask(contact);
         } else if (currentTaskStatus === 'big') {
             let assignedNameStyle = isLast && isLastOdd ? 'style="width: 100%;"' : '';
-
-            html += /*html*/`
-                <div class="assignedProfil">
-                    <span class="assignedBadge" style="background-color: ${contact.BgColor}">${contact.initial}</span>
-                    <div class="assignedName" ${assignedNameStyle}>
-                        <span class="assignedNameText">${contact.name}</span>
-                    </div>
-                </div>
-            `;
+            html += returnProfileBadgesInOpenedTasks(contact, assignedNameStyle);
         }
     }
     return html;
@@ -242,14 +232,7 @@ function checkContactsInTask(contacts) {
 function checkSubtasksInTask(subtasks, taskId) {
     let html = '';
     if (currentTaskStatus === 'small') {
-        return /*html*/`
-            <div id="subtask_contain${taskId}" class="subtaskContain">
-                <div class="progressbar-container">
-                    <div id="progressbar${taskId}"></div>
-                </div>
-                <span id="subtaskTxt${taskId}" class="subtaskTxt">${subtasksCompleted(subtasks, taskId)}/${subtasks.length}</span>
-            </div>
-        `;
+        html += returnProgressBarInTasks(taskId, subtasks);
     } else if (currentTaskStatus === 'big') {
         for (let i = 0; i < subtasks.length; i++) {
             let subtask = subtasks[i];
@@ -275,12 +258,12 @@ function updateSubtasksCount(taskId) {
         }
 
         if (progressbarElement) {
-            styleProgressBar(progressbarElement,completedCount, totalSubtasks);
+            styleProgressBar(progressbarElement, completedCount, totalSubtasks);
         }
     }
 }
 
-function styleProgressBar(progressbarElement,completedCount, totalSubtasks){
+function styleProgressBar(progressbarElement, completedCount, totalSubtasks) {
     let progressPercentage = totalSubtasks > 0 ? (completedCount / totalSubtasks) * 100 : 0;
     progressbarElement.style.width = `${progressPercentage}%`;
     progressbarElement.style.height = '100%';
@@ -288,22 +271,6 @@ function styleProgressBar(progressbarElement,completedCount, totalSubtasks){
     progressbarElement.style.borderRadius = '16px';
 }
 
-function returnSubtasksDetailsHTML(subtaskId, subtask, taskId) {
-    let imageHTML;
-
-    if (subtask.subtaskStatus === 'finished') {
-        imageHTML = `<img id="checkedBox${subtaskId}${taskId}" src="../images/checked_button.svg">`;
-    } else {
-        imageHTML = `<img id="checkBox${subtaskId}${taskId}" src="../images/check_button.svg">`;
-    }
-
-    return /*html*/`
-        <div onclick="selectSubtaskInDetails(${subtaskId},${taskId})" class="subtaskContainDetails">
-            ${imageHTML}
-            <span id="subtask${subtaskId}${taskId}">${subtask.description}</span>
-        </div>
-    `;
-}
 
 function subtasksCompleted(subtasks) {
     let completedCount = 0;

@@ -213,7 +213,7 @@ function returnAddTaskPopUp(status) {
         <h1 class="task-name">Add Task</h1>
         <img onclick="closeAddTaskPopUp()" class="popup-add-task-close" src="../images/Property 1=close.svg" alt="">
     </div>
-<form onsubmit="checkCategoryValidity(event) && setNewTask(${status}); return false" class="task-input-container">
+<form onsubmit="checkCategoryValidity(event) && setNewTask('${status}'); return false" class="task-input-container">
     <div class="mobile-scroll">
         <div class="task-input">
             <div class="left-field popup-field">

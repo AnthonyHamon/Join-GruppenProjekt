@@ -303,3 +303,48 @@ function returnEmptyDivInTaskLine() {
         <div class="emptyTaskLine"><span>No tasks to do</span></div>
     `;
 }
+
+function returnProfilBadgeInTask(contact) {
+    return `
+        <div class="profileBadge" style="background-color: ${contact.BgColor}">${contact.initial}</div>
+    `
+}
+
+function returnProfileBadgesInOpenedTasks(contact, assignedNameStyle) {
+    return `
+    <div class="assignedProfil">
+        <span class="assignedBadge" style="background-color: ${contact.BgColor}">${contact.initial}</span>
+        <div class="assignedName" ${assignedNameStyle}>
+            <span class="assignedNameText">${contact.name}</span>
+        </div>
+    </div>
+    `
+}
+
+function returnProgressBarInTasks(taskId, subtasks) {
+    return `
+    <div id="subtask_contain${taskId}" class="subtaskContain">
+        <div class="progressbar-container">
+            <div id="progressbar${taskId}"></div>
+        </div>
+        <span id="subtaskTxt${taskId}" class="subtaskTxt">${subtasksCompleted(subtasks, taskId)}/${subtasks.length}</span>
+    </div>
+    `
+}
+
+function returnSubtasksDetailsHTML(subtaskId, subtask, taskId) {
+    let imageHTML;
+
+    if (subtask.subtaskStatus === 'finished') {
+        imageHTML = `<img id="checkedBox${subtaskId}${taskId}" src="../images/checked_button.svg">`;
+    } else {
+        imageHTML = `<img id="checkBox${subtaskId}${taskId}" src="../images/check_button.svg">`;
+    }
+
+    return /*html*/`
+        <div onclick="selectSubtaskInDetails(${subtaskId},${taskId})" class="subtaskContainDetails">
+            ${imageHTML}
+            <span id="subtask${subtaskId}${taskId}">${subtask.description}</span>
+        </div>
+    `;
+}

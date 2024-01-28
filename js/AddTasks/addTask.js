@@ -199,7 +199,6 @@ function closeAddTaskPopUp() {
             popupCtn.innerHTML = '';
         }, 350);
     }
-    
 }
 
 
