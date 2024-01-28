@@ -133,7 +133,7 @@
 }
 
 .selected_contact_circle {
-    width: 120px;
+    min-width: 120px;
     height: 120px;
     border-radius: 50%;
     color: white;
@@ -637,10 +637,6 @@
     #selected-contact-content{
         padding-left: 42px;
     }
-
-    .selected_contact_circle{
-        min-width: 120px;
-    }
 }
 
 @media(max-width:1170px) {
@@ -685,11 +681,6 @@
         padding-left: 42px;
     }
 
-    .selected_contact_circle {
-        width: 100px;
-        height: 100px;
-        min-width: 100px;
-    }
 }
 
 @media (max-width: 999px) {
@@ -774,13 +765,6 @@
 
     .gap_20 {
         gap: 20px;
-    }
-
-    .selected_contact_circle {
-        width: 80px;
-        height: 80px;
-        font-size: 27px;
-        min-width: 80px;
     }
 
     .edit_selected_contact {
@@ -1064,13 +1048,6 @@
         gap: 20px;
     }
 
-    .selected_contact_circle {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-        min-width: 50px;
-    }
-
     #selected-contact-content{
         padding-bottom: 18px;
     }
@@ -1097,9 +1074,9 @@
         gap: 16px;
     }
 
-    .contact_profil_ctn {
+    /* .contact_profil_ctn {
         margin-top: -50px;
-    }
+    } */
 
     .contact_profil {
         width: 100px;
