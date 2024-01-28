@@ -73,7 +73,7 @@ function generateAddTaskHTML() {
                                     <div class="prio-button" id="buttonUrgent" onclick="changeButtonStyles('Urgent')">Urgent
                                         <img class="prio-image" id="iconUrgent" src="../images/capa 2.svg" alt=""></div>
                                     <div class="prio-button selected" id="buttonMedium" onclick="changeButtonStyles('Medium')">Medium
-                                        <img class="prio-image" id="iconMedium" src="../images/prio media.svg" alt=""></div>
+                                        <img class="prio-image selected_icon" id="iconMedium" src="../images/prio media.svg" alt=""></div>
                                     <div class="prio-button" id="buttonLow" onclick="changeButtonStyles('Low')">Low <img
                                         class="prio-image" id="iconLow" src="../images/prio baja.svg" alt=""></div>
                                 </div>
