@@ -5,23 +5,41 @@ let categorys = ['Frontend', 'Backend', 'Web Security'];
 let currentPrioriyToCreateTask = 'Medium';
 
 
+/**
+ * 
+ * Renders the "Add Task" interface by invoking various functions
+ * 
+ */
 function renderAddTask() {
-    addContentCSS()
-    addTaskBgrColor();
-    removeBgrColorWithoutAddTask();
-    addJoinLogoClickable();
-    generateAddTaskHTML();
-    renderAssignedToCurrentUser();
-    renderAssignedToContactList();
-    showCategory();
-    hideLegalContent();
+    addContentCSS()                     // Add styles to the content
+    addTaskBgrColor();                  // Set background color for task
+    removeBgrColorWithoutAddTask();     // Remove background color from elements without task
+    addJoinLogoClickable();             // Make the Join logo clickable
+    generateAddTaskHTML();              // Generate HTML for the "Add Task" interface
+    renderAssignedToCurrentUser();      // Render tasks assigned to the current user
+    renderAssignedToContactList();      // Render tasks assigned to contacts in the list
+    showCategory();                     // Display the category
+    hideLegalContent();                 // Hide legal content
 }
 
+
+/**
+ * 
+ * Resets arrays used for tracking selected contacts and created subtasks when adding new tasks
+ * 
+ */
 function resetArraysForNewTasks() {
-    selectedContacts = [];
-    createdSubtaskList = [];
+    selectedContacts = [];          // Clear the array of selected contacts
+    createdSubtaskList = [];        // Clear the array of created subtasks
 }
 
+
+/**
+ * 
+ * Retrieves the formatted current date for calendar operations
+ * 
+ * @returns 
+ */
 function getTodaysDateForCalender() {
     let currentDate = new Date();
     const day = currentDate.getDate();
@@ -58,6 +76,11 @@ function changeButtonStyles(priority) {
 }
 
 
+/**
+ * 
+ * Resets the selected priority button and its associated icon
+ * 
+ */
 function resetSelectedPrioButton() {
     let allPrioSelectedButton = document.querySelectorAll('.selected');
         allPrioSelectedButton.forEach((allPrioSelectedButton) => {
@@ -70,6 +93,12 @@ function resetSelectedPrioButton() {
 }
 
 
+/**
+ * 
+ * Clears the value of the specified input field
+ * 
+ * @param {*} inputsField 
+ */
 function clearInputField(inputsField) {
     const inputField = document.getElementById(inputsField);
     if (inputField) {
@@ -77,12 +106,23 @@ function clearInputField(inputsField) {
     }
 }
 
+
+/**
+ * 
+ * Adds background color styling to the "Add Task" elements
+ * 
+ */
 function addTaskBgrColor() {
     document.getElementById('add_task').classList.add('currentTemplate', 'p-none');
     document.getElementById('add_task_mobile').classList.add('currentTemplate', 'p-none');
 }
 
 
+/**
+ * 
+ * Removes background color styling from elements other than "Add Task"
+ * 
+ */
 function removeBgrColorWithoutAddTask() {
     document.getElementById('summary').classList.remove('currentTemplate', 'p-none');
     document.getElementById('board').classList.remove('currentTemplate', 'p-none');
@@ -93,6 +133,11 @@ function removeBgrColorWithoutAddTask() {
 }
 
 
+/**
+ * 
+ *  Makes the "Join" logo clickable by removing the 'p-none' class
+ * 
+ */
 function addJoinLogoClickable() {
     document.getElementById('join_logo').classList.remove('p-none');
     document.getElementById('join_logo_mobile').classList.remove('p-none');
@@ -101,6 +146,12 @@ function addJoinLogoClickable() {
 
 // Category........
 
+
+/**
+ * 
+ * Displays categories by populating the dropdownOptions element with category items
+ * 
+ */
 function showCategory() {
     let categoryList = document.getElementById('dropdownOptions');
     categoryList.innerHTML = '';
@@ -113,6 +164,13 @@ function showCategory() {
 }
 
 
+/**
+ * 
+ * Accepts a selected category, updates the input field, and toggles dropdown visibility
+ * 
+ * @param {*} category 
+ * @param {*} event 
+ */
 function acceptCategory(category, event) {
     let selectInput = document.getElementById('selectedCategory');
     selectInput.value = category;
@@ -122,6 +180,12 @@ function acceptCategory(category, event) {
 }
 
 
+/**
+ * 
+ * Toggles the visibility of the dropdown menu and rotates the select icon accordingly
+ * 
+ * @param {*} event 
+ */
 function toggleDropdown(event) {
     const dropdownOptions = document.getElementById('dropdownOptions');
     const icon = document.getElementById('selectIcon');
@@ -137,6 +201,12 @@ function toggleDropdown(event) {
 }
 
 
+/**
+ * 
+ * Clears input fields, resets arrays, and updates UI when starting a new task
+ * 
+ * @param {*} event 
+ */
 function clearBegonnenNewTask(event) {
     resetArraysForNewTasks();
     document.getElementById('titel-input').value = '';
@@ -180,12 +250,22 @@ function renderAddTaskPopUp(status) {
 }
 
 
+/**
+ * 
+ * Initiates a popup opening animation by adding the 'opening' class
+ * 
+ */
 function showPopupAnimation(){
     let popup = document.getElementById('popup');
     popup.classList.add('opening');
 }
 
 
+/**
+ * 
+ *  Closes the "Add Task" popup by initiating a closing animation
+ * 
+ */
 function closeAddTaskPopUp() {
     let popupCtn = document.getElementById('popup-ctn');
     
@@ -202,6 +282,12 @@ function closeAddTaskPopUp() {
 }
 
 
+/**
+ * 
+ * Closes any opened menus by stopping event propagation and closing specific menus
+ * 
+ * @param {*} event 
+ */
 function closeOpenedMenu(event) {
     stop(event);
     closeAssignContactMenu();
@@ -209,6 +295,11 @@ function closeOpenedMenu(event) {
 }
 
 
+/**
+ * 
+ * Closes the assign contact menu by hiding its container and rotating the associated icon
+ * 
+ */
 function closeAssignContactMenu(){
     let contactCtn = document.getElementById('contactContainer');
     if (contactCtn && !contactCtn.classList.contains('d-none')) {
@@ -218,6 +309,11 @@ function closeAssignContactMenu(){
 }
 
 
+/**
+ * 
+ * Closes the category menu by hiding its container and resetting the associated arrow icon
+ * 
+ */
 function closeCategoryMenu(){
     let CategorymenuArrow = document.getElementById('selectIcon');
     let categoryCtn = document.getElementById('dropdownOptions');
@@ -229,12 +325,23 @@ function closeCategoryMenu(){
     };
 }
 
+
+/**
+ * 
+ * Toggles the visibility of a popup container by adding or removing the 'd-none' class
+ * 
+ */
 function togglePopup() {
     let popupContainer = document.getElementById('popup-ctn');
     popupContainer.classList.toggle('d-none');
 }
 
 
+/**
+ * 
+ * Shows a popup indicating that a task has been added to the board
+ * 
+ */
 function showTaskAddedToBoardPopup() {
     let popupContainer = document.getElementById('popup-ctn');
     
@@ -251,12 +358,22 @@ function showTaskAddedToBoardPopup() {
 }
 
 
+/**
+ * 
+ * Appends task information to the "Task Added to Board" popup
+ * 
+ */
 function appendTaskToPopup() {
     let addTasksPopup = document.getElementById('added-task-to-board-popup-div');
     addTasksPopup.innerHTML += taskAddedToBoard();
 }
 
 
+/**
+ * 
+ * Hides the "Task Added to Board" popup by removing classes and triggering popup closure
+ * 
+ */
 function hideTaskAddedToBoardPopup() {
     let addTasksPopup = document.getElementById('added-task-to-board-popup-div');
     let taskAddedToBoardPopup = document.getElementById('task-added-to-board');
@@ -269,6 +386,11 @@ function hideTaskAddedToBoardPopup() {
 }
 
 
+/**
+ * 
+ * Initiates the display of the "Task Added to Board" popup
+ * 
+ */
 function showAddedToBoard() {
     showTaskAddedToBoardPopup();
 }

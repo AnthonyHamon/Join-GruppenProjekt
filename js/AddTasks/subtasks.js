@@ -1,5 +1,12 @@
 // Subtask........
 
+
+
+/**
+ * 
+ * Adds a subtask to the created subtask list and triggers rendering
+ * 
+ */
 function addSubtask() {
     let subtaskInput = document.getElementById('subtaskInput');
 
@@ -15,6 +22,13 @@ function addSubtask() {
     subtaskInput.value = "";
 }
 
+
+/**
+ * 
+ * Adds a subtask to an existing task's subtasks list and triggers rendering for editing option
+ * 
+ * @param {*} id 
+ */
 function addSubtasksOnAlreadyCreatedTaks(id){
     let subtaskInput = document.getElementById('subtaskInput');
     let index = tasks.findIndex(t => t.id === id);
@@ -49,6 +63,15 @@ function checkEditedTaskList(i, subtask, id) {
 
 }
 
+
+/**
+ * 
+ * Edits a specific subtask on an already created task and triggers rendering for editing option
+ * 
+ * @param {*} i 
+ * @param {*} subtask 
+ * @param {*} id 
+ */
 function editSubtaskOnAlreadyCreatedTask(i, subtask, id) {
     let index = tasks.findIndex(t => t.id === id);
     const subtasks = tasks[index]['subtasks'];
@@ -65,6 +88,15 @@ function editSubtaskOnAlreadyCreatedTask(i, subtask, id) {
     }
 }
 
+
+/**
+ * 
+ * Edits a specific subtask while creating a task and triggers rendering
+ * 
+ * @param {*} i 
+ * @param {*} subtask 
+ * @param {*} index 
+ */
 function editSubtasksWhilecreatingTask(i, subtask, index) {
     if (index !== -1) {
         subtask = document.getElementById(`editInput${i}`).value;
@@ -78,6 +110,12 @@ function editSubtasksWhilecreatingTask(i, subtask, index) {
     }
 }
 
+
+/**
+ * 
+ * Toggles the visibility of subtask images and focuses on the subtask input
+ * 
+ */
 function toggleSubtaskImages() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
@@ -93,6 +131,11 @@ function toggleSubtaskImages() {
 }
 
 
+/**
+ * 
+ *  Shows or hides subtask images based on the content of the subtask input
+ * 
+ */
 function showSubtaskImagesByInput() {
     const imageContainer = document.getElementById("imageContainer");
     const newImages = document.getElementById("newImages");
@@ -108,6 +151,11 @@ function showSubtaskImagesByInput() {
 }
 
 
+/**
+ * 
+ * Renders the subtask content based on the createdSubtaskList and updates the subtaskContent element
+ * 
+ */
 function renderSubtask() {
     let subtaskContent = document.getElementById('subtaskContent');
     subtaskContent.innerHTML = '';
@@ -138,6 +186,12 @@ function renderSubtaskForEditOption(subtasks, id) {
 }
 
 
+/**
+ * 
+ *  Toggles the visibility of subtask and edit subtask elements and focuses on the edit input
+ * 
+ * @param {*} i 
+ */
 function toggleSubtask(i) {
     document.getElementById(`taskList${i}`).classList.toggle('d-none');
     document.getElementById(`editTaskList${i}`).classList.toggle('d-none');
@@ -147,6 +201,14 @@ function toggleSubtask(i) {
 }
 
 
+/**
+ * 
+ * Handles the deletion of a subtask, calling appropriate functions based on context
+ * 
+ * @param {*} i 
+ * @param {*} subtask 
+ * @param {*} id 
+ */
 function deleteButton(i, subtask, id) {
     deleteSubtaskWhileCreatingTask(i);
     if (id !== undefined) {
@@ -155,12 +217,25 @@ function deleteButton(i, subtask, id) {
 }
 
 
+/**
+ * 
+ * Deletes a subtask while creating a task and triggers rendering
+ * 
+ * @param {*} i 
+ */
 function deleteSubtaskWhileCreatingTask(i) {
     createdSubtaskList.splice(i, 1);
     renderSubtask();
 }
 
 
+/**
+ * 
+ * Deletes a subtask on an already created task and triggers rendering for editing option
+ * 
+ * @param {*} subtask 
+ * @param {*} id 
+ */
 function deleteSubtaskOnAlreadyCreatedTask(subtask, id) {
     let index = tasks.findIndex(t => t.id === id);
     const subtasks = tasks[index]['subtasks'];

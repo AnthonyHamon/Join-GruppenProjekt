@@ -47,8 +47,6 @@ function renderAssignedToContactList() {
  * If the search query is empty, all contacts are displayed again, and previously selected contacts receive special styles.
  * 
  */
-
-
 function searchContacts(searchedContact) {
     let filteredContacts = [];
 
@@ -63,6 +61,12 @@ function searchContacts(searchedContact) {
 }
 
 
+/**
+ * 
+ * Renders search results for assigned contacts in the contact list
+ * 
+ * @param {*} searchedContact 
+ */
 function renderSearchResults(searchedContact) {
     let assignedToContactList = document.getElementById('assigned-to-contact-list');
     assignedToContactList.innerHTML = '';
@@ -76,6 +80,11 @@ function renderSearchResults(searchedContact) {
 }
 
 
+/**
+ * 
+ * Initiates the contact search for assignment, renders results, and styles selected contacts
+ * 
+ */
 function searchContactToAssign() {
     let searchedContact = document.getElementById('assignTo-input').value.toLowerCase();
     contactContainer.classList.remove('d-none');
@@ -101,7 +110,7 @@ function searchContactToAssign() {
  * @param {*} index 
  * @param {*} searchedContact 
  */
- function styleAlreadySelectedContact(index, searchedContact) {
+function styleAlreadySelectedContact(index, searchedContact) {
     selectedContacts.forEach((selectedContact) => {
         if (selectedContact['name'].toLowerCase().startsWith(searchedContact)) {
             styleSelectedContact(index);
@@ -136,6 +145,12 @@ function assignTo(i, name, email, phone, initial, BgColor) {
 }
 
 
+/**
+ * 
+ * Handles the assignment to the current user, updates selected contacts, and renders badges
+ * 
+ * @param {*} currentUser 
+ */
 function assignedToCurrentUser(currentUser){
     let name = currentUser[0]['user'] + ' (You)';
     let initial = currentUser[0]['initial'];
@@ -189,6 +204,12 @@ function renderSelectedContactBadgesForEditOption(assignedContacts) {
 }
 
 
+/**
+ * 
+ * Toggles styling for a selected contact by updating visibility and applying CSS classes
+ * 
+ * @param {*} i 
+ */
 function styleSelectedContact(i) {
     document.getElementById(`check-contact${i}-img`).classList.toggle('d-none');
     document.getElementById(`checked-contact${i}-img`).classList.toggle('d-none');
@@ -196,6 +217,11 @@ function styleSelectedContact(i) {
 }
 
 
+/**
+ * 
+ * Toggles styling for the selected current user by updating visibility and applying CSS classes
+ * 
+ */
 function styleSelectedCurrentUser() {
     document.getElementById(`check-contact-img`).classList.toggle('d-none');
     document.getElementById(`checked-contact-img`).classList.toggle('d-none');
@@ -203,6 +229,11 @@ function styleSelectedCurrentUser() {
 }
 
 
+/**
+ * 
+ * Toggles rotation for the assign button icon by updating the 'rotate' class
+ * 
+ */
 function rotateIcon() {
     const icon = document.querySelector('.assign-button img');
     icon.classList.toggle('rotate');
