@@ -1,3 +1,8 @@
+
+/**
+ * 
+ * load users from backend server
+ */
 async function loadUsers() {
     try {
         users = JSON.parse(await getItem('users'));
@@ -6,6 +11,9 @@ async function loadUsers() {
     }
 }
 
+/**
+ * show / hide images in password input when password entered or if user want to show entered password
+ */
 function togglePasswordImg() {
     let passwordVisibility = document.getElementById('password-visibility-on');
     let passwordVisibilityOff = document.getElementById('password-visibility-off');
@@ -24,6 +32,10 @@ function togglePasswordImg() {
     }
 }
 
+
+/**
+ * show / hide password if user click on the image in password input
+ */
 function toggleShowPassword() {
     let passwordInput = document.getElementById('password-input');
     let passwordVisibilityOff = document.getElementById('password-visibility-off');

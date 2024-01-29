@@ -1,7 +1,16 @@
+
+/**
+ * 
+ * load user from backend server when page loaded
+ */
 async function initSignUp() {
     await loadUsers();
 }
 
+/**
+ * 
+ * register new user and redirect to login page
+ */
 async function signUp() {
     let user = document.getElementById('user-input').value;
     let email = document.getElementById('email-input').value;
@@ -15,6 +24,10 @@ async function signUp() {
     }
 }
 
+/**
+ * 
+ * check if user already exist and return custom validty message if failure exist
+ */
 function checkExistingUser() {
     resetSignUpCustomValidity();
     let userError = document.getElementById('user-input');
@@ -26,6 +39,10 @@ function checkExistingUser() {
     returnLoginCustomValidityMessage(user, email, userError, emailError);
 }
 
+/**
+ * 
+ * clear all formular input and set sign up button to disabled 
+ */
 function resetForm() {
     let signUpButton = document.getElementById('signUpButton');
     let user = document.getElementById('user-input');
@@ -39,6 +56,10 @@ function resetForm() {
     signUpButton.disabled = true;
 }
 
+/**
+ * 
+ * show confirmation by successed registration
+ */
 function showSignUpConfirmation() {
     document.getElementById('sign-up-animation-div').classList.remove('d-none');
     document.getElementById('sign-up-animation').classList.add('add_sign_Up_animation');
@@ -55,7 +76,10 @@ function returnContactInitialLetter(name) {
     return name.replace(/[^A-Z]+/g, '');
 }
 
-
+/**
+ * set a random color to be returned as background color for each contacts
+ * @returns {string} color code
+ */
 function setRandomColor() {
     const letters = '0123456789ABCDEF';
     let BgColor = '#';
@@ -65,6 +89,13 @@ function setRandomColor() {
     return BgColor;
 }
 
+/**
+ * 
+ * @param {string} user 
+ * @param {string} email 
+ * @param {HTMLInputElement} userError 
+ * @param {HTMLInputElement} emailError 
+ */
 function returnLoginCustomValidityMessage(user, email, userError, emailError) {
     if (user) {
         !loginIsValid
@@ -77,16 +108,27 @@ function returnLoginCustomValidityMessage(user, email, userError, emailError) {
     }
 }
 
+/**
+ * 
+ * clear the sign up form validity message
+ */
 function resetSignUpCustomValidity() {
     document.getElementById('user-input').setCustomValidity('');
     document.getElementById('email-input').setCustomValidity('');
 }
 
+/**
+ * activate sign up button if privacy policy is accepted
+ */
 function activateButton() {
     let signUpButton = document.getElementById('signUpButton');
     isChecked ? signUpButton.disabled = false : signUpButton.disabled = true && signUpValidation();
 }
 
+/**
+ * 
+ * custom password validation for password (min 8 charachter with at least 1 lowercase, 1 uppercase and 1 digit)
+ */
 function passwordValidation() {
     let password = document.getElementById('password-input');
     let confirmedPassword = document.getElementById('password-confirmation');
@@ -99,12 +141,20 @@ function passwordValidation() {
         confirmedPassword.setCustomValidity('');
 }
 
+/**
+ * 
+ * return failure message if privacy policy is not checked
+ */
 function signUpValidation() {
     let errorMsg = document.getElementById('input-error');
     !isChecked && !errorMsg.textContent ? errorMsg.innerHTML = returnPrivacyPoliceErrorMsg() :
         errorMsg.innerHTML = '';
 }
 
+/**
+ * 
+ * show / hide privacy policy check button and set isChecked variable when selected or not
+ */
 function checkPrivatePolicyButton() {
     isChecked = !isChecked;
     document.getElementById('check-button').classList.toggle('d-none');
