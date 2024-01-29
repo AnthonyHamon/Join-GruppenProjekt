@@ -59,7 +59,7 @@ function getTodaysDateForCalender() {
  * It first resets all buttons, then removes the selection from all buttons and adds it to the clicked button, 
  * including a special style class for the icon. The selected priority value is updated.
  * 
- * @param {*} priority 
+ * @param {string} priority 
  */
 function changeButtonStyles(priority) {
     let button = document.getElementById(`button${priority}`);
@@ -97,7 +97,7 @@ function resetSelectedPrioButton() {
  * 
  * Clears the value of the specified input field
  * 
- * @param {*} inputsField 
+ * @param {string} inputsField 
  */
 function clearInputField(inputsField) {
     const inputField = document.getElementById(inputsField);
@@ -168,7 +168,7 @@ function showCategory() {
  * 
  * Accepts a selected category, updates the input field, and toggles dropdown visibility
  * 
- * @param {*} category 
+ * @param {string} category 
  * @param {*} event 
  */
 function acceptCategory(category, event) {
@@ -232,7 +232,7 @@ function clearBegonnenNewTask(event) {
  * fills it with the necessary content, including user and contact information, 
  * and shows categories. For smaller screens, it renders the task addition without using a popup.
  * 
- * @param {*} status 
+ * @param {string} status 
  */
 function renderAddTaskPopUp(status) {
     let popupCtn = document.getElementById('popup-ctn');

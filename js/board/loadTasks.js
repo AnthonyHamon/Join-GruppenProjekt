@@ -1,3 +1,9 @@
+/**
+ * 
+ * This function asynchronously loads tasks from local storage, updates the 'tasks' array, 
+ * and sets the highestTaskId based on the loaded tasks.
+ * 
+ */
 async function loadTasks() {
     try {
         let savedTasks = await getItem('tasks');
@@ -12,6 +18,13 @@ async function loadTasks() {
     }
 }
 
+
+/**
+ * 
+ * This function asynchronously assigns task elements to a specified status container in the UI based on the 'status' parameter.
+ * 
+ * @param {String} status 
+ */
 async function assignTaskElementsToStatus(status) {
     let container = document.getElementById(status);
     let tasksByStatus = tasks.filter(task => task.status === status);
@@ -22,12 +35,27 @@ async function assignTaskElementsToStatus(status) {
     ifContainerEmpty(container);
 }
 
+
+/**
+ * 
+ * Checks if a specified container is empty, and if so, inserts an empty div using a predefined function
+ * 
+ * @param {*} container 
+ */
 function ifContainerEmpty(container) {
     if (container.innerHTML === '') {
         container.innerHTML = returnEmptyDivInTaskLine();
     }
 }
 
+
+/**
+ * 
+ * This function is responsible for rendering a task element, creating a section with appropriate event listeners and HTML content for a given task.
+ * 
+ * @param {String} task 
+ * @returns 
+ */
 function renderTaskElement(task) {
     let section = document.createElement('section');
     section.className = 'section';
@@ -62,6 +90,14 @@ function renderTaskElement(task) {
     return section;
 }
 
+
+/**
+ * 
+ * This function formats task text by trimming or showing the full text length based on the current task status.
+ * 
+ * @param {string} text 
+ * @returns 
+ */
 function formatTaskText(text) {
     let trimmedText = text.trim();
     if (currentTaskStatus === 'small' && trimmedText.length > 57) {
@@ -71,14 +107,41 @@ function formatTaskText(text) {
     }
 }
 
+
+/**
+ * 
+ * This function is useful for creating a visually concise representation of a 
+ * longer text in certain contexts, such as displaying task titles in a limited space.
+ * 
+ * @param {string} trimmedText 
+ * @returns 
+ */
 function trimmText(trimmedText) {
     return trimmedText.charAt(0).toUpperCase() + trimmedText.slice(1, 57) + '...';
 }
 
+
+/**
+ * 
+ * This function is useful when you want to display the complete, 
+ * untruncated text in scenarios where length restrictions are not applied.
+ * 
+ * @param {string} trimmedText 
+ * @returns 
+ */
 function showFullTextLength(trimmedText) {
     return trimmedText.charAt(0).toUpperCase() + trimmedText.slice(1);
 }
 
+
+/**
+ * 
+ * This function appears to be part of a larger system for rendering task 
+ * priorities in different contexts, based on the current task status.
+ * 
+ * @param {Array} priority 
+ * @returns 
+ */
 function checkPriority(priority) {
     if (currentTaskStatus === 'small') {
         return returnTaskPrioritySmallHTML(priority);
@@ -87,6 +150,15 @@ function checkPriority(priority) {
     }
 }
 
+
+/**
+ * 
+ * This function appears to be part of a larger system for rendering task 
+ * categories in different contexts, based on the current task status.
+ * 
+ * @param {string} category 
+ * @returns 
+ */
 function checkTaskCategory(category) {
     let formattedCategory = category.replace(/_/g, ' ');
     if (currentTaskStatus === 'small') {

@@ -1,3 +1,10 @@
+/**
+ * 
+ * This function creates a new task with the given parameters, adds it to the tasks list, stores the updated tasks list in local storage, 
+ * resets certain arrays, displays a visual confirmation, and eventually renders the board after a short delay. 
+ * 
+ * @param {string} status 
+ */
 async function setNewTask(status) {
     let id = ++highestTaskId;
     let title = document.getElementById('titel-input').value;
@@ -18,6 +25,21 @@ async function setNewTask(status) {
     }, 2000);
 }
 
+
+/**
+ * 
+ * This function edits an existing task with the given parameters, updates the tasks list, 
+ * stores the modified task in local storage, resets certain arrays, closes the task details, 
+ * and eventually renders the updated board.
+ * 
+ * @param {number} id 
+ * @param {string} title 
+ * @param {string} description 
+ * @param {number} date 
+ * @param {string} priority 
+ * @param {string} category 
+ * @param {string} status 
+ */
 async function editTask(id, title, description, date, priority, category, status) {
     let index = tasks.findIndex(t => t.id === id);
     title = document.getElementById('titel-input').value;
@@ -33,6 +55,13 @@ async function editTask(id, title, description, date, priority, category, status
     renderBoard();
 }
 
+
+/**
+ * 
+ * This function toggles the visibility of the category warning text based on the presence of a selected category. 
+ * If the warning text is currently visible or the category input is empty, it toggles the visibility of the warning text.
+ * 
+ */
 function toggleNoCategoryError(){
     let categoryWarningText = document.getElementById('category-warning-text');
     let categoryInput = document.getElementById('selectedCategory');
@@ -41,6 +70,15 @@ function toggleNoCategoryError(){
     }
 }
 
+
+/**
+ * 
+ * This function checks the validity of the selected category input, 
+ * replaces spaces with underscores in the category value, and returns the sanitized category value if valid
+ * 
+ * @param {*} event 
+ * @returns 
+ */
 function checkCategoryValidity(event) {
     let categoryInput = document.getElementById('selectedCategory');
     categoryInput.setCustomValidity('');
@@ -56,6 +94,15 @@ function checkCategoryValidity(event) {
 }
 
 
+/**
+ * 
+ * This function checks if there are selected contacts; if there are, 
+ * it returns a copy of the selected contacts. If no contacts are selected, 
+ * it returns the existing contacts for the specified task ID.
+ * 
+ * @param {number} id 
+ * @returns 
+ */
 function checkAndAssignContacts(id) {
     let index = tasks.findIndex(t => t.id === id);
     if (selectedContacts.length > 0) {
@@ -67,6 +114,15 @@ function checkAndAssignContacts(id) {
     }
 }
 
+
+/**
+ * 
+ * This function checks if there are created subtasks; if there are, it returns a copy of the created subtasks. 
+ * If no subtasks are created, it returns the existing subtasks for the specified task ID.
+ * 
+ * @param {number} id 
+ * @returns 
+ */
 function checkAndAssignSubtasks(id) {
     let index = tasks.findIndex(t => t.id === id);
     if (createdSubtaskList.length > 0) {
