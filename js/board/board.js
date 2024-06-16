@@ -285,6 +285,34 @@ function createConfirmPopup(taskId, taskTitle) {
 }
 
 
+function checkContactsInTask(contacts) {
+    let html = '';
+    let isLastOdd = contacts.length % 2 !== 0;
+    for (let i = 0; i < contacts.length; i++) {
+        let contact = contacts[i];
+        let isLast = i === contacts.length - 1;
+
+        if (currentTaskStatus === 'small') {
+            html += /*html*/`
+                <div class="profileBadge" style="background-color: ${contact.BgColor}">${contact.initial}</div>
+            `;
+        } else if (currentTaskStatus === 'big') {
+            let assignedNameStyle = isLast && isLastOdd ? 'style="width: 100%;"' : '';
+
+            html += /*html*/`
+                <div class="assignedProfil">
+                    <span class="assignedBadge" style="background-color: ${contact.BgColor}">${contact.initial}</span>
+                    <div class="assignedName" ${assignedNameStyle}>
+                        <span class="assignedNameText">${contact.name}</span>
+                    </div>
+                </div>
+            `;
+        }
+    }
+    return html;
+}
+
+
 /**
  * 
  * This function creates a modal background for the confirmation popup by creating a new div element, 
