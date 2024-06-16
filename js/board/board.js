@@ -285,24 +285,6 @@ function createConfirmPopup(taskId, taskTitle) {
 }
 
 
-function checkContactsInTask(contacts) {
-    let html = '';
-    let isLastOdd = contacts.length % 2 !== 0;
-    for (let i = 0; i < contacts.length; i++) {
-        let contact = contacts[i];
-        let isLast = i === contacts.length - 1;
-
-        if (currentTaskStatus === 'small') {
-            html += returnProfilBadgeInTask(contact);
-        } else if (currentTaskStatus === 'big') {
-            let assignedNameStyle = isLast && isLastOdd ? 'style="width: 100%;"' : '';
-            html += returnProfileBadgesInOpenedTasks(contact, assignedNameStyle);
-        }
-    }
-    return html;
-}
-
-
 /**
  * 
  * This function creates a modal background for the confirmation popup by creating a new div element, 
@@ -375,6 +357,30 @@ function checkProfileBadgeCount() {
         }
     });
 }
+
+/**
+ * 
+ * @param {Array} contacts 
+ * @returns html
+ * function render name of assigned person in the task
+ */
+function checkContactsInTask(contacts) {
+    let html = '';
+    let isLastOdd = contacts.length % 2 !== 0;
+    for (let i = 0; i < contacts.length; i++) {
+        let contact = contacts[i];
+        let isLast = i === contacts.length - 1;
+
+        if (currentTaskStatus === 'small') {
+            html += returnProfilBadgeInTask(contact);
+        } else if (currentTaskStatus === 'big') {
+            let assignedNameStyle = isLast && isLastOdd ? 'style="width: 100%;"' : '';
+            html += returnProfileBadgesInOpenedTasks(contact, assignedNameStyle);
+        }
+    }
+    return html;
+}
+
 
 
 /**
