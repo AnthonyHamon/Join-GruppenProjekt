@@ -293,20 +293,10 @@ function checkContactsInTask(contacts) {
         let isLast = i === contacts.length - 1;
 
         if (currentTaskStatus === 'small') {
-            html += /*html*/`
-                <div class="profileBadge" style="background-color: ${contact.BgColor}">${contact.initial}</div>
-            `;
+            html += returnProfilBadgeInTask(contact);
         } else if (currentTaskStatus === 'big') {
             let assignedNameStyle = isLast && isLastOdd ? 'style="width: 100%;"' : '';
-
-            html += /*html*/`
-                <div class="assignedProfil">
-                    <span class="assignedBadge" style="background-color: ${contact.BgColor}">${contact.initial}</span>
-                    <div class="assignedName" ${assignedNameStyle}>
-                        <span class="assignedNameText">${contact.name}</span>
-                    </div>
-                </div>
-            `;
+            html += returnProfileBadgesInOpenedTasks(contact, assignedNameStyle);
         }
     }
     return html;
